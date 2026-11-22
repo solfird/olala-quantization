@@ -1,0 +1,10 @@
+bench N5: output tok/s (median of repeats; min-max), TTFT ms, TPOT ms, requests ok/failed
+long  c=1       214.7 (214-215)  ttft      131  tpot    0.7  n=2 ok=8 failed=0
+long  c=16     1600.8 (1590-1611)  ttft      733  tpot    1.2  n=2 ok=64 failed=0
+long  c=32     2116.2 (2116-2117)  ttft      491  tpot    1.8  n=2 ok=128 failed=0
+short c=1       218.2 (218-218)  ttft       54  tpot    4.2  n=2 ok=16 failed=0
+short c=4       574.1 (436-712)  ttft      747  tpot    5.3  n=2 ok=16 failed=0
+short c=16     1668.7 (1506-1831)  ttft      328  tpot    8.0  n=2 ok=96 failed=0
+short c=32     2359.9 (2198-2521)  ttft      311  tpot   12.0  n=2 ok=192 failed=0
+short c=64     2939.0 (2859-3019)  ttft      474  tpot   19.4  n=2 ok=384 failed=0
+short c=128    3617.1 (3568-3666)  ttft      456  tpot   33.1  n=2 ok=768 failed=0

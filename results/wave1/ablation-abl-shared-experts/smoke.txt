@@ -1,0 +1,5 @@
+smoke ckpt-abl-abl-shared-experts: PASS
+health after 108.6 s
+log: /workspace/logs/ckpt-abl-abl-shared-experts/server-20261120T233856Z.log
+answer: 'Le calcul donne 17\u202f×\u202f23\u202f=\u202f391, donc le résultat final est 391.'; reasoning: 3767 chars
+written: /workspace/logs/ckpt-abl-abl-shared-experts/smoke.json

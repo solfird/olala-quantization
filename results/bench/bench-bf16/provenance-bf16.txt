@@ -1,0 +1,6 @@
+run=bf16 mode=online:bf16 started=2026-11-20T22:32:14Z
+NVIDIA RTX PRO 4500 Blackwell, 595.112.07
+(EngineCore pid=1707) INFO 11-20 22:32:55 [unquantized.py:365] Using FlashInfer CUTLASS Unquantized MoE backend out of potential backends: ['FlashInfer TRTLLM', 'FlashInfer CUTLASS', 'TRITON', 'BATCHED_TRITON'].
+(EngineCore pid=1707) INFO 11-20 22:33:51 [unquantized.py:530] Using FlashInferExperts MoE backend
+gpu_exclusive_check=ok
+sweep_exit=0 finished=2026-11-20T23:08:00Z

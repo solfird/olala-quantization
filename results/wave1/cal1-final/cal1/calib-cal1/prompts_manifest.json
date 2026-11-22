@@ -1,0 +1,246 @@
+{
+  "schema": "cal1-prompts/1",
+  "created_utc": "2026-11-20T23:38:20.925439+00:00",
+  "seed": 0,
+  "weights": {
+    "math": 1,
+    "multilingual_math": 1,
+    "code": 2,
+    "instruction": 1
+  },
+  "quotas": {
+    "math": 48,
+    "multilingual_math": 48,
+    "code": 96,
+    "instruction": 48
+  },
+  "n_prompts": 240,
+  "sources": [
+    {
+      "name": "math_train",
+      "domain": "math",
+      "repo": "EleutherAI/hendrycks_math",
+      "revision": "21a5633873b6a120296cce3e2df9d5550074f4a3",
+      "license": "mit",
+      "split": "train",
+      "configs": [
+        "algebra",
+        "counting_and_probability",
+        "geometry",
+        "intermediate_algebra",
+        "number_theory",
+        "prealgebra",
+        "precalculus"
+      ],
+      "column": "problem",
+      "filters": {
+        "level": [
+          "Level 4",
+          "Level 5"
+        ]
+      },
+      "note": "MATH train split, levels 4 and 5 (competition problems, published 2021: AIME 2025 cannot be in it)",
+      "pool_size": 3994,
+      "n_selected": 48,
+      "n_dropped_by_audit": 5,
+      "languages": {
+        "": 48
+      }
+    },
+    {
+      "name": "mgsm_train_parallel",
+      "domain": "multilingual_math",
+      "repo": "Mathoctopus/GSM8KInstruct_Parallel",
+      "revision": "dd8076b83bacd7c6ade2829317e8a500c6ffbec4",
+      "license": "apache-2.0",
+      "split": "train",
+      "configs": [],
+      "column": "prompt",
+      "filters": {},
+      "note": "GSM8K TRAIN questions translated into bn, de, es, fr, ja, ru, sw, th, zh (+ en); MGSM is GSM8K TEST. Columns are chosen, prompt, reject (read on the pod 2026-11-20; `query` does not exist); `prompt` is an Alpaca wrapper, the question between '### Instruction:' and '### Response' is the prompt.",
+      "pool_size": 73559,
+      "n_selected": 48,
+      "n_dropped_by_audit": 1,
+      "languages": {
+        "": 48
+      }
+    },
+    {
+      "name": "code_oss_python",
+      "domain": "code",
+      "repo": "ise-uiuc/Magicoder-OSS-Instruct-75K",
+      "revision": "5f839b1f368a76b161028bb9edff055db34022b2",
+      "license": "mit",
+      "split": "train",
+      "configs": [],
+      "column": "problem",
+      "filters": {
+        "lang": [
+          "python"
+        ]
+      },
+      "note": "Python problems written from open-source code snippets, not from HumanEval or MBPP",
+      "pool_size": 38284,
+      "n_selected": 96,
+      "n_dropped_by_audit": 9,
+      "languages": {
+        "": 96
+      }
+    },
+    {
+      "name": "if_personas",
+      "domain": "instruction",
+      "repo": "allenai/tulu-3-sft-personas-instruction-following",
+      "revision": "fe0c7d350c9b4542b8d829a6f1daa1c259f0ba0e",
+      "license": "odc-by",
+      "split": "train",
+      "configs": [],
+      "column": "prompt",
+      "filters": {},
+      "note": "synthetic persona prompts with IFEval-style format constraints, not IFEval's own prompts",
+      "pool_size": 29980,
+      "n_selected": 48,
+      "n_dropped_by_audit": 3,
+      "languages": {
+        "": 48
+      }
+    }
+  ],
+  "dropped_prompts": [
+    {
+      "source": "math_train",
+      "doc_id": "geometry-629",
+      "task": "aime2025",
+      "item_id": "6",
+      "n_hits": 3
+    },
+    {
+      "source": "math_train",
+      "doc_id": "intermediate_algebra-95",
+      "task": "humaneval_plus",
+      "item_id": "HumanEval/128",
+      "n_hits": 1
+    },
+    {
+      "source": "math_train",
+      "doc_id": "geometry-557",
+      "task": "aime2025",
+      "item_id": "19",
+      "n_hits": 1
+    },
+    {
+      "source": "math_train",
+      "doc_id": "prealgebra-316",
+      "task": "humaneval_plus",
+      "item_id": "HumanEval/34",
+      "n_hits": 77
+    },
+    {
+      "source": "math_train",
+      "doc_id": "geometry-521",
+      "task": "aime2025",
+      "item_id": "13",
+      "n_hits": 14
+    },
+    {
+      "source": "mgsm_train_parallel",
+      "doc_id": "default-21848",
+      "task": "mgsm",
+      "item_id": "de_9259822b",
+      "n_hits": 1
+    },
+    {
+      "source": "code_oss_python",
+      "doc_id": "default-53780",
+      "task": "humaneval_plus",
+      "item_id": "HumanEval/34",
+      "n_hits": 41
+    },
+    {
+      "source": "code_oss_python",
+      "doc_id": "default-22123",
+      "task": "humaneval_plus",
+      "item_id": "HumanEval/144",
+      "n_hits": 2
+    },
+    {
+      "source": "code_oss_python",
+      "doc_id": "default-47748",
+      "task": "humaneval_plus",
+      "item_id": "HumanEval/76",
+      "n_hits": 2
+    },
+    {
+      "source": "code_oss_python",
+      "doc_id": "default-9155",
+      "task": "humaneval_plus",
+      "item_id": "HumanEval/76",
+      "n_hits": 2
+    },
+    {
+      "source": "code_oss_python",
+      "doc_id": "default-56775",
+      "task": "humaneval_plus",
+      "item_id": "HumanEval/144",
+      "n_hits": 2
+    },
+    {
+      "source": "code_oss_python",
+      "doc_id": "default-66020",
+      "task": "humaneval_plus",
+      "item_id": "HumanEval/37",
+      "n_hits": 312
+    },
+    {
+      "source": "code_oss_python",
+      "doc_id": "default-74510",
+      "task": "humaneval_plus",
+      "item_id": "HumanEval/62",
+      "n_hits": 1
+    },
+    {
+      "source": "code_oss_python",
+      "doc_id": "default-65679",
+      "task": "humaneval_plus",
+      "item_id": "HumanEval/149",
+      "n_hits": 2
+    },
+    {
+      "source": "code_oss_python",
+      "doc_id": "default-36005",
+      "task": "humaneval_plus",
+      "item_id": "HumanEval/144",
+      "n_hits": 2
+    },
+    {
+      "source": "if_personas",
+      "doc_id": "default-654",
+      "task": "ifeval",
+      "item_id": "3407",
+      "n_hits": 2
+    },
+    {
+      "source": "if_personas",
+      "doc_id": "default-29103",
+      "task": "ifeval",
+      "item_id": "227",
+      "n_hits": 2
+    },
+    {
+      "source": "if_personas",
+      "doc_id": "default-7133",
+      "task": "ifeval",
+      "item_id": "1551",
+      "n_hits": 114
+    }
+  ],
+  "audit": {
+    "n": 8,
+    "eval_items_sha256": "a8fd504aae1f9959d9c39ab4977850ba50799c719a25486f6270e78c60bb0d67",
+    "n_dropped": 18
+  },
+  "prompts": {
+    "file": "prompts.jsonl",
+    "sha256": "1345977391437c104766618b6a0d91191abf1644ae5a7d245fd63799d98b50dd"
+  }
+}

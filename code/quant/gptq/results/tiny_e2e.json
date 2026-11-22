@@ -1,0 +1,175 @@
+{
+  "seeds": [
+    {
+      "seed": 0,
+      "fresh": {
+        "n2": {
+          "rel_logit_rmse": 0.12218955904245377,
+          "mean_kl": 0.007361797150224447,
+          "top1_agreement": 0.8359375
+        },
+        "g1": {
+          "rel_logit_rmse": 0.10020487010478973,
+          "mean_kl": 0.005015044007450342,
+          "top1_agreement": 0.9153645634651184
+        }
+      },
+      "random_tokens": {
+        "n2": {
+          "rel_logit_rmse": 0.15075057744979858,
+          "mean_kl": 0.011037666350603104,
+          "top1_agreement": 0.8190104365348816
+        },
+        "g1": {
+          "rel_logit_rmse": 0.16005226969718933,
+          "mean_kl": 0.012463820166885853,
+          "top1_agreement": 0.77734375
+        }
+      },
+      "n_gptq_experts": 48,
+      "n_experts": 48
+    },
+    {
+      "seed": 1,
+      "fresh": {
+        "n2": {
+          "rel_logit_rmse": 0.1696910411119461,
+          "mean_kl": 0.01424646656960249,
+          "top1_agreement": 0.703125
+        },
+        "g1": {
+          "rel_logit_rmse": 0.1393727958202362,
+          "mean_kl": 0.010200480930507183,
+          "top1_agreement": 0.859375
+        }
+      },
+      "random_tokens": {
+        "n2": {
+          "rel_logit_rmse": 0.15064620971679688,
+          "mean_kl": 0.011182799935340881,
+          "top1_agreement": 0.7838541865348816
+        },
+        "g1": {
+          "rel_logit_rmse": 0.1601567268371582,
+          "mean_kl": 0.0127169294282794,
+          "top1_agreement": 0.7434895634651184
+        }
+      },
+      "n_gptq_experts": 47,
+      "n_experts": 48
+    },
+    {
+      "seed": 2,
+      "fresh": {
+        "n2": {
+          "rel_logit_rmse": 0.1571943461894989,
+          "mean_kl": 0.012607372365891933,
+          "top1_agreement": 0.8606770634651184
+        },
+        "g1": {
+          "rel_logit_rmse": 0.13059622049331665,
+          "mean_kl": 0.00866901595145464,
+          "top1_agreement": 0.8606770634651184
+        }
+      },
+      "random_tokens": {
+        "n2": {
+          "rel_logit_rmse": 0.14580412209033966,
+          "mean_kl": 0.010697823949158192,
+          "top1_agreement": 0.79296875
+        },
+        "g1": {
+          "rel_logit_rmse": 0.1553962677717209,
+          "mean_kl": 0.012104853987693787,
+          "top1_agreement": 0.78125
+        }
+      },
+      "n_gptq_experts": 48,
+      "n_experts": 48
+    },
+    {
+      "seed": 3,
+      "fresh": {
+        "n2": {
+          "rel_logit_rmse": 0.17301924526691437,
+          "mean_kl": 0.016396036371588707,
+          "top1_agreement": 0.73828125
+        },
+        "g1": {
+          "rel_logit_rmse": 0.1208309754729271,
+          "mean_kl": 0.007653369102627039,
+          "top1_agreement": 0.8841145634651184
+        }
+      },
+      "random_tokens": {
+        "n2": {
+          "rel_logit_rmse": 0.1562463343143463,
+          "mean_kl": 0.012643616646528244,
+          "top1_agreement": 0.72265625
+        },
+        "g1": {
+          "rel_logit_rmse": 0.16536422073841095,
+          "mean_kl": 0.01407629530876875,
+          "top1_agreement": 0.7734375
+        }
+      },
+      "n_gptq_experts": 48,
+      "n_experts": 48
+    },
+    {
+      "seed": 4,
+      "fresh": {
+        "n2": {
+          "rel_logit_rmse": 0.14833620190620422,
+          "mean_kl": 0.010954742319881916,
+          "top1_agreement": 0.6888020634651184
+        },
+        "g1": {
+          "rel_logit_rmse": 0.1271374523639679,
+          "mean_kl": 0.00797774363309145,
+          "top1_agreement": 0.6809895634651184
+        }
+      },
+      "random_tokens": {
+        "n2": {
+          "rel_logit_rmse": 0.15767325460910797,
+          "mean_kl": 0.012404650449752808,
+          "top1_agreement": 0.74609375
+        },
+        "g1": {
+          "rel_logit_rmse": 0.16942209005355835,
+          "mean_kl": 0.014227834530174732,
+          "top1_agreement": 0.74609375
+        }
+      },
+      "n_gptq_experts": 47,
+      "n_experts": 48
+    }
+  ],
+  "mean": {
+    "fresh": {
+      "n2": {
+        "rel_logit_rmse": 0.15408607870340346,
+        "mean_kl": 0.012313282955437899,
+        "top1_agreement": 0.7653645753860474
+      },
+      "g1": {
+        "rel_logit_rmse": 0.12362846285104752,
+        "mean_kl": 0.00790313072502613,
+        "top1_agreement": 0.8401041507720948
+      }
+    },
+    "random_tokens": {
+      "n2": {
+        "rel_logit_rmse": 0.1522240996360779,
+        "mean_kl": 0.011593311466276646,
+        "top1_agreement": 0.7729166746139526
+      },
+      "g1": {
+        "rel_logit_rmse": 0.16207831501960754,
+        "mean_kl": 0.013117946684360504,
+        "top1_agreement": 0.7643229126930237
+      }
+    }
+  }
+}

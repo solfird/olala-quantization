@@ -1,0 +1,33 @@
+session=20261120T231942Z-1676 smoke_exit=0
+NVIDIA RTX PRO 4500 Blackwell, 595.112.07
+-- /workspace/logs/setup/image.txt
+image=docker.io/ovhaillm/olala-vllm:ebbadef53
+digest=sha256:842ca5b0e9ae6f7166a9d6fcfd79d4f6fe33d9a20d14d55220cc95b11f5c3c34
+NVIDIA_VISIBLE_DEVICES=void
+NVIDIA_REQUIRE_CUDA=cuda>=13.0 brand=unknown,driver>=535,driver<536 brand=grid,driver>=535,driver<536 brand=tesla,driver>=535,driver<536 brand=nvidia,driver>=535,driver<536 brand=quadro,driver>=535,driver<536 brand=quadrortx,driver>=535,driver<536 brand=nvidiartx,driver>=535,driver<536 brand=vapps,driver>=535,driver<536 brand=vpc,driver>=535,driver<536 brand=vcs,driver>=535,driver<536 brand=vws,driver>=535,driver<536 brand=cloudgaming,driver>=535,driver<536 brand=unknown,driver>=550,driver<551 brand=grid,driver>=550,driver<551 brand=tesla,driver>=550,driver<551 brand=nvidia,driver>=550,driver<551 brand=quadro,driver>=550,driver<551 brand=quadrortx,driver>=550,driver<551 brand=nvidiartx,driver>=550,driver<551 brand=vapps,driver>=550,driver<551 brand=vpc,driver>=550,driver<551 brand=vcs,driver>=550,driver<551 brand=vws,driver>=550,driver<551 brand=cloudgaming,driver>=550,driver<551 brand=unknown,driver>=565,driver<566 brand=grid,driver>=565,driver<566 brand=tesla,driver>=565,driver<566 brand=nvidia,driver>=565,driver<566 brand=quadro,driver>=565,driver<566 brand=quadrortx,driver>=565,driver<566 brand=nvidiartx,driver>=565,driver<566 brand=vapps,driver>=565,driver<566 brand=vpc,driver>=565,driver<566 brand=vcs,driver>=565,driver<566 brand=vws,driver>=565,driver<566 brand=cloudgaming,driver>=565,driver<566 brand=unknown,driver>=570,driver<571 brand=grid,driver>=570,driver<571 brand=tesla,driver>=570,driver<571 brand=nvidia,driver>=570,driver<571 brand=quadro,driver>=570,driver<571 brand=quadrortx,driver>=570,driver<571 brand=nvidiartx,driver>=570,driver<571 brand=vapps,driver>=570,driver<571 brand=vpc,driver>=570,driver<571 brand=vcs,driver>=570,driver<571 brand=vws,driver>=570,driver<571 brand=cloudgaming,driver>=570,driver<571 brand=unknown,driver>=575,driver<576 brand=grid,driver>=575,driver<576 brand=tesla,driver>=575,driver<576 brand=nvidia,driver>=575,driver<576 brand=quadro,driver>=575,driver<576 brand=quadrortx,driver>=575,driver<576 brand=nvidiartx,driver>=575,driver<576 brand=vapps,driver>=575,driver<576 brand=vpc,driver>=575,driver<576 brand=vcs,driver>=575,driver<576 brand=vws,driver>=575,driver<576 brand=cloudgaming,driver>=575,driver<576
+TORCH_CUDA_ARCH_LIST=7.5 8.0 8.6 8.9 9.0 10.0 11.0 12.0
+NVIDIA_DRIVER_CAPABILITIES=compute,utility
+VLLM_IMAGE_TAG=local/vllm-openai:dev
+CUDA_VERSION=13.0.3
+NVIDIA_CTK_LIBCUDA_DIR=/usr/lib/x86_64-linux-gnu
+-- sha256 of the weights (identity sha256 = sha256 of this listing: c4c531e4da721b2d7600d442e1d4a6cd8bd90a63c2cc82b208612deb61bec64a)
+f2668c0a369eeb2285e21edb46dd6307c32d55aaaefa985a1abf0eeb73dbd8e3  config.json
+99a208e1b45a4677ac1ce2eeaeb45150aa3c28aac173df3d22dc7985e9356442  model.safetensors
+-- /workspace/logs/bf16/server-20261120T232010Z.cmd
+utc=2026-11-20T23:20:10Z
+arm=bf16
+MAX_JOBS=14
+container_cpus=27
+container_mem_gb=57
+command: vllm serve /workspace/models/olala-bf16 --trust-remote-code --served-model-name olala --mamba-ssm-cache-dtype float32 --reasoning-parser olala --tool-call-parser olala --enable-auto-tool-choice --max-model-len 32688 --max-num-seqs 256 --host 127.0.0.1 --port 8000
+CUDA_HOME=/usr/local/cuda
+CUDA_VERSION=13.0.3
+TORCH_CUDA_ARCH_LIST=7.5 8.0 8.6 8.9 9.0 10.0 11.0 12.0
+VLLM_BUILD_COMMIT=unknown
+VLLM_BUILD_PIPELINE=local
+VLLM_BUILD_URL=
+VLLM_ENABLE_CUDA_COMPATIBILITY=0
+VLLM_IMAGE_TAG=local/vllm-openai:dev
+VLLM_USAGE_SOURCE=production-docker-image
+-- CAL1_PROVENANCE
+vLLM image docker.io/ovhaillm/olala-vllm:ebbadef53 (sha256:842ca5b0e9ae6f7166a9d6fcfd79d4f6fe33d9a20d14d55220cc95b11f5c3c34); weights olala-bf16: config.json sha256 f2668c0a369eeb2285e21edb46dd6307c32d55aaaefa985a1abf0eeb73dbd8e3, 1 safetensors files, identity sha256 c4c531e4da721b2d7600d442e1d4a6cd8bd90a63c2cc82b208612deb61bec64a; server flags: vllm serve /workspace/models/olala-bf16 --trust-remote-code --served-model-name olala --mamba-ssm-cache-dtype float32 --reasoning-parser olala --tool-call-parser olala --enable-auto-tool-choice --max-model-len 32688 --max-num-seqs 256 --host 127.0.0.1 --port 8000

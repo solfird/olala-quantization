@@ -1,0 +1,375 @@
+{
+  "n": 41,
+  "caught": 41,
+  "results": [
+    {
+      "passed": false,
+      "tail": "1 failed in 2.61s",
+      "name": "the base selection is not given to the converter (non-experts quantized under --base-select experts)",
+      "file": "build_g1lite.py",
+      "caught": true,
+      "caught_by": "tests/test_base_select.py::test_the_experts_base_verifies_in_calibrated_mode_with_the_selection_required",
+      "seconds": 3.8
+    },
+    {
+      "passed": false,
+      "tail": "1 failed, 9 passed in 3.67s",
+      "name": "the guard against quantizing non-experts is removed",
+      "file": "build_g1lite.py",
+      "caught": true,
+      "caught_by": "tests/test_base_select.py::test_a_spec_that_would_quantize_a_non_expert_tensor_is_refused_before_any_work[all]",
+      "seconds": 4.9
+    },
+    {
+      "passed": false,
+      "tail": "1 failed, 13 passed in 3.31s",
+      "name": "the guard accepts mixer projections (attention and mamba specs pass)",
+      "file": "build_g1lite.py",
+      "caught": true,
+      "caught_by": "tests/test_base_select.py::test_a_spec_that_would_quantize_a_non_expert_tensor_is_refused_before_any_work[attention]",
+      "seconds": 4.5
+    },
+    {
+      "passed": false,
+      "tail": "1 failed, 11 passed in 3.25s",
+      "name": "the guard accepts shared experts and latent projections",
+      "file": "build_g1lite.py",
+      "caught": true,
+      "caught_by": "tests/test_base_select.py::test_a_spec_that_would_quantize_a_non_expert_tensor_is_refused_before_any_work[shared-experts]",
+      "seconds": 4.5
+    },
+    {
+      "passed": false,
+      "tail": "1 error in 2.21s",
+      "name": "the guard only looks at tensors that are not yet quantized (category test inverted)",
+      "file": "build_g1lite.py",
+      "caught": true,
+      "caught_by": "1 error in 2.21s",
+      "seconds": 3.5
+    },
+    {
+      "passed": false,
+      "tail": "1 failed, 7 passed in 3.00s",
+      "name": "the targets come from the default plan, not from the base selection (ignore list incomplete)",
+      "file": "build_g1lite.py",
+      "caught": true,
+      "caught_by": "tests/test_base_select.py::test_a_layer_range_quantizes_and_calibrates_only_those_layers",
+      "seconds": 4.2
+    },
+    {
+      "passed": false,
+      "tail": "1 failed, 8 passed in 3.31s",
+      "name": "the selection spec is recorded as typed, not in its canonical spelling",
+      "file": "build_g1lite.py",
+      "caught": true,
+      "caught_by": "tests/test_base_select.py::test_the_spec_is_recorded_in_its_canonical_spelling",
+      "seconds": 4.6
+    },
+    {
+      "passed": false,
+      "tail": "1 failed, 5 passed in 2.60s",
+      "name": "base_select is not recorded in the calibration block",
+      "file": "build_g1lite.py",
+      "caught": true,
+      "caught_by": "tests/test_base_select.py::test_info_records_the_base_selection_in_the_calibration_block",
+      "seconds": 3.8
+    },
+    {
+      "passed": false,
+      "tail": "1 failed, 5 passed in 2.59s",
+      "name": "the non-expert state is not recorded in the calibration block",
+      "file": "build_g1lite.py",
+      "caught": true,
+      "caught_by": "tests/test_base_select.py::test_info_records_the_base_selection_in_the_calibration_block",
+      "seconds": 3.8
+    },
+    {
+      "passed": false,
+      "tail": "1 failed, 6 passed in 2.62s",
+      "name": "base_select is not recorded in the report",
+      "file": "build_g1lite.py",
+      "caught": true,
+      "caught_by": "tests/test_base_select.py::test_the_report_names_the_base_selection",
+      "seconds": 3.8
+    },
+    {
+      "passed": false,
+      "tail": "1 failed, 19 passed in 3.79s",
+      "name": "--base-select combined with --no-ignore accepted",
+      "file": "build_g1lite.py",
+      "caught": true,
+      "caught_by": "tests/test_base_select.py::test_base_select_cannot_be_combined_with_no_ignore",
+      "seconds": 5.0
+    },
+    {
+      "passed": false,
+      "tail": "1 failed, 20 passed in 3.54s",
+      "name": "the default build uses the experts base",
+      "file": "build_g1lite.py",
+      "caught": true,
+      "caught_by": "tests/test_base_select.py::test_the_default_base_still_quantizes_the_non_experts_data_free",
+      "seconds": 4.7
+    },
+    {
+      "passed": false,
+      "tail": "1 failed, 20 passed in 3.51s",
+      "name": "the default build records an empty base_select in the calibration block",
+      "file": "build_g1lite.py",
+      "caught": true,
+      "caught_by": "tests/test_base_select.py::test_the_default_base_still_quantizes_the_non_experts_data_free",
+      "seconds": 4.8
+    },
+    {
+      "passed": false,
+      "tail": "1 failed, 31 passed in 6.89s",
+      "name": "the default skip note is replaced by the base-selection one",
+      "file": "build_g1lite.py",
+      "caught": true,
+      "caught_by": "tests/test_base_select.py::test_the_note_for_a_requested_layer_that_is_not_calibrated_depends_on_the_base",
+      "seconds": 8.1
+    },
+    {
+      "passed": false,
+      "tail": "1 failed, 22 passed in 3.49s",
+      "name": "a calibration directory is not accepted",
+      "file": "calib_data.py",
+      "caught": true,
+      "caught_by": "tests/test_base_select.py::test_a_cal1_output_directory_is_accepted_as_calib_and_gives_the_same_checkpoint_as_its_manifest",
+      "seconds": 4.7
+    },
+    {
+      "passed": false,
+      "tail": "1 failed, 26 passed in 6.20s",
+      "name": "a manifest whose audit failed is accepted",
+      "file": "calib_data.py",
+      "caught": true,
+      "caught_by": "tests/test_base_select.py::test_a_cal1_directory_without_a_passing_audit_is_refused",
+      "seconds": 7.4
+    },
+    {
+      "passed": false,
+      "tail": "1 failed, 27 passed in 6.18s",
+      "name": "an audit with hits is accepted",
+      "file": "calib_data.py",
+      "caught": true,
+      "caught_by": "tests/test_base_select.py::test_a_cal1_directory_whose_audit_has_hits_or_is_missing_is_refused",
+      "seconds": 7.4
+    },
+    {
+      "passed": false,
+      "tail": "1 failed, 27 passed in 6.26s",
+      "name": "a manifest with no audit block is accepted",
+      "file": "calib_data.py",
+      "caught": true,
+      "caught_by": "tests/test_base_select.py::test_a_cal1_directory_whose_audit_has_hits_or_is_missing_is_refused",
+      "seconds": 7.5
+    },
+    {
+      "passed": false,
+      "tail": "1 failed, 28 passed in 6.11s",
+      "name": "changed windows accepted (sha256 not compared)",
+      "file": "calib_data.py",
+      "caught": true,
+      "caught_by": "tests/test_base_select.py::test_a_cal1_directory_whose_windows_changed_is_refused",
+      "seconds": 7.3
+    },
+    {
+      "passed": false,
+      "tail": "1 failed, 22 passed in 3.53s",
+      "name": "the build reads the windows of the file it was given, not of the resolved manifest",
+      "file": "build_g1lite.py",
+      "caught": true,
+      "caught_by": "tests/test_base_select.py::test_a_cal1_output_directory_is_accepted_as_calib_and_gives_the_same_checkpoint_as_its_manifest",
+      "seconds": 4.8
+    },
+    {
+      "passed": false,
+      "tail": "1 failed, 23 passed in 5.12s",
+      "name": "per-domain counts missing from the report",
+      "file": "build_g1lite.py",
+      "caught": true,
+      "caught_by": "tests/test_base_select.py::test_the_report_gives_the_windows_used_per_domain_for_a_cal1_manifest",
+      "seconds": 6.3
+    },
+    {
+      "passed": false,
+      "tail": "1 failed, 23 passed in 5.13s",
+      "name": "per-domain counts missing from the checkpoint info",
+      "file": "build_g1lite.py",
+      "caught": true,
+      "caught_by": "tests/test_base_select.py::test_the_report_gives_the_windows_used_per_domain_for_a_cal1_manifest",
+      "seconds": 6.4
+    },
+    {
+      "passed": false,
+      "tail": "1 failed, 23 passed in 5.10s",
+      "name": "the trace order ignores the seed",
+      "file": "window_domains.py",
+      "caught": true,
+      "caught_by": "tests/test_base_select.py::test_the_report_gives_the_windows_used_per_domain_for_a_cal1_manifest",
+      "seconds": 6.3
+    },
+    {
+      "passed": false,
+      "tail": "1 failed, 33 passed in 7.14s",
+      "name": "windows touched counts only the first window of a span",
+      "file": "window_domains.py",
+      "caught": true,
+      "caught_by": "tests/test_window_domains.py::test_exact_attribution_matches_the_ground_truth_of_the_generator",
+      "seconds": 8.4
+    },
+    {
+      "passed": false,
+      "tail": "1 failed, 36 passed in 7.26s",
+      "name": "the sha256 of calib_text.jsonl is not checked",
+      "file": "window_domains.py",
+      "caught": true,
+      "caught_by": "tests/test_window_domains.py::test_a_changed_text_file_is_refused",
+      "seconds": 8.5
+    },
+    {
+      "passed": false,
+      "tail": "1 failed, 38 passed in 7.09s",
+      "name": "a trace count that disagrees with the manifest is accepted as exact",
+      "file": "window_domains.py",
+      "caught": true,
+      "caught_by": "tests/test_window_domains.py::test_a_trace_count_that_disagrees_with_the_manifest_falls_back_to_the_estimate",
+      "seconds": 8.3
+    },
+    {
+      "passed": false,
+      "tail": "1 failed, 40 passed in 7.22s",
+      "name": "a domain with more tokens than the manifest rendered is accepted as exact",
+      "file": "window_domains.py",
+      "caught": true,
+      "caught_by": "tests/test_window_domains.py::test_attribution_that_cannot_add_up_to_the_manifest_totals_falls_back_to_the_estimate",
+      "seconds": 8.4
+    },
+    {
+      "passed": false,
+      "tail": "1 failed, 42 passed, 1 skipped in 7.27s",
+      "name": "a missing tail check (windows from other traces accepted as exact)",
+      "file": "window_domains.py",
+      "caught": true,
+      "caught_by": "tests/test_window_domains.py::test_a_manifest_that_rendered_more_than_the_windows_hold_falls_back_to_the_estimate",
+      "seconds": 8.5
+    },
+    {
+      "passed": false,
+      "tail": "1 failed, 39 passed in 7.29s",
+      "name": "a marker that occurs more often than there are traces is accepted",
+      "file": "window_domains.py",
+      "caught": true,
+      "caught_by": "tests/test_window_domains.py::test_a_marker_that_occurs_more_often_than_there_are_traces_falls_back_to_the_estimate",
+      "seconds": 8.5
+    },
+    {
+      "passed": false,
+      "tail": "1 failed, 43 passed, 1 skipped in 7.29s",
+      "name": "an unknown prompt source is not reported",
+      "file": "window_domains.py",
+      "caught": true,
+      "caught_by": "tests/test_window_domains.py::test_a_prompt_of_an_unknown_source_falls_back_to_the_estimate",
+      "seconds": 8.5
+    },
+    {
+      "passed": false,
+      "tail": "1 failed, 37 passed in 7.04s",
+      "name": "an estimate is labelled exact",
+      "file": "window_domains.py",
+      "caught": true,
+      "caught_by": "tests/test_window_domains.py::test_without_the_text_file_the_attribution_is_an_estimate_by_token_share",
+      "seconds": 8.3
+    },
+    {
+      "passed": false,
+      "tail": "1 failed, 44 passed, 1 skipped in 7.30s",
+      "name": "a non-CAL-1 manifest gets an attribution",
+      "file": "window_domains.py",
+      "caught": true,
+      "caught_by": "tests/test_window_domains.py::test_a_manifest_of_another_schema_has_no_attribution_even_with_domains",
+      "seconds": 8.5
+    },
+    {
+      "passed": false,
+      "tail": "1 failed, 54 passed, 1 skipped in 7.46s",
+      "name": "the build step does not pass --base-select",
+      "file": "pod_g1lite.sh",
+      "caught": true,
+      "caught_by": "tests/test_pod_script.py::test_g1_base_select_is_passed_to_build_g1lite[build]",
+      "seconds": 8.8
+    },
+    {
+      "passed": false,
+      "tail": "1 failed, 53 passed, 1 skipped in 7.30s",
+      "name": "the feasibility step does not pass --base-select",
+      "file": "pod_g1lite.sh",
+      "caught": true,
+      "caught_by": "tests/test_pod_script.py::test_g1_base_select_is_passed_to_build_g1lite[feasibility]",
+      "seconds": 8.5
+    },
+    {
+      "passed": false,
+      "tail": "1 failed, 55 passed, 1 skipped in 7.40s",
+      "name": "the verify step does not require the selection",
+      "file": "pod_g1lite.sh",
+      "caught": true,
+      "caught_by": "tests/test_pod_script.py::test_g1_base_select_is_required_of_the_checkpoint_by_verify",
+      "seconds": 8.6
+    },
+    {
+      "passed": false,
+      "tail": "1 failed, 52 passed, 1 skipped in 7.35s",
+      "name": "--base-select is passed even when empty (default changed)",
+      "file": "pod_g1lite.sh",
+      "caught": true,
+      "caught_by": "tests/test_pod_script.py::test_by_default_no_base_select_and_no_select_are_passed",
+      "seconds": 8.6
+    },
+    {
+      "passed": false,
+      "tail": "1 failed, 58 passed, 1 skipped in 7.54s",
+      "name": "tokenize runs on a CAL-1 output",
+      "file": "pod_g1lite.sh",
+      "caught": true,
+      "caught_by": "tests/test_pod_script.py::test_tokenize_is_not_needed_and_not_run_when_cal1_windows_are_given",
+      "seconds": 8.8
+    },
+    {
+      "passed": false,
+      "tail": "1 failed, 61 passed, 1 skipped in 7.62s",
+      "name": "tokenize skipped for any manifest with windows, not only CAL-1",
+      "file": "pod_g1lite.sh",
+      "caught": true,
+      "caught_by": "tests/test_pod_script.py::test_tokenize_still_runs_for_a_tokenized_lite_bundle_that_is_not_cal1",
+      "seconds": 8.8
+    },
+    {
+      "passed": false,
+      "tail": "1 failed, 60 passed, 1 skipped in 7.58s",
+      "name": "tokenize skipped for a CAL-1 manifest without windows",
+      "file": "pod_g1lite.sh",
+      "caught": true,
+      "caught_by": "tests/test_pod_script.py::test_tokenize_still_runs_for_a_manifest_without_windows_or_not_cal1",
+      "seconds": 8.8
+    },
+    {
+      "passed": false,
+      "tail": "1 failed, 63 passed, 1 skipped in 12.67s",
+      "name": "the RTN arm of the tiny comparison quantizes everything (N2 instead of N5)",
+      "file": "tiny_e2e.py",
+      "caught": true,
+      "caught_by": "tests/test_tiny_e2e.py::test_experts_only_base_compares_gptq_with_rtn_on_the_same_bf16_non_experts",
+      "seconds": 13.9
+    },
+    {
+      "passed": false,
+      "tail": "1 failed, 63 passed, 1 skipped in 12.84s",
+      "name": "the G1 arm of the tiny comparison ignores the base selection",
+      "file": "tiny_e2e.py",
+      "caught": true,
+      "caught_by": "tests/test_tiny_e2e.py::test_experts_only_base_compares_gptq_with_rtn_on_the_same_bf16_non_experts",
+      "seconds": 14.1
+    }
+  ]
+}

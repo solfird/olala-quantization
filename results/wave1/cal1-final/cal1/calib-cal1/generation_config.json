@@ -1,0 +1,19 @@
+{
+  "schema": "cal1-gen/1",
+  "model": "olala",
+  "sampling": {
+    "temperature": 0.8,
+    "top_p": 0.9,
+    "top_k": 40,
+    "reasoning_effort": "medium",
+    "max_tokens": 8192
+  },
+  "config_sha256": "5a023da692b555fab6316f3d72d96ef429d156dbba0fd8c29c37b96629d14214",
+  "server_provenance": "vLLM image docker.io/ovhaillm/olala-vllm:ebbadef53 (sha256:842ca5b0e9ae6f7166a9d6fcfd79d4f6fe33d9a20d14d55220cc95b11f5c3c34); weights olala-bf16: config.json sha256 f2668c0a369eeb2285e21edb46dd6307c32d55aaaefa985a1abf0eeb73dbd8e3, 1 safetensors files, identity sha256 c4c531e4da721b2d7600d442e1d4a6cd8bd90a63c2cc82b208612deb61bec64a; server flags: vllm serve /workspace/models/olala-bf16 --trust-remote-code --served-model-name olala --mamba-ssm-cache-dtype float32 --reasoning-parser olala --tool-call-parser olala --enable-auto-tool-choice --max-model-len 32688 --max-num-seqs 256 --host 127.0.0.1 --port 8000",
+  "base_url": "http://127.0.0.1:8000/v1",
+  "server_models": [
+    "olala"
+  ],
+  "max_attempts": 3,
+  "created_utc": "2026-11-20T23:38:20.946040+00:00"
+}

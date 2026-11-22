@@ -1,0 +1,3 @@
+started ckpt: pid 12785, port 8000
+log: /workspace/logs/ckpt-g1lite/server-20261121T030523Z.log
+next: bash /workspace/bundle/pod/smoke.sh ckpt-g1lite

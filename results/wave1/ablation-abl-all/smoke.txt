@@ -1,0 +1,5 @@
+smoke ckpt-abl-abl-all: PASS
+health after 120.6 s
+log: /workspace/logs/ckpt-abl-abl-all/server-20261120T231911Z.log
+answer: '17 multiplié par 23 donne 391 (17×20=340 et 17×3=51, donc 340+51=391). Le résultat est 391.'; reasoning: 1792 chars
+written: /workspace/logs/ckpt-abl-abl-all/smoke.json

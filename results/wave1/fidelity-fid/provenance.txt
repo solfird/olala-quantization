@@ -1,0 +1,2 @@
+batch=fid arms=N5,C1,C2,C3 started=2026-11-21T07:34:36Z
+NVIDIA RTX PRO 4500 Blackwell, 595.112.07

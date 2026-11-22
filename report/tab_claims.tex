@@ -1,0 +1,13 @@
+\begin{tabularx}{\textwidth}{@{}Xp{3.6cm}l@{}}
+\toprule
+OVH statement & Measured here & Verdict \\
+\midrule
+A single head drives each of layers 1, 7 and 23 (heads 23, 26, 40) & heads 23, 26 and 40 & consistent \\
+Branch outputs reach about $10^{16}$ in layers 1 and 7, $10^{11}$ in layer 23 & $3.6\times 10^{16}$, $1.1\times 10^{16}$, $4.2\times 10^{11}$ & consistent \\
+Exactly three Mamba layers carry runaway values & layers 1, 7, 23 lead; 0, 1, 2, 3, 7, 23 exceed 448 & partly consistent \\
+All other Mamba mixer outputs are of order 0.1 to 10 & largest of the rest: $1.0\times 10^{8}$ & not consistent \\
+Four mixture-of-experts layers spike through the squared ReLU (0, 1, 5, 19) & layers 0, 1, 5, 19 & consistent \\
+The residual stream stays below 0.69 & largest 0.68 & consistent \\
+Activation scales exceed the fp16 range by up to ten orders & up to 11.7 orders & not consistent \\
+\bottomrule
+\end{tabularx}

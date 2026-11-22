@@ -1,0 +1,23 @@
+{
+  "device": "cpu",
+  "shape": [
+    256,
+    768,
+    384
+  ],
+  "torch": "2.14.0",
+  "threads": 12,
+  "rss_after_alloc_mb": 958.758912,
+  "fp8": {
+    "seconds": 0.139,
+    "mparams_per_s": 541.8,
+    "rel_fro_error": 0.02624054763649133,
+    "peak_rss_mb": 1221.34528
+  },
+  "nvfp4": {
+    "seconds": 0.298,
+    "mparams_per_s": 253.5,
+    "rel_fro_error": 0.095106874515769,
+    "peak_rss_mb": 1282.408448
+  }
+}

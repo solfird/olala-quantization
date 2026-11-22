@@ -1,0 +1,356 @@
+{
+  "status": "complete",
+  "endpoint": "http://127.0.0.1:8000/v1",
+  "model": "olala",
+  "inspect_model": "openai-api/vllm/olala",
+  "git": {
+    "commit": null,
+    "dirty": null,
+    "note": "not a git repository"
+  },
+  "code_sha256": "a13aa4cc4491d3af8b73f61a7d2fc7bf568e6ad5fb840e4075e58f9fb5c5f7a8",
+  "versions": {
+    "python": "3.12.3",
+    "inspect_ai": "0.3.291",
+    "inspect_evals": "0.29.0",
+    "openai": "3.57.0",
+    "httpx": "0.28.1",
+    "datasets": "5.2.0",
+    "numpy": "2.5.5",
+    "instruction_following_eval": "0.1.0"
+  },
+  "sampling": {
+    "temperature": 0.8,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": null,
+    "seed": null,
+    "max_retries": 5,
+    "timeout": 14400
+  },
+  "reasoning_effort": "medium",
+  "chat_template_kwargs": {
+    "reasoning_effort": "medium"
+  },
+  "max_connections": 96,
+  "max_connections_per_task": {
+    "mgsm": 96,
+    "humaneval_plus": 96,
+    "mbpp_plus": 96,
+    "ifeval": 96,
+    "aime2025": 24
+  },
+  "seed": 0,
+  "n_items_requested": {
+    "default": null,
+    "per_task": {
+      "mgsm": 550
+    }
+  },
+  "sandbox": {
+    "mode": "local",
+    "tasks": [
+      "humaneval_plus",
+      "mbpp_plus"
+    ]
+  },
+  "epochs_requested": {
+    "default": null,
+    "per_task": {}
+  },
+  "items_from": null,
+  "argv": [
+    "--tasks",
+    "mgsm",
+    "humaneval_plus",
+    "--base-url",
+    "http://127.0.0.1:8000/v1",
+    "--model",
+    "olala",
+    "--out",
+    "/workspace/results/raw/Q4-a",
+    "--seed",
+    "0",
+    "--sandbox",
+    "local",
+    "--reasoning-effort",
+    "medium",
+    "--max-connections",
+    "96",
+    "--n-items",
+    "mgsm=550"
+  ],
+  "started_utc": "2026-11-21T07:55:22Z",
+  "ended_utc": "2026-11-21T11:05:09Z",
+  "skipped_tasks": {},
+  "tasks": {
+    "mgsm": {
+      "epochs": 1,
+      "n_items": 550,
+      "items_sha256": "4df4814b314f1006e2418d763581fb32b436f4bdccfa9deef98e35759d042396",
+      "n_samples": 550,
+      "request_errors": 0,
+      "truncations": 29,
+      "client_timeout": 14400,
+      "eval_status": "success",
+      "inspect_log": "2026-11-21T07-55-26-00-00_mgsm_Antbv2zrhroguHsxFyiENB.eval",
+      "samples_with_retries": 0,
+      "max_working_time": 5176.532
+    },
+    "humaneval_plus": {
+      "epochs": 1,
+      "n_items": 164,
+      "items_sha256": "77da7ef3747c414099876a7a633bba803d6349f5387bfdfedc8f42a6ffc2e6c3",
+      "n_samples": 164,
+      "request_errors": 0,
+      "truncations": 4,
+      "client_timeout": 14400,
+      "eval_status": "success",
+      "inspect_log": "2026-11-21T10-20-30-00-00_humaneval-plus_fGDf8F9UKVibkTCHe2J7bb.eval",
+      "samples_with_retries": 0,
+      "max_working_time": 2382.704
+    },
+    "mbpp_plus": {
+      "epochs": 1,
+      "n_items": 378,
+      "items_sha256": "95e6c77cfd1638c5ef7b8edf3a852bcc3d2c541445a5c047c2bc2bfd8f39dbb1",
+      "n_samples": 378,
+      "request_errors": 0,
+      "truncations": 3,
+      "client_timeout": 14400,
+      "eval_status": "success",
+      "inspect_log": "2026-11-21T09-20-34-00-00_mbpp-plus_Kf3zdnwpBZiW7PGMsHJUHi.eval",
+      "samples_with_retries": 0,
+      "max_working_time": 1780.184
+    },
+    "ifeval": {
+      "epochs": 1,
+      "n_items": 541,
+      "items_sha256": "45874aab7e499fbb3614697d09eda30682716303bf41ecfc6ea5ea4df153f2a4",
+      "n_samples": 541,
+      "request_errors": 0,
+      "truncations": 11,
+      "client_timeout": 14400,
+      "eval_status": "success",
+      "inspect_log": "2026-11-21T08-10-38-00-00_ifeval_Xpvh4XNKt6A9AVx73bVNym.eval",
+      "samples_with_retries": 0,
+      "max_working_time": 1923.938
+    },
+    "aime2025": {
+      "epochs": 5,
+      "n_items": 30,
+      "items_sha256": "b0df03745f27c2658b686b8061f788d4fc7e67f76157706f9ab4a38627101b2b",
+      "n_samples": 150,
+      "request_errors": 0,
+      "truncations": 43,
+      "client_timeout": 14400,
+      "eval_status": "success",
+      "inspect_log": "2026-11-21T08-09-58-00-00_aime2025_fscBxEccc8Z2HHbcKDpmeE.eval",
+      "samples_with_retries": 0,
+      "max_working_time": 2331.024
+    }
+  },
+  "n_samples": 1783,
+  "request_errors": 0,
+  "truncations": 90,
+  "samples_with_retries": 0,
+  "max_working_time": 5176.532,
+  "client_timeout": 14400,
+  "combined": {
+    "reason": "one arm scored on several pods, one task group per pod, combined for analyze_wave.py",
+    "allow_partial_tasks": false,
+    "missing_tasks": [],
+    "task_sources": {
+      "mgsm": "results/wave1/Q4-a",
+      "humaneval_plus": "results/wave1/Q4-a",
+      "mbpp_plus": "results/wave1/Q4-b",
+      "ifeval": "results/wave1/Q4-b",
+      "aime2025": "results/wave1/Q4-c"
+    },
+    "sources": [
+      {
+        "dir": "results/wave1/Q4-a",
+        "tasks": [
+          "mgsm",
+          "humaneval_plus"
+        ],
+        "status": "complete",
+        "sha256": {
+          "samples": "5e14d2d7a67fbe26ba4bf5692528e3a9b58b8d0cc65e7e3c58aa10332ab272c9",
+          "run_info": "1b11209ff5a11afd4b8fa11a928d757ac646d109eb005579881ae7c6be8035e0",
+          "items": "49b7def25e0a3cfc78e0725983efa742d3ede82b05c33a9dcf6085a20763838a"
+        },
+        "task_rows": {
+          "mgsm": 550,
+          "humaneval_plus": 164
+        },
+        "max_connections_per_task": {
+          "mgsm": 96,
+          "humaneval_plus": 96
+        },
+        "timeout": 14400,
+        "client_timeout": {
+          "mgsm": 14400,
+          "humaneval_plus": 14400
+        },
+        "model": "olala",
+        "endpoint": "http://127.0.0.1:8000/v1",
+        "arm": "gguf-q4_k_m-ovhrecipe",
+        "provenance_sha256": {
+          "server_provenance.txt": "6f519d0e80e835d81ca62209e1cd74d2cff3b0b313fa04de9edbbda845f11e66",
+          "server.cmd": "08a2eec558248638553c66b205ca7554bab1ef1701089e6f273f3657a3a22baa",
+          "quantization_info.json": null
+        },
+        "code_sha256": "a13aa4cc4491d3af8b73f61a7d2fc7bf568e6ad5fb840e4075e58f9fb5c5f7a8",
+        "git_commit": null,
+        "started_utc": "2026-11-21T07:55:22Z",
+        "ended_utc": "2026-11-21T11:05:09Z",
+        "argv": [
+          "--tasks",
+          "mgsm",
+          "humaneval_plus",
+          "--base-url",
+          "http://127.0.0.1:8000/v1",
+          "--model",
+          "olala",
+          "--out",
+          "/workspace/results/raw/Q4-a",
+          "--seed",
+          "0",
+          "--sandbox",
+          "local",
+          "--reasoning-effort",
+          "medium",
+          "--max-connections",
+          "96",
+          "--n-items",
+          "mgsm=550"
+        ]
+      },
+      {
+        "dir": "results/wave1/Q4-b",
+        "tasks": [
+          "ifeval",
+          "mbpp_plus"
+        ],
+        "status": "complete",
+        "sha256": {
+          "samples": "aa428eb9bbd9e09bb462aee661a2abe9fc2cea51388214afab4b86e89b2395d6",
+          "run_info": "7f8afefc42b34aa672da57cb840f74d954d2d29696650231b76ffbf273989a97",
+          "items": "22918cef123f3ccc8aa0750cb3d24de544a2216944676f6770eccb215249b673"
+        },
+        "task_rows": {
+          "ifeval": 541,
+          "mbpp_plus": 378
+        },
+        "max_connections_per_task": {
+          "ifeval": 96,
+          "mbpp_plus": 96
+        },
+        "timeout": 14400,
+        "client_timeout": {
+          "ifeval": 14400,
+          "mbpp_plus": 14400
+        },
+        "model": "olala",
+        "endpoint": "http://127.0.0.1:8000/v1",
+        "arm": "gguf-q4_k_m-ovhrecipe",
+        "provenance_sha256": {
+          "server_provenance.txt": "dad6283871b534bc56077301302c8356adef4ef0df3f1e6ed1ae8364a57844c5",
+          "server.cmd": "6b6476f4e1da6850c84173f9a72be6bf64c650403f89a5f3fbbfa7ba694a01c9",
+          "quantization_info.json": null
+        },
+        "code_sha256": "a13aa4cc4491d3af8b73f61a7d2fc7bf568e6ad5fb840e4075e58f9fb5c5f7a8",
+        "git_commit": null,
+        "started_utc": "2026-11-21T08:10:33Z",
+        "ended_utc": "2026-11-21T10:07:22Z",
+        "argv": [
+          "--tasks",
+          "ifeval",
+          "mbpp_plus",
+          "--base-url",
+          "http://127.0.0.1:8000/v1",
+          "--model",
+          "olala",
+          "--out",
+          "/workspace/results/raw/Q4-b",
+          "--seed",
+          "0",
+          "--sandbox",
+          "local",
+          "--reasoning-effort",
+          "medium",
+          "--max-connections",
+          "96",
+          "--n-items",
+          "mgsm=550"
+        ]
+      },
+      {
+        "dir": "results/wave1/Q4-c",
+        "tasks": [
+          "aime2025"
+        ],
+        "status": "complete",
+        "sha256": {
+          "samples": "b3984c77e1b878d391dbc626a9e3a470246d198a4f51533f90f766ddafd2ca89",
+          "run_info": "ab1da6c229cbc6a99fc8f79a0659275d408ad8ffb00a9962d329e0e221377a79",
+          "items": "f2acb561047755dafe9f5dc3949cf86f639760bbdc55f3417b0541d4a4a38d17"
+        },
+        "task_rows": {
+          "aime2025": 150
+        },
+        "max_connections_per_task": {
+          "aime2025": 24
+        },
+        "timeout": 14400,
+        "client_timeout": {
+          "aime2025": 14400
+        },
+        "model": "olala",
+        "endpoint": "http://127.0.0.1:8000/v1",
+        "arm": "gguf-q4_k_m-ovhrecipe",
+        "provenance_sha256": {
+          "server_provenance.txt": "d689b3ed8143d97ec505b23e23d798d30d0d84b82b87a7b43e7e2b40fb733da7",
+          "server.cmd": "db5ed8685ac2f3fc7e4ba90aa0b064d7f30ac315e3d563d221446546cf2a9bec",
+          "quantization_info.json": null
+        },
+        "code_sha256": "a13aa4cc4491d3af8b73f61a7d2fc7bf568e6ad5fb840e4075e58f9fb5c5f7a8",
+        "git_commit": null,
+        "started_utc": "2026-11-21T08:09:54Z",
+        "ended_utc": "2026-11-21T10:58:15Z",
+        "argv": [
+          "--tasks",
+          "aime2025",
+          "--base-url",
+          "http://127.0.0.1:8000/v1",
+          "--model",
+          "olala",
+          "--out",
+          "/workspace/results/raw/Q4-c",
+          "--seed",
+          "0",
+          "--sandbox",
+          "local",
+          "--reasoning-effort",
+          "medium",
+          "--max-connections",
+          "96",
+          "--n-items",
+          "mgsm=550"
+        ]
+      }
+    ],
+    "provenance_compared": {
+      "arm": "gguf-q4_k_m-ovhrecipe",
+      "llama_cpp_repo": "https://github.com/OVHai-LLM/llama.cpp.git",
+      "llama_cpp_commit": "55c22dca0c987f247c21b427c3b3a09e1a28187f",
+      "gguf_size": "5692736672",
+      "gguf_sha256_pinned": "7c3ce7a46b1c16613c8947846894c64c99aba080d7cf01add2cda61fa6255ea3",
+      "gguf_sha256_verified_by_setup": "7c3ce7a46b1c16613c8947846894c64c99aba080d7cf01add2cda61fa6255ea3",
+      "hf_repo": "OVHaiLLM/Olala-v1.0-mini-7A1B-GGUF",
+      "hf_revision": "b9f5d20adf2ac0aec05e9fa00b057cf26df263fc"
+    },
+    "warnings": []
+  }
+}

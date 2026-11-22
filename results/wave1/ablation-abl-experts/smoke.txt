@@ -1,0 +1,5 @@
+smoke ckpt-abl-abl-experts: PASS
+health after 106.6 s
+log: /workspace/logs/ckpt-abl-abl-experts/server-20261120T232332Z.log
+answer: '17 × 23 = 17·20 + 17·3 = 340 + 51 = 391. Le résultat final est 391.'; reasoning: 4128 chars
+written: /workspace/logs/ckpt-abl-abl-experts/smoke.json

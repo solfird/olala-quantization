@@ -1,0 +1,70 @@
+W1121 10:11:00.716000 75812 torch/_opaque_base.py:6] torch._opaque_base is deprecated, use torch._custom_class_base instead
+W1121 10:11:00.717000 75812 torch/_library/opaque_object.py:288] register_opaque_type is deprecated, use register_custom_class instead
+W1121 10:11:00.717000 75812 torch/_library/opaque_object.py:211] typ='value' is deprecated, use typ='constant' instead
+[transformers] `standardize_rope_params` was called but no RoPE parameters were found.
+[transformers] `standardize_rope_params` was called but no RoPE parameters were found.
+Namespace(subparser='bench', bench_type='serve', dispatch_function=<function BenchmarkServingSubcommand.cmd at 0x71add91f1080>, trust_remote_code=True, seed=0, num_prompts=36, dataset_name='random', no_stream=False, dataset_path=None, no_oversample=False, skip_chat_template=False, enable_multimodal_chat=False, disable_shuffle=False, custom_output_len=256, custom_ensure_client_side_data=False, spec_bench_output_len=256, spec_bench_category=None, sharegpt_output_len=None, timed_trace_chunk_hash_size=16, timed_trace_sec_multiplier=1, timed_trace_label_timestamp='timestamp', timed_trace_label_input_length='input_length', timed_trace_label_output_length='output_length', timed_trace_label_hash_ids='hash_ids', blazedit_min_distance=0.0, blazedit_max_distance=1.0, asr_max_audio_len_sec=inf, asr_min_audio_len_sec=0.0, random_input_len=512, random_output_len=512, random_range_ratio='0.0', random_prefix_len=0, random_batch_size=1, no_reranker=False, random_mm_base_items_per_request=1, random_mm_num_mm_items_range_ratio=0.0, random_mm_limit_mm_per_prompt={'image': 255, 'video': 1}, random_mm_bucket_config={(256, 256, 1): 0.5, (720, 1280, 1): 0.5, (720, 1280, 16): 0.0}, hf_subset=None, hf_split=None, hf_name=None, hf_output_len=None, bfcl_categories=None, prefix_repetition_prefix_len=256, prefix_repetition_suffix_len=256, prefix_repetition_num_prefixes=10, prefix_repetition_output_len=128, speed_bench_dataset_subset='qualitative', speed_bench_output_len=4096, speed_bench_category=None, label=None, backend='openai-chat', base_url='http://127.0.0.1:8000', host='127.0.0.1', port=8000, endpoint='/v1/chat/completions', header=None, max_concurrency=12, model='olala', input_len=None, output_len=None, tokenizer='/workspace/models/olala-tokenizer', tokenizer_mode='auto', use_beam_search=False, logprobs=None, request_rate=inf, burstiness=1.0, probe_request_rate=0.0, disable_tqdm=False, num_warmups=0, profile=False, save_result=True, save_detailed=False, append_result=False, metadata=None, result_dir='/workspace/results/bench-Q4sw-q4_k_m-ovhrecipe', result_filename='c12_r1.json', ignore_eos=True, self_timed=None, percentile_metrics=None, metric_percentiles='99', goodput=None, request_id_prefix='bench-193f2d9f-', top_p=None, top_k=None, min_p=None, temperature=None, frequency_penalty=None, presence_penalty=None, repetition_penalty=None, served_model_name=None, lora_modules=None, lora_assignment='random', ramp_up_strategy=None, ramp_up_start_rps=None, ramp_up_end_rps=None, ready_check_timeout_sec=0, chat_template_kwargs=None, extra_body=None, skip_tokenizer_init=False, insecure=False, plot_timeline=False, timeline_itl_thresholds='25,50', plot_dataset_stats=False, log_config_file=None, logging_config=LoggingConfig(log_level='INFO', formatter='text', configure_logging=True, pylogging_config_file=None))
+(MainProcess pid=75812) INFO 11-21 10:11:09 [utils.py:88] Sampling input_len from [512, 512] and output_len from [512, 512]
+WARNING: tokenizer mismatch (server=0, expected=512), re-aligning prompts.
+WARNING: vllm bench serve no longer sets temperature==0 (greedy) in requests by default. The default will be determined on the server side and can be model/API specific. For the old behavior, include --temperature=0.
+Starting initial single prompt test run...
+Skipping endpoint ready check.
+Starting main benchmark run...
+Traffic request rate: inf
+Burstiness factor: 1.0 (Poisson process)
+Maximum request concurrency: 12
+  0%|          | 0/36 [00:00<?, ?it/s]  3%|▎         | 1/36 [00:20<12:13, 20.95s/it]  6%|▌         | 2/36 [00:21<05:04,  8.95s/it] 36%|███▌      | 13/36 [00:22<00:21,  1.07it/s] 39%|███▉      | 14/36 [00:42<01:04,  2.91s/it] 42%|████▏     | 15/36 [00:42<00:54,  2.60s/it] 58%|█████▊    | 21/36 [00:43<00:19,  1.27s/it] 67%|██████▋   | 24/36 [00:43<00:11,  1.03it/s] 69%|██████▉   | 25/36 [00:44<00:10,  1.02it/s] 72%|███████▏  | 26/36 [01:06<00:39,  3.98s/it] 75%|███████▌  | 27/36 [01:06<00:29,  3.33s/it]100%|██████████| 36/36 [01:06<00:00,  1.86s/it]
+Failed requests during benchmark run detected (capping to 10):
+Error 0: Never received a valid chunk to calculate TTFT.This response will be marked as failed!
+Error 1: Never received a valid chunk to calculate TTFT.This response will be marked as failed!
+Error 2: Never received a valid chunk to calculate TTFT.This response will be marked as failed!
+Error 3: Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/dist-packages/vllm/benchmarks/lib/endpoint_request_func.py", line 447, in async_request_openai_chat_completions
+    async with session.post(url=api_url, json=payload, headers=headers) as response:
+  File "/usr/local/lib/python3.12/dist-packages/aiohttp/client.py", line 1756, in __aenter__
+    self._resp: _RetType_co = await self._coro
+                              ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/aiohttp/client.py", line 900, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/aiohttp/client.py", line 878, in _connect_and_send_request
+    await resp.start(conn)
+  File "/usr/local/lib/python3.12/dist-packages/aiohttp/client_reqrep.py", line 745, in start
+    message, payload = await protocol.read()  # type: ignore[union-attr]
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/aiohttp/streams.py", line 716, in read
+    await self._waiter
+aiohttp.client_exceptions.ServerDisconnectedError: Server disconnected
+
+Error 4: Never received a valid chunk to calculate TTFT.This response will be marked as failed!
+Error 5: Never received a valid chunk to calculate TTFT.This response will be marked as failed!
+Error 6: Never received a valid chunk to calculate TTFT.This response will be marked as failed!
+Error 7: Never received a valid chunk to calculate TTFT.This response will be marked as failed!
+Error 8: Never received a valid chunk to calculate TTFT.This response will be marked as failed!
+Error 9: Never received a valid chunk to calculate TTFT.This response will be marked as failed!
+tip: install termplotlib and gnuplot to plot the metrics
+============ Serving Benchmark Result ============
+Successful requests:                     25        
+Failed requests:                         11        
+Maximum request concurrency:             12        
+Benchmark duration (s):                  66.93     
+Total input tokens:                      17815     
+Total generated tokens:                  9105      
+Request throughput (req/s):              0.37      
+Output token throughput (tok/s):         136.03    
+Peak output token throughput (tok/s):    101.00    
+Peak concurrent requests:                11.00     
+Total token throughput (tok/s):          402.19    
+---------------Time to First Token----------------
+Mean TTFT (ms):                          15979.77  
+Median TTFT (ms):                        15799.62  
+P99 TTFT (ms):                           21810.72  
+-----Time per Output Token (excl. 1st token)------
+Mean TPOT (ms):                          14.12     
+Median TPOT (ms):                        5.67      
+P99 TPOT (ms):                           39.48     
+---------------Inter-token Latency----------------
+Mean ITL (ms):                           35.07     
+Median ITL (ms):                         31.16     
+P99 ITL (ms):                            89.05     
+==================================================

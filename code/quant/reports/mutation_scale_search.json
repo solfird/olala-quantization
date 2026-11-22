@@ -1,0 +1,127 @@
+[
+  {
+    "mutation": "list I is not lifted at all (the MoE of layers 0, 1, 5, 19 stays bf16)",
+    "caught": true,
+    "first_failure": "FAILED tests/test_convert_scale_search.py::test_experts_all_quantizes_every_layers_routed_experts_and_keeps_the_rest_of_list_i"
+  },
+  {
+    "mutation": "list I is lifted for every pattern, the mixers of layers 1, 7, 23 included",
+    "caught": true,
+    "first_failure": "FAILED tests/test_convert_scale_search.py::test_experts_all_quantizes_every_layers_routed_experts_and_keeps_the_rest_of_list_i"
+  },
+  {
+    "mutation": "list I is lifted for the wrong layers (only the patterns of layers 0 and 1)",
+    "caught": true,
+    "first_failure": "FAILED tests/test_ablation.py::test_experts_all_quantizes_the_routed_experts_of_all_36_layers_and_nothing_else"
+  },
+  {
+    "mutation": "the mixer projections of layers 1, 7, 23 are quantized (list I lifted whole, mixers selected)",
+    "caught": true,
+    "first_failure": "FAILED tests/test_convert_scale_search.py::test_experts_all_quantizes_every_layers_routed_experts_and_keeps_the_rest_of_list_i"
+  },
+  {
+    "mutation": "experts-all also quantizes the shared experts of the lifted layers",
+    "caught": true,
+    "first_failure": "FAILED tests/test_convert_scale_search.py::test_experts_all_quantizes_every_layers_routed_experts_and_keeps_the_rest_of_list_i"
+  },
+  {
+    "mutation": "the selection block does not say that list I was lifted",
+    "caught": true,
+    "first_failure": "FAILED tests/test_convert_scale_search.py::test_experts_all_quantizes_every_layers_routed_experts_and_keeps_the_rest_of_list_i"
+  },
+  {
+    "mutation": "the selection block does not record which patterns were lifted",
+    "caught": true,
+    "first_failure": "FAILED tests/test_convert_scale_search.py::test_experts_all_quantizes_every_layers_routed_experts_and_keeps_the_rest_of_list_i"
+  },
+  {
+    "mutation": "the lifted patterns are recorded for every selection (the older blocks change)",
+    "caught": true,
+    "first_failure": "FAILED tests/test_ablation.py::test_the_selections_that_existed_before_record_nothing_about_lifting"
+  },
+  {
+    "mutation": "scale search factors changed (0.75 becomes 0.70)",
+    "caught": true,
+    "first_failure": "FAILED tests/test_nvfp4_scale_search.py::test_the_factors_and_the_version_are_the_ones_of_amendment_25"
+  },
+  {
+    "mutation": "scale search factors changed (a factor above 1 is tried)",
+    "caught": true,
+    "first_failure": "FAILED tests/test_nvfp4_scale_search.py::test_the_factors_and_the_version_are_the_ones_of_amendment_25"
+  },
+  {
+    "mutation": "rounding order wrong (the base scale is rounded to e4m3 first, then multiplied by the factor)",
+    "caught": true,
+    "first_failure": "FAILED tests/test_nvfp4_scale_search.py::test_candidates_are_tried_from_the_largest_factor_down"
+  },
+  {
+    "mutation": "search tie-break wrong (a later candidate wins a tie)",
+    "caught": true,
+    "first_failure": "FAILED tests/test_nvfp4_scale_search.py::test_on_a_tie_the_largest_factor_wins"
+  },
+  {
+    "mutation": "search keeps the WORST candidate",
+    "caught": true,
+    "first_failure": "FAILED tests/test_nvfp4_scale_search.py::test_it_matches_a_group_by_group_reference_written_with_plain_loops"
+  },
+  {
+    "mutation": "search picks by absolute error instead of squared error",
+    "caught": true,
+    "first_failure": "FAILED tests/test_nvfp4_scale_search.py::test_it_matches_a_group_by_group_reference_written_with_plain_loops"
+  },
+  {
+    "mutation": "default output changed (the search is on unless asked off)",
+    "caught": true,
+    "first_failure": "FAILED tests/test_nvfp4_scale_search.py::test_the_default_path_is_byte_identical_to_what_it_was_before_the_search_existed"
+  },
+  {
+    "mutation": "the global scale is derived from a smaller amax when searching",
+    "caught": true,
+    "first_failure": "FAILED tests/test_nvfp4_scale_search.py::test_it_matches_a_group_by_group_reference_written_with_plain_loops"
+  },
+  {
+    "mutation": "the search chunk is far larger than documented",
+    "caught": true,
+    "first_failure": "FAILED tests/test_nvfp4_scale_search.py::test_the_search_never_holds_more_than_the_documented_number_of_weights_at_once"
+  },
+  {
+    "mutation": "the converter does not pass the flag to the quantizer",
+    "caught": true,
+    "first_failure": "FAILED tests/test_convert_scale_search.py::test_the_layout_and_the_size_are_those_of_the_plain_conversion_and_only_the_scales_and_codes_differ"
+  },
+  {
+    "mutation": "the converter does not record the search in quantization_info.json",
+    "caught": true,
+    "first_failure": "FAILED tests/test_convert_scale_search.py::test_the_search_is_recorded_in_quantization_info_and_only_when_it_ran"
+  },
+  {
+    "mutation": "the converter lets fp8 use the search",
+    "caught": true,
+    "first_failure": "FAILED tests/test_convert_scale_search.py::test_fp8_and_a_calibration_override_cannot_use_the_search"
+  },
+  {
+    "mutation": "verify flags a checkpoint made with the search (plain checks applied to it)",
+    "caught": true,
+    "first_failure": "FAILED tests/test_convert_scale_search.py::test_the_search_combines_with_a_selection"
+  },
+  {
+    "mutation": "verify no longer checks that every scale is one of the six candidates",
+    "caught": true,
+    "first_failure": "FAILED tests/test_convert_scale_search.py::test_a_block_scale_that_is_none_of_the_six_candidates_is_caught"
+  },
+  {
+    "mutation": "verify no longer compares the error with the plain scale's",
+    "caught": true,
+    "first_failure": "FAILED tests/test_convert_scale_search.py::test_a_candidate_scale_that_is_worse_than_the_plain_one_is_caught"
+  },
+  {
+    "mutation": "verify applies the plain top-scale rule (448) to a searched checkpoint",
+    "caught": true,
+    "first_failure": "FAILED tests/test_convert_scale_search.py::test_the_search_combines_with_a_selection"
+  },
+  {
+    "mutation": "verify ignores --scale-search / --no-scale-search",
+    "caught": true,
+    "first_failure": "FAILED tests/test_convert_scale_search.py::test_verify_requires_or_forbids_the_search_when_asked"
+  }
+]

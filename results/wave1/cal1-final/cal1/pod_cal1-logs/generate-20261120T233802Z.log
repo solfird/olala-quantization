@@ -1,0 +1,20 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+generated 20/240 (0 failed)
+generated 40/240 (0 failed)
+generated 60/240 (0 failed)
+generated 80/240 (0 failed)
+generated 100/240 (0 failed)
+generated 120/240 (0 failed)
+generated 140/240 (0 failed)
+generated 160/240 (0 failed)
+generated 180/240 (0 failed)
+generated 200/240 (0 failed)
+generated 220/240 (0 failed)
+generated 240/240 (0 failed)
+generation: {'ok': 240, 'failed': 0, 'skipped_done': 0, 'gave_up': 0}
+The repository /workspace/models/olala-bf16 contains custom code which must be executed to correctly load the model. You can inspect the repository content at /workspace/models/olala-bf16 .
+ You can inspect the repository content at https://hf.co//workspace/models/olala-bf16.
+You can avoid this prompt in future by passing the argument `trust_remote_code=True`.
+
+Do you wish to run the custom code? [y/N] [transformers] You are using a model of type `olala` to instantiate a model of type ``. This may be expected if you are loading a checkpoint that shares a subset of the architecture (e.g., loading a `sam2_video` checkpoint into `Sam2Model`), but is otherwise not supported and can yield errors. Please verify that the checkpoint is compatible with the model you are instantiating.
+REFUSED (leakage): 942 overlapping 8-gram(s) with evaluation items {'humaneval_plus': 346, 'mbpp_plus': 593, 'aime2025': 1, 'ifeval': 2}; flagged documents: generation/code_oss_python/default-20971, generation/code_oss_python/default-26190, generation/code_oss_python/default-60690, generation/if_personas/default-5348, generation/math_train/algebra-1389, generation/math_train/algebra-804, generation/math_train/counting_and_probability-308, generation/math_train/counting_and_probability-516, generation/math_train/intermediate_algebra-1236, generation/math_train/intermediate_algebra-288

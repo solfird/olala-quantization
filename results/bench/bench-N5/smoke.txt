@@ -1,0 +1,5 @@
+smoke ckpt-n5-experts: PASS
+health after 271.6 s
+log: /workspace/logs/ckpt-n5-experts/server-20261121T013001Z.log
+answer: '17 multiplié par 23 égale 17×23 = 340 + 51 = 391. Le résultat final est 391.'; reasoning: 4019 chars
+written: /workspace/logs/ckpt-n5-experts/smoke.json

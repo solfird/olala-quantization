@@ -1,0 +1,22 @@
++ env PYTHONPATH=/workspace/bundle/quant:/workspace/bundle/quant/gptq /workspace/venv-cal1/bin/python3 /workspace/bundle/quant/gptq/cal1_generate.py --out /workspace/calib-cal1 --eval-items /workspace/bundle/quant/gptq/data/eval_items.json --model olala --base-url http://127.0.0.1:8000/v1 --tokenizer /workspace/models/olala-bf16 --window 2048 --revision math_train=21a5633873b6a120296cce3e2df9d5550074f4a3 --revision mgsm_train_parallel=dd8076b83bacd7c6ade2829317e8a500c6ffbec4 --revision code_oss_python=5f839b1f368a76b161028bb9edff055db34022b2 --revision if_personas=fe0c7d350c9b4542b8d829a6f1daa1c259f0ba0e --server-provenance vLLM image docker.io/ovhaillm/olala-vllm:ebbadef53 (sha256:842ca5b0e9ae6f7166a9d6fcfd79d4f6fe33d9a20d14d55220cc95b11f5c3c34); weights olala-bf16: config.json sha256 f2668c0a369eeb2285e21edb46dd6307c32d55aaaefa985a1abf0eeb73dbd8e3, 1 safetensors files, identity sha256 c4c531e4da721b2d7600d442e1d4a6cd8bd90a63c2cc82b208612deb61bec64a; server flags: vllm serve /workspace/models/olala-bf16 --trust-remote-code --served-model-name olala --mamba-ssm-cache-dtype float32 --reasoning-parser olala --tool-call-parser olala --enable-auto-tool-choice --max-model-len 32688 --max-num-seqs 256 --host 127.0.0.1 --port 8000   # log: /workspace/logs/cal1/generate-20261120T233802Z.log
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+generated 20/240 (0 failed)
+generated 40/240 (0 failed)
+generated 60/240 (0 failed)
+generated 80/240 (0 failed)
+generated 100/240 (0 failed)
+generated 120/240 (0 failed)
+generated 140/240 (0 failed)
+generated 160/240 (0 failed)
+generated 180/240 (0 failed)
+generated 200/240 (0 failed)
+generated 220/240 (0 failed)
+generated 240/240 (0 failed)
+generation: {'ok': 240, 'failed': 0, 'skipped_done': 0, 'gave_up': 0}
+The repository /workspace/models/olala-bf16 contains custom code which must be executed to correctly load the model. You can inspect the repository content at /workspace/models/olala-bf16 .
+ You can inspect the repository content at https://hf.co//workspace/models/olala-bf16.
+You can avoid this prompt in future by passing the argument `trust_remote_code=True`.
+
+Do you wish to run the custom code? [y/N] [transformers] You are using a model of type `olala` to instantiate a model of type ``. This may be expected if you are loading a checkpoint that shares a subset of the architecture (e.g., loading a `sam2_video` checkpoint into `Sam2Model`), but is otherwise not supported and can yield errors. Please verify that the checkpoint is compatible with the model you are instantiating.
+REFUSED (leakage): 942 overlapping 8-gram(s) with evaluation items {'humaneval_plus': 346, 'mbpp_plus': 593, 'aime2025': 1, 'ifeval': 2}; flagged documents: generation/code_oss_python/default-20971, generation/code_oss_python/default-26190, generation/code_oss_python/default-60690, generation/if_personas/default-5348, generation/math_train/algebra-1389, generation/math_train/algebra-804, generation/math_train/counting_and_probability-308, generation/math_train/counting_and_probability-516, generation/math_train/intermediate_algebra-1236, generation/math_train/intermediate_algebra-288
+CAL1_RUN_FAILED

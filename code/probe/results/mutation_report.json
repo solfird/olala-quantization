@@ -1,0 +1,259 @@
+{
+ "n": 36,
+ "caught": 36,
+ "survivors": [],
+ "mutations": [
+  {
+   "name": "stats: max over abs forgotten (signed max)",
+   "file": "probe_stats.py",
+   "caught": true,
+   "exit": 1,
+   "seconds": 5.0
+  },
+  {
+   "name": "stats: per-head max over abs forgotten",
+   "file": "probe_stats.py",
+   "caught": true,
+   "exit": 1,
+   "seconds": 7.2
+  },
+  {
+   "name": "stats: first-token flag always false",
+   "file": "probe_stats.py",
+   "caught": true,
+   "exit": 1,
+   "seconds": 5.3
+  },
+  {
+   "name": "stats: special-token flag missing",
+   "file": "probe_stats.py",
+   "caught": true,
+   "exit": 1,
+   "seconds": 5.4
+  },
+  {
+   "name": "stats: e4m3 threshold wrong",
+   "file": "probe_stats.py",
+   "caught": true,
+   "exit": 1,
+   "seconds": 3.9
+  },
+  {
+   "name": "stats: p99.9 is p99",
+   "file": "probe_stats.py",
+   "caught": true,
+   "exit": 1,
+   "seconds": 7.2
+  },
+  {
+   "name": "stats: RMS divides by tokens instead of elements",
+   "file": "probe_stats.py",
+   "caught": true,
+   "exit": 1,
+   "seconds": 5.0
+  },
+  {
+   "name": "stats: growth exponent against natural log",
+   "file": "probe_stats.py",
+   "caught": true,
+   "exit": 1,
+   "seconds": 7.2
+  },
+  {
+   "name": "stats: non-finite entries leak into the maximum",
+   "file": "probe_stats.py",
+   "caught": true,
+   "exit": 1,
+   "seconds": 7.3
+  },
+  {
+   "name": "stats: argmax kept from the first prompt instead of the largest",
+   "file": "probe_stats.py",
+   "caught": true,
+   "exit": 1,
+   "seconds": 7.3
+  },
+  {
+   "name": "hooks: layer index base wrong (1-based)",
+   "file": "probe_hooks.py",
+   "caught": true,
+   "exit": 1,
+   "seconds": 4.9
+  },
+  {
+   "name": "hooks: mixer site hooked on the MoE module",
+   "file": "probe_hooks.py",
+   "caught": true,
+   "exit": 1,
+   "seconds": 5.0
+  },
+  {
+   "name": "hooks: shared-expert site hooked on the routed up-projection",
+   "file": "probe_hooks.py",
+   "caught": true,
+   "exit": 1,
+   "seconds": 5.0
+  },
+  {
+   "name": "hooks: post-ReLU^2 site records the pre-activation",
+   "file": "probe_hooks.py",
+   "caught": true,
+   "exit": 1,
+   "seconds": 5.4
+  },
+  {
+   "name": "hooks: expert attribution always the first expert of the call",
+   "file": "probe_hooks.py",
+   "caught": true,
+   "exit": 1,
+   "seconds": 5.4
+  },
+  {
+   "name": "hooks: sibling erasure compares the output with itself",
+   "file": "probe_hooks.py",
+   "caught": true,
+   "exit": 1,
+   "seconds": 5.5
+  },
+  {
+   "name": "hooks: sibling erasure keeps the wrong head",
+   "file": "probe_hooks.py",
+   "caught": true,
+   "exit": 1,
+   "seconds": 5.6
+  },
+  {
+   "name": "hooks: clamp ablation not applied",
+   "file": "probe_hooks.py",
+   "caught": true,
+   "exit": 1,
+   "seconds": 4.0
+  },
+  {
+   "name": "hooks: zero ablation not applied",
+   "file": "probe_hooks.py",
+   "caught": true,
+   "exit": 1,
+   "seconds": 3.9
+  },
+  {
+   "name": "hooks: head ablation edits the neighbouring head",
+   "file": "probe_hooks.py",
+   "caught": true,
+   "exit": 1,
+   "seconds": 4.1
+  },
+  {
+   "name": "hooks: ablation of the mixer branch hooked on the MoE branch",
+   "file": "probe_hooks.py",
+   "caught": true,
+   "exit": 1,
+   "seconds": 3.8
+  },
+  {
+   "name": "hooks: probe hooks left in place by close()",
+   "file": "probe_hooks.py",
+   "caught": true,
+   "exit": 1,
+   "seconds": 5.8
+  },
+  {
+   "name": "ablate: KL computed in the wrong direction",
+   "file": "probe_ablate.py",
+   "caught": true,
+   "exit": 1,
+   "seconds": 4.4
+  },
+  {
+   "name": "ablate: delta NLL sign flipped",
+   "file": "probe_ablate.py",
+   "caught": true,
+   "exit": 1,
+   "seconds": 4.4
+  },
+  {
+   "name": "ablate: ablated run compared with itself",
+   "file": "probe_ablate.py",
+   "caught": true,
+   "exit": 1,
+   "seconds": 4.9
+  },
+  {
+   "name": "ablate: unflagged control branch not added",
+   "file": "probe_ablate.py",
+   "caught": true,
+   "exit": 1,
+   "seconds": 4.9
+  },
+  {
+   "name": "ablate: all flagged branches kept (cap ignored)",
+   "file": "probe_ablate.py",
+   "caught": true,
+   "exit": 1,
+   "seconds": 5.0
+  },
+  {
+   "name": "prompts: no truncation to max_tokens",
+   "file": "probe_prompts.py",
+   "caught": true,
+   "exit": 1,
+   "seconds": 5.9
+  },
+  {
+   "name": "prompts: sink token not prepended to plain text",
+   "file": "probe_prompts.py",
+   "caught": true,
+   "exit": 1,
+   "seconds": 6.1
+  },
+  {
+   "name": "probe: attention layers listed with a 1-based index",
+   "file": "activation_probe.py",
+   "caught": true,
+   "exit": 1,
+   "seconds": 6.6
+  },
+  {
+   "name": "loader: modified modeling file accepted",
+   "file": "activation_probe.py",
+   "caught": true,
+   "exit": 1,
+   "seconds": 6.5
+  },
+  {
+   "name": "loader: missing / unexpected tensors accepted",
+   "file": "activation_probe.py",
+   "caught": true,
+   "exit": 1,
+   "seconds": 6.5
+  },
+  {
+   "name": "claims: 1-based reading computed as +1",
+   "file": "probe_claims.py",
+   "caught": true,
+   "exit": 1,
+   "seconds": 5.0
+  },
+  {
+   "name": "claims: head identity always consistent",
+   "file": "probe_claims.py",
+   "caught": true,
+   "exit": 1,
+   "seconds": 5.0
+  },
+  {
+   "name": "claims: residual bound not enforced",
+   "file": "probe_claims.py",
+   "caught": true,
+   "exit": 1,
+   "seconds": 5.1
+  },
+  {
+   "name": "claims: absent layers judged instead of not judged",
+   "file": "probe_claims.py",
+   "caught": true,
+   "exit": 1,
+   "seconds": 4.9
+  }
+ ]
+}

@@ -1,0 +1,159 @@
+{
+  "schema": 1,
+  "amendment": 24,
+  "status": "done",
+  "reason": "",
+  "recipe": {
+    "quant_type": "Q4_K_M",
+    "tensor_types": {
+      "ffn_latent_up": "bf16",
+      "ffn_up_exps": "q8_0"
+    },
+    "imatrix_chunks": 200,
+    "imatrix_data": "Salesforce/wikitext @ b08601e04326c79dfdd32d625aee71d232d685c3, wikitext-2-raw-v1/train-00000-of-00001.parquet",
+    "note": "OVH's own imatrix (olala-rl.imatrix) is not published: this one is built here"
+  },
+  "llama_cpp": {
+    "commit": "55c22dca0c987f247c21b427c3b3a09e1a28187f",
+    "tree": "ff04ce13ba15d503c6f50b625550a3b31924adcf",
+    "cmake_flags": "-DGGML_CUDA=ON -DCMAKE_BUILD_TYPE=Release -DLLAMA_USE_PREBUILT_UI=OFF -DLLAMA_BUILD_TESTS=OFF -DLLAMA_BUILD_EXAMPLES=OFF -DLLAMA_BUILD_APP=OFF -DCMAKE_CUDA_ARCHITECTURES=120a-real",
+    "cuda_arch": "120a-real",
+    "build_command": "cmake --build /workspace/llama.cpp-olala/build --target llama-quantize llama-imatrix -j 14",
+    "jobs": "14"
+  },
+  "help_check": {
+    "quantize_help": "/workspace/logs/q4/llama-quantize.help.txt",
+    "imatrix_help": "/workspace/logs/q4/llama-imatrix.help.txt",
+    "flags_checked": "--tensor-type --imatrix --chunks",
+    "utc": "2026-11-21T07:39:46Z"
+  },
+  "bf16": {
+    "file": "/workspace/models/olala-gguf/Olala-v1.0-mini-7A1B-bf16.gguf",
+    "size": "13594188096",
+    "sha256": "b266da8e292fb502b161ef0af413242f40c3d5736ebbcb5153fbf9c16bef5747"
+  },
+  "wikitext": {
+    "repo": "Salesforce/wikitext",
+    "revision": "b08601e04326c79dfdd32d625aee71d232d685c3",
+    "file": "wikitext-2-raw-v1/train-00000-of-00001.parquet",
+    "source": "hub",
+    "parquet_sha256": "e83889baabc497075506f91975be5fac0d45c5290b6b20582c8cd1e853d0c9f7",
+    "rows": 36718,
+    "text_bytes": 10914845,
+    "text_sha256": "fc1dd2874bf42e945db9bd38e856ae18010f5c088e7446c706c5ba2f39310ee3",
+    "construction": "the text rows in order, concatenated with no separator added (rows already end with newlines)"
+  },
+  "imatrix": {
+    "mode": "make",
+    "command": "/workspace/llama.cpp-olala/build/bin/llama-imatrix -m /workspace/models/olala-gguf/Olala-v1.0-mini-7A1B-bf16.gguf -f /workspace/q4/wiki.train.raw -o /workspace/q4/olala.imatrix --chunks 200 -ngl 99",
+    "sha256": "65905d7aace4b295250fe3d16a646cda6d5ffe39e06a74852dccd086819438af",
+    "size": "44774976",
+    "log": "/workspace/logs/q4/imatrix.log",
+    "chunks_line": "0.10.697.354 I compute_imatrix: computing over 200 chunks, n_ctx=512, batch_size=2048, n_seq=4"
+  },
+  "quantize": {
+    "command": "/workspace/llama.cpp-olala/build/bin/llama-quantize --imatrix /workspace/q4/olala.imatrix --tensor-type ffn_latent_up=bf16 --tensor-type ffn_up_exps=q8_0 /workspace/models/olala-gguf/Olala-v1.0-mini-7A1B-bf16.gguf /workspace/models/olala-gguf/Olala-v1.0-mini-7A1B-q4_k_m-ovhrecipe.gguf Q4_K_M 31",
+    "log": "/workspace/logs/q4/quantize.log",
+    "threads": "31"
+  },
+  "steps": {
+    "build_extra": {
+      "commit": "55c22dca0c987f247c21b427c3b3a09e1a28187f",
+      "tree": "ff04ce13ba15d503c6f50b625550a3b31924adcf",
+      "cmake_flags": "-DGGML_CUDA=ON -DCMAKE_BUILD_TYPE=Release -DLLAMA_USE_PREBUILT_UI=OFF -DLLAMA_BUILD_TESTS=OFF -DLLAMA_BUILD_EXAMPLES=OFF -DLLAMA_BUILD_APP=OFF -DCMAKE_CUDA_ARCHITECTURES=120a-real",
+      "cuda_arch": "120a-real",
+      "build_command": "cmake --build /workspace/llama.cpp-olala/build --target llama-quantize llama-imatrix -j 14",
+      "jobs": "14",
+      "utc": "2026-11-21T07:39:46Z"
+    },
+    "help": {
+      "quantize_help": "/workspace/logs/q4/llama-quantize.help.txt",
+      "imatrix_help": "/workspace/logs/q4/llama-imatrix.help.txt",
+      "flags_checked": "--tensor-type --imatrix --chunks",
+      "utc": "2026-11-21T07:39:46Z"
+    },
+    "imatrix": {
+      "mode": "make",
+      "command": "/workspace/llama.cpp-olala/build/bin/llama-imatrix -m /workspace/models/olala-gguf/Olala-v1.0-mini-7A1B-bf16.gguf -f /workspace/q4/wiki.train.raw -o /workspace/q4/olala.imatrix --chunks 200 -ngl 99",
+      "sha256": "65905d7aace4b295250fe3d16a646cda6d5ffe39e06a74852dccd086819438af",
+      "size": "44774976",
+      "log": "/workspace/logs/q4/imatrix.log",
+      "chunks_line": "0.10.697.354 I compute_imatrix: computing over 200 chunks, n_ctx=512, batch_size=2048, n_seq=4",
+      "utc": "2026-11-21T07:41:52Z"
+    },
+    "manifest": {
+      "manifest": "/workspace/bundle/pod/gguf_files.json",
+      "variant": "q4_k_m-ovhrecipe",
+      "utc": "2026-11-21T07:54:45Z"
+    },
+    "quantize": {
+      "name": "Olala-v1.0-mini-7A1B-q4_k_m-ovhrecipe.gguf",
+      "file": "/workspace/models/olala-gguf/Olala-v1.0-mini-7A1B-q4_k_m-ovhrecipe.gguf",
+      "size": "5692736672",
+      "sha256": "7c3ce7a46b1c16613c8947846894c64c99aba080d7cf01add2cda61fa6255ea3",
+      "imatrix_sha256": "65905d7aace4b295250fe3d16a646cda6d5ffe39e06a74852dccd086819438af",
+      "command": "/workspace/llama.cpp-olala/build/bin/llama-quantize --imatrix /workspace/q4/olala.imatrix --tensor-type ffn_latent_up=bf16 --tensor-type ffn_up_exps=q8_0 /workspace/models/olala-gguf/Olala-v1.0-mini-7A1B-bf16.gguf /workspace/models/olala-gguf/Olala-v1.0-mini-7A1B-q4_k_m-ovhrecipe.gguf Q4_K_M 31",
+      "log": "/workspace/logs/q4/quantize.log",
+      "threads": "31",
+      "size_bytes": "5692736672",
+      "parameters": "6775272608",
+      "parameters_source": "sum of the tensor elements in the header of Olala-v1.0-mini-7A1B-bf16.gguf",
+      "bits_per_weight": "6.721780216227131",
+      "utc": "2026-11-21T07:54:45Z"
+    },
+    "setup_bf16": {
+      "file": "/workspace/models/olala-gguf/Olala-v1.0-mini-7A1B-bf16.gguf",
+      "size": "13594188096",
+      "sha256": "b266da8e292fb502b161ef0af413242f40c3d5736ebbcb5153fbf9c16bef5747",
+      "utc": "2026-11-21T07:39:33Z"
+    },
+    "wikitext": {
+      "file": "/workspace/q4/wiki.train.raw",
+      "sha256": "fc1dd2874bf42e945db9bd38e856ae18010f5c088e7446c706c5ba2f39310ee3",
+      "utc": "2026-11-21T07:39:51Z"
+    }
+  },
+  "quantized": {
+    "name": "Olala-v1.0-mini-7A1B-q4_k_m-ovhrecipe.gguf",
+    "path": "/workspace/models/olala-gguf/Olala-v1.0-mini-7A1B-q4_k_m-ovhrecipe.gguf",
+    "size_bytes": 5692736672,
+    "sha256": "7c3ce7a46b1c16613c8947846894c64c99aba080d7cf01add2cda61fa6255ea3",
+    "parameters": 6775272608,
+    "parameters_source": "sum of the tensor elements in the header of Olala-v1.0-mini-7A1B-bf16.gguf",
+    "bits_per_weight": 6.721780216227131
+  },
+  "tensor_types": {
+    "n_tensors": 989,
+    "by_type": {
+      "bf16": 36,
+      "f32": 614,
+      "q4_K": 266,
+      "q6_K": 37,
+      "q8_0": 36
+    },
+    "by_group": {
+      "ffn_latent_up": {
+        "bf16": 36
+      },
+      "ffn_up_exps": {
+        "q8_0": 36
+      }
+    },
+    "recipe_applied": true,
+    "quant_size_line": "llama_model_quantize_impl: quant size  =  5423.29 MiB (6.71 BPW)"
+  },
+  "manifest_edit": {
+    "changed": true,
+    "sha256_before": "f6130729c3a45ca1843dad56141f668ea4a468edc1743977de30ba3ef49e4932",
+    "sha256_after": "e7e78a404b7e77207a9733791198f163740cc8be9885b773bf64fe57e3a649e6",
+    "replaced_sha256": null,
+    "manifest": "/workspace/bundle/pod/gguf_files.json",
+    "entry": {
+      "name": "Olala-v1.0-mini-7A1B-q4_k_m-ovhrecipe.gguf",
+      "size": 5692736672,
+      "sha256": "7c3ce7a46b1c16613c8947846894c64c99aba080d7cf01add2cda61fa6255ea3",
+      "derived_from": "bf16",
+      "note": "produced on this pod from the bf16 GGUF (Olala-v1.0-mini-7A1B-bf16.gguf) with llama-quantize to Q4_K_M, importance matrix from wikitext-2 raw train (200 chunks), --tensor-type ffn_latent_up=bf16 --tensor-type ffn_up_exps=q8_0 (OVH's recipe; amendment 24); not an OVH file"
+    }
+  }
+}

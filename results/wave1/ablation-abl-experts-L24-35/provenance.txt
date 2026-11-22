@@ -1,0 +1,9 @@
+run=abl-experts-L24-35 spec=experts:layers=24-35 recipe=nvfp4 started=2026-11-20T23:35:06Z
+NVIDIA RTX PRO 4500 Blackwell, 595.112.07
+verify: OK: 945 tensors checked, no violation. {"n_quantized": 24, "n_ignored": 235, "n_kept": 686, "worst_rel_fro": [{"tensor": "model.layers.29.mlp.experts.experts.weight", "rel_fro": 0.09516971869186724}, {"tensor": "model.layers.28.mlp.experts.experts.weight", "rel_fro": 0.09516387270652603}, {"tensor":
+cd8dbc0c019afb63b86aaadeca3e17af3b1006f1187faf306464f5e99e013ac1  model.safetensors.index.json
+a25f57fbe4b32e60231585e261201de57fc44276734172a8683cd208755ae036  config.json
+4e7c6c196393b5999ef0bd0d78899c4830db11348eff54fa18a2ee076a6de85a  quantization_info.json
+(EngineCore pid=11794) INFO 11-20 23:36:41 [unquantized.py:365] Using FlashInfer CUTLASS Unquantized MoE backend out of potential backends: ['FlashInfer TRTLLM', 'FlashInfer CUTLASS', 'TRITON', 'BATCHED_TRITON'].
+(EngineCore pid=11794) INFO 11-20 23:36:41 [nvfp4.py:314] Using 'MARLIN' NvFp4 MoE backend out of potential backends: ['FLASHINFER_TRTLLM', 'FLASHINFER_CUTEDSL', 'FLASHINFER_CUTEDSL_BATCHED', 'FLASHINFER_CUTLASS', 'VLLM_CUTLASS', 'MARLIN', 'HUMMING', 'EMULATION'].
+(EngineCore pid=11794) INFO 11-20 23:36:45 [unquantized.py:530] Using FlashInferExperts MoE backend

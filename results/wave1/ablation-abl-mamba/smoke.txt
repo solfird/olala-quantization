@@ -1,0 +1,5 @@
+smoke ckpt-abl-abl-mamba: PASS
+health after 104.6 s
+log: /workspace/logs/ckpt-abl-abl-mamba/server-20261120T234712Z.log
+answer: '17 multiplié par 23 égale 17×20 + 17×3 = 340 + 51 = 391. Le résultat est 391.'; reasoning: 1332 chars
+written: /workspace/logs/ckpt-abl-abl-mamba/smoke.json

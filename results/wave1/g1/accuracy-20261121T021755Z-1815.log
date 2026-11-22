@@ -1,0 +1,20 @@
+== run_accuracy 2026-11-21T03:08:05Z: G1-v2 against http://127.0.0.1:8000 (arm ckpt), out /workspace/results/raw/G1-v2
+command: cd /workspace/bundle/evals && uv run --frozen --python 3.12 python run_tasks.py --tasks mgsm humaneval_plus mbpp_plus ifeval aime2025 --base-url http://127.0.0.1:8000/v1 --model olala --out /workspace/results/raw/G1-v2 --seed 0 --sandbox local --reasoning-effort medium --max-connections 96 --n-items mgsm=550
+Bytecode compiled 9692 files in 419ms
+Loading dataset evalplus/humanevalplus from Hugging Face...
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Saving the dataset (0/1 shards):   0%|          | 0/164 [00:00<?, ? examples/s]Saving the dataset (1/1 shards): 100%|██████████| 164/164 [00:00<00:00, 20451.50 examples/s]Saving the dataset (1/1 shards): 100%|██████████| 164/164 [00:00<00:00, 19969.98 examples/s]
+Loading dataset evalplus/mbppplus from Hugging Face...
+Saving the dataset (0/1 shards):   0%|          | 0/378 [00:00<?, ? examples/s]Saving the dataset (1/1 shards): 100%|██████████| 378/378 [00:00<00:00, 59317.83 examples/s]Saving the dataset (1/1 shards): 100%|██████████| 378/378 [00:00<00:00, 57598.16 examples/s]
+Loading dataset google/IFEval from Hugging Face...
+Saving the dataset (0/1 shards):   0%|          | 0/541 [00:00<?, ? examples/s]Saving the dataset (1/1 shards): 100%|██████████| 541/541 [00:00<00:00, 123995.54 examples/s]Saving the dataset (1/1 shards): 100%|██████████| 541/541 [00:00<00:00, 120071.88 examples/s]
+/workspace/venv-evals/lib/python3.12/site-packages/numpy/_core/fromnumeric.py:3862: RuntimeWarning: Mean of empty slice
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/workspace/venv-evals/lib/python3.12/site-packages/numpy/_core/_methods.py:142: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+Loading dataset math-ai/aime25 from Hugging Face...
+Ignoring part of dataset_info from the dataset card: The `splits` field in YAML is malformed or missing the name/num_examples/num_bytes fields
+Saving the dataset (0/1 shards):   0%|          | 0/30 [00:00<?, ? examples/s]Saving the dataset (1/1 shards): 100%|██████████| 30/30 [00:00<00:00, 5439.85 examples/s]Saving the dataset (1/1 shards): 100%|██████████| 30/30 [00:00<00:00, 5229.81 examples/s]
+run_tasks exit 0; run_info status=complete n_samples=1783 request_errors=0 truncations=46
+RUN_ACCURACY_DONE
+G1_STEP_ACCURACY_DONE

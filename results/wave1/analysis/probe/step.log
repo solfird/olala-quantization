@@ -1,0 +1,353 @@
+mamba3: no TileLang chunk kernel (OLALA_TORCH_MAMBA3=1) -> pure-PyTorch fallback (slow)
+mamba3: no CuteDSL decode kernel (OLALA_TORCH_MAMBA3=1) -> PyTorch decode step
+moe: no scattermoe (OLALA_TORCH_MOE=1) -> pure-PyTorch experts (slow)
+Using attention implementation: flex
+The repository /workspace/models/olala-bf16 contains custom code which must be executed to correctly load the model. You can inspect the repository content at /workspace/models/olala-bf16 .
+ You can inspect the repository content at https://hf.co//workspace/models/olala-bf16.
+You can avoid this prompt in future by passing the argument `trust_remote_code=True`.
+
+Do you wish to run the custom code? [y/N] [transformers] You are using a model of type `olala` to instantiate a model of type ``. This may be expected if you are loading a checkpoint that shares a subset of the architecture (e.g., loading a `sam2_video` checkpoint into `Sam2Model`), but is otherwise not supported and can yield errors. Please verify that the checkpoint is compatible with the model you are instantiating.
+80 prompts, 32645 tokens, device cuda
+probe 1/80 mgsm:de_2a65fc42: 460 tokens, 9.1s
+probe 2/80 mgsm:en_3a0faa42: 367 tokens, 5.5s
+probe 3/80 mgsm:es_c81275fe: 437 tokens, 3.7s
+probe 4/80 mgsm:es_0a347fbc: 416 tokens, 3.4s
+probe 5/80 mgsm:fr_fbbb3e6a: 423 tokens, 3.4s
+probe 6/80 mgsm:ja_fc0700e5: 431 tokens, 3.4s
+probe 7/80 mgsm:ru_565cc9a7: 568 tokens, 3.8s
+probe 8/80 mgsm:sw_62b0c544: 445 tokens, 3.4s
+probe 9/80 mgsm:te_bf526c8a: 1161 tokens, 5.6s
+probe 10/80 mgsm:th_033211a3: 465 tokens, 3.2s
+probe 11/80 mgsm:zh_49bb38ae: 384 tokens, 3.1s
+probe 12/80 mgsm:zh_115d95f9: 442 tokens, 3.2s
+probe 13/80 mgsm:zh_0b95f8d0: 375 tokens, 3.1s
+probe 14/80 humaneval_plus:HumanEval/6: 419 tokens, 3.2s
+probe 15/80 humaneval_plus:HumanEval/23: 350 tokens, 3.4s
+probe 16/80 humaneval_plus:HumanEval/30: 425 tokens, 3.2s
+probe 17/80 humaneval_plus:HumanEval/53: 361 tokens, 3.0s
+probe 18/80 humaneval_plus:HumanEval/55: 362 tokens, 3.2s
+probe 19/80 humaneval_plus:HumanEval/58: 430 tokens, 3.4s
+probe 20/80 humaneval_plus:HumanEval/89: 417 tokens, 3.4s
+probe 21/80 humaneval_plus:HumanEval/100: 439 tokens, 3.9s
+probe 22/80 humaneval_plus:HumanEval/111: 458 tokens, 3.6s
+probe 23/80 humaneval_plus:HumanEval/125: 448 tokens, 3.5s
+probe 24/80 humaneval_plus:HumanEval/137: 448 tokens, 3.5s
+probe 25/80 humaneval_plus:HumanEval/157: 416 tokens, 3.4s
+probe 26/80 humaneval_plus:HumanEval/160: 514 tokens, 3.7s
+probe 27/80 mbpp_plus:77: 363 tokens, 3.6s
+probe 28/80 mbpp_plus:84: 359 tokens, 3.3s
+probe 29/80 mbpp_plus:135: 358 tokens, 3.2s
+probe 30/80 mbpp_plus:230: 373 tokens, 3.2s
+probe 31/80 mbpp_plus:242: 358 tokens, 3.2s
+probe 32/80 mbpp_plus:245: 415 tokens, 3.4s
+probe 33/80 mbpp_plus:419: 425 tokens, 3.7s
+probe 34/80 mbpp_plus:432: 367 tokens, 3.3s
+probe 35/80 mbpp_plus:456: 392 tokens, 3.3s
+probe 36/80 mbpp_plus:607: 391 tokens, 3.2s
+probe 37/80 mbpp_plus:618: 374 tokens, 3.0s
+probe 38/80 mbpp_plus:619: 390 tokens, 3.2s
+probe 39/80 mbpp_plus:735: 383 tokens, 3.5s
+probe 40/80 ifeval:1476: 348 tokens, 3.1s
+probe 41/80 ifeval:1518: 351 tokens, 3.0s
+probe 42/80 ifeval:1670: 353 tokens, 3.2s
+probe 43/80 ifeval:1800: 327 tokens, 3.1s
+probe 44/80 ifeval:1845: 358 tokens, 3.2s
+probe 45/80 ifeval:1858: 331 tokens, 3.4s
+probe 46/80 ifeval:2078: 326 tokens, 3.1s
+probe 47/80 ifeval:2250: 331 tokens, 3.1s
+probe 48/80 ifeval:2531: 316 tokens, 3.0s
+probe 49/80 ifeval:2605: 335 tokens, 3.2s
+probe 50/80 ifeval:2780: 318 tokens, 3.0s
+probe 51/80 ifeval:3323: 326 tokens, 3.4s
+probe 52/80 ifeval:3534: 341 tokens, 3.0s
+probe 53/80 aime2025:0: 323 tokens, 2.8s
+probe 54/80 aime2025:1: 452 tokens, 3.2s
+probe 55/80 aime2025:7: 414 tokens, 3.1s
+probe 56/80 aime2025:9: 803 tokens, 4.1s
+probe 57/80 aime2025:10: 1125 tokens, 5.2s
+probe 58/80 aime2025:11: 404 tokens, 3.1s
+probe 59/80 aime2025:14: 370 tokens, 2.9s
+probe 60/80 aime2025:16: 331 tokens, 2.8s
+probe 61/80 aime2025:17: 519 tokens, 3.4s
+probe 62/80 aime2025:23: 375 tokens, 3.0s
+probe 63/80 aime2025:26: 479 tokens, 3.6s
+probe 64/80 aime2025:28: 385 tokens, 3.0s
+probe 65/80 plain:en-tides: 132 tokens, 2.1s
+Traceback (most recent call last):
+  File "/workspace/bundle/analysis/activation_probe.py", line 400, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/bundle/analysis/activation_probe.py", line 379, in main
+    result = run_probe(
+             ^^^^^^^^^^
+  File "/workspace/bundle/analysis/activation_probe.py", line 242, in run_probe
+    model.model(input_ids=torch.as_tensor(p.tokens, device=device).unsqueeze(0))
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/bundle-20261120T230906Z/quant/gptq/vendor/modeling_olala.py", line 2144, in forward
+    hidden_states = block(
+                    ^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/transformers/modeling_layers.py", line 111, in __call__
+    return super().__call__(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1889, in _call_impl
+    return inner()
+           ^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1837, in inner
+    result = forward_call(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/bundle-20261120T230906Z/quant/gptq/vendor/modeling_olala.py", line 1772, in forward
+    y_mixer, _, _ = self.mixer(
+                    ^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/bundle-20261120T230906Z/quant/gptq/vendor/modeling_olala.py", line 720, in forward
+    attn_output = attention_interface(
+                  ^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/bundle-20261120T230906Z/quant/gptq/vendor/modeling_olala.py", line 694, in attention_interface
+    return flex_attention(q.transpose(1, 2), k.transpose(1, 2), v.transpose(1, 2), block_mask=block_mask,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/torch/_dynamo/eval_frame.py", line 1278, in compile_wrapper
+    raise e.remove_dynamo_frames() from None  # see TORCHDYNAMO_VERBOSE=1
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/torch/_inductor/compile_fx.py", line 1192, in _compile_fx_inner
+    raise InductorError(e, currentframe()).with_traceback(
+  File "/usr/local/lib/python3.12/dist-packages/torch/_inductor/compile_fx.py", line 1169, in _compile_fx_inner
+    mb_compiled_graph = fx_codegen_and_compile(
+                        ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/torch/_inductor/compile_fx.py", line 2001, in fx_codegen_and_compile
+    return scheme.codegen_and_compile(gm, example_inputs, inputs_to_check, graph_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/torch/_inductor/compile_fx.py", line 1660, in codegen_and_compile
+    graph.run(*example_inputs)
+  File "/usr/local/lib/python3.12/dist-packages/torch/_inductor/graph.py", line 1135, in run
+    return super().run(*args)
+           ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/torch/fx/interpreter.py", line 197, in run
+    self.env[node] = self.run_node(node)
+                     ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/torch/_inductor/graph.py", line 2062, in run_node
+    result = super().run_node(n)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/torch/fx/interpreter.py", line 294, in run_node
+    return getattr(self, n.op)(n.target, args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/torch/_inductor/graph.py", line 1567, in call_function
+    raise LoweringException(
+  File "/usr/local/lib/python3.12/dist-packages/torch/_inductor/graph.py", line 1544, in call_function
+    out = lowerings[target](*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/torch/_inductor/lowering.py", line 525, in wrapped
+    out = decomp_fn(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/torch/_inductor/kernel/flex/flex_attention.py", line 293, in flex_attention
+    return create_flex_decoding_kernel(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/torch/_inductor/kernel/flex/flex_decoding.py", line 387, in create_flex_decoding_kernel
+    raise_flex_decoding_kernel_options_error(
+  File "/usr/local/lib/python3.12/dist-packages/torch/_inductor/kernel/flex/flex_decoding.py", line 52, in raise_flex_decoding_kernel_options_error
+    raise ValueError(
+torch._inductor.exc.InductorError: LoweringException: ValueError: Invalid FlexAttention decode kernel options: Q and KV block sizes must be divisible by the selected tile sizes. Got SPARSE_Q_BLOCK_SIZE=128, SPARSE_KV_BLOCK_SIZE=128, and BLOCK_M=512, BLOCK_N=64. Pass compatible values with kernel_options. Available decode tuning options are BLOCK_M, BLOCK_N, num_warps, and num_stages; use the fwd_ prefix to set decode-only options. For example: kernel_options={'fwd_BLOCK_M': 32, 'fwd_BLOCK_N': 64, 'fwd_num_stages': 1, 'fwd_num_warps': 4}. If you did not pin these options, compiling with mode='max-autotune-no-cudagraphs' can also fix this by trying more FlexAttention configs.
+  target: flex_attention
+  args[0]: TensorBox(StorageBox(
+    InputBuffer(name='arg1_1', layout=FixedLayout('cuda:0', torch.bfloat16, size=[1, 48, s37, 128], stride=[6144*s37, 128, 6144, 1]))
+  ))
+  args[1]: TensorBox(StorageBox(
+    InputBuffer(name='arg3_1', layout=FixedLayout('cuda:0', torch.bfloat16, size=[1, 12, s0, 128], stride=[1536*s0, 128, 1536, 1]))
+  ))
+  args[2]: TensorBox(StorageBox(
+    InputBuffer(name='arg5_1', layout=FixedLayout('cuda:0', torch.bfloat16, size=[1, 12, s43, 128], stride=[1536*s43, 128, 1536, 1]))
+  ))
+  args[3]: Subgraph(name='sdpa_score0', graph_module=<lambda>(), inductor_config_patches=None, graph=None)
+  args[4]: (s37, s71, TensorBox(StorageBox(
+    InputBuffer(name='arg9_1', layout=FixedLayout('cuda:0', torch.int32, size=[1, 1, 1], stride=[1, 1, 1]))
+  )), TensorBox(StorageBox(
+    InputBuffer(name='arg6_1', layout=FixedLayout('cuda:0', torch.int32, size=[1, 1, 1, 1], stride=[1, 1, 1, 1]))
+  )), TensorBox(StorageBox(
+    InputBuffer(name='arg10_1', layout=FixedLayout('cuda:0', torch.int32, size=[1, 1, 1], stride=[1, 1, 1]))
+  )), TensorBox(StorageBox(
+    InputBuffer(name='arg11_1', layout=FixedLayout('cuda:0', torch.int32, size=[1, 1, 1, 1], stride=[1, 1, 1, 1]))
+  )), TensorBox(StorageBox(
+    InputBuffer(name='arg12_1', layout=FixedLayout('cuda:0', torch.int32, size=[1, 1, 1], stride=[1, 1, 1]))
+  )), TensorBox(StorageBox(
+    InputBuffer(name='arg13_1', layout=FixedLayout('cuda:0', torch.int32, size=[1, 1, 1, 1], stride=[1, 1, 1, 1]))
+  )), TensorBox(StorageBox(
+    InputBuffer(name='arg14_1', layout=FixedLayout('cuda:0', torch.int32, size=[1, 1, 1], stride=[1, 1, 1]))
+  )), TensorBox(StorageBox(
+    InputBuffer(name='arg15_1', layout=FixedLayout('cuda:0', torch.int32, size=[1, 1, 1, 1], stride=[1, 1, 1, 1]))
+  )), None, None, None, None, 128, 128, Subgraph(name='sdpa_mask0', graph_module=<lambda>(), inductor_config_patches=None, graph=None))
+  args[5]: 0.0078125
+  args[6]: {'BACKEND': 'AUTO', 'PRESCALE_QK': False, 'ROWS_GUARANTEED_SAFE': False, 'BLOCKS_ARE_CONTIGUOUS': False, 'WRITE_DQ': True, 'OUTPUT_LOGSUMEXP': False, 'OUTPUT_MAX': False}
+  args[7]: ()
+  args[8]: ()ValueError: Invalid FlexAttention decode kernel options: Q and KV block sizes must be divisible by the selected tile sizes. Got SPARSE_Q_BLOCK_SIZE=128, SPARSE_KV_BLOCK_SIZE=128, and BLOCK_M=512, BLOCK_N=64. Pass compatible values with kernel_options. Available decode tuning options are BLOCK_M, BLOCK_N, num_warps, and num_stages; use the fwd_ prefix to set decode-only options. For example: kernel_options={'fwd_BLOCK_M': 32, 'fwd_BLOCK_N': 64, 'fwd_num_stages': 1, 'fwd_num_warps': 4}. If you did not pin these options, compiling with mode='max-autotune-no-cudagraphs' can also fix this by trying more FlexAttention configs.
+  target: flex_attention
+  args[0]: TensorBox(StorageBox(
+    InputBuffer(name='arg1_1', layout=FixedLayout('cuda:0', torch.bfloat16, size=[1, 48, s37, 128], stride=[6144*s37, 128, 6144, 1]))
+  ))
+  args[1]: TensorBox(StorageBox(
+    InputBuffer(name='arg3_1', layout=FixedLayout('cuda:0', torch.bfloat16, size=[1, 12, s0, 128], stride=[1536*s0, 128, 1536, 1]))
+  ))
+  args[2]: TensorBox(StorageBox(
+    InputBuffer(name='arg5_1', layout=FixedLayout('cuda:0', torch.bfloat16, size=[1, 12, s43, 128], stride=[1536*s43, 128, 1536, 1]))
+  ))
+  args[3]: Subgraph(name='sdpa_score0', graph_module=<lambda>(), inductor_config_patches=None, graph=None)
+  args[4]: (s37, s71, TensorBox(StorageBox(
+    InputBuffer(name='arg9_1', layout=FixedLayout('cuda:0', torch.int32, size=[1, 1, 1], stride=[1, 1, 1]))
+  )), TensorBox(StorageBox(
+    InputBuffer(name='arg6_1', layout=FixedLayout('cuda:0', torch.int32, size=[1, 1, 1, 1], stride=[1, 1, 1, 1]))
+  )), TensorBox(StorageBox(
+    InputBuffer(name='arg10_1', layout=FixedLayout('cuda:0', torch.int32, size=[1, 1, 1], stride=[1, 1, 1]))
+  )), TensorBox(StorageBox(
+    InputBuffer(name='arg11_1', layout=FixedLayout('cuda:0', torch.int32, size=[1, 1, 1, 1], stride=[1, 1, 1, 1]))
+  )), TensorBox(StorageBox(
+    InputBuffer(name='arg12_1', layout=FixedLayout('cuda:0', torch.int32, size=[1, 1, 1], stride=[1, 1, 1]))
+  )), TensorBox(StorageBox(
+    InputBuffer(name='arg13_1', layout=FixedLayout('cuda:0', torch.int32, size=[1, 1, 1, 1], stride=[1, 1, 1, 1]))
+  )), TensorBox(StorageBox(
+    InputBuffer(name='arg14_1', layout=FixedLayout('cuda:0', torch.int32, size=[1, 1, 1], stride=[1, 1, 1]))
+  )), TensorBox(StorageBox(
+    InputBuffer(name='arg15_1', layout=FixedLayout('cuda:0', torch.int32, size=[1, 1, 1, 1], stride=[1, 1, 1, 1]))
+  )), None, None, None, None, 128, 128, Subgraph(name='sdpa_mask0', graph_module=<lambda>(), inductor_config_patches=None, graph=None))
+  args[5]: 0.0078125
+  args[6]: {'BACKEND': 'AUTO', 'PRESCALE_QK': False, 'ROWS_GUARANTEED_SAFE': False, 'BLOCKS_ARE_CONTIGUOUS': False, 'WRITE_DQ': True, 'OUTPUT_LOGSUMEXP': False, 'OUTPUT_MAX': False}
+  args[7]: ()
+  args[8]: ()
+Found from : 
+   File "/usr/local/lib/python3.12/dist-packages/torch/nn/attention/flex_attention.py", line 2577, in flex_attention
+    out, lse, max_scores = flex_attention_hop(
+                           ^^^^^^^^^^^^^^^^^^^
+
+
+Set TORCHDYNAMO_VERBOSE=1 for the internal stack trace (please do this especially if you're reporting a bug to PyTorch). For even more developer context, set TORCH_LOGS="+dynamo"
+
+attempt 1 (attention flex, --max-tokens 4096) failed with exit 1: retrying once with eager attention and 2048 tokens
+mamba3: no TileLang chunk kernel (OLALA_TORCH_MAMBA3=1) -> pure-PyTorch fallback (slow)
+mamba3: no CuteDSL decode kernel (OLALA_TORCH_MAMBA3=1) -> PyTorch decode step
+moe: no scattermoe (OLALA_TORCH_MOE=1) -> pure-PyTorch experts (slow)
+Using attention implementation: eager
+The repository /workspace/models/olala-bf16 contains custom code which must be executed to correctly load the model. You can inspect the repository content at /workspace/models/olala-bf16 .
+ You can inspect the repository content at https://hf.co//workspace/models/olala-bf16.
+You can avoid this prompt in future by passing the argument `trust_remote_code=True`.
+
+Do you wish to run the custom code? [y/N] [transformers] You are using a model of type `olala` to instantiate a model of type ``. This may be expected if you are loading a checkpoint that shares a subset of the architecture (e.g., loading a `sam2_video` checkpoint into `Sam2Model`), but is otherwise not supported and can yield errors. Please verify that the checkpoint is compatible with the model you are instantiating.
+80 prompts, 32645 tokens, device cuda
+probe 1/80 mgsm:de_2a65fc42: 460 tokens, 4.3s
+probe 2/80 mgsm:en_3a0faa42: 367 tokens, 3.1s
+probe 3/80 mgsm:es_c81275fe: 437 tokens, 3.1s
+probe 4/80 mgsm:es_0a347fbc: 416 tokens, 3.3s
+probe 5/80 mgsm:fr_fbbb3e6a: 423 tokens, 3.5s
+probe 6/80 mgsm:ja_fc0700e5: 431 tokens, 3.7s
+probe 7/80 mgsm:ru_565cc9a7: 568 tokens, 3.9s
+probe 8/80 mgsm:sw_62b0c544: 445 tokens, 3.5s
+probe 9/80 mgsm:te_bf526c8a: 1161 tokens, 5.5s
+probe 10/80 mgsm:th_033211a3: 465 tokens, 3.8s
+probe 11/80 mgsm:zh_49bb38ae: 384 tokens, 3.3s
+probe 12/80 mgsm:zh_115d95f9: 442 tokens, 3.6s
+probe 13/80 mgsm:zh_0b95f8d0: 375 tokens, 3.5s
+probe 14/80 humaneval_plus:HumanEval/6: 419 tokens, 3.5s
+probe 15/80 humaneval_plus:HumanEval/23: 350 tokens, 3.2s
+probe 16/80 humaneval_plus:HumanEval/30: 425 tokens, 3.4s
+probe 17/80 humaneval_plus:HumanEval/53: 361 tokens, 3.4s
+probe 18/80 humaneval_plus:HumanEval/55: 362 tokens, 3.2s
+probe 19/80 humaneval_plus:HumanEval/58: 430 tokens, 3.4s
+probe 20/80 humaneval_plus:HumanEval/89: 417 tokens, 3.4s
+probe 21/80 humaneval_plus:HumanEval/100: 439 tokens, 3.6s
+probe 22/80 humaneval_plus:HumanEval/111: 458 tokens, 3.4s
+probe 23/80 humaneval_plus:HumanEval/125: 448 tokens, 3.4s
+probe 24/80 humaneval_plus:HumanEval/137: 448 tokens, 3.7s
+probe 25/80 humaneval_plus:HumanEval/157: 416 tokens, 3.5s
+probe 26/80 humaneval_plus:HumanEval/160: 514 tokens, 3.6s
+probe 27/80 mbpp_plus:77: 363 tokens, 3.1s
+probe 28/80 mbpp_plus:84: 359 tokens, 3.4s
+probe 29/80 mbpp_plus:135: 358 tokens, 3.3s
+probe 30/80 mbpp_plus:230: 373 tokens, 3.3s
+probe 31/80 mbpp_plus:242: 358 tokens, 3.1s
+probe 32/80 mbpp_plus:245: 415 tokens, 3.5s
+probe 33/80 mbpp_plus:419: 425 tokens, 3.4s
+probe 34/80 mbpp_plus:432: 367 tokens, 3.2s
+probe 35/80 mbpp_plus:456: 392 tokens, 3.2s
+probe 36/80 mbpp_plus:607: 391 tokens, 3.4s
+probe 37/80 mbpp_plus:618: 374 tokens, 2.9s
+probe 38/80 mbpp_plus:619: 390 tokens, 3.0s
+probe 39/80 mbpp_plus:735: 383 tokens, 3.2s
+probe 40/80 ifeval:1476: 348 tokens, 2.9s
+probe 41/80 ifeval:1518: 351 tokens, 2.9s
+probe 42/80 ifeval:1670: 353 tokens, 2.9s
+probe 43/80 ifeval:1800: 327 tokens, 2.9s
+probe 44/80 ifeval:1845: 358 tokens, 2.9s
+probe 45/80 ifeval:1858: 331 tokens, 2.8s
+probe 46/80 ifeval:2078: 326 tokens, 2.8s
+probe 47/80 ifeval:2250: 331 tokens, 3.0s
+probe 48/80 ifeval:2531: 316 tokens, 2.7s
+probe 49/80 ifeval:2605: 335 tokens, 2.9s
+probe 50/80 ifeval:2780: 318 tokens, 2.8s
+probe 51/80 ifeval:3323: 326 tokens, 3.0s
+probe 52/80 ifeval:3534: 341 tokens, 2.8s
+probe 53/80 aime2025:0: 323 tokens, 2.8s
+probe 54/80 aime2025:1: 452 tokens, 3.3s
+probe 55/80 aime2025:7: 414 tokens, 3.1s
+probe 56/80 aime2025:9: 803 tokens, 4.4s
+probe 57/80 aime2025:10: 1125 tokens, 5.1s
+probe 58/80 aime2025:11: 404 tokens, 3.2s
+probe 59/80 aime2025:14: 370 tokens, 2.9s
+probe 60/80 aime2025:16: 331 tokens, 2.8s
+probe 61/80 aime2025:17: 519 tokens, 3.4s
+probe 62/80 aime2025:23: 375 tokens, 3.2s
+probe 63/80 aime2025:26: 479 tokens, 3.2s
+probe 64/80 aime2025:28: 385 tokens, 3.0s
+probe 65/80 plain:en-tides: 132 tokens, 2.1s
+probe 66/80 plain:en-bread: 126 tokens, 2.2s
+probe 67/80 plain:en-marta: 119 tokens, 2.0s
+probe 68/80 plain:en-interest: 132 tokens, 2.1s
+probe 69/80 plain:fr-loire: 162 tokens, 2.1s
+probe 70/80 plain:fr-fromage: 162 tokens, 2.4s
+probe 71/80 plain:fr-marche: 161 tokens, 2.1s
+probe 72/80 plain:code-fibonacci: 110 tokens, 2.0s
+probe 73/80 plain:code-bsearch: 162 tokens, 2.2s
+probe 74/80 plain:code-stack: 107 tokens, 1.9s
+probe 75/80 plain:en-long-1: 375 tokens, 3.3s
+probe 76/80 plain:en-long-2: 501 tokens, 3.6s
+probe 77/80 plain:fr-long-1: 630 tokens, 3.8s
+probe 78/80 plain:code-long-1: 487 tokens, 3.5s
+probe 79/80 plain:mixed-1: 388 tokens, 3.5s
+probe 80/80 plain:mixed-long: 1741 tokens, 7.1s
+ablation L1.mixer_out:noop: KL 0.0
+ablation L1.mixer_out:zero: KL 0.08756338781183928
+ablation L1.mixer_out:clamp448: KL 0.13917450084543062
+ablation L1.head23:zero: KL 0.19244176067849464
+ablation L7.mixer_out:zero: KL 0.1840940685990222
+ablation L7.mixer_out:clamp448: KL 0.09634607048896529
+ablation L7.head26:zero: KL 0.17224293912054867
+ablation L23.mixer_out:zero: KL 0.1492622359791912
+ablation L23.mixer_out:clamp448: KL 0.17837217072118347
+ablation L23.head40:zero: KL 0.21844925893858758
+ablation L0.routed_out:zero: KL 0.2952068267286735
+ablation L0.routed_out:clamp448: KL 0.4282536993847676
+ablation L0.moe_out:zero: KL 0.23884898342629737
+ablation L0.moe_out:clamp448: KL 0.4282536993847676
+ablation L1.routed_out:zero: KL 0.1166848618228495
+ablation L1.routed_out:clamp448: KL 0.16230554165422006
+ablation L1.moe_out:zero: KL 0.25220313747372247
+ablation L1.moe_out:clamp448: KL 0.16230554165422006
+ablation L2.mixer_out:zero: KL 0.4564878247512445
+ablation L2.mixer_out:clamp448: KL 0.3043167543462404
+ablation L2.head10:zero: KL 0.09099943192411473
+ablation L19.routed_out:zero: KL 0.7995304203634449
+ablation L19.routed_out:clamp448: KL 0.041144078280242274
+ablation L19.moe_out:zero: KL 1.2753332032694449
+ablation L19.moe_out:clamp448: KL 0.04118855061600438
+ablation L5.mixer_out:zero: KL 0.42901762013270406
+ablation L4.routed_out:zero: KL 0.8851956763002821
+ablation L4.moe_out:zero: KL 1.0542364209994262
+wrote /workspace/results/analysis/probe/activation_probe.json and /workspace/results/analysis/probe/activation_probe.md

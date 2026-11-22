@@ -1,0 +1,65 @@
+{
+  "name": "N5",
+  "role": "control",
+  "spec": "experts",
+  "spec_canonical": "experts",
+  "scale_search": false,
+  "status": "done",
+  "reason": "",
+  "expected": {
+    "spec": "experts",
+    "quantized_tensors": 64,
+    "ignored_tensors": 195,
+    "quantized_layers": 32,
+    "quantized_layers_by_type": {
+      "mlp.experts": 32
+    },
+    "ignored_layers": 191,
+    "total_quantizable_layers": 223,
+    "ignore_entries": 196
+  },
+  "verify": "OK",
+  "check": "ABLATION_CHECK_OK",
+  "file_bytes": 6633991976,
+  "dir_bytes": 6645856945,
+  "fidelity": {
+    "kld_mean": {
+      "value": 0.02443338666152718,
+      "lo": 0.02274697068724788,
+      "hi": 0.02626022752716062
+    },
+    "kld_median": {
+      "value": 0.00959022090109713,
+      "lo": 0.009273522001123174,
+      "hi": 0.009941564739211688
+    },
+    "kld_p99": {
+      "value": 0.25695335082078746,
+      "lo": 0.2275351780519384,
+      "hi": 0.2984355964844505
+    },
+    "ppl_ratio": {
+      "value": 1.019853667188084,
+      "lo": 1.0161507041086415,
+      "hi": 1.023350861487845
+    },
+    "top1_agreement": {
+      "value": 0.9132522015655578,
+      "lo": 0.9102854390900196,
+      "hi": 0.9161264677103719
+    },
+    "ppl_ref": {
+      "value": 14.657646664586093,
+      "lo": 13.3572189044072,
+      "hi": 15.844859136859467
+    },
+    "ppl_var": {
+      "value": 14.948654703225312,
+      "lo": 13.631252256732576,
+      "hi": 16.148112191391363
+    },
+    "n_chunks": 64,
+    "n_positions": 32704,
+    "k": 20
+  }
+}

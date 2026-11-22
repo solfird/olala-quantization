@@ -1,0 +1,10 @@
+bench bf16-pod2: output tok/s (median of repeats; min-max), TTFT ms, TPOT ms, requests ok/failed
+long  c=1       229.9 (229-230)  ttft      130  tpot    0.4  n=2 ok=8 failed=0
+long  c=16     1317.9 (1309-1327)  ttft      642  tpot    0.9  n=2 ok=64 failed=0
+long  c=32     1725.7 (1720-1731)  ttft      494  tpot    1.5  n=2 ok=128 failed=0
+short c=1       233.4 (233-234)  ttft       57  tpot    4.2  n=2 ok=16 failed=0
+short c=4       534.1 (423-646)  ttft      712  tpot    5.8  n=2 ok=16 failed=0
+short c=16     1350.7 (1240-1462)  ttft      322  tpot   10.0  n=2 ok=96 failed=0
+short c=32     1809.5 (1643-1976)  ttft      336  tpot   15.5  n=2 ok=192 failed=0
+short c=64     2469.7 (2397-2542)  ttft      340  tpot   23.5  n=2 ok=384 failed=0
+short c=128    3120.3 (3119-3122)  ttft      392  tpot   36.5  n=2 ok=768 failed=0

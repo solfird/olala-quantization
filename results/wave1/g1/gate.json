@@ -1,0 +1,17 @@
+{
+  "pass": false,
+  "kl": 0.028996430051883324,
+  "ppl_ratio": 1.0323966697655842,
+  "kl_ok": false,
+  "ppl_ratio_ok": false,
+  "thresholds": {
+    "kl_max": 0.0194,
+    "ppl_ratio_max": 1.0197,
+    "source": "PROTOCOL.md amendment 22 (stage 1 gate of arm G1, fixed from the measured values of N5)"
+  },
+  "n5_reference": {
+    "kl": 0.0243,
+    "ppl_ratio": 1.0197,
+    "from": "results/wave1/ablation-abl-experts"
+  }
+}

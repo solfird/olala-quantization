@@ -1,0 +1,33 @@
+{
+ "files": 39,
+ "policy": "see the docstring of analysis/make_item_records.py: target kept for MGSM and AIME only; completion dropped for HumanEval+, MBPP+ and IFEval; for MGSM and AIME cut to 1,000 characters and withheld on a 30-character overlap with the prompt",
+ "window_chars": 30,
+ "cut_chars": 1000,
+ "prompt_items_known": 1663,
+ "per_task": {
+  "aime2025": {
+   "rows": 4800,
+   "completion_kept": 4240,
+   "completion_cut": 771,
+   "completion_withheld": 560
+  },
+  "humaneval_plus": {
+   "rows": 4428,
+   "completion_dropped": 4428
+  },
+  "ifeval": {
+   "rows": 13525,
+   "completion_dropped": 13525
+  },
+  "mbpp_plus": {
+   "rows": 9450,
+   "completion_dropped": 9450
+  },
+  "mgsm": {
+   "rows": 14850,
+   "completion_kept": 12290,
+   "completion_cut": 217,
+   "completion_withheld": 2560
+  }
+ }
+}

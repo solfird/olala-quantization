@@ -1,0 +1,171 @@
+{
+  "status": "complete",
+  "endpoint": "http://127.0.0.1:8000/v1",
+  "model": "olala",
+  "inspect_model": "openai-api/vllm/olala",
+  "git": {
+    "commit": null,
+    "dirty": null,
+    "note": "not a git repository"
+  },
+  "code_sha256": "0587d7332d5cab245c16584ac1613cfe179d3b6f7affab662558c5382bf5e941",
+  "versions": {
+    "python": "3.12.3",
+    "inspect_ai": "0.3.291",
+    "inspect_evals": "0.29.0",
+    "openai": "3.57.0",
+    "httpx": "0.28.1",
+    "datasets": "5.2.0",
+    "numpy": "2.5.5",
+    "instruction_following_eval": "0.1.0"
+  },
+  "sampling": {
+    "temperature": 0.8,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": null,
+    "seed": null,
+    "max_retries": 5,
+    "timeout": 3600
+  },
+  "reasoning_effort": "medium",
+  "chat_template_kwargs": {
+    "reasoning_effort": "medium"
+  },
+  "max_connections": 96,
+  "seed": 0,
+  "n_items_requested": {
+    "default": null,
+    "per_task": {
+      "mgsm": 550
+    }
+  },
+  "sandbox": {
+    "mode": "local",
+    "tasks": [
+      "humaneval_plus",
+      "mbpp_plus"
+    ]
+  },
+  "epochs_requested": {
+    "default": null,
+    "per_task": {}
+  },
+  "items_from": null,
+  "argv": [
+    "--tasks",
+    "mgsm",
+    "humaneval_plus",
+    "mbpp_plus",
+    "ifeval",
+    "aime2025",
+    "--base-url",
+    "http://127.0.0.1:8000/v1",
+    "--model",
+    "olala",
+    "--out",
+    "/workspace/results/raw/N2",
+    "--seed",
+    "0",
+    "--sandbox",
+    "local",
+    "--reasoning-effort",
+    "medium",
+    "--max-connections",
+    "96",
+    "--n-items",
+    "mgsm=550"
+  ],
+  "started_utc": "2026-11-20T12:57:19Z",
+  "ended_utc": "2026-11-20T14:50:18Z",
+  "skipped_tasks": {},
+  "tasks": {
+    "mgsm": {
+      "epochs": 1,
+      "n_items": 550,
+      "items_sha256": "4df4814b314f1006e2418d763581fb32b436f4bdccfa9deef98e35759d042396",
+      "n_samples": 550,
+      "request_errors": 0,
+      "truncations": 5,
+      "eval_status": "success",
+      "inspect_log": "2026-11-20T12-57-23-00-00_mgsm_QUMFKu5PdAu2pdPcpYjz7a.eval"
+    },
+    "humaneval_plus": {
+      "epochs": 1,
+      "n_items": 164,
+      "items_sha256": "77da7ef3747c414099876a7a633bba803d6349f5387bfdfedc8f42a6ffc2e6c3",
+      "n_samples": 164,
+      "request_errors": 0,
+      "truncations": 3,
+      "eval_status": "success",
+      "inspect_log": "2026-11-20T13-12-43-00-00_humaneval-plus_AzNd5XzqyBqJ5RdYDQSXmr.eval"
+    },
+    "mbpp_plus": {
+      "epochs": 1,
+      "n_items": 378,
+      "items_sha256": "95e6c77cfd1638c5ef7b8edf3a852bcc3d2c541445a5c047c2bc2bfd8f39dbb1",
+      "n_samples": 378,
+      "request_errors": 0,
+      "truncations": 4,
+      "eval_status": "success",
+      "inspect_log": "2026-11-20T13-18-52-00-00_mbpp-plus_eeV6VW3k59pyyky66UTmbo.eval"
+    },
+    "ifeval": {
+      "epochs": 1,
+      "n_items": 541,
+      "items_sha256": "45874aab7e499fbb3614697d09eda30682716303bf41ecfc6ea5ea4df153f2a4",
+      "n_samples": 541,
+      "request_errors": 0,
+      "truncations": 7,
+      "eval_status": "success",
+      "inspect_log": "2026-11-20T13-27-14-00-00_ifeval_HmRPyNaCCUYJd74cHzyFit.eval"
+    },
+    "aime2025": {
+      "epochs": 5,
+      "n_items": 30,
+      "items_sha256": "b0df03745f27c2658b686b8061f788d4fc7e67f76157706f9ab4a38627101b2b",
+      "n_samples": 150,
+      "request_errors": 0,
+      "truncations": 5,
+      "eval_status": "success",
+      "inspect_log": "2026-11-20T15-32-31-00-00_aime2025_fgBRYFp3U22xTab4zAGzHx.eval"
+    }
+  },
+  "n_samples": 1783,
+  "request_errors": 0,
+  "truncations": 24,
+  "merged": {
+    "reason": "PROTOCOL amendment 10/11: AIME client-timeout artifact, rerun with non-binding settings",
+    "task": "aime2025",
+    "original_dir": "results/wave1/N2",
+    "rerun_dir": "results/wave1/N2-aime2",
+    "sha256": {
+      "original_samples": "85dbd4217bb0fb19e32ef5de0f33edc0348973b0049eb217837b8b76a8c89607",
+      "original_run_info": "f4499a0a403215bf8b4fbc7b08f3b89f087510a0d5eb2453d704cd08cfcecbbc",
+      "rerun_samples": "fa5b736bb56e9fd485d609e91c15814b6ca611f05ed0c1bb24d1b8edc745f404",
+      "rerun_run_info": "e1dbc306d5a82782abcfc394fa213c919201d1108be3373cd55f1dbcb3781222"
+    },
+    "settings_differing": {
+      "max_connections_per_task": {
+        "original": 96,
+        "rerun": 24
+      },
+      "timeout": {
+        "original": 3600,
+        "rerun": 14400
+      }
+    },
+    "task_rows": {
+      "original": 150,
+      "rerun": 150
+    },
+    "original_task_request_errors": 34,
+    "original_task_truncations": 3,
+    "rerun_task_request_errors": 0,
+    "rerun_task_truncations": 5,
+    "quantization_info_sha256": {
+      "original": "dc34e8818e6c33a5518aa64231199fbdbd385328b886efb907bba3d79df91b88",
+      "rerun": "c2847068cb09b49c4def35893d4881283e400d133ab8fc37ff662f201ecdb917"
+    }
+  }
+}

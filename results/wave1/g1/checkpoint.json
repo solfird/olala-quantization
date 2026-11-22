@@ -1,0 +1,11 @@
+{
+  "path": "/workspace/ckpt/g1lite",
+  "size_bytes": 6650752426,
+  "n_files": 15,
+  "n_shards": 2,
+  "sha256": {
+    "model.safetensors.index.json": "ff745ad689dfd7f3e70a1aab08c6ac58694c3299a56380d52bb6744ec540273d",
+    "config.json": "aca61b0d9203c47272313bc761f71e7e83d7264a69bdcc8c470c13bd2301e3cf",
+    "quantization_info.json": "25bcc0f96a4896123889c1b798f8a9c73cf772a6e65e24b0130be5fd4abd675a"
+  }
+}

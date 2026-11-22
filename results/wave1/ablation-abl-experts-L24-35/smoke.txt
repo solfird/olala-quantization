@@ -1,0 +1,5 @@
+smoke ckpt-abl-abl-experts-L24-35: PASS
+health after 104.6 s
+log: /workspace/logs/ckpt-abl-abl-experts-L24-35/server-20261120T233613Z.log
+answer: '17 × 20 = 340 et 17 × 3 = 51, donc 340 + 51 = 391. Le résultat de 17 multiplié par 23 est 391.'; reasoning: 1559 chars
+written: /workspace/logs/ckpt-abl-abl-experts-L24-35/smoke.json

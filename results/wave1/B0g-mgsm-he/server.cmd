@@ -1,0 +1,19 @@
+utc=2026-11-22T11:38:56Z
+arm=gguf-bf16
+variant=bf16
+llama_cpp_commit=55c22dca0c987f247c21b427c3b3a09e1a28187f
+llama_cpp_repo=https://github.com/OVHai-LLM/llama.cpp.git
+gguf_file=/workspace/models/olala-gguf/Olala-v1.0-mini-7A1B-bf16.gguf
+gguf_size=13594188096
+gguf_sha256_pinned=b266da8e292fb502b161ef0af413242f40c3d5736ebbcb5153fbf9c16bef5747
+gguf_sha256_verified_by_setup=b266da8e292fb502b161ef0af413242f40c3d5736ebbcb5153fbf9c16bef5747
+hf_repo=OVHaiLLM/Olala-v1.0-mini-7A1B-GGUF
+hf_revision=b9f5d20adf2ac0aec05e9fa00b057cf26df263fc
+np=12
+ctx=393216
+slot_ctx=32768
+container_cpus=27
+container_mem_gb=57
+command: /workspace/llama.cpp-olala/build/bin/llama-server -m /workspace/models/olala-gguf/Olala-v1.0-mini-7A1B-bf16.gguf --alias olala -ngl 99 -fa on -np 12 -c 393216 -fit off --jinja --min-p 0 --samplers temperature\;top_k\;top_p --ctx-checkpoints 2 --cache-ram 0 --timeout 14400 --threads-http 128 --no-webui --host 127.0.0.1 --port 8000
+CUDA_HOME=/usr/local/cuda
+CUDA_VERSION=13.0.3

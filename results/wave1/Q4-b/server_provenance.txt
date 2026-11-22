@@ -1,0 +1,20 @@
+copied_utc=2026-11-21T08:10:32Z
+arm=gguf-q4_k_m-ovhrecipe
+server_log_name=server-20261121T081019Z.log
+server_log=/workspace/logs/gguf/server-20261121T081019Z.log
+server_cmd=server.cmd
+served_dir=/workspace/models/olala-gguf/Olala-v1.0-mini-7A1B-q4_k_m-ovhrecipe.gguf
+quantization_info=none
+llama_cpp_repo=https://github.com/OVHai-LLM/llama.cpp.git
+llama_cpp_commit=55c22dca0c987f247c21b427c3b3a09e1a28187f
+gguf_file=/workspace/models/olala-gguf/Olala-v1.0-mini-7A1B-q4_k_m-ovhrecipe.gguf
+gguf_size=5692736672
+gguf_sha256_pinned=7c3ce7a46b1c16613c8947846894c64c99aba080d7cf01add2cda61fa6255ea3
+gguf_sha256_verified_by_setup=7c3ce7a46b1c16613c8947846894c64c99aba080d7cf01add2cda61fa6255ea3
+hf_repo=OVHaiLLM/Olala-v1.0-mini-7A1B-GGUF
+hf_revision=b9f5d20adf2ac0aec05e9fa00b057cf26df263fc
+np=12
+ctx=393216
+slot_ctx=32768
+server_url=http://127.0.0.1:8000
+command=uv run --frozen --python 3.12 python run_tasks.py --tasks ifeval mbpp_plus --base-url http://127.0.0.1:8000/v1 --model olala --out /workspace/results/raw/Q4-b --seed 0 --sandbox local --reasoning-effort medium --max-connections 96 --n-items mgsm=550

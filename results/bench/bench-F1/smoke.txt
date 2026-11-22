@@ -1,0 +1,6 @@
+smoke fp8pc: PASS
+health after 241.3 s
+log: /workspace/logs/fp8pc/server-20261120T223154Z.log
+quantized layers: (EngineCore pid=1665) INFO 11-20 22:33:15 [base_loader.py:151] Quantizing 200 layers of types: gate_proj: 7 (from linear: fp8_per_channel_static); mixer_proj: 33 (from linear: fp8_per_channel_static); mlp.experts: 32 (from moe: fp8_per_channel_static); mlp.fc1_latent_proj: 32 (from linear: fp8_per_channel_static); mlp.fc2_latent_proj: 32 (from linear: fp8_per_channel_static); mlp.shared_experts.down_proj: 32 (from linear: fp8_per_channel_static); mlp.shared_experts.up_proj: 32 (from linear: fp8_per_channel_static)
+answer: '17 multiplié par 23 donne 391 (17\u202f×\u202f20\u202f=\u202f340, 17\u202f×\u202f3\u202f=\u202f51, 340\u202f+\u202f51\u202f=\u202f391). Le résultat final est 391.'; reasoning: 3147 chars
+written: /workspace/logs/fp8pc/smoke.json

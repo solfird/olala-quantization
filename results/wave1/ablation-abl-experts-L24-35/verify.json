@@ -1,0 +1,37 @@
+{
+  "ok": true,
+  "n_tensors_checked": 945,
+  "stats": {
+    "n_quantized": 24,
+    "n_ignored": 235,
+    "n_kept": 686,
+    "worst_rel_fro": [
+      {
+        "tensor": "model.layers.29.mlp.experts.experts.weight",
+        "rel_fro": 0.09516971869186724
+      },
+      {
+        "tensor": "model.layers.28.mlp.experts.experts.weight",
+        "rel_fro": 0.09516387270652603
+      },
+      {
+        "tensor": "model.layers.25.mlp.experts.experts.weight",
+        "rel_fro": 0.09515960696778424
+      },
+      {
+        "tensor": "model.layers.24.mlp.experts.experts.weight",
+        "rel_fro": 0.09515565792676321
+      },
+      {
+        "tensor": "model.layers.26.mlp.experts.experts.weight",
+        "rel_fro": 0.09514943233650801
+      }
+    ],
+    "scales": {
+      "n_flushed_blocks": 0,
+      "max_block_scale": 448.0,
+      "min_nonzero_block_scale": 0.015625
+    }
+  },
+  "violations": []
+}

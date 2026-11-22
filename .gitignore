@@ -1,0 +1,11 @@
+__pycache__/
+.DS_Store
+.venv/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+# held back (see README, "What you cannot reproduce"): raw inspect logs, archives, model files
+*.eval
+*.tgz
+*.safetensors
+*.gguf

@@ -1,0 +1,11 @@
+{
+  "repo": "Salesforce/wikitext",
+  "config": "wikitext-2-raw-v1",
+  "split": "test",
+  "revision": "b08601e04326c79dfdd32d625aee71d232d685c3",
+  "n_rows": 4358,
+  "n_chars": 1285622,
+  "text_sha256": "bbf94c53a05abe9ee670d3b6343608095822c85e26de37c70b24fc571964574a",
+  "fetched_utc": "2026-11-20T09:28:20Z",
+  "datasets_version": "5.2.0"
+}

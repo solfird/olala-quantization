@@ -1,0 +1,13 @@
+{
+  "spec": "attention",
+  "quantized_tensors": 14,
+  "ignored_tensors": 245,
+  "quantized_layers": 14,
+  "quantized_layers_by_type": {
+    "gate_proj": 7,
+    "mixer_proj": 7
+  },
+  "ignored_layers": 209,
+  "total_quantizable_layers": 223,
+  "ignore_entries": 246
+}

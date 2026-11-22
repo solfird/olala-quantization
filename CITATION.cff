@@ -1,0 +1,42 @@
+cff-version: 1.2.0
+message: "If you use this report, its data or its scripts, please cite the report as below."
+title: "Olala-v1.0-mini-7A1B under Quantization: What Holds, What Breaks, and Where"
+type: software
+authors:
+  - family-names: Simon
+    given-names: Julien
+    affiliation: Solfird AI
+    orcid: "https://orcid.org/0009-0006-6966-4923"
+version: "1.0"
+license: CC-BY-4.0
+repository-code: "https://github.com/solfird/olala-quantization"
+doi: "10.5281/zenodo.24443547"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.24443546"
+    description: "All versions of this report"
+keywords:
+  - quantization
+  - NVFP4
+  - FP8
+  - GGUF
+  - mixture of experts
+  - Mamba
+  - hybrid language models
+  - post-training quantization
+  - Olala
+preferred-citation:
+  type: report
+  title: "Olala-v1.0-mini-7A1B under Quantization: What Holds, What Breaks, and Where"
+  authors:
+    - family-names: Simon
+      given-names: Julien
+      affiliation: Solfird AI
+      orcid: "https://orcid.org/0009-0006-6966-4923"
+  institution:
+    name: Solfird AI
+  number: "Solfird AI Technical Report 2026-04"
+  doi: "10.5281/zenodo.24443547"
+  year: 2026
+  month: 11
+  url: "https://github.com/solfird/olala-quantization"

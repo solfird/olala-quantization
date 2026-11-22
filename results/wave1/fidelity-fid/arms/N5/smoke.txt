@@ -1,0 +1,5 @@
+smoke ckpt-fid-fid-N5: PASS
+health after 139.1 s
+log: /workspace/logs/ckpt-fid-fid-N5/server-20261121T074659Z.log
+answer: 'Le calcul est 17\u202f×\u202f23\u202f=\u202f(17\u202f×\u202f20\u202f+\u202f17\u202f×\u202f3)\u202f=\u202f340\u202f+\u202f51\u202f=\u202f391. Le résultat final est 391.'; reasoning: 1741 chars
+written: /workspace/logs/ckpt-fid-fid-N5/smoke.json

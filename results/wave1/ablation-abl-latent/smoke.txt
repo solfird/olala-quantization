@@ -1,0 +1,5 @@
+smoke ckpt-abl-abl-latent: PASS
+health after 106.7 s
+log: /workspace/logs/ckpt-abl-abl-latent/server-20261120T234140Z.log
+answer: '17 multiplié par 23 donne 391, car 17\u202f×\u202f23\u202f=\u202f391.'; reasoning: 2273 chars
+written: /workspace/logs/ckpt-abl-abl-latent/smoke.json

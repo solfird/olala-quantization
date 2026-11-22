@@ -1,0 +1,25 @@
+== q4_prepare 2026-11-21T07:33:38Z: imatrix make, Olala-v1.0-mini-7A1B-bf16.gguf -> Olala-v1.0-mini-7A1B-q4_k_m-ovhrecipe.gguf
+== 1 bf16 GGUF and the pinned fork (gguf_setup.sh --variant bf16)
+== 7 verify size and sha256 against the pins
+OK Olala-v1.0-mini-7A1B-bf16.gguf 13594188096 bytes sha256 b266da8e292fb502b161ef0af413242f40c3d5736ebbcb5153fbf9c16bef5747
+GGUF_SETUP_DONE
+== 2 build the extra targets in /workspace/llama.cpp-olala/build with the configuration of gguf_setup.sh (jobs 14)
++ cmake --build /workspace/llama.cpp-olala/build --target llama-quantize llama-imatrix -j 14
+== 3 help output of the tools (before anything is run)
+help: --tensor-type and --imatrix (llama-quantize) and --chunks (llama-imatrix) are accepted
+--tensor-type syntax from the help: two-argument
+== 4 wikitext-2 raw train: Salesforce/wikitext @ b08601e04326c79dfdd32d625aee71d232d685c3 (no token)
+pyarrow is missing: installing it once
+wikitext text: 10914845 bytes, 36718 rows, sha256 fc1dd2874bf42e945db9bd38e856ae18010f5c088e7446c706c5ba2f39310ee3
+== 5 importance matrix (imatrix), 200 chunks of wikitext-2
++ /workspace/llama.cpp-olala/build/bin/llama-imatrix -m /workspace/models/olala-gguf/Olala-v1.0-mini-7A1B-bf16.gguf -f /workspace/q4/wiki.train.raw -o /workspace/q4/olala.imatrix --chunks 200 -ngl 99
+1.59.313.991 W save_imatrix: entry '             blk.19.ffn_down_exps.weight' has partial data (99.61%)
+
+
+== 6 quantize to Q4_K_M with OVH's recipe (31 threads)
++ /workspace/llama.cpp-olala/build/bin/llama-quantize --imatrix /workspace/q4/olala.imatrix --tensor-type ffn_latent_up=bf16 --tensor-type ffn_up_exps=q8_0 /workspace/models/olala-gguf/Olala-v1.0-mini-7A1B-bf16.gguf /workspace/models/olala-gguf/Olala-v1.0-mini-7A1B-q4_k_m-ovhrecipe.gguf Q4_K_M 31
+llama_model_quantize_impl: quant size  =  5423.29 MiB (6.71 BPW)
+
+llama_quantize: quantize time = 24457.50 ms
+llama_quantize:    total time = 24457.50 ms
+Q4_PREPARE_FAILED:RECIPE_NOT_APPLIED:the log has 987 tensor lines, the last line declares 989 tensors

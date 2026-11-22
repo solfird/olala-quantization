@@ -1,0 +1,17 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Generating train split: 0 examples [00:00, ? examples/s]Generating train split: 11736 examples [00:00, 88138.76 examples/s]Generating train split: 27261 examples [00:00, 75530.23 examples/s]Generating train split: 42749 examples [00:00, 78244.96 examples/s]Generating train split: 54398 examples [00:00, 73782.65 examples/s]Generating train split: 66009 examples [00:00, 72860.96 examples/s]Generating train split: 75197 examples [00:01, 73889.48 examples/s]Generating train split: 75197 examples [00:01, 74944.18 examples/s]
+Generating train split:   0%|          | 0/29980 [00:00<?, ? examples/s]Generating train split:  10%|█         | 3000/29980 [00:00<00:01, 21735.00 examples/s]Generating train split:  43%|████▎     | 13000/29980 [00:00<00:00, 53565.70 examples/s]Generating train split:  80%|████████  | 24000/29980 [00:00<00:00, 73929.93 examples/s]Generating train split: 100%|██████████| 29980/29980 [00:00<00:00, 68390.87 examples/s]
+CAL-1 plan (dry run: nothing written, no server contacted; prompt manifest drawn in memory)
+prompts: 240 prompts in 4 domains, seed 0
+  math: 48 (weight 1)
+  multilingual_math: 48 (weight 1)
+  code: 96 (weight 2)
+  instruction: 48 (weight 1)
+sources (public, revision pinned):
+  math_train: EleutherAI/hendrycks_math@21a5633873b6a120296cce3e2df9d5550074f4a3 license mit split train; pool 3994, selected 48, skipped by the audit 5
+  mgsm_train_parallel: Mathoctopus/GSM8KInstruct_Parallel@dd8076b83bacd7c6ade2829317e8a500c6ffbec4 license apache-2.0 split train; pool 73559, selected 48, skipped by the audit 1
+  code_oss_python: ise-uiuc/Magicoder-OSS-Instruct-75K@5f839b1f368a76b161028bb9edff055db34022b2 license mit split train; pool 38284, selected 96, skipped by the audit 9
+  if_personas: allenai/tulu-3-sft-personas-instruction-following@fe0c7d350c9b4542b8d829a6f1daa1c259f0ba0e license odc-by split train; pool 29980, selected 48, skipped by the audit 3
+sampling: temperature 0.8, top_p 0.9, top_k 40, reasoning_effort medium, max_tokens 8192; concurrency 24, max attempts 3
+generation: 0 done, 240 to generate, 0 gave up; at most 1966080 new tokens
+windows: window 2048 tokens, tokenizer /workspace/models/olala-bf16; 8-gram audit of prompts and generated text against /workspace/bundle/quant/gptq/data/eval_items.json

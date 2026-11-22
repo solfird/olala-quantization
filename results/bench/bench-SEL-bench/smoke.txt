@@ -1,0 +1,5 @@
+smoke ckpt-selected: PASS
+health after 94.9 s
+log: /workspace/logs/ckpt-selected/server-20261121T100339Z.log
+answer: 'Le calcul donne 17\u202f×\u202f23 = 340\u202f+\u202f51 = 391. Le résultat final est 391.'; reasoning: 2945 chars
+written: /workspace/logs/ckpt-selected/smoke.json

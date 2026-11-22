@@ -1,0 +1,8 @@
+smoke gguf: PASS
+health after 4.1 s
+log: /workspace/logs/gguf/server-20261121T110525Z.log
+  log: 0.02.378.599 I srv load_model: initializing, n_slots = 12, n_ctx_slot = 32768, kv_unified = 'false'
+response: top-level ['choices', 'created', 'id', 'model', 'object', 'system_fingerprint', 'timings', 'usage'], message ['content', 'reasoning_content', 'role'], finish stop
+content 66 chars, reasoning_content 2011 chars; answer: 'Le calcul est 17 × 23 = 340 + 51 = 391. Le résultat final est 391.'
+speed: 80.28 tokens/s generation, 1018.55 prompt (server timings)
+written: /workspace/logs/gguf/smoke.json

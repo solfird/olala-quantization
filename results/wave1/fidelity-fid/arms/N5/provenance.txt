@@ -1,0 +1,8 @@
+arm=N5 role=control spec=experts scale_search=0 started=2026-11-21T07:40:46Z
+verify: OK: 945 tensors checked, no violation. {"n_quantized": 64, "n_ignored": 195, "n_kept": 686, "worst_rel_fro": [{"tensor": "model.layers.20.mlp.experts.experts.weight", "rel_fro": 0.09519244580813084}, {"tensor": "model.layers.18.mlp.experts.experts.weight", "rel_fro": 0.09517832402509815}, {"tensor":
+ff745ad689dfd7f3e70a1aab08c6ac58694c3299a56380d52bb6744ec540273d  model.safetensors.index.json
+aca61b0d9203c47272313bc761f71e7e83d7264a69bdcc8c470c13bd2301e3cf  config.json
+af13c7226a1e3a08d946e94a1421f0533ef3168f51c0316809dce5fbdda71ac0  quantization_info.json
+(EngineCore pid=4611) INFO 11-21 07:47:45 [unquantized.py:365] Using FlashInfer CUTLASS Unquantized MoE backend out of potential backends: ['FlashInfer TRTLLM', 'FlashInfer CUTLASS', 'TRITON', 'BATCHED_TRITON'].
+(EngineCore pid=4611) INFO 11-21 07:47:45 [nvfp4.py:314] Using 'MARLIN' NvFp4 MoE backend out of potential backends: ['FLASHINFER_TRTLLM', 'FLASHINFER_CUTEDSL', 'FLASHINFER_CUTEDSL_BATCHED', 'FLASHINFER_CUTLASS', 'VLLM_CUTLASS', 'MARLIN', 'HUMMING', 'EMULATION'].
+(EngineCore pid=4611) INFO 11-21 07:47:49 [unquantized.py:530] Using FlashInferExperts MoE backend

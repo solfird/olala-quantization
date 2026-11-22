@@ -1,0 +1,5 @@
+smoke ckpt-nvfp4-I: PASS
+health after 271.3 s
+log: /workspace/logs/ckpt-nvfp4-I/server-20261120T231253Z.log
+answer: '17 multiplié par 23 donne 391 (17\u202f×\u202f23\u202f=\u202f391). Le résultat est 391.'; reasoning: 1598 chars
+written: /workspace/logs/ckpt-nvfp4-I/smoke.json

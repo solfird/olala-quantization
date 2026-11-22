@@ -1,0 +1,41 @@
+[project]
+name = "olala-analysis"
+version = "0.1.0"
+description = "Activation probe: reproduces OVH's Appendix C activation-outlier claims on the released Olala-v1.0-mini-7A1B weights and quantifies what they mean for quantization"
+requires-python = ">=3.12,<3.13"
+# Same pins as ../quant/gptq (torch matches the OVH vLLM fork; transformers 5.8.0 is what the vendored modeling file
+# declares; einops is a hard import of that file). The vendored model is imported from ../quant/gptq/vendor through
+# olala_model.py (see activation_probe.py), never copied or edited here.
+dependencies = [
+    "torch==2.14.0",
+    "numpy==2.5.5",
+    "safetensors==0.8.0",
+    "transformers==5.8.0",
+    "einops==0.8.1",
+]
+
+[tool.uv]
+package = false
+
+[dependency-groups]
+dev = ["pytest==9.2.0", "ruff==0.17.6"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = [".", "../quant/gptq"]
+addopts = "-ra"
+
+[tool.ruff]
+line-length = 120
+target-version = "py312"
+extend-exclude = [".venv"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "D", "ANN", "SIM", "RUF"]
+ignore = ["D203", "D213", "D413", "D401", "D301", "ANN401"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["D", "ANN"]
+# prose strings (claim texts, built-in passages) are kept on one line each
+"probe_claims.py" = ["E501"]
+"build_prompts.py" = ["E501"]

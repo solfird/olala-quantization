@@ -1,0 +1,80 @@
+mamba3: no TileLang chunk kernel (OLALA_TORCH_MAMBA3=1) -> pure-PyTorch fallback (slow)
+mamba3: no CuteDSL decode kernel (OLALA_TORCH_MAMBA3=1) -> PyTorch decode step
+moe: no scattermoe (OLALA_TORCH_MOE=1) -> pure-PyTorch experts (slow)
+Using attention implementation: eager
+windows per domain (exact, 291 windows of 2048):
+  math: 56.7 window equivalents, 89 windows touched
+  multilingual_math: 52.4 window equivalents, 85 windows touched
+  code: 138.1 window equivalents, 195 windows touched
+  instruction: 43.7 window equivalents, 82 windows touched
+layer 0 done (16.8 s forward)
+layer 1 done (13.5 s forward)
+layer 2: 255 GPTQ / 1 RTN experts, loss ratio up 0.12653481649744375, 35.0 s
+layer 2 done (15.6 s forward)
+layer 3: 255 GPTQ / 1 RTN experts, loss ratio up 0.14659443062895577, 33.5 s
+layer 3 done (12.9 s forward)
+layer 4: 256 GPTQ / 0 RTN experts, loss ratio up 0.4055013255707787, 32.1 s
+layer 4 done (13.4 s forward)
+layer 5 done (15.3 s forward)
+layer 6: 255 GPTQ / 1 RTN experts, loss ratio up 0.44926389931297284, 32.1 s
+layer 6 done (13.0 s forward)
+layer 7: 256 GPTQ / 0 RTN experts, loss ratio up 0.32957688629799853, 35.0 s
+layer 7 done (15.4 s forward)
+layer 8: 256 GPTQ / 0 RTN experts, loss ratio up 0.32851409580340163, 34.4 s
+layer 8 done (14.5 s forward)
+layer 9: 256 GPTQ / 0 RTN experts, loss ratio up 0.3338517283324493, 31.4 s
+layer 9 done (11.4 s forward)
+layer 10: 256 GPTQ / 0 RTN experts, loss ratio up 0.37198654124435665, 35.8 s
+layer 10 done (15.7 s forward)
+layer 11: 256 GPTQ / 0 RTN experts, loss ratio up 0.4249531447860179, 33.6 s
+layer 11 done (14.8 s forward)
+layer 12: 256 GPTQ / 0 RTN experts, loss ratio up 0.42539764566012933, 34.0 s
+layer 12 done (14.5 s forward)
+layer 13: 254 GPTQ / 2 RTN experts, loss ratio up 0.43654380315442504, 33.0 s
+layer 13 done (14.2 s forward)
+layer 14: 256 GPTQ / 0 RTN experts, loss ratio up 0.3852399173456402, 32.9 s
+layer 14 done (12.3 s forward)
+layer 15: 252 GPTQ / 4 RTN experts, loss ratio up 0.4224437805730617, 32.1 s
+layer 15 done (13.2 s forward)
+layer 16: 256 GPTQ / 0 RTN experts, loss ratio up 0.45453338192334913, 31.3 s
+layer 16 done (13.0 s forward)
+layer 17: 256 GPTQ / 0 RTN experts, loss ratio up 0.4683616783489442, 33.2 s
+layer 17 done (14.1 s forward)
+layer 18: 256 GPTQ / 0 RTN experts, loss ratio up 0.49534774409421484, 32.6 s
+layer 18 done (13.4 s forward)
+layer 19 done (11.5 s forward)
+layer 20: 256 GPTQ / 0 RTN experts, loss ratio up 0.453114773731814, 32.0 s
+layer 20 done (13.1 s forward)
+layer 21: 256 GPTQ / 0 RTN experts, loss ratio up 0.4008323185007859, 35.9 s
+layer 21 done (15.0 s forward)
+layer 22: 256 GPTQ / 0 RTN experts, loss ratio up 0.4821158827747215, 32.5 s
+layer 22 done (13.4 s forward)
+layer 23: 256 GPTQ / 0 RTN experts, loss ratio up 0.3852156900770846, 33.6 s
+layer 23 done (14.6 s forward)
+layer 24: 253 GPTQ / 3 RTN experts, loss ratio up 0.39620599422923997, 31.5 s
+layer 24 done (12.3 s forward)
+layer 25: 256 GPTQ / 0 RTN experts, loss ratio up 0.3799664113319912, 32.5 s
+layer 25 done (13.6 s forward)
+layer 26: 255 GPTQ / 1 RTN experts, loss ratio up 0.3696237861900753, 33.5 s
+layer 26 done (13.9 s forward)
+layer 27: 255 GPTQ / 1 RTN experts, loss ratio up 0.3840270930134207, 32.1 s
+layer 27 done (13.8 s forward)
+layer 28: 256 GPTQ / 0 RTN experts, loss ratio up 0.34132575933993803, 33.9 s
+layer 28 done (13.7 s forward)
+layer 29: 254 GPTQ / 2 RTN experts, loss ratio up 0.2911251866498345, 30.3 s
+layer 29 done (11.6 s forward)
+layer 30: 255 GPTQ / 1 RTN experts, loss ratio up 0.34383405584320775, 33.9 s
+layer 30 done (14.7 s forward)
+layer 31: 252 GPTQ / 4 RTN experts, loss ratio up 0.352216451854474, 36.1 s
+layer 31 done (16.4 s forward)
+layer 32: 256 GPTQ / 0 RTN experts, loss ratio up 0.37884145661399093, 34.3 s
+layer 32 done (14.7 s forward)
+layer 33: 255 GPTQ / 1 RTN experts, loss ratio up 0.3527472688526644, 32.5 s
+layer 33 done (13.8 s forward)
+layer 34: 256 GPTQ / 0 RTN experts, loss ratio up 0.3354376519359092, 30.3 s
+layer 34 done (11.7 s forward)
+layer 35: 256 GPTQ / 0 RTN experts, loss ratio up 0.31920059277788165, 32.2 s
+layer 35 done (13.5 s forward)
+[1/2] model-00001-of-00002.safetensors: 764 tensors, 4.96 GB
+[2/2] model-00002-of-00002.safetensors: 309 tensors, 1.68 GB
+wrote /workspace/ckpt/g1lite: 32 layer(s) calibrated in 1516.1 s

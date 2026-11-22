@@ -1,0 +1,23 @@
+== q4_prepare 2026-11-21T08:03:02Z: imatrix file, Olala-v1.0-mini-7A1B-bf16.gguf -> Olala-v1.0-mini-7A1B-q4_k_m-ovhrecipe.gguf
+== 1 bf16 GGUF and the pinned fork (gguf_setup.sh --variant bf16)
+== 7 verify size and sha256 against the pins
+OK Olala-v1.0-mini-7A1B-bf16.gguf 13594188096 bytes sha256 b266da8e292fb502b161ef0af413242f40c3d5736ebbcb5153fbf9c16bef5747
+GGUF_SETUP_DONE
+== 2 build the extra targets in /workspace/llama.cpp-olala/build with the configuration of gguf_setup.sh (jobs 10)
++ cmake --build /workspace/llama.cpp-olala/build --target llama-quantize llama-imatrix -j 10
+== 3 help output of the tools (before anything is run)
+help: --tensor-type and --imatrix (llama-quantize) and --chunks (llama-imatrix) are accepted
+--tensor-type syntax from the help: two-argument
+== 4 wikitext-2 text: not needed, an importance matrix is given
+== 5 importance matrix (imatrix) given: sha256 must be 65905d7aace4b295250fe3d16a646cda6d5ffe39e06a74852dccd086819438af
+imatrix verified: 65905d7aace4b295250fe3d16a646cda6d5ffe39e06a74852dccd086819438af
+== 6 quantize to Q4_K_M with OVH's recipe (10 threads)
++ /workspace/llama.cpp-olala/build/bin/llama-quantize --imatrix /workspace/q4/olala.imatrix --tensor-type ffn_latent_up=bf16 --tensor-type ffn_up_exps=q8_0 /workspace/models/olala-gguf/Olala-v1.0-mini-7A1B-bf16.gguf /workspace/models/olala-gguf/Olala-v1.0-mini-7A1B-q4_k_m-ovhrecipe.gguf Q4_K_M 10
+llama_model_quantize_impl: quant size  =  5423.29 MiB (6.71 BPW)
+
+llama_quantize: quantize time = 37615.96 ms
+llama_quantize:    total time = 37615.96 ms
+quantized file: /workspace/models/olala-gguf/Olala-v1.0-mini-7A1B-q4_k_m-ovhrecipe.gguf, 5692736672 bytes, sha256 7c3ce7a46b1c16613c8947846894c64c99aba080d7cf01add2cda61fa6255ea3, 6.721780216227131 bits per weight
+== 7 manifest of this pod: variant q4_k_m-ovhrecipe in /workspace/bundle/pod/gguf_files.json (the Mac's copy is not touched)
+manifest edited: q4_k_m-ovhrecipe added
+== 8 prepare.json and q4.done (last)

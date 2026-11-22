@@ -1,0 +1,18 @@
+{
+  "spec": "all",
+  "quantized_tensors": 232,
+  "ignored_tensors": 27,
+  "quantized_layers": 200,
+  "quantized_layers_by_type": {
+    "gate_proj": 7,
+    "mixer_proj": 33,
+    "mlp.experts": 32,
+    "mlp.fc1_latent_proj": 32,
+    "mlp.fc2_latent_proj": 32,
+    "mlp.shared_experts.down_proj": 32,
+    "mlp.shared_experts.up_proj": 32
+  },
+  "ignored_layers": 23,
+  "total_quantizable_layers": 223,
+  "ignore_entries": 28
+}

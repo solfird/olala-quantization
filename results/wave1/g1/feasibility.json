@@ -1,0 +1,53 @@
+{
+  "formula": "projected build seconds = 72.75 x (mean forward seconds of the 7 measured layers x 36 layers)",
+  "measured_layers": 7,
+  "layers": [
+    {
+      "layer": 0,
+      "forward_s": 1.3,
+      "peak_gb": 1.48
+    },
+    {
+      "layer": 1,
+      "forward_s": 0.4,
+      "peak_gb": 1.48
+    },
+    {
+      "layer": 2,
+      "forward_s": 0.5,
+      "peak_gb": 1.48
+    },
+    {
+      "layer": 3,
+      "forward_s": 0.3,
+      "peak_gb": 1.48
+    },
+    {
+      "layer": 4,
+      "forward_s": 0.3,
+      "peak_gb": 3.09
+    },
+    {
+      "layer": 5,
+      "forward_s": 0.3,
+      "peak_gb": 1.48
+    },
+    {
+      "layer": 6,
+      "forward_s": 0.3,
+      "peak_gb": 1.48
+    }
+  ],
+  "mean_forward_s": 0.4857142857142857,
+  "sum_forward_s_36_layers": 17.485714285714284,
+  "n_layers": 36,
+  "scale": 72.75,
+  "projected_build_seconds": 1272.0857142857142,
+  "projected_build_hours": 0.3533571428571428,
+  "budget_hours": 4.0,
+  "peak_gb": 4.24,
+  "peak_gib": 3.948807716369629,
+  "peak_gib_max": 30.0,
+  "refusals": [],
+  "ok": true
+}

@@ -1,0 +1,63 @@
+{
+  "schema": 1,
+  "read_utc": "2026-11-20",
+  "source": "recon/llamacpp_olala_notes.md (every value read from public pages; nothing here was run on a GPU)",
+  "llama_cpp": {
+    "repo": "https://github.com/OVHai-LLM/llama.cpp.git",
+    "branch": "main",
+    "commit": "55c22dca0c987f247c21b427c3b3a09e1a28187f",
+    "tree": "ff04ce13ba15d503c6f50b625550a3b31924adcf",
+    "olala_master_commit": "bd20ca9b471fdcb3f03b75f82d3cf575414bc573",
+    "note": "main (squashed release commit of 2026-11-18, the branch the model card links) and olala-master (2026-11-13) have the identical tree; the commit is pinned, the tree is checked after the fetch",
+    "cmake_flags": [
+      "-DGGML_CUDA=ON",
+      "-DCMAKE_BUILD_TYPE=Release",
+      "-DLLAMA_USE_PREBUILT_UI=OFF",
+      "-DLLAMA_BUILD_TESTS=OFF",
+      "-DLLAMA_BUILD_EXAMPLES=OFF",
+      "-DLLAMA_BUILD_APP=OFF"
+    ],
+    "targets": ["llama-server"],
+    "min_cuda_toolkit": "12.8"
+  },
+  "gguf": {
+    "repo": "OVHaiLLM/Olala-v1.0-mini-7A1B-GGUF",
+    "revision": "b9f5d20adf2ac0aec05e9fa00b057cf26df263fc",
+    "default": "q5_k_m",
+    "files": {
+      "q5_k_m": {
+        "name": "Olala-v1.0-mini-7A1B-q5_k_m.gguf",
+        "size": 5990551040,
+        "sha256": "ed353d2632c406be9ca2022b35e4c13049d6f8f7390b1c1bb61d6a7d6b971860"
+      },
+      "q6_k": {
+        "name": "Olala-v1.0-mini-7A1B-q6_k.gguf",
+        "size": 6306979040,
+        "sha256": "58a2b658158290687a431705c3c256c1331580ad4e8e99db55d03a8131d223c8"
+      },
+      "q8_0-safe2": {
+        "name": "Olala-v1.0-mini-7A1B-q8_0-safe2.gguf",
+        "size": 6876038592,
+        "sha256": "0bb4560fa6800b41d16a15507ad1843ca17c0849ce0cc989bca337dcf55136d7"
+      },
+      "bf16": {
+        "name": "Olala-v1.0-mini-7A1B-bf16.gguf",
+        "size": 13594188096,
+        "sha256": "b266da8e292fb502b161ef0af413242f40c3d5736ebbcb5153fbf9c16bef5747"
+      }
+    }
+  },
+  "model": {
+    "slot_ctx": 32768,
+    "harness_max_tokens": 32688,
+    "attention_layers": 7,
+    "kv_heads": 12,
+    "head_dim": 128,
+    "kv_bytes_per_element": 2,
+    "layers": 36,
+    "recurrent_floats_per_layer": 434688,
+    "recurrent_bytes_per_element": 4,
+    "assumed_overhead_mib": 2048,
+    "derivation": "KV: src/llama-model.cpp:2836-2855 (full layout on CUDA, docs/olala-setup.md:223) gives 7 x 2 x 12 x 128 x 2 B = 43,008 B per token (1,344 MiB at 32,768, matches docs/olala-setup.md:206). Recurrent: src/llama-hparams.cpp:232 and 278-281 with ssm_inner 3072, dt_rank 64, d_state 128, mimo 4: n_embd_r 3,072 + n_embd_s 431,616 floats, allocated for all 36 layers (src/llama-model.cpp:2790, src/llama-memory-recurrent.cpp:101-103) in f32. The overhead (compute buffers and CUDA context) is an ASSUMPTION, not measured."
+  }
+}

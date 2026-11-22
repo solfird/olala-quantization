@@ -1,0 +1,20 @@
+mamba3: no TileLang chunk kernel (OLALA_TORCH_MAMBA3=1) -> pure-PyTorch fallback (slow)
+mamba3: no CuteDSL decode kernel (OLALA_TORCH_MAMBA3=1) -> PyTorch decode step
+moe: no scattermoe (OLALA_TORCH_MOE=1) -> pure-PyTorch experts (slow)
+Using attention implementation: eager
+windows per domain (exact, 4 windows of 2048):
+  math: 0.7 window equivalents, 1 windows touched
+  multilingual_math: 1.0 window equivalents, 2 windows touched
+  code: 1.8 window equivalents, 2 windows touched
+  instruction: 0.5 window equivalents, 2 windows touched
+layer 0 done (1.3 s forward)
+layer 1 done (0.4 s forward)
+layer 2: 247 GPTQ / 9 RTN experts, loss ratio up 0.21446312599164197, 9.7 s
+layer 2 done (0.5 s forward)
+layer 3 done (0.3 s forward)
+layer 4: 240 GPTQ / 16 RTN experts, loss ratio up 0.44768139181473837, 8.7 s
+layer 4 done (0.3 s forward)
+layer 5 done (0.3 s forward)
+layer 6: 229 GPTQ / 27 RTN experts, loss ratio up 0.5043458083345397, 9.4 s
+layer 6 done (0.3 s forward)
+wrote /workspace/ckpt/g1lite-feas/g1lite_report.json (calibrate-only)

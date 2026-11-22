@@ -1,0 +1,378 @@
+diff --git a/vllm/model_executor/models/olala.py b/vllm/model_executor/models/olala.py
+index a3ef8c1..c98a329 100644
+--- a/vllm/model_executor/models/olala.py
++++ b/vllm/model_executor/models/olala.py
+@@ -69,10 +69,13 @@ from vllm.utils.torch_utils import _encode_layer_name, direct_register_custom_op
+ from vllm.model_executor.layers.fused_moe import (
+     FusedMoEFactory,
+     GateLinear,
++    RoutedExperts,
++    UnquantizedFusedMoEMethod,
+     activation_without_mul,
+ )
+ from vllm.model_executor.layers.linear import (
+     ColumnParallelLinear,
++    LinearBase,
+     ReplicatedLinear,
+     RowParallelLinear,
+     UnquantizedLinearMethod,
+@@ -92,6 +95,7 @@ from vllm.model_executor.layers.vocab_parallel_embedding import (
+     VocabParallelEmbedding,
+ )
+ from vllm.model_executor.model_loader.weight_utils import default_weight_loader
++from vllm.model_executor.models import olala_quant_loader as olq
+ from vllm.model_executor.models.interfaces import (
+     HasInnerState,
+     IsHybrid,
+@@ -1278,152 +1282,229 @@ class OlalaForCausalLM(
+             routed.global_num_experts = num_physical_experts
+             runner.update_expert_map()
+ 
+-    def _expert_params(self) -> dict[int, tuple[nn.Parameter, nn.Parameter]]:
+-        """Map layer index to that layer's packed ``(w13, w2)`` parameters.
++    def _routed_experts(self) -> dict[int, RoutedExperts]:
++        """Map layer index to that layer's ``RoutedExperts`` module.
+ 
+         Resolved by walking the modules rather than by name: the expert
+         weights live on the runner's ``RoutedExperts`` submodule, whose path
+-        is an implementation detail of the MoE composition.
++        is an implementation detail of the MoE composition. The parameters
++        are looked up by attribute at load time because their names depend
++        on the quantization method (``w13_weight`` for bf16/fp8,
++        ``w13_weight_packed`` for NVFP4, ...).
+         """
+-        params: dict[int, tuple[nn.Parameter, nn.Parameter]] = {}
++        routed: dict[int, RoutedExperts] = {}
+         for idx, layer in enumerate(self.model.layers):
+             if isinstance(layer, OlalaMonoBlock) and isinstance(
+                 layer.mlp, OlalaLatentMoE
+             ):
+-                routed = layer.mlp.experts.routed_experts
+-                params[idx] = (routed.w13_weight, routed.w2_weight)
+-        return params
++                routed[idx] = layer.mlp.experts.routed_experts
++        return routed
++
++    def _load_one_weight(
++        self,
++        name: str,
++        loaded_weight: torch.Tensor,
++        route: "olq.Route",
++        routed_by_layer: dict[int, RoutedExperts],
++        params_dict: dict[str, nn.Parameter],
++        buffers_dict: dict[str, torch.Tensor],
++        loaded: set[str],
++        tracker: "olq.LoadTracker",
++    ) -> None:
++        """Load one checkpoint tensor according to its route (see olala_quant_loader)."""
++        if route.kind == "drop":
++            tracker.consume(name)  # non-persistent buffer
++        elif route.kind == "unsupported_fused":
++            tracker.reject(name, "unsupported suffix for a fused routed-expert tensor")
++        elif route.kind == "fused_experts":
++            assert route.layer is not None and route.fused_param is not None
++            routed = routed_by_layer[route.layer]
++            param = getattr(routed, route.fused_param, None)
++            if param is None and route.legacy_param is not None:
++                legacy = getattr(routed, route.legacy_param, None)
++                if legacy is not None:
++                    # Serialized experts_int8 checkpoint: the per-row scales of
++                    # every expert of the layer (single rank). Unchanged behaviour.
++                    if legacy.shape != loaded_weight.shape:
++                        raise olq.OlalaQuantLoadError(
++                            f"Olala load_weights: {name} has shape "
++                            f"{tuple(loaded_weight.shape)}, expected "
++                            f"{tuple(legacy.shape)}."
++                        )
++                    legacy.data.copy_(loaded_weight)
++                    loaded.add(
++                        f"model.layers.{route.layer}.mlp.experts.{route.legacy_param}"
++                    )
++                    tracker.consume(name)
++                    return
++            if param is None:
++                tracker.reject(
++                    name,
++                    f"RoutedExperts of layer {route.layer} has no parameter "
++                    f"{route.fused_param} (quantization method "
++                    f"{type(routed.quant_method).__name__}); is the layer in "
++                    "quantization_config.ignore while the checkpoint stores it quantized?",
++                )
++                return
++            # Olala packs every expert into one tensor; scatter it into the
++            # fused w13/w2 parameters expert by expert. RoutedExperts.weight_loader
++            # dispatches on the NAME ("weight", "scale", ...), so loader_name carries
++            # the real parameter name. With expert parallelism the loader declines the
++            # experts of other ranks; at least one must land here.
++            olq.scatter_fused_expert_tensor(
++                param,
++                loaded_weight,
++                route,
++                num_experts=self.config.moe_num_routed_experts,
++                tp_size=get_tensor_model_parallel_world_size(),
++            )
++            loaded.add(f"model.layers.{route.layer}.mlp.experts.{route.fused_param}")
++            tracker.consume(name)
++        elif route.kind == "expert_bias":
++            assert route.target is not None
++            if route.target not in params_dict:
++                tracker.reject(name, f"no parameter {route.target}")
++                return
++            param = params_dict[route.target]
++            param.data.copy_(loaded_weight.to(param.dtype).to(param.device))
++            loaded.add(route.target)
++            tracker.consume(name)
++        else:  # "direct" or "rename"
++            target = route.target
++            assert target is not None
++            if target in params_dict:
++                param = params_dict[target]
++                # copy_ casts silently: refuse to cross the quantized-storage
++                # boundary (fp8/uint8/int8 vs bf16/fp32) without a scale.
++                olq.check_dtype_contract(name, loaded_weight.dtype, param.dtype)
++                weight_loader = getattr(param, "weight_loader", default_weight_loader)
++                try:
++                    weight_loader(param, loaded_weight)
++                except (AssertionError, ValueError, RuntimeError) as e:
++                    raise olq.OlalaQuantLoadError(
++                        f"Olala load_weights: cannot load {name} into {target} "
++                        f"(parameter {tuple(param.shape)} {param.dtype}, checkpoint "
++                        f"{tuple(loaded_weight.shape)} {loaded_weight.dtype}): {e}"
++                    ) from e
++                loaded.add(target)
++                tracker.consume(name)
++            elif target in buffers_dict:
++                buf = buffers_dict[target]
++                buf.data.copy_(loaded_weight.to(buf.dtype).to(buf.device))
++                loaded.add(target)
++                tracker.consume(name)
++            else:
++                tracker.reject(
++                    name, f"no parameter or buffer named {target} in the model"
++                )
++
++    def _finalize_quantized_params(
++        self, routed_by_layer: dict[int, RoutedExperts], loaded: set[str]
++    ) -> None:
++        """Fill what a weight-only checkpoint cannot carry, then check coverage.
++
++        The default loader's completeness check is off for quantized models
++        (default_loader.py:510-516) and the old ``warning_once`` hid missing
++        tensors, so every parameter of a quantized Linear or RoutedExperts
++        must be reported loaded here.
++        """
++        for layer_idx, routed in routed_by_layer.items():
++            # CompressedTensorsW4A4Nvfp4MoEMethod creates input global scales even
++            # for NVFP4A16 and reads them unconditionally in
++            # process_weights_after_loading; give them the neutral value 1.0
++            # rather than leaving torch.empty garbage.
++            if getattr(routed.quant_method, "use_a16", False):
++                for pname in olq.UNUSED_A16_PARAMS:
++                    p = getattr(routed, pname, None)
++                    if p is not None:
++                        p.data.fill_(1.0)
++                        loaded.add(f"model.layers.{layer_idx}.mlp.experts.{pname}")
++        expected: list[str] = []
++        for mod_name, module in self.named_modules():
++            if not isinstance(module, LinearBase):
++                continue
++            qm = getattr(module, "quant_method", None)
++            if qm is None or isinstance(qm, UnquantizedLinearMethod):
++                continue
++            if getattr(qm, "uses_meta_device", False):
++                continue  # online quantization: parameters are built after loading
++            expected.extend(
++                f"{mod_name}.{pname}" if mod_name else pname
++                for pname, _ in module.named_parameters(recurse=False)
++            )
++        for layer_idx, routed in routed_by_layer.items():
++            qm = routed.quant_method
++            if isinstance(qm, UnquantizedFusedMoEMethod) or getattr(
++                qm, "uses_meta_device", False
++            ):
++                continue
++            # Only the weight parameters the quantization method created (w13_*,
++            # w2_*); RoutedExperts also exposes the gate's e_score_correction_bias.
++            expected.extend(
++                f"model.layers.{layer_idx}.mlp.experts.{pname}"
++                for pname, _ in routed.named_parameters(recurse=False)
++                if pname.startswith(("w13_", "w2_"))
++            )
++        missing = olq.unloaded_params(expected, loaded)
++        if missing:
++            raise olq.OlalaQuantLoadError(
++                f"Olala load_weights: {len(missing)} parameter(s) of quantized modules "
++                "received no checkpoint tensor (they would stay uninitialized): "
++                + ", ".join(missing)
++            )
+ 
+     def load_weights(
+         self,
+         weights: Iterable[tuple[str, torch.Tensor]],
+     ) -> set[str]:
+-        """Load a Olala safetensors checkpoint.
++        """Load a Olala safetensors checkpoint (bf16, or FP8 / NVFP4 quantized).
+ 
+-        Remaps, for MoE layers:
+-            ``mlp.moe_gate.weight``            -> ``mlp.gate.weight``
+-            ``mlp.down_proj.weight``           -> ``mlp.fc1_latent_proj.weight``
+-            ``mlp.up_proj.weight``             -> ``mlp.fc2_latent_proj.weight``
++        Remaps, for MoE layers (every suffix follows its module, so
++        ``mlp.down_proj.weight_scale`` follows ``mlp.down_proj.weight``):
++            ``mlp.moe_gate.*``                 -> ``mlp.gate.*``
++            ``mlp.down_proj.*``                -> ``mlp.fc1_latent_proj.*``
++            ``mlp.up_proj.*``                  -> ``mlp.fc2_latent_proj.*``
+             ``mlp.expert_bias``                -> ``mlp.gate.e_score_correction_bias``
+-            ``mlp.shared_experts.fc_1/fc_2``   -> ``shared_experts.up_proj/down_proj``
+-            ``mlp.experts.experts``            -> packed ``w13`` (w1 shard)
+-            ``mlp.experts.output_experts``     -> packed ``w2``
++            ``mlp.shared_experts.fc_1/fc_2.*`` -> ``shared_experts.up_proj/down_proj.*``
++            ``mlp.experts.experts.<sfx>``      -> packed ``w13_<sfx>`` (w1 shard)
++            ``mlp.experts.output_experts.<sfx>`` -> packed ``w2_<sfx>``
+             ``mlp.tokens_per_expert``          -> dropped (non-persistent buffer)
++
++        Fails loudly (OlalaQuantLoadError) when a checkpoint tensor is not
++        consumed, when a quantized tensor meets a bf16 parameter or the
++        reverse, when a shape disagrees, or when a quantized module is left
++        with an unfilled parameter. ``OLALA_ALLOW_UNCONSUMED`` (a regex that
++        must fully match the name) tolerates named, known-harmless tensors.
+         """
+         moe_layers = set(moe_layer_indices(self.config))
+-        expert_params = self._expert_params()
++        routed_by_layer = self._routed_experts()
+         params_dict = dict(self.named_parameters())
+         buffers_dict = dict(self.named_buffers())
+         loaded: set[str] = set()
+-
+-        renames = {
+-            "moe_gate.weight": "gate.weight",
+-            "down_proj.weight": "fc1_latent_proj.weight",
+-            "up_proj.weight": "fc2_latent_proj.weight",
+-            "shared_experts.fc_1.weight": "shared_experts.up_proj.weight",
+-            "shared_experts.fc_2.weight": "shared_experts.down_proj.weight",
+-        }
++        tracker = olq.LoadTracker()
+ 
+         for name, loaded_weight in weights:
+-            handled = False
+-            if name.startswith("model.layers.") and ".mlp." in name:
+-                head, tail = name.split(".mlp.", 1)
+-                try:
+-                    layer_idx = int(head.rsplit(".", 1)[1])
+-                except ValueError:
+-                    layer_idx = -1
+-                if layer_idx in moe_layers:
+-                    target_prefix = f"model.layers.{layer_idx}.mlp"
+-                    if tail in (
+-                        "experts.experts.weight",
+-                        "experts.output_experts.weight",
+-                    ):
+-                        # Olala packs every expert into one tensor; scatter it
+-                        # into the fused w13/w2 parameters expert by expert.
+-                        # NOTE: RoutedExperts.weight_loader dispatches on the
+-                        # weight NAME ("weight" substring), so the target must
+-                        # carry the real parameter name.
+-                        is_w1 = tail.endswith("experts.experts.weight")
+-                        param = expert_params[layer_idx][0 if is_w1 else 1]
+-                        shard_id = "w1" if is_w1 else "w2"
+-                        target = (
+-                            f"{target_prefix}.experts."
+-                            f"{'w13_weight' if is_w1 else 'w2_weight'}"
+-                        )
+-                        # With expert parallelism the loader declines the
+-                        # experts of other ranks; at least one must land here.
+-                        accepted = 0
+-                        for expert_id in range(loaded_weight.shape[0]):
+-                            accepted += bool(param.weight_loader(
+-                                param,
+-                                loaded_weight[expert_id],
+-                                target,
+-                                shard_id=shard_id,
+-                                expert_id=expert_id,
+-                                return_success=True,
+-                            ))
+-                        if not accepted:
+-                            raise RuntimeError(
+-                                f"Olala load_weights: no expert of {target} "
+-                                f"was accepted by the loader."
+-                            )
+-                        loaded.add(target)
+-                        handled = True
+-                    elif tail in (
+-                        "experts.experts.weight_scale",
+-                        "experts.output_experts.weight_scale",
+-                    ):
+-                        # Serialized experts_int8 checkpoint: the per-row
+-                        # scales of every expert of the layer (single rank).
+-                        is_w1 = tail.startswith("experts.experts.")
+-                        routed = self.model.layers[layer_idx].mlp.experts.routed_experts
+-                        param = routed.w13_scale if is_w1 else routed.w2_scale
+-                        if param.shape != loaded_weight.shape:
+-                            raise ValueError(
+-                                f"Olala load_weights: {name} has shape "
+-                                f"{tuple(loaded_weight.shape)}, expected "
+-                                f"{tuple(param.shape)}."
+-                            )
+-                        param.data.copy_(loaded_weight)
+-                        loaded.add(
+-                            f"{target_prefix}.experts."
+-                            f"{'w13_scale' if is_w1 else 'w2_scale'}"
+-                        )
+-                        handled = True
+-                    elif tail == "expert_bias":
+-                        target = f"{target_prefix}.gate.e_score_correction_bias"
+-                        param = params_dict[target]
+-                        param.data.copy_(loaded_weight.to(param.dtype).to(param.device))
+-                        loaded.add(target)
+-                        handled = True
+-                    elif tail in renames:
+-                        target = f"{target_prefix}.{renames[tail]}"
+-                        param = params_dict[target]
+-                        weight_loader = getattr(
+-                            param, "weight_loader", default_weight_loader
+-                        )
+-                        weight_loader(param, loaded_weight)
+-                        loaded.add(target)
+-                        handled = True
+-                    elif tail == "tokens_per_expert":
+-                        handled = True  # non-persistent buffer, dropped
+-
+-            if handled:
+-                continue
++            route = olq.route_checkpoint_name(name, moe_layers)
++            self._load_one_weight(
++                name,
++                loaded_weight,
++                route,
++                routed_by_layer,
++                params_dict,
++                buffers_dict,
++                loaded,
++                tracker,
++            )
+ 
+-            if name in params_dict:
+-                param = params_dict[name]
+-                weight_loader = getattr(param, "weight_loader", default_weight_loader)
+-                weight_loader(param, loaded_weight)
+-                loaded.add(name)
+-            elif name in buffers_dict:
+-                buf = buffers_dict[name]
+-                buf.data.copy_(loaded_weight.to(buf.dtype).to(buf.device))
+-                loaded.add(name)
+-            else:
+-                logger.warning_once(
+-                    "Olala load_weights: parameter %s not found, skipping.", name
+-                )
++        tolerated = tracker.raise_if_unconsumed(os.environ.get("OLALA_ALLOW_UNCONSUMED"))
++        if tolerated:
++            logger.warning(
++                "Olala load_weights: %d checkpoint tensor(s) not consumed, tolerated by "
++                "OLALA_ALLOW_UNCONSUMED: %s",
++                len(tolerated),
++                ", ".join(tolerated),
++            )
++        self._finalize_quantized_params(routed_by_layer, loaded)
+ 
+         self._maybe_prenormalize_embeddings()
+         for module in self.modules():

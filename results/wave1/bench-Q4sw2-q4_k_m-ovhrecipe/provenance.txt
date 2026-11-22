@@ -1,0 +1,20 @@
+== gguf provenance (2026-11-21T10:33:41Z)
+server_log=/workspace/logs/gguf/server-20261121T102748Z.log
+llama_cpp_repo=https://github.com/OVHai-LLM/llama.cpp.git
+llama_cpp_commit=55c22dca0c987f247c21b427c3b3a09e1a28187f
+llama_cpp_tree=ff04ce13ba15d503c6f50b625550a3b31924adcf
+cuda_arch=120a-real
+nvcc=13.0 (/usr/local/cuda/bin/nvcc)
+cmake_flags=-DGGML_CUDA=ON -DCMAKE_BUILD_TYPE=Release -DLLAMA_USE_PREBUILT_UI=OFF -DLLAMA_BUILD_TESTS=OFF -DLLAMA_BUILD_EXAMPLES=OFF -DLLAMA_BUILD_APP=OFF -DCMAKE_CUDA_ARCHITECTURES=120a-real
+gguf_variant=q4_k_m-ovhrecipe
+gguf_file=/workspace/models/olala-gguf/Olala-v1.0-mini-7A1B-q4_k_m-ovhrecipe.gguf
+gguf_size=5692736672
+gguf_sha256=7c3ce7a46b1c16613c8947846894c64c99aba080d7cf01add2cda61fa6255ea3
+hf_repo=OVHaiLLM/Olala-v1.0-mini-7A1B-GGUF
+hf_revision=b9f5d20adf2ac0aec05e9fa00b057cf26df263fc
+np=12 ctx=393216 slot_ctx=32768
+server_command=/workspace/llama.cpp-olala/build/bin/llama-server -m /workspace/models/olala-gguf/Olala-v1.0-mini-7A1B-q4_k_m-ovhrecipe.gguf --alias olala -ngl 99 -fa on -np 12 -c 393216 -fit off --jinja --min-p 0 --samplers temperature\;top_k\;top_p --ctx-checkpoints 2 --cache-ram 0 --timeout 14400 --threads-http 128 --no-webui --host 127.0.0.1 --port 8000
+smoke_verdict=pass
+smoke_health_seconds=2.0
+smoke_generation_tokens_per_second=93.65
+smoke_log_fact=0.01.827.306 I srv load_model: initializing, n_slots = 12, n_ctx_slot = 32768, kv_unified = 'false'

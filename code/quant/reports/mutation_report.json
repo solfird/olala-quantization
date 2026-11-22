@@ -1,0 +1,217 @@
+[
+  {
+    "mutation": "fp8: wrong max (447)",
+    "caught": true,
+    "first_failure": "FAILED tests/test_convert_select.py::test_a_default_conversion_is_byte_for_byte_what_it_was_before_the_ablation_code[fp8]"
+  },
+  {
+    "mutation": "fp8: no minimum scale",
+    "caught": true,
+    "first_failure": "FAILED tests/test_fp8.py::test_zero_row_gets_min_scale_and_zero_weights - ass..."
+  },
+  {
+    "mutation": "nvfp4: nibble order swapped",
+    "caught": true,
+    "first_failure": "FAILED tests/test_convert.py::test_nvfp4_conversion_layout_and_error - assert..."
+  },
+  {
+    "mutation": "nvfp4: tie at 0.25 rounds up",
+    "caught": true,
+    "first_failure": "FAILED tests/test_convert_select.py::test_a_default_conversion_is_byte_for_byte_what_it_was_before_the_ablation_code[nvfp4]"
+  },
+  {
+    "mutation": "nvfp4: tie at 0.75 rounds down",
+    "caught": true,
+    "first_failure": "FAILED tests/test_convert_select.py::test_a_default_conversion_is_byte_for_byte_what_it_was_before_the_ablation_code[nvfp4]"
+  },
+  {
+    "mutation": "nvfp4: global scale is the reciprocal",
+    "caught": true,
+    "first_failure": "FAILED tests/test_convert.py::test_nvfp4_conversion_layout_and_error - assert..."
+  },
+  {
+    "mutation": "nvfp4: overflow counted without noise margin",
+    "caught": true,
+    "first_failure": "FAILED tests/test_convert.py::test_nvfp4_conversion_layout_and_error - assert..."
+  },
+  {
+    "mutation": "nvfp4: dequant forgets the global scale",
+    "caught": true,
+    "first_failure": "FAILED tests/test_convert.py::test_nvfp4_conversion_layout_and_error - assert..."
+  },
+  {
+    "mutation": "plan: routed pair not expanded",
+    "caught": true,
+    "first_failure": "FAILED tests/test_plan.py::test_half_of_a_routed_pair_is_expanded_because_vllm_cannot_split_it"
+  },
+  {
+    "mutation": "plan: pattern matching nothing accepted",
+    "caught": true,
+    "first_failure": "FAILED tests/test_convert.py::test_cli_main_default_ignore_no_ignore_and_ignore_file"
+  },
+  {
+    "mutation": "plan: no regex for routed experts in vllm ignore",
+    "caught": true,
+    "first_failure": "FAILED tests/test_ablation.py::test_list_i_is_never_quantized_whatever_the_selection[all-200-232]"
+  },
+  {
+    "mutation": "plan: ignore list that excludes nothing accepted",
+    "caught": true,
+    "first_failure": "FAILED tests/test_plan.py::test_ignore_list_that_hits_no_quantizable_tensor_is_refused"
+  },
+  {
+    "mutation": "convert: kept tensors are widened to float32",
+    "caught": true,
+    "first_failure": "FAILED tests/test_convert.py::test_fp8_conversion_end_to_end - assert torch.f..."
+  },
+  {
+    "mutation": "convert: config.json loses the quantization_config",
+    "caught": true,
+    "first_failure": "FAILED tests/test_convert.py::test_config_and_auxiliary_files - KeyError: 'qu..."
+  },
+  {
+    "mutation": "verify: bit-identity check disabled",
+    "caught": true,
+    "first_failure": "FAILED tests/test_verify.py::test_bit_flip_in_ignored_tensor_is_caught - Asse..."
+  },
+  {
+    "mutation": "verify: error bound disabled",
+    "caught": true,
+    "first_failure": "FAILED tests/test_verify.py::test_relative_error_bound_is_enforced_on_its_own[fp8]"
+  },
+  {
+    "mutation": "verify: NaN scale check disabled",
+    "caught": true,
+    "first_failure": "FAILED tests/test_verify.py::test_nan_and_invalid_scales_are_caught - Asserti..."
+  },
+  {
+    "mutation": "loader: dtype contract is a no-op",
+    "caught": true,
+    "first_failure": "FAILED tests/test_loader_logic.py::test_dtype_contract - Failed: DID NOT RAIS..."
+  },
+  {
+    "mutation": "loader: w13 and w2 shard ids swapped",
+    "caught": true,
+    "first_failure": "FAILED tests/test_loader_logic.py::test_fused_expert_routes[experts.experts.weight-w13_weight-w1]"
+  },
+  {
+    "mutation": "loader: slice shape never checked",
+    "caught": true,
+    "first_failure": "FAILED tests/test_loader_logic.py::test_slice_shape_checks - Failed: DID NOT ..."
+  },
+  {
+    "mutation": "loader: unconsumed tensors never raise",
+    "caught": true,
+    "first_failure": "FAILED tests/test_loader_logic.py::test_load_tracker_lists_every_unconsumed_name_and_honours_the_allow_list"
+  },
+  {
+    "mutation": "loader: down_proj suffixes not renamed",
+    "caught": true,
+    "first_failure": "FAILED tests/test_loader_logic.py::test_routes_for_bf16_and_dense_quantized_names"
+  },
+  {
+    "mutation": "patch: silent skip restored in the patch text",
+    "caught": true,
+    "first_failure": "FAILED tests/test_patch.py::test_patched_load_weights_is_wired_to_the_loud_logic"
+  },
+  {
+    "mutation": "ablation: list I not kept (a selection replaces the base ignore list)",
+    "caught": true,
+    "first_failure": "FAILED tests/test_ablation.py::test_expected_counts_on_the_real_header[all-200-232]"
+  },
+  {
+    "mutation": "ablation: deselected tensors not added to the ignore list (selection applied to nothing)",
+    "caught": true,
+    "first_failure": "FAILED tests/test_convert_select.py::test_only_the_selected_tensors_are_quantized_and_everything_else_is_bit_identical[experts-quantized0-nvfp4]"
+  },
+  {
+    "mutation": "ablation: ignore list incomplete for deselected modules (first one dropped)",
+    "caught": true,
+    "first_failure": "FAILED tests/test_ablation.py::test_expected_counts_on_the_real_header[experts-32-64]"
+  },
+  {
+    "mutation": "ablation: selection not recorded in quantization_info.json",
+    "caught": true,
+    "first_failure": "FAILED tests/test_convert_select.py::test_select_all_changes_no_tensor_no_config_and_no_index"
+  },
+  {
+    "mutation": "ablation: default conversion output changed (selection block always written)",
+    "caught": true,
+    "first_failure": "FAILED tests/test_convert_select.py::test_a_default_conversion_is_byte_for_byte_what_it_was_before_the_ablation_code[nvfp4]"
+  },
+  {
+    "mutation": "ablation: layer range off by one at the top (end excluded)",
+    "caught": true,
+    "first_failure": "FAILED tests/test_ablation.py::test_expected_counts_on_the_real_header[experts:layers=0-11-9-18]"
+  },
+  {
+    "mutation": "ablation: layer range off by one at the bottom (start excluded)",
+    "caught": true,
+    "first_failure": "FAILED tests/test_ablation.py::test_expected_counts_on_the_real_header[experts:layers=12-23-11-22]"
+  },
+  {
+    "mutation": "ablation: the routed down projection assigned to another component (pair split)",
+    "caught": true,
+    "first_failure": "FAILED tests/test_ablation.py::test_expected_counts_on_the_real_header[experts-32-64]"
+  },
+  {
+    "mutation": "ablation: attention and Mamba mixer_proj swapped",
+    "caught": true,
+    "first_failure": "FAILED tests/test_ablation.py::test_expected_counts_on_the_real_header[attention-14-14]"
+  },
+  {
+    "mutation": "ablation: non-experts includes the experts",
+    "caught": true,
+    "first_failure": "FAILED tests/test_ablation.py::test_the_named_selections_are_the_documented_set"
+  },
+  {
+    "mutation": "ablation: adjacent layer ranges not merged in the canonical spec",
+    "caught": true,
+    "first_failure": "FAILED tests/test_ablation.py::test_specs_are_parsed_and_written_canonically[experts:layers=0-3,4-6-experts:layers=0-6]"
+  },
+  {
+    "mutation": "ablation: reversed layer range accepted",
+    "caught": true,
+    "first_failure": "FAILED tests/test_ablation.py::test_malformed_specs_are_refused[experts:layers=5-2]"
+  },
+  {
+    "mutation": "ablation: layers beyond the model accepted",
+    "caught": true,
+    "first_failure": "FAILED tests/test_ablation.py::test_layers_beyond_the_model_are_refused_not_ignored[experts:layers=36]"
+  },
+  {
+    "mutation": "ablation: a selection that quantizes nothing accepted",
+    "caught": true,
+    "first_failure": "FAILED tests/test_ablation.py::test_a_selection_that_quantizes_nothing_is_refused"
+  },
+  {
+    "mutation": "ablation: expected layer count counts tensors, not modules (routed pair counted twice)",
+    "caught": true,
+    "first_failure": "FAILED tests/test_ablation.py::test_expected_counts_on_the_real_header[all-200-232]"
+  },
+  {
+    "mutation": "ablation: --select allowed with --no-ignore (list I droppable)",
+    "caught": true,
+    "first_failure": "FAILED tests/test_convert_select.py::test_the_command_line_takes_select_and_refuses_what_would_drop_list_i"
+  },
+  {
+    "mutation": "ablation: verify does not re-derive the recorded selection",
+    "caught": true,
+    "first_failure": "FAILED tests/test_convert_select.py::test_verify_checks_the_recorded_selection_against_the_recorded_ignore_list"
+  },
+  {
+    "mutation": "ablation: verify does not compare the recorded ignore patterns with the re-derived ones",
+    "caught": true,
+    "first_failure": "FAILED tests/test_convert_select.py::test_verify_checks_the_recorded_selection_against_the_recorded_ignore_list"
+  },
+  {
+    "mutation": "ablation: check ignores the number of quantized tensors on disk",
+    "caught": true,
+    "first_failure": "FAILED tests/test_convert_select.py::test_the_check_subcommand_counts_the_quantized_tensors_on_disk"
+  },
+  {
+    "mutation": "ablation: check ignores the server's Quantizing line",
+    "caught": true,
+    "first_failure": "FAILED tests/test_convert_select.py::test_the_check_subcommand_compares_a_checkpoint_and_a_server_log_with_the_prediction"
+  }
+]

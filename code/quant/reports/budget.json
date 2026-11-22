@@ -1,0 +1,69 @@
+{
+  "source": {
+    "header": "tests/data/olala_header.json",
+    "n_tensors": 945,
+    "total_params": 6773124360,
+    "source_bytes": 13579574304,
+    "source_gb": 13.579574304,
+    "bits_per_weight": 16.039362140399266
+  },
+  "ignore_list_I": [
+    "model.layers.1.mixer_proj.weight",
+    "model.layers.7.mixer_proj.weight",
+    "model.layers.23.mixer_proj.weight",
+    "model.layers.0.mlp.*",
+    "model.layers.1.mlp.*",
+    "model.layers.5.mlp.*",
+    "model.layers.19.mlp.*"
+  ],
+  "rows": [
+    {
+      "recipe": "fp8",
+      "ignore": "none",
+      "n_quantized": 259,
+      "n_ignored_quantizable": 0,
+      "quantized_params": 5884084224,
+      "quantized_fraction": 0.8687400247291488,
+      "output_bytes": 7739026464,
+      "output_gb": 7.739026464,
+      "bits_per_weight": 9.140864455056308,
+      "bits_per_quantized_weight": 8.059192060946271
+    },
+    {
+      "recipe": "fp8",
+      "ignore": "I",
+      "n_quantized": 232,
+      "n_ignored_quantizable": 27,
+      "quantized_params": 5242355712,
+      "quantized_fraction": 0.7739937189046385,
+      "output_bytes": 8375938080,
+      "output_gb": 8.37593808,
+      "bits_per_weight": 9.893145478876162,
+      "bits_per_quantized_weight": 8.059087158715872
+    },
+    {
+      "recipe": "nvfp4",
+      "ignore": "none",
+      "n_quantized": 259,
+      "n_ignored_quantizable": 0,
+      "quantized_params": 5884084224,
+      "quantized_fraction": 0.8687400247291488,
+      "output_bytes": 5121277708,
+      "output_gb": 5.121277708,
+      "bits_per_weight": 6.048939822507555,
+      "bits_per_quantized_weight": 4.50010125755807
+    },
+    {
+      "recipe": "nvfp4",
+      "ignore": "I",
+      "n_quantized": 232,
+      "n_ignored_quantizable": 27,
+      "quantized_params": 5242355712,
+      "quantized_fraction": 0.7739937189046385,
+      "output_bytes": 6043754176,
+      "output_gb": 6.043754176,
+      "bits_per_weight": 7.138512573833799,
+      "bits_per_quantized_weight": 4.500101035494175
+    }
+  ]
+}

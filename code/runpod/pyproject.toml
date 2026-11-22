@@ -1,0 +1,39 @@
+[project]
+name = "olala-runpod"
+version = "0.1.0"
+description = "RunPod tooling of the olala-quants study: pod lifecycle, spend guard, pod-side serving scripts"
+requires-python = ">=3.12"
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "pytest>=9.2.0",
+    "ruff>=0.17.6",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+extend-exclude = [".venv"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "D", "ANN", "S", "SIM", "C4", "RUF"]
+ignore = ["D203", "D213", "ANN401"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["D", "ANN", "E501", "S101", "S105", "S106", "S108", "S311", "S603", "S607"]
+# The scripts shell out to fixed local tools (ssh, nvidia-smi, bash); no untrusted input reaches them.
+"rp.py" = ["S603", "S607"]
+"spend.py" = ["S603", "S607"]
+"pod/*.py" = ["S603", "S607"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+addopts = "-ra -m 'not docker'"
+markers = [
+    "docker: needs a running Docker daemon (run with -m docker)",
+]

@@ -1,0 +1,17 @@
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+Build & Cut off & Not flagged as a loop & Loops & Right number in last quarter \\
+\midrule
+bf16, run a & 36 & 27 & 9 & 6 \\
+bf16, run b & 37 & 24 & 13 & 10 \\
+bf16 GGUF on llama.cpp (B0g) & 34 & 22 & 12 & 5 \\
+FP8 online & 21 & 18 & 3 & 4 \\
+FP8 offline & 37 & 22 & 15 & 6 \\
+NVFP4, all quantizable layers & 47 & 33 & 14 & 9 \\
+NVFP4, routed experts only & 40 & 29 & 11 & 8 \\
+NVFP4, routed experts, calibrated & 46 & 35 & 11 & 8 \\
+New build & 35 & 26 & 9 & 2 \\
+OVH Q5\_K\_M & 35 & 25 & 10 & 3 \\
+Q4\_K\_M stand-in & 90 & 67 & 23 & 21 \\
+\bottomrule
+\end{tabular}

@@ -1,0 +1,15 @@
+run=N5 mode=ckptsel:/workspace/ckpt/n5-experts:nvfp4:experts started=2026-11-21T01:27:54Z
+NVIDIA RTX PRO 4500 Blackwell, 595.112.07
+selection=experts
+selection_requested=experts
+expected_counts={"ignore_entries":196,"ignored_layers":191,"ignored_tensors":195,"quantized_layers":32,"quantized_layers_by_type":{"mlp.experts":32},"quantized_tensors":64,"spec":"experts","total_quantizable_layers":223}
+verify: OK: 945 tensors checked, no violation. {"n_quantized": 64, "n_ignored": 195, "n_kept": 686, "worst_rel_fro": [{"tensor": "model.layers.20.mlp.experts.experts.weight", "rel_fro": 0.09519244580813084}, {"tensor": "model.layers.18.mlp.experts.experts.weight", "rel_fro": 0.09517832402509815}, {"tensor":
+ablation_check: ABLATION_CHECK_OK experts
+ff745ad689dfd7f3e70a1aab08c6ac58694c3299a56380d52bb6744ec540273d  model.safetensors.index.json
+aca61b0d9203c47272313bc761f71e7e83d7264a69bdcc8c470c13bd2301e3cf  config.json
+5a4b243bac94b76c1419583a00775490fafe20bce2b465248e18def408347001  quantization_info.json
+(EngineCore pid=2160) INFO 11-21 01:30:42 [unquantized.py:365] Using FlashInfer CUTLASS Unquantized MoE backend out of potential backends: ['FlashInfer TRTLLM', 'FlashInfer CUTLASS', 'TRITON', 'BATCHED_TRITON'].
+(EngineCore pid=2160) INFO 11-21 01:30:42 [nvfp4.py:314] Using 'MARLIN' NvFp4 MoE backend out of potential backends: ['FLASHINFER_TRTLLM', 'FLASHINFER_CUTEDSL', 'FLASHINFER_CUTEDSL_BATCHED', 'FLASHINFER_CUTLASS', 'VLLM_CUTLASS', 'MARLIN', 'HUMMING', 'EMULATION'].
+(EngineCore pid=2160) INFO 11-21 01:31:41 [unquantized.py:530] Using FlashInferExperts MoE backend
+gpu_exclusive_check=ok
+sweep_exit=0 finished=2026-11-21T02:02:41Z

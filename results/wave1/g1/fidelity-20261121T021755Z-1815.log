@@ -1,0 +1,13 @@
+wrote /workspace/results/raw/b0_wikitext2.npz: (64, 511) positions, k=20
+wrote /workspace/results/raw/b0repeat_wikitext2.npz: (64, 511) positions, k=20
+patching file vllm/model_executor/models/olala.py
+patching file vllm/model_executor/models/olala_quant_loader.py
+log: /workspace/logs/ckpt-g1lite/server-20261121T030523Z.log
+next: bash /workspace/bundle/pod/smoke.sh ckpt-g1lite
+wrote /workspace/results/raw/g1_wikitext2.npz: (64, 511) positions, k=20
+g1: | Perplexity ratio (variant / reference) | 1.0324 | [1.0277, 1.0369] |
+g1: | Mean KL(ref || variant), nats | 0.02900 | [0.02669, 0.03128] |
+g1: | 99th percentile KL, nats | 0.31886 | [0.28224, 0.37756] |
+g1: | Same top-1 token (fraction) | 0.9070 | [0.9035, 0.9105] |
+fidelity: mean KL 0.02900, perplexity ratio 1.03240
+G1_STEP_FIDELITY_DONE

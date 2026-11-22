@@ -1,0 +1,171 @@
+{
+  "status": "complete",
+  "endpoint": "http://127.0.0.1:8000/v1",
+  "model": "olala",
+  "inspect_model": "openai-api/vllm/olala",
+  "git": {
+    "commit": null,
+    "dirty": null,
+    "note": "not a git repository"
+  },
+  "code_sha256": "0587d7332d5cab245c16584ac1613cfe179d3b6f7affab662558c5382bf5e941",
+  "versions": {
+    "python": "3.12.3",
+    "inspect_ai": "0.3.291",
+    "inspect_evals": "0.29.0",
+    "openai": "3.57.0",
+    "httpx": "0.28.1",
+    "datasets": "5.2.0",
+    "numpy": "2.5.5",
+    "instruction_following_eval": "0.1.0"
+  },
+  "sampling": {
+    "temperature": 0.8,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": null,
+    "seed": null,
+    "max_retries": 5,
+    "timeout": 3600
+  },
+  "reasoning_effort": "medium",
+  "chat_template_kwargs": {
+    "reasoning_effort": "medium"
+  },
+  "max_connections": 96,
+  "seed": 0,
+  "n_items_requested": {
+    "default": null,
+    "per_task": {
+      "mgsm": 550
+    }
+  },
+  "sandbox": {
+    "mode": "local",
+    "tasks": [
+      "humaneval_plus",
+      "mbpp_plus"
+    ]
+  },
+  "epochs_requested": {
+    "default": null,
+    "per_task": {}
+  },
+  "items_from": null,
+  "argv": [
+    "--tasks",
+    "mgsm",
+    "humaneval_plus",
+    "mbpp_plus",
+    "ifeval",
+    "aime2025",
+    "--base-url",
+    "http://127.0.0.1:8000/v1",
+    "--model",
+    "olala",
+    "--out",
+    "/workspace/results/raw/B0b",
+    "--seed",
+    "0",
+    "--sandbox",
+    "local",
+    "--reasoning-effort",
+    "medium",
+    "--max-connections",
+    "96",
+    "--n-items",
+    "mgsm=550"
+  ],
+  "started_utc": "2026-11-20T13:13:42Z",
+  "ended_utc": "2026-11-20T14:58:25Z",
+  "skipped_tasks": {},
+  "tasks": {
+    "mgsm": {
+      "epochs": 1,
+      "n_items": 550,
+      "items_sha256": "4df4814b314f1006e2418d763581fb32b436f4bdccfa9deef98e35759d042396",
+      "n_samples": 550,
+      "request_errors": 0,
+      "truncations": 2,
+      "eval_status": "success",
+      "inspect_log": "2026-11-20T13-13-46-00-00_mgsm_EtXw8thtY5GZmC3iPeTA6F.eval"
+    },
+    "humaneval_plus": {
+      "epochs": 1,
+      "n_items": 164,
+      "items_sha256": "77da7ef3747c414099876a7a633bba803d6349f5387bfdfedc8f42a6ffc2e6c3",
+      "n_samples": 164,
+      "request_errors": 0,
+      "truncations": 1,
+      "eval_status": "success",
+      "inspect_log": "2026-11-20T13-29-43-00-00_humaneval-plus_L5qc9Pgiju7MCiUe58MfkD.eval"
+    },
+    "mbpp_plus": {
+      "epochs": 1,
+      "n_items": 378,
+      "items_sha256": "95e6c77cfd1638c5ef7b8edf3a852bcc3d2c541445a5c047c2bc2bfd8f39dbb1",
+      "n_samples": 378,
+      "request_errors": 0,
+      "truncations": 2,
+      "eval_status": "success",
+      "inspect_log": "2026-11-20T13-35-22-00-00_mbpp-plus_CgstdPNeRKQg2RdnxH296L.eval"
+    },
+    "ifeval": {
+      "epochs": 1,
+      "n_items": 541,
+      "items_sha256": "45874aab7e499fbb3614697d09eda30682716303bf41ecfc6ea5ea4df153f2a4",
+      "n_samples": 541,
+      "request_errors": 0,
+      "truncations": 7,
+      "eval_status": "success",
+      "inspect_log": "2026-11-20T13-43-23-00-00_ifeval_nFRvrXZAgtA8WsKYVZNU5V.eval"
+    },
+    "aime2025": {
+      "epochs": 5,
+      "n_items": 30,
+      "items_sha256": "b0df03745f27c2658b686b8061f788d4fc7e67f76157706f9ab4a38627101b2b",
+      "n_samples": 150,
+      "request_errors": 0,
+      "truncations": 4,
+      "eval_status": "success",
+      "inspect_log": "2026-11-20T20-14-21-00-00_aime2025_b3BqnUFXcHEJTLxnaXFNzP.eval"
+    }
+  },
+  "n_samples": 1783,
+  "request_errors": 0,
+  "truncations": 16,
+  "merged": {
+    "reason": "PROTOCOL amendment 10/11: AIME client-timeout artifact, rerun with non-binding settings",
+    "task": "aime2025",
+    "original_dir": "results/wave1/B0b",
+    "rerun_dir": "results/wave1/B0b-aime3",
+    "sha256": {
+      "original_samples": "ca5002ee6e5eeadf3d8469a5c4e8287eac92f2ad8dd9dd6fc7be13fddff50862",
+      "original_run_info": "35b3672cd142a276f2fbc9b395bb4e229011a10dad83e4e0d48d7d76102e2c0f",
+      "rerun_samples": "a900a94a5bd8dbb1180ccc6bcc513cc45696973be7306a9e91e7d4289e72609c",
+      "rerun_run_info": "ed418f62494f4a93945af883f7bd9bb598648f5120bd04aa37e04f8da8f4b2b6"
+    },
+    "settings_differing": {
+      "max_connections_per_task": {
+        "original": 96,
+        "rerun": 24
+      },
+      "timeout": {
+        "original": 3600,
+        "rerun": 14400
+      }
+    },
+    "task_rows": {
+      "original": 150,
+      "rerun": 150
+    },
+    "original_task_request_errors": 9,
+    "original_task_truncations": 1,
+    "rerun_task_request_errors": 0,
+    "rerun_task_truncations": 4,
+    "quantization_info_sha256": {
+      "original": null,
+      "rerun": null
+    }
+  }
+}

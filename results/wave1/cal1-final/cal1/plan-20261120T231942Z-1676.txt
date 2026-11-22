@@ -1,0 +1,19 @@
++ env PYTHONPATH=/workspace/bundle/quant:/workspace/bundle/quant/gptq /workspace/venv-cal1/bin/python3 /workspace/bundle/quant/gptq/cal1_generate.py --out /workspace/calib-cal1 --eval-items /workspace/bundle/quant/gptq/data/eval_items.json --model olala --base-url http://127.0.0.1:8000/v1 --tokenizer /workspace/models/olala-bf16 --window 2048 --revision math_train=21a5633873b6a120296cce3e2df9d5550074f4a3 --revision mgsm_train_parallel=dd8076b83bacd7c6ade2829317e8a500c6ffbec4 --revision code_oss_python=5f839b1f368a76b161028bb9edff055db34022b2 --revision if_personas=fe0c7d350c9b4542b8d829a6f1daa1c259f0ba0e --dry-run   # log: /workspace/logs/cal1/plan-20261120T232448Z.log
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Generating train split:   0%|          | 0/1744 [00:00<?, ? examples/s]Generating train split: 100%|██████████| 1744/1744 [00:00<00:00, 75449.88 examples/s]
+Generating test split:   0%|          | 0/1187 [00:00<?, ? examples/s]Generating test split: 100%|██████████| 1187/1187 [00:00<00:00, 119243.12 examples/s]
+Generating train split:   0%|          | 0/771 [00:00<?, ? examples/s]Generating train split: 100%|██████████| 771/771 [00:00<00:00, 82742.07 examples/s]
+Generating test split:   0%|          | 0/474 [00:00<?, ? examples/s]Generating test split: 100%|██████████| 474/474 [00:00<00:00, 49973.61 examples/s]
+Generating train split:   0%|          | 0/870 [00:00<?, ? examples/s]Generating train split: 100%|██████████| 870/870 [00:00<00:00, 67267.21 examples/s]
+Generating test split:   0%|          | 0/479 [00:00<?, ? examples/s]Generating test split: 100%|██████████| 479/479 [00:00<00:00, 44267.30 examples/s]
+Generating train split:   0%|          | 0/1295 [00:00<?, ? examples/s]Generating train split: 100%|██████████| 1295/1295 [00:00<00:00, 98066.76 examples/s]
+Generating test split:   0%|          | 0/903 [00:00<?, ? examples/s]Generating test split: 100%|██████████| 903/903 [00:00<00:00, 49792.37 examples/s]
+Generating train split:   0%|          | 0/869 [00:00<?, ? examples/s]Generating train split: 100%|██████████| 869/869 [00:00<00:00, 110083.06 examples/s]
+Generating test split:   0%|          | 0/540 [00:00<?, ? examples/s]Generating test split: 100%|██████████| 540/540 [00:00<00:00, 77837.80 examples/s]
+Generating train split:   0%|          | 0/1205 [00:00<?, ? examples/s]Generating train split: 100%|██████████| 1205/1205 [00:00<00:00, 78520.61 examples/s]
+Generating test split:   0%|          | 0/871 [00:00<?, ? examples/s]Generating test split: 100%|██████████| 871/871 [00:00<00:00, 89667.63 examples/s]
+Generating train split:   0%|          | 0/746 [00:00<?, ? examples/s]Generating train split: 100%|██████████| 746/746 [00:00<00:00, 161962.36 examples/s]
+Generating test split:   0%|          | 0/546 [00:00<?, ? examples/s]Generating test split: 100%|██████████| 546/546 [00:00<00:00, 95000.83 examples/s]
+Generating train split: 0 examples [00:00, ? examples/s]Generating train split: 42590 examples [00:00, 225774.68 examples/s]Generating train split: 73559 examples [00:00, 234170.60 examples/s]Generating train split: 73559 examples [00:00, 232395.56 examples/s]
+error: mgsm_train_parallel: column 'query' not found; the columns of Mathoctopus/GSM8KInstruct_Parallel are ['chosen', 'prompt', 'reject']
+CAL1_PLAN_FAILED

@@ -1,0 +1,586 @@
+0.00.929.306 W load: control-looking token: 128247 '</s>' was not control-type; this is probably a bug in the model. its type will be overridden
+0.04.111.980 I cmn          init: llama threadpool init, n_threads = 128
+0.04.112.040 I 
+0.04.112.244 I system_info: n_threads = 128 (n_threads_batch = 128) / 256 | CUDA : ARCHS = 1200 | USE_GRAPHS = 1 | FA_QUANTS = q4_0-q4_0,q8_0-q8_0,f16-f16,bf16-bf16 | BLACKWELL_NATIVE_FP4 = 1 | CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | 
+0.04.112.247 I compute_imatrix: tokenizing the input ..
+0.10.690.647 I compute_imatrix: tokenization took 6578.38 ms
+0.10.697.354 I compute_imatrix: computing over 200 chunks, n_ctx=512, batch_size=2048, n_seq=4
+0.14.449.800 I compute_imatrix: 3.75 seconds per pass - ETA 3.12 minutes
+[1]13.5021,[2]16.7042,[3]17.7075,[4]15.7507,[5]16.4959,[6]16.3074,[7]17.7139,[8]17.7826,0.17.801.828 W 
+save_imatrix: saving imatrix using GGUF format with a different suffix than .gguf
+0.17.801.832 W save_imatrix: if you want the previous imatrix format, use --output-format dat
+0.17.801.845 I 
+0.17.801.851 W save_imatrix: entry '               blk.35.ffn_up_exps.weight' has partial data (98.44%)
+0.17.801.857 W save_imatrix: entry '             blk.32.ffn_down_exps.weight' has partial data (98.83%)
+0.17.801.859 W save_imatrix: entry '               blk.32.ffn_up_exps.weight' has partial data (98.83%)
+0.17.801.862 W save_imatrix: entry '             blk.31.ffn_down_exps.weight' has partial data (99.61%)
+0.17.801.867 W save_imatrix: entry '             blk.30.ffn_down_exps.weight' has partial data (99.61%)
+0.17.801.870 W save_imatrix: entry '               blk.29.ffn_up_exps.weight' has partial data (98.83%)
+0.17.801.877 W save_imatrix: entry '             blk.28.ffn_down_exps.weight' has partial data (97.27%)
+0.17.801.878 W save_imatrix: entry '               blk.28.ffn_up_exps.weight' has partial data (97.27%)
+0.17.801.880 W save_imatrix: entry '               blk.31.ffn_up_exps.weight' has partial data (99.61%)
+0.17.801.892 W save_imatrix: entry '             blk.26.ffn_down_exps.weight' has partial data (98.83%)
+0.17.801.912 W save_imatrix: entry '             blk.24.ffn_down_exps.weight' has partial data (96.09%)
+0.17.801.916 W save_imatrix: entry '               blk.24.ffn_up_exps.weight' has partial data (96.09%)
+0.17.801.945 W save_imatrix: entry '             blk.23.ffn_down_exps.weight' has partial data (94.53%)
+0.17.801.949 W save_imatrix: entry '               blk.23.ffn_up_exps.weight' has partial data (94.53%)
+0.17.801.951 W save_imatrix: entry '             blk.29.ffn_down_exps.weight' has partial data (98.83%)
+0.17.801.974 W save_imatrix: entry '               blk.30.ffn_up_exps.weight' has partial data (99.61%)
+0.17.801.978 W save_imatrix: entry '              blk.5.ffn_down_exps.weight' has partial data (98.83%)
+0.17.802.017 W save_imatrix: entry '             blk.21.ffn_down_exps.weight' has partial data (99.61%)
+0.17.802.033 W save_imatrix: entry '                blk.3.ffn_up_exps.weight' has partial data (99.22%)
+0.17.802.039 W save_imatrix: entry '                blk.1.ffn_up_exps.weight' has partial data (99.22%)
+0.17.802.075 W save_imatrix: entry '                blk.2.ffn_up_exps.weight' has partial data (98.83%)
+0.17.802.086 W save_imatrix: entry '               blk.25.ffn_up_exps.weight' has partial data (98.44%)
+0.17.802.088 W save_imatrix: entry '              blk.3.ffn_down_exps.weight' has partial data (99.22%)
+0.17.802.094 W save_imatrix: entry '                blk.5.ffn_up_exps.weight' has partial data (98.83%)
+0.17.802.102 W save_imatrix: entry '              blk.4.ffn_down_exps.weight' has partial data (98.44%)
+0.17.802.116 W save_imatrix: entry '              blk.0.ffn_down_exps.weight' has partial data (97.66%)
+0.17.802.118 W save_imatrix: entry '                blk.4.ffn_up_exps.weight' has partial data (98.44%)
+0.17.802.131 W save_imatrix: entry '             blk.22.ffn_down_exps.weight' has partial data (99.22%)
+0.17.802.139 W save_imatrix: entry '              blk.2.ffn_down_exps.weight' has partial data (98.83%)
+0.17.802.177 W save_imatrix: entry '               blk.26.ffn_up_exps.weight' has partial data (98.83%)
+0.17.802.197 W save_imatrix: entry '              blk.1.ffn_down_exps.weight' has partial data (99.22%)
+0.17.802.200 W save_imatrix: entry '             blk.35.ffn_down_exps.weight' has partial data (98.44%)
+0.17.802.213 W save_imatrix: entry '               blk.17.ffn_up_exps.weight' has partial data (99.61%)
+0.17.802.218 W save_imatrix: entry '             blk.17.ffn_down_exps.weight' has partial data (99.61%)
+0.17.802.231 W save_imatrix: entry '               blk.18.ffn_up_exps.weight' has partial data (98.44%)
+0.17.802.234 W save_imatrix: entry '                blk.0.ffn_up_exps.weight' has partial data (97.66%)
+0.17.802.239 W save_imatrix: entry '             blk.18.ffn_down_exps.weight' has partial data (98.44%)
+0.17.802.254 W save_imatrix: entry '               blk.21.ffn_up_exps.weight' has partial data (99.61%)
+0.17.802.262 W save_imatrix: entry '             blk.25.ffn_down_exps.weight' has partial data (98.44%)
+0.17.802.271 W save_imatrix: entry '               blk.19.ffn_up_exps.weight' has partial data (98.44%)
+0.17.802.278 W save_imatrix: entry '             blk.19.ffn_down_exps.weight' has partial data (98.44%)
+0.17.802.313 W save_imatrix: entry '               blk.22.ffn_up_exps.weight' has partial data (99.22%)
+
+[9]15.9140,[10]15.0305,[11]15.1436,[12]15.0220,[13]14.2514,[14]15.1911,[15]15.2815,[16]15.1903,0.23.864.335 W 
+save_imatrix: saving imatrix using GGUF format with a different suffix than .gguf
+0.23.864.338 W save_imatrix: if you want the previous imatrix format, use --output-format dat
+0.23.864.348 I 
+0.23.864.353 W save_imatrix: entry '               blk.35.ffn_up_exps.weight' has partial data (99.61%)
+0.23.864.358 W save_imatrix: entry '             blk.32.ffn_down_exps.weight' has partial data (99.22%)
+0.23.864.360 W save_imatrix: entry '               blk.32.ffn_up_exps.weight' has partial data (99.22%)
+0.23.864.362 W save_imatrix: entry '             blk.31.ffn_down_exps.weight' has partial data (99.61%)
+0.23.864.366 W save_imatrix: entry '             blk.30.ffn_down_exps.weight' has partial data (99.61%)
+0.23.864.370 W save_imatrix: entry '               blk.29.ffn_up_exps.weight' has partial data (99.61%)
+0.23.864.376 W save_imatrix: entry '             blk.28.ffn_down_exps.weight' has partial data (98.05%)
+0.23.864.377 W save_imatrix: entry '               blk.28.ffn_up_exps.weight' has partial data (98.05%)
+0.23.864.379 W save_imatrix: entry '               blk.31.ffn_up_exps.weight' has partial data (99.61%)
+0.23.864.383 W save_imatrix: entry '             blk.26.ffn_down_exps.weight' has partial data (99.61%)
+0.23.864.390 W save_imatrix: entry '             blk.24.ffn_down_exps.weight' has partial data (98.05%)
+0.23.864.391 W save_imatrix: entry '               blk.24.ffn_up_exps.weight' has partial data (98.05%)
+0.23.864.398 W save_imatrix: entry '             blk.23.ffn_down_exps.weight' has partial data (95.31%)
+0.23.864.400 W save_imatrix: entry '               blk.23.ffn_up_exps.weight' has partial data (95.31%)
+0.23.864.402 W save_imatrix: entry '             blk.29.ffn_down_exps.weight' has partial data (99.61%)
+0.23.864.413 W save_imatrix: entry '               blk.30.ffn_up_exps.weight' has partial data (99.61%)
+0.23.864.415 W save_imatrix: entry '              blk.5.ffn_down_exps.weight' has partial data (99.22%)
+0.23.864.449 W save_imatrix: entry '                blk.3.ffn_up_exps.weight' has partial data (99.22%)
+0.23.864.454 W save_imatrix: entry '                blk.1.ffn_up_exps.weight' has partial data (99.22%)
+0.23.864.476 W save_imatrix: entry '                blk.2.ffn_up_exps.weight' has partial data (98.83%)
+0.23.864.479 W save_imatrix: entry '               blk.25.ffn_up_exps.weight' has partial data (99.22%)
+0.23.864.481 W save_imatrix: entry '              blk.3.ffn_down_exps.weight' has partial data (99.22%)
+0.23.864.485 W save_imatrix: entry '                blk.5.ffn_up_exps.weight' has partial data (99.22%)
+0.23.864.492 W save_imatrix: entry '              blk.4.ffn_down_exps.weight' has partial data (98.44%)
+0.23.864.501 W save_imatrix: entry '              blk.0.ffn_down_exps.weight' has partial data (97.66%)
+0.23.864.504 W save_imatrix: entry '                blk.4.ffn_up_exps.weight' has partial data (98.44%)
+0.23.864.509 W save_imatrix: entry '             blk.22.ffn_down_exps.weight' has partial data (99.22%)
+0.23.864.513 W save_imatrix: entry '              blk.2.ffn_down_exps.weight' has partial data (98.83%)
+0.23.864.530 W save_imatrix: entry '               blk.26.ffn_up_exps.weight' has partial data (99.61%)
+0.23.864.539 W save_imatrix: entry '              blk.1.ffn_down_exps.weight' has partial data (99.22%)
+0.23.864.541 W save_imatrix: entry '             blk.35.ffn_down_exps.weight' has partial data (99.61%)
+0.23.864.545 W save_imatrix: entry '               blk.17.ffn_up_exps.weight' has partial data (99.61%)
+0.23.864.547 W save_imatrix: entry '             blk.17.ffn_down_exps.weight' has partial data (99.61%)
+0.23.864.550 W save_imatrix: entry '               blk.18.ffn_up_exps.weight' has partial data (99.22%)
+0.23.864.552 W save_imatrix: entry '                blk.0.ffn_up_exps.weight' has partial data (97.66%)
+0.23.864.553 W save_imatrix: entry '             blk.18.ffn_down_exps.weight' has partial data (99.22%)
+0.23.864.558 W save_imatrix: entry '             blk.25.ffn_down_exps.weight' has partial data (99.22%)
+0.23.864.560 W save_imatrix: entry '               blk.19.ffn_up_exps.weight' has partial data (98.83%)
+0.23.864.563 W save_imatrix: entry '             blk.19.ffn_down_exps.weight' has partial data (98.83%)
+0.23.864.568 W save_imatrix: entry '               blk.22.ffn_up_exps.weight' has partial data (99.22%)
+
+[17]15.0797,[18]14.7650,[19]14.9256,[20]15.0452,[21]15.0705,[22]14.9616,[23]15.3380,[24]15.0921,[25]14.3116,[26]13.9729,[27]13.7078,[28]13.4087,0.29.983.045 W 
+save_imatrix: saving imatrix using GGUF format with a different suffix than .gguf
+0.29.983.048 W save_imatrix: if you want the previous imatrix format, use --output-format dat
+0.29.983.062 I 
+0.29.983.067 W save_imatrix: entry '             blk.32.ffn_down_exps.weight' has partial data (99.61%)
+0.29.983.069 W save_imatrix: entry '               blk.32.ffn_up_exps.weight' has partial data (99.61%)
+0.29.983.074 W save_imatrix: entry '             blk.30.ffn_down_exps.weight' has partial data (99.61%)
+0.29.983.078 W save_imatrix: entry '               blk.29.ffn_up_exps.weight' has partial data (99.61%)
+0.29.983.083 W save_imatrix: entry '             blk.28.ffn_down_exps.weight' has partial data (99.22%)
+0.29.983.085 W save_imatrix: entry '               blk.28.ffn_up_exps.weight' has partial data (99.22%)
+0.29.983.091 W save_imatrix: entry '             blk.26.ffn_down_exps.weight' has partial data (99.61%)
+0.29.983.098 W save_imatrix: entry '             blk.24.ffn_down_exps.weight' has partial data (98.44%)
+0.29.983.100 W save_imatrix: entry '               blk.24.ffn_up_exps.weight' has partial data (98.44%)
+0.29.983.106 W save_imatrix: entry '             blk.23.ffn_down_exps.weight' has partial data (96.09%)
+0.29.983.108 W save_imatrix: entry '               blk.23.ffn_up_exps.weight' has partial data (96.09%)
+0.29.983.110 W save_imatrix: entry '             blk.29.ffn_down_exps.weight' has partial data (99.61%)
+0.29.983.120 W save_imatrix: entry '               blk.30.ffn_up_exps.weight' has partial data (99.61%)
+0.29.983.122 W save_imatrix: entry '              blk.5.ffn_down_exps.weight' has partial data (99.22%)
+0.29.983.149 W save_imatrix: entry '                blk.3.ffn_up_exps.weight' has partial data (99.61%)
+0.29.983.153 W save_imatrix: entry '                blk.1.ffn_up_exps.weight' has partial data (99.22%)
+0.29.983.173 W save_imatrix: entry '                blk.2.ffn_up_exps.weight' has partial data (98.83%)
+0.29.983.176 W save_imatrix: entry '               blk.25.ffn_up_exps.weight' has partial data (99.61%)
+0.29.983.178 W save_imatrix: entry '              blk.3.ffn_down_exps.weight' has partial data (99.61%)
+0.29.983.182 W save_imatrix: entry '                blk.5.ffn_up_exps.weight' has partial data (99.22%)
+0.29.983.189 W save_imatrix: entry '              blk.4.ffn_down_exps.weight' has partial data (98.44%)
+0.29.983.197 W save_imatrix: entry '              blk.0.ffn_down_exps.weight' has partial data (97.66%)
+0.29.983.199 W save_imatrix: entry '                blk.4.ffn_up_exps.weight' has partial data (98.44%)
+0.29.983.206 W save_imatrix: entry '              blk.2.ffn_down_exps.weight' has partial data (98.83%)
+0.29.983.221 W save_imatrix: entry '               blk.26.ffn_up_exps.weight' has partial data (99.61%)
+0.29.983.227 W save_imatrix: entry '              blk.1.ffn_down_exps.weight' has partial data (99.22%)
+0.29.983.233 W save_imatrix: entry '               blk.17.ffn_up_exps.weight' has partial data (99.61%)
+0.29.983.235 W save_imatrix: entry '             blk.17.ffn_down_exps.weight' has partial data (99.61%)
+0.29.983.238 W save_imatrix: entry '               blk.18.ffn_up_exps.weight' has partial data (99.22%)
+0.29.983.239 W save_imatrix: entry '                blk.0.ffn_up_exps.weight' has partial data (97.66%)
+0.29.983.241 W save_imatrix: entry '             blk.18.ffn_down_exps.weight' has partial data (99.22%)
+0.29.983.247 W save_imatrix: entry '             blk.25.ffn_down_exps.weight' has partial data (99.61%)
+0.29.983.249 W save_imatrix: entry '               blk.19.ffn_up_exps.weight' has partial data (99.22%)
+0.29.983.251 W save_imatrix: entry '             blk.19.ffn_down_exps.weight' has partial data (99.22%)
+
+[29]13.1175,[30]13.1034,[31]12.8149,[32]12.6824,[33]12.6130,[34]12.5265,[35]12.5813,[36]12.5944,0.34.896.683 W 
+save_imatrix: saving imatrix using GGUF format with a different suffix than .gguf
+0.34.896.687 W save_imatrix: if you want the previous imatrix format, use --output-format dat
+0.34.896.697 I 
+0.34.896.702 W save_imatrix: entry '             blk.32.ffn_down_exps.weight' has partial data (99.61%)
+0.34.896.707 W save_imatrix: entry '               blk.32.ffn_up_exps.weight' has partial data (99.61%)
+0.34.896.717 W save_imatrix: entry '               blk.29.ffn_up_exps.weight' has partial data (99.61%)
+0.34.896.724 W save_imatrix: entry '             blk.28.ffn_down_exps.weight' has partial data (99.22%)
+0.34.896.725 W save_imatrix: entry '               blk.28.ffn_up_exps.weight' has partial data (99.22%)
+0.34.896.731 W save_imatrix: entry '             blk.26.ffn_down_exps.weight' has partial data (99.61%)
+0.34.896.737 W save_imatrix: entry '             blk.24.ffn_down_exps.weight' has partial data (98.44%)
+0.34.896.738 W save_imatrix: entry '               blk.24.ffn_up_exps.weight' has partial data (98.44%)
+0.34.896.745 W save_imatrix: entry '             blk.23.ffn_down_exps.weight' has partial data (96.88%)
+0.34.896.747 W save_imatrix: entry '               blk.23.ffn_up_exps.weight' has partial data (96.88%)
+0.34.896.749 W save_imatrix: entry '             blk.29.ffn_down_exps.weight' has partial data (99.61%)
+0.34.896.759 W save_imatrix: entry '              blk.5.ffn_down_exps.weight' has partial data (99.22%)
+0.34.896.786 W save_imatrix: entry '                blk.3.ffn_up_exps.weight' has partial data (99.61%)
+0.34.896.789 W save_imatrix: entry '                blk.1.ffn_up_exps.weight' has partial data (99.22%)
+0.34.896.808 W save_imatrix: entry '                blk.2.ffn_up_exps.weight' has partial data (98.83%)
+0.34.896.811 W save_imatrix: entry '               blk.25.ffn_up_exps.weight' has partial data (99.61%)
+0.34.896.812 W save_imatrix: entry '              blk.3.ffn_down_exps.weight' has partial data (99.61%)
+0.34.896.816 W save_imatrix: entry '                blk.5.ffn_up_exps.weight' has partial data (99.22%)
+0.34.896.822 W save_imatrix: entry '              blk.4.ffn_down_exps.weight' has partial data (98.44%)
+0.34.896.830 W save_imatrix: entry '              blk.0.ffn_down_exps.weight' has partial data (97.66%)
+0.34.896.832 W save_imatrix: entry '                blk.4.ffn_up_exps.weight' has partial data (98.44%)
+0.34.896.840 W save_imatrix: entry '              blk.2.ffn_down_exps.weight' has partial data (98.83%)
+0.34.896.853 W save_imatrix: entry '               blk.26.ffn_up_exps.weight' has partial data (99.61%)
+0.34.896.859 W save_imatrix: entry '              blk.1.ffn_down_exps.weight' has partial data (99.22%)
+0.34.896.864 W save_imatrix: entry '               blk.17.ffn_up_exps.weight' has partial data (99.61%)
+0.34.896.866 W save_imatrix: entry '             blk.17.ffn_down_exps.weight' has partial data (99.61%)
+0.34.896.868 W save_imatrix: entry '               blk.18.ffn_up_exps.weight' has partial data (99.22%)
+0.34.896.870 W save_imatrix: entry '                blk.0.ffn_up_exps.weight' has partial data (97.66%)
+0.34.896.871 W save_imatrix: entry '             blk.18.ffn_down_exps.weight' has partial data (99.22%)
+0.34.896.875 W save_imatrix: entry '             blk.25.ffn_down_exps.weight' has partial data (99.61%)
+0.34.896.877 W save_imatrix: entry '               blk.19.ffn_up_exps.weight' has partial data (99.22%)
+0.34.896.879 W save_imatrix: entry '             blk.19.ffn_down_exps.weight' has partial data (99.22%)
+
+[37]12.5337,[38]12.5001,[39]12.4194,[40]12.4143,[41]12.3893,[42]12.5641,[43]12.6004,[44]12.6218,[45]12.5584,[46]12.5579,[47]12.3745,[48]12.2054,0.40.160.109 W 
+save_imatrix: saving imatrix using GGUF format with a different suffix than .gguf
+0.40.160.113 W save_imatrix: if you want the previous imatrix format, use --output-format dat
+0.40.160.124 I 
+0.40.160.129 W save_imatrix: entry '             blk.32.ffn_down_exps.weight' has partial data (99.61%)
+0.40.160.134 W save_imatrix: entry '               blk.32.ffn_up_exps.weight' has partial data (99.61%)
+0.40.160.142 W save_imatrix: entry '               blk.29.ffn_up_exps.weight' has partial data (99.61%)
+0.40.160.148 W save_imatrix: entry '             blk.28.ffn_down_exps.weight' has partial data (99.22%)
+0.40.160.149 W save_imatrix: entry '               blk.28.ffn_up_exps.weight' has partial data (99.22%)
+0.40.160.160 W save_imatrix: entry '             blk.24.ffn_down_exps.weight' has partial data (98.44%)
+0.40.160.162 W save_imatrix: entry '               blk.24.ffn_up_exps.weight' has partial data (98.44%)
+0.40.160.167 W save_imatrix: entry '             blk.23.ffn_down_exps.weight' has partial data (96.88%)
+0.40.160.169 W save_imatrix: entry '               blk.23.ffn_up_exps.weight' has partial data (96.88%)
+0.40.160.171 W save_imatrix: entry '             blk.29.ffn_down_exps.weight' has partial data (99.61%)
+0.40.160.208 W save_imatrix: entry '                blk.3.ffn_up_exps.weight' has partial data (99.61%)
+0.40.160.211 W save_imatrix: entry '                blk.1.ffn_up_exps.weight' has partial data (99.22%)
+0.40.160.232 W save_imatrix: entry '               blk.25.ffn_up_exps.weight' has partial data (99.61%)
+0.40.160.234 W save_imatrix: entry '              blk.3.ffn_down_exps.weight' has partial data (99.61%)
+0.40.160.250 W save_imatrix: entry '              blk.0.ffn_down_exps.weight' has partial data (98.44%)
+0.40.160.277 W save_imatrix: entry '              blk.1.ffn_down_exps.weight' has partial data (99.22%)
+0.40.160.282 W save_imatrix: entry '               blk.17.ffn_up_exps.weight' has partial data (99.61%)
+0.40.160.284 W save_imatrix: entry '             blk.17.ffn_down_exps.weight' has partial data (99.61%)
+0.40.160.297 W save_imatrix: entry '               blk.18.ffn_up_exps.weight' has partial data (99.61%)
+0.40.160.299 W save_imatrix: entry '                blk.0.ffn_up_exps.weight' has partial data (98.44%)
+0.40.160.300 W save_imatrix: entry '             blk.18.ffn_down_exps.weight' has partial data (99.61%)
+0.40.160.304 W save_imatrix: entry '             blk.25.ffn_down_exps.weight' has partial data (99.61%)
+0.40.160.306 W save_imatrix: entry '               blk.19.ffn_up_exps.weight' has partial data (99.22%)
+0.40.160.308 W save_imatrix: entry '             blk.19.ffn_down_exps.weight' has partial data (99.22%)
+
+[49]12.0599,[50]12.1321,[51]12.0303,[52]12.1188,[53]12.1709,[54]12.2221,[55]12.2344,[56]12.1619,0.45.122.392 W 
+save_imatrix: saving imatrix using GGUF format with a different suffix than .gguf
+0.45.122.396 W save_imatrix: if you want the previous imatrix format, use --output-format dat
+0.45.122.406 I 
+0.45.122.412 W save_imatrix: entry '             blk.32.ffn_down_exps.weight' has partial data (99.61%)
+0.45.122.413 W save_imatrix: entry '               blk.32.ffn_up_exps.weight' has partial data (99.61%)
+0.45.122.422 W save_imatrix: entry '               blk.29.ffn_up_exps.weight' has partial data (99.61%)
+0.45.122.428 W save_imatrix: entry '             blk.28.ffn_down_exps.weight' has partial data (99.61%)
+0.45.122.429 W save_imatrix: entry '               blk.28.ffn_up_exps.weight' has partial data (99.61%)
+0.45.122.441 W save_imatrix: entry '             blk.24.ffn_down_exps.weight' has partial data (98.44%)
+0.45.122.443 W save_imatrix: entry '               blk.24.ffn_up_exps.weight' has partial data (98.44%)
+0.45.122.450 W save_imatrix: entry '             blk.23.ffn_down_exps.weight' has partial data (96.88%)
+0.45.122.451 W save_imatrix: entry '               blk.23.ffn_up_exps.weight' has partial data (96.88%)
+0.45.122.453 W save_imatrix: entry '             blk.29.ffn_down_exps.weight' has partial data (99.61%)
+0.45.122.492 W save_imatrix: entry '                blk.3.ffn_up_exps.weight' has partial data (99.61%)
+0.45.122.496 W save_imatrix: entry '                blk.1.ffn_up_exps.weight' has partial data (99.22%)
+0.45.122.516 W save_imatrix: entry '               blk.25.ffn_up_exps.weight' has partial data (99.61%)
+0.45.122.518 W save_imatrix: entry '              blk.3.ffn_down_exps.weight' has partial data (99.61%)
+0.45.122.533 W save_imatrix: entry '              blk.0.ffn_down_exps.weight' has partial data (98.44%)
+0.45.122.562 W save_imatrix: entry '              blk.1.ffn_down_exps.weight' has partial data (99.22%)
+0.45.122.567 W save_imatrix: entry '               blk.17.ffn_up_exps.weight' has partial data (99.61%)
+0.45.122.569 W save_imatrix: entry '             blk.17.ffn_down_exps.weight' has partial data (99.61%)
+0.45.122.571 W save_imatrix: entry '               blk.18.ffn_up_exps.weight' has partial data (99.61%)
+0.45.122.573 W save_imatrix: entry '                blk.0.ffn_up_exps.weight' has partial data (98.44%)
+0.45.122.574 W save_imatrix: entry '             blk.18.ffn_down_exps.weight' has partial data (99.61%)
+0.45.122.578 W save_imatrix: entry '             blk.25.ffn_down_exps.weight' has partial data (99.61%)
+0.45.122.580 W save_imatrix: entry '               blk.19.ffn_up_exps.weight' has partial data (99.22%)
+0.45.122.581 W save_imatrix: entry '             blk.19.ffn_down_exps.weight' has partial data (99.22%)
+
+[57]12.1201,[58]12.1255,[59]12.1546,[60]12.3022,[61]12.3031,[62]12.2226,[63]12.2041,[64]12.1329,[65]12.0318,[66]11.9978,[67]12.0104,[68]11.9302,0.50.450.902 W 
+save_imatrix: saving imatrix using GGUF format with a different suffix than .gguf
+0.50.450.906 W save_imatrix: if you want the previous imatrix format, use --output-format dat
+0.50.450.916 I 
+0.50.450.922 W save_imatrix: entry '             blk.32.ffn_down_exps.weight' has partial data (99.61%)
+0.50.450.926 W save_imatrix: entry '               blk.32.ffn_up_exps.weight' has partial data (99.61%)
+0.50.450.936 W save_imatrix: entry '               blk.29.ffn_up_exps.weight' has partial data (99.61%)
+0.50.450.941 W save_imatrix: entry '             blk.28.ffn_down_exps.weight' has partial data (99.61%)
+0.50.450.943 W save_imatrix: entry '               blk.28.ffn_up_exps.weight' has partial data (99.61%)
+0.50.450.955 W save_imatrix: entry '             blk.24.ffn_down_exps.weight' has partial data (98.83%)
+0.50.450.956 W save_imatrix: entry '               blk.24.ffn_up_exps.weight' has partial data (98.83%)
+0.50.450.962 W save_imatrix: entry '             blk.23.ffn_down_exps.weight' has partial data (96.88%)
+0.50.450.964 W save_imatrix: entry '               blk.23.ffn_up_exps.weight' has partial data (96.88%)
+0.50.450.966 W save_imatrix: entry '             blk.29.ffn_down_exps.weight' has partial data (99.61%)
+0.50.451.003 W save_imatrix: entry '                blk.3.ffn_up_exps.weight' has partial data (99.61%)
+0.50.451.007 W save_imatrix: entry '                blk.1.ffn_up_exps.weight' has partial data (99.22%)
+0.50.451.028 W save_imatrix: entry '               blk.25.ffn_up_exps.weight' has partial data (99.61%)
+0.50.451.030 W save_imatrix: entry '              blk.3.ffn_down_exps.weight' has partial data (99.61%)
+0.50.451.046 W save_imatrix: entry '              blk.0.ffn_down_exps.weight' has partial data (98.83%)
+0.50.451.075 W save_imatrix: entry '              blk.1.ffn_down_exps.weight' has partial data (99.22%)
+0.50.451.080 W save_imatrix: entry '               blk.17.ffn_up_exps.weight' has partial data (99.61%)
+0.50.451.082 W save_imatrix: entry '             blk.17.ffn_down_exps.weight' has partial data (99.61%)
+0.50.451.084 W save_imatrix: entry '               blk.18.ffn_up_exps.weight' has partial data (99.61%)
+0.50.451.086 W save_imatrix: entry '                blk.0.ffn_up_exps.weight' has partial data (98.83%)
+0.50.451.087 W save_imatrix: entry '             blk.18.ffn_down_exps.weight' has partial data (99.61%)
+0.50.451.091 W save_imatrix: entry '             blk.25.ffn_down_exps.weight' has partial data (99.61%)
+0.50.451.093 W save_imatrix: entry '               blk.19.ffn_up_exps.weight' has partial data (99.22%)
+0.50.451.095 W save_imatrix: entry '             blk.19.ffn_down_exps.weight' has partial data (99.22%)
+
+[69]11.7784,[70]11.7656,[71]11.7332,[72]11.7874,[73]11.7730,[74]11.8135,[75]11.8400,[76]11.9268,0.55.413.702 W 
+save_imatrix: saving imatrix using GGUF format with a different suffix than .gguf
+0.55.413.706 W save_imatrix: if you want the previous imatrix format, use --output-format dat
+0.55.413.715 I 
+0.55.413.722 W save_imatrix: entry '             blk.32.ffn_down_exps.weight' has partial data (99.61%)
+0.55.413.724 W save_imatrix: entry '               blk.32.ffn_up_exps.weight' has partial data (99.61%)
+0.55.413.736 W save_imatrix: entry '               blk.29.ffn_up_exps.weight' has partial data (99.61%)
+0.55.413.761 W save_imatrix: entry '             blk.24.ffn_down_exps.weight' has partial data (98.83%)
+0.55.413.763 W save_imatrix: entry '               blk.24.ffn_up_exps.weight' has partial data (98.83%)
+0.55.413.771 W save_imatrix: entry '             blk.23.ffn_down_exps.weight' has partial data (96.88%)
+0.55.413.775 W save_imatrix: entry '               blk.23.ffn_up_exps.weight' has partial data (96.88%)
+0.55.413.778 W save_imatrix: entry '             blk.29.ffn_down_exps.weight' has partial data (99.61%)
+0.55.413.906 W save_imatrix: entry '                blk.3.ffn_up_exps.weight' has partial data (99.61%)
+0.55.413.921 W save_imatrix: entry '                blk.1.ffn_up_exps.weight' has partial data (99.22%)
+0.55.414.001 W save_imatrix: entry '               blk.25.ffn_up_exps.weight' has partial data (99.61%)
+0.55.414.007 W save_imatrix: entry '              blk.3.ffn_down_exps.weight' has partial data (99.61%)
+0.55.414.062 W save_imatrix: entry '              blk.0.ffn_down_exps.weight' has partial data (98.83%)
+0.55.414.157 W save_imatrix: entry '              blk.1.ffn_down_exps.weight' has partial data (99.22%)
+0.55.414.167 W save_imatrix: entry '               blk.17.ffn_up_exps.weight' has partial data (99.61%)
+0.55.414.170 W save_imatrix: entry '             blk.17.ffn_down_exps.weight' has partial data (99.61%)
+0.55.414.174 W save_imatrix: entry '               blk.18.ffn_up_exps.weight' has partial data (99.61%)
+0.55.414.180 W save_imatrix: entry '                blk.0.ffn_up_exps.weight' has partial data (98.83%)
+0.55.414.181 W save_imatrix: entry '             blk.18.ffn_down_exps.weight' has partial data (99.61%)
+0.55.414.186 W save_imatrix: entry '             blk.25.ffn_down_exps.weight' has partial data (99.61%)
+0.55.414.189 W save_imatrix: entry '               blk.19.ffn_up_exps.weight' has partial data (99.22%)
+0.55.414.193 W save_imatrix: entry '             blk.19.ffn_down_exps.weight' has partial data (99.22%)
+
+[77]11.9866,[78]12.0322,[79]12.0087,[80]12.0034,[81]12.0074,[82]12.0767,[83]12.1029,[84]12.1058,[85]12.1261,[86]12.1598,[87]12.1821,[88]12.2162,1.00.728.706 W 
+save_imatrix: saving imatrix using GGUF format with a different suffix than .gguf
+1.00.728.709 W save_imatrix: if you want the previous imatrix format, use --output-format dat
+1.00.728.720 I 
+1.00.728.726 W save_imatrix: entry '             blk.32.ffn_down_exps.weight' has partial data (99.61%)
+1.00.728.730 W save_imatrix: entry '               blk.32.ffn_up_exps.weight' has partial data (99.61%)
+1.00.728.738 W save_imatrix: entry '               blk.29.ffn_up_exps.weight' has partial data (99.61%)
+1.00.728.755 W save_imatrix: entry '             blk.24.ffn_down_exps.weight' has partial data (98.83%)
+1.00.728.756 W save_imatrix: entry '               blk.24.ffn_up_exps.weight' has partial data (98.83%)
+1.00.728.762 W save_imatrix: entry '             blk.23.ffn_down_exps.weight' has partial data (97.27%)
+1.00.728.764 W save_imatrix: entry '               blk.23.ffn_up_exps.weight' has partial data (97.27%)
+1.00.728.766 W save_imatrix: entry '             blk.29.ffn_down_exps.weight' has partial data (99.61%)
+1.00.728.801 W save_imatrix: entry '                blk.3.ffn_up_exps.weight' has partial data (99.61%)
+1.00.728.804 W save_imatrix: entry '                blk.1.ffn_up_exps.weight' has partial data (99.22%)
+1.00.728.825 W save_imatrix: entry '              blk.3.ffn_down_exps.weight' has partial data (99.61%)
+1.00.728.842 W save_imatrix: entry '              blk.0.ffn_down_exps.weight' has partial data (98.83%)
+1.00.728.871 W save_imatrix: entry '              blk.1.ffn_down_exps.weight' has partial data (99.22%)
+1.00.728.876 W save_imatrix: entry '               blk.17.ffn_up_exps.weight' has partial data (99.61%)
+1.00.728.878 W save_imatrix: entry '             blk.17.ffn_down_exps.weight' has partial data (99.61%)
+1.00.728.880 W save_imatrix: entry '               blk.18.ffn_up_exps.weight' has partial data (99.61%)
+1.00.728.882 W save_imatrix: entry '                blk.0.ffn_up_exps.weight' has partial data (98.83%)
+1.00.728.883 W save_imatrix: entry '             blk.18.ffn_down_exps.weight' has partial data (99.61%)
+1.00.728.888 W save_imatrix: entry '               blk.19.ffn_up_exps.weight' has partial data (99.22%)
+1.00.728.889 W save_imatrix: entry '             blk.19.ffn_down_exps.weight' has partial data (99.22%)
+
+[89]12.2323,[90]12.2662,[91]12.2798,[92]12.2610,[93]12.2591,[94]12.3164,[95]12.3821,[96]12.4622,1.05.631.173 W 
+save_imatrix: saving imatrix using GGUF format with a different suffix than .gguf
+1.05.631.176 W save_imatrix: if you want the previous imatrix format, use --output-format dat
+1.05.631.186 I 
+1.05.631.191 W save_imatrix: entry '             blk.32.ffn_down_exps.weight' has partial data (99.61%)
+1.05.631.194 W save_imatrix: entry '               blk.32.ffn_up_exps.weight' has partial data (99.61%)
+1.05.631.204 W save_imatrix: entry '               blk.29.ffn_up_exps.weight' has partial data (99.61%)
+1.05.631.222 W save_imatrix: entry '             blk.24.ffn_down_exps.weight' has partial data (98.83%)
+1.05.631.224 W save_imatrix: entry '               blk.24.ffn_up_exps.weight' has partial data (98.83%)
+1.05.631.230 W save_imatrix: entry '             blk.23.ffn_down_exps.weight' has partial data (97.66%)
+1.05.631.232 W save_imatrix: entry '               blk.23.ffn_up_exps.weight' has partial data (97.66%)
+1.05.631.234 W save_imatrix: entry '             blk.29.ffn_down_exps.weight' has partial data (99.61%)
+1.05.631.272 W save_imatrix: entry '                blk.3.ffn_up_exps.weight' has partial data (99.61%)
+1.05.631.275 W save_imatrix: entry '                blk.1.ffn_up_exps.weight' has partial data (99.22%)
+1.05.631.306 W save_imatrix: entry '              blk.3.ffn_down_exps.weight' has partial data (99.61%)
+1.05.631.323 W save_imatrix: entry '              blk.0.ffn_down_exps.weight' has partial data (98.83%)
+1.05.631.350 W save_imatrix: entry '              blk.1.ffn_down_exps.weight' has partial data (99.22%)
+1.05.631.355 W save_imatrix: entry '               blk.17.ffn_up_exps.weight' has partial data (99.61%)
+1.05.631.356 W save_imatrix: entry '             blk.17.ffn_down_exps.weight' has partial data (99.61%)
+1.05.631.359 W save_imatrix: entry '               blk.18.ffn_up_exps.weight' has partial data (99.61%)
+1.05.631.360 W save_imatrix: entry '                blk.0.ffn_up_exps.weight' has partial data (98.83%)
+1.05.631.362 W save_imatrix: entry '             blk.18.ffn_down_exps.weight' has partial data (99.61%)
+1.05.631.367 W save_imatrix: entry '               blk.19.ffn_up_exps.weight' has partial data (99.22%)
+1.05.631.368 W save_imatrix: entry '             blk.19.ffn_down_exps.weight' has partial data (99.22%)
+
+[97]12.5372,[98]12.6558,[99]12.6448,[100]12.5695,[101]12.5418,[102]12.4683,[103]12.4810,[104]12.4557,[105]12.4053,[106]12.4415,[107]12.4180,[108]12.4483,1.11.120.716 W 
+save_imatrix: saving imatrix using GGUF format with a different suffix than .gguf
+1.11.120.720 W save_imatrix: if you want the previous imatrix format, use --output-format dat
+1.11.120.737 I 
+1.11.120.742 W save_imatrix: entry '             blk.32.ffn_down_exps.weight' has partial data (99.61%)
+1.11.120.744 W save_imatrix: entry '               blk.32.ffn_up_exps.weight' has partial data (99.61%)
+1.11.120.755 W save_imatrix: entry '               blk.29.ffn_up_exps.weight' has partial data (99.61%)
+1.11.120.775 W save_imatrix: entry '             blk.24.ffn_down_exps.weight' has partial data (98.83%)
+1.11.120.777 W save_imatrix: entry '               blk.24.ffn_up_exps.weight' has partial data (98.83%)
+1.11.120.784 W save_imatrix: entry '             blk.23.ffn_down_exps.weight' has partial data (98.05%)
+1.11.120.790 W save_imatrix: entry '               blk.23.ffn_up_exps.weight' has partial data (98.05%)
+1.11.120.792 W save_imatrix: entry '             blk.29.ffn_down_exps.weight' has partial data (99.61%)
+1.11.120.862 W save_imatrix: entry '                blk.3.ffn_up_exps.weight' has partial data (99.61%)
+1.11.120.868 W save_imatrix: entry '                blk.1.ffn_up_exps.weight' has partial data (99.22%)
+1.11.120.912 W save_imatrix: entry '              blk.3.ffn_down_exps.weight' has partial data (99.61%)
+1.11.120.941 W save_imatrix: entry '              blk.0.ffn_down_exps.weight' has partial data (98.83%)
+1.11.120.992 W save_imatrix: entry '              blk.1.ffn_down_exps.weight' has partial data (99.22%)
+1.11.121.000 W save_imatrix: entry '               blk.17.ffn_up_exps.weight' has partial data (99.61%)
+1.11.121.002 W save_imatrix: entry '             blk.17.ffn_down_exps.weight' has partial data (99.61%)
+1.11.121.004 W save_imatrix: entry '               blk.18.ffn_up_exps.weight' has partial data (99.61%)
+1.11.121.006 W save_imatrix: entry '                blk.0.ffn_up_exps.weight' has partial data (98.83%)
+1.11.121.007 W save_imatrix: entry '             blk.18.ffn_down_exps.weight' has partial data (99.61%)
+1.11.121.015 W save_imatrix: entry '               blk.19.ffn_up_exps.weight' has partial data (99.22%)
+1.11.121.019 W save_imatrix: entry '             blk.19.ffn_down_exps.weight' has partial data (99.22%)
+
+[109]12.4447,[110]12.4306,[111]12.4027,[112]12.4446,[113]12.4732,[114]12.5635,[115]12.5099,[116]12.3832,1.16.223.411 W 
+save_imatrix: saving imatrix using GGUF format with a different suffix than .gguf
+1.16.223.415 W save_imatrix: if you want the previous imatrix format, use --output-format dat
+1.16.223.429 I 
+1.16.223.435 W save_imatrix: entry '             blk.32.ffn_down_exps.weight' has partial data (99.61%)
+1.16.223.436 W save_imatrix: entry '               blk.32.ffn_up_exps.weight' has partial data (99.61%)
+1.16.223.446 W save_imatrix: entry '               blk.29.ffn_up_exps.weight' has partial data (99.61%)
+1.16.223.466 W save_imatrix: entry '             blk.24.ffn_down_exps.weight' has partial data (99.22%)
+1.16.223.467 W save_imatrix: entry '               blk.24.ffn_up_exps.weight' has partial data (99.22%)
+1.16.223.475 W save_imatrix: entry '             blk.23.ffn_down_exps.weight' has partial data (98.05%)
+1.16.223.477 W save_imatrix: entry '               blk.23.ffn_up_exps.weight' has partial data (98.05%)
+1.16.223.479 W save_imatrix: entry '             blk.29.ffn_down_exps.weight' has partial data (99.61%)
+1.16.223.522 W save_imatrix: entry '                blk.3.ffn_up_exps.weight' has partial data (99.61%)
+1.16.223.526 W save_imatrix: entry '                blk.1.ffn_up_exps.weight' has partial data (99.22%)
+1.16.223.552 W save_imatrix: entry '              blk.3.ffn_down_exps.weight' has partial data (99.61%)
+1.16.223.570 W save_imatrix: entry '              blk.0.ffn_down_exps.weight' has partial data (98.83%)
+1.16.223.603 W save_imatrix: entry '              blk.1.ffn_down_exps.weight' has partial data (99.22%)
+1.16.223.608 W save_imatrix: entry '               blk.17.ffn_up_exps.weight' has partial data (99.61%)
+1.16.223.610 W save_imatrix: entry '             blk.17.ffn_down_exps.weight' has partial data (99.61%)
+1.16.223.612 W save_imatrix: entry '               blk.18.ffn_up_exps.weight' has partial data (99.61%)
+1.16.223.614 W save_imatrix: entry '                blk.0.ffn_up_exps.weight' has partial data (98.83%)
+1.16.223.615 W save_imatrix: entry '             blk.18.ffn_down_exps.weight' has partial data (99.61%)
+1.16.223.621 W save_imatrix: entry '               blk.19.ffn_up_exps.weight' has partial data (99.61%)
+1.16.223.623 W save_imatrix: entry '             blk.19.ffn_down_exps.weight' has partial data (99.61%)
+
+[117]12.3405,[118]12.3135,[119]12.3050,[120]12.2995,[121]12.2882,[122]12.2800,[123]12.2724,[124]12.2728,[125]12.3032,[126]12.3312,[127]12.3497,[128]12.3647,1.21.664.244 W 
+save_imatrix: saving imatrix using GGUF format with a different suffix than .gguf
+1.21.664.247 W save_imatrix: if you want the previous imatrix format, use --output-format dat
+1.21.664.258 I 
+1.21.664.264 W save_imatrix: entry '             blk.32.ffn_down_exps.weight' has partial data (99.61%)
+1.21.664.265 W save_imatrix: entry '               blk.32.ffn_up_exps.weight' has partial data (99.61%)
+1.21.664.274 W save_imatrix: entry '               blk.29.ffn_up_exps.weight' has partial data (99.61%)
+1.21.664.301 W save_imatrix: entry '             blk.24.ffn_down_exps.weight' has partial data (99.22%)
+1.21.664.302 W save_imatrix: entry '               blk.24.ffn_up_exps.weight' has partial data (99.22%)
+1.21.664.308 W save_imatrix: entry '             blk.23.ffn_down_exps.weight' has partial data (98.05%)
+1.21.664.310 W save_imatrix: entry '               blk.23.ffn_up_exps.weight' has partial data (98.05%)
+1.21.664.312 W save_imatrix: entry '             blk.29.ffn_down_exps.weight' has partial data (99.61%)
+1.21.664.348 W save_imatrix: entry '                blk.3.ffn_up_exps.weight' has partial data (99.61%)
+1.21.664.352 W save_imatrix: entry '                blk.1.ffn_up_exps.weight' has partial data (99.22%)
+1.21.664.373 W save_imatrix: entry '              blk.3.ffn_down_exps.weight' has partial data (99.61%)
+1.21.664.389 W save_imatrix: entry '              blk.0.ffn_down_exps.weight' has partial data (98.83%)
+1.21.664.417 W save_imatrix: entry '              blk.1.ffn_down_exps.weight' has partial data (99.22%)
+1.21.664.422 W save_imatrix: entry '               blk.17.ffn_up_exps.weight' has partial data (99.61%)
+1.21.664.423 W save_imatrix: entry '             blk.17.ffn_down_exps.weight' has partial data (99.61%)
+1.21.664.425 W save_imatrix: entry '               blk.18.ffn_up_exps.weight' has partial data (99.61%)
+1.21.664.427 W save_imatrix: entry '                blk.0.ffn_up_exps.weight' has partial data (98.83%)
+1.21.664.428 W save_imatrix: entry '             blk.18.ffn_down_exps.weight' has partial data (99.61%)
+1.21.664.434 W save_imatrix: entry '               blk.19.ffn_up_exps.weight' has partial data (99.61%)
+1.21.664.435 W save_imatrix: entry '             blk.19.ffn_down_exps.weight' has partial data (99.61%)
+
+[129]12.4144,[130]12.4189,[131]12.4362,[132]12.4410,[133]12.4702,[134]12.4257,[135]12.4070,[136]12.3942,1.26.766.351 W 
+save_imatrix: saving imatrix using GGUF format with a different suffix than .gguf
+1.26.766.354 W save_imatrix: if you want the previous imatrix format, use --output-format dat
+1.26.766.371 I 
+1.26.766.376 W save_imatrix: entry '               blk.29.ffn_up_exps.weight' has partial data (99.61%)
+1.26.766.393 W save_imatrix: entry '             blk.24.ffn_down_exps.weight' has partial data (99.22%)
+1.26.766.395 W save_imatrix: entry '               blk.24.ffn_up_exps.weight' has partial data (99.22%)
+1.26.766.401 W save_imatrix: entry '             blk.23.ffn_down_exps.weight' has partial data (98.44%)
+1.26.766.403 W save_imatrix: entry '               blk.23.ffn_up_exps.weight' has partial data (98.44%)
+1.26.766.405 W save_imatrix: entry '             blk.29.ffn_down_exps.weight' has partial data (99.61%)
+1.26.766.442 W save_imatrix: entry '                blk.3.ffn_up_exps.weight' has partial data (99.61%)
+1.26.766.445 W save_imatrix: entry '                blk.1.ffn_up_exps.weight' has partial data (99.22%)
+1.26.766.467 W save_imatrix: entry '              blk.3.ffn_down_exps.weight' has partial data (99.61%)
+1.26.766.482 W save_imatrix: entry '              blk.0.ffn_down_exps.weight' has partial data (98.83%)
+1.26.766.508 W save_imatrix: entry '              blk.1.ffn_down_exps.weight' has partial data (99.22%)
+1.26.766.512 W save_imatrix: entry '               blk.17.ffn_up_exps.weight' has partial data (99.61%)
+1.26.766.514 W save_imatrix: entry '             blk.17.ffn_down_exps.weight' has partial data (99.61%)
+1.26.766.517 W save_imatrix: entry '                blk.0.ffn_up_exps.weight' has partial data (98.83%)
+1.26.766.522 W save_imatrix: entry '               blk.19.ffn_up_exps.weight' has partial data (99.61%)
+1.26.766.524 W save_imatrix: entry '             blk.19.ffn_down_exps.weight' has partial data (99.61%)
+
+[137]12.3855,[138]12.3514,[139]12.3654,[140]12.3355,[141]12.3322,[142]12.3342,[143]12.3315,[144]12.3194,[145]12.3064,[146]12.2962,[147]12.2946,[148]12.2696,1.32.242.515 W 
+save_imatrix: saving imatrix using GGUF format with a different suffix than .gguf
+1.32.242.518 W save_imatrix: if you want the previous imatrix format, use --output-format dat
+1.32.242.542 I 
+1.32.242.548 W save_imatrix: entry '               blk.29.ffn_up_exps.weight' has partial data (99.61%)
+1.32.242.568 W save_imatrix: entry '             blk.24.ffn_down_exps.weight' has partial data (99.22%)
+1.32.242.570 W save_imatrix: entry '               blk.24.ffn_up_exps.weight' has partial data (99.22%)
+1.32.242.578 W save_imatrix: entry '             blk.23.ffn_down_exps.weight' has partial data (98.44%)
+1.32.242.579 W save_imatrix: entry '               blk.23.ffn_up_exps.weight' has partial data (98.44%)
+1.32.242.581 W save_imatrix: entry '             blk.29.ffn_down_exps.weight' has partial data (99.61%)
+1.32.242.623 W save_imatrix: entry '                blk.3.ffn_up_exps.weight' has partial data (99.61%)
+1.32.242.627 W save_imatrix: entry '                blk.1.ffn_up_exps.weight' has partial data (99.22%)
+1.32.242.652 W save_imatrix: entry '              blk.3.ffn_down_exps.weight' has partial data (99.61%)
+1.32.242.671 W save_imatrix: entry '              blk.0.ffn_down_exps.weight' has partial data (98.83%)
+1.32.242.702 W save_imatrix: entry '              blk.1.ffn_down_exps.weight' has partial data (99.22%)
+1.32.242.708 W save_imatrix: entry '               blk.17.ffn_up_exps.weight' has partial data (99.61%)
+1.32.242.710 W save_imatrix: entry '             blk.17.ffn_down_exps.weight' has partial data (99.61%)
+1.32.242.714 W save_imatrix: entry '                blk.0.ffn_up_exps.weight' has partial data (98.83%)
+1.32.242.721 W save_imatrix: entry '               blk.19.ffn_up_exps.weight' has partial data (99.61%)
+1.32.242.723 W save_imatrix: entry '             blk.19.ffn_down_exps.weight' has partial data (99.61%)
+
+[149]12.2472,[150]12.2586,[151]12.2538,[152]12.2677,[153]12.2983,[154]12.3345,[155]12.3422,[156]12.3728,1.37.273.791 W 
+save_imatrix: saving imatrix using GGUF format with a different suffix than .gguf
+1.37.273.794 W save_imatrix: if you want the previous imatrix format, use --output-format dat
+1.37.273.812 I 
+1.37.273.818 W save_imatrix: entry '               blk.29.ffn_up_exps.weight' has partial data (99.61%)
+1.37.273.835 W save_imatrix: entry '             blk.24.ffn_down_exps.weight' has partial data (99.22%)
+1.37.273.836 W save_imatrix: entry '               blk.24.ffn_up_exps.weight' has partial data (99.22%)
+1.37.273.843 W save_imatrix: entry '             blk.23.ffn_down_exps.weight' has partial data (98.44%)
+1.37.273.844 W save_imatrix: entry '               blk.23.ffn_up_exps.weight' has partial data (98.44%)
+1.37.273.846 W save_imatrix: entry '             blk.29.ffn_down_exps.weight' has partial data (99.61%)
+1.37.273.885 W save_imatrix: entry '                blk.3.ffn_up_exps.weight' has partial data (99.61%)
+1.37.273.889 W save_imatrix: entry '                blk.1.ffn_up_exps.weight' has partial data (99.22%)
+1.37.273.912 W save_imatrix: entry '              blk.3.ffn_down_exps.weight' has partial data (99.61%)
+1.37.273.928 W save_imatrix: entry '              blk.0.ffn_down_exps.weight' has partial data (98.83%)
+1.37.273.956 W save_imatrix: entry '              blk.1.ffn_down_exps.weight' has partial data (99.22%)
+1.37.273.961 W save_imatrix: entry '               blk.17.ffn_up_exps.weight' has partial data (99.61%)
+1.37.273.963 W save_imatrix: entry '             blk.17.ffn_down_exps.weight' has partial data (99.61%)
+1.37.273.966 W save_imatrix: entry '                blk.0.ffn_up_exps.weight' has partial data (98.83%)
+1.37.273.971 W save_imatrix: entry '               blk.19.ffn_up_exps.weight' has partial data (99.61%)
+1.37.273.972 W save_imatrix: entry '             blk.19.ffn_down_exps.weight' has partial data (99.61%)
+
+[157]12.3843,[158]12.4564,[159]12.4456,[160]12.4112,[161]12.3783,[162]12.4034,[163]12.4136,[164]12.4211,[165]12.4152,[166]12.4047,[167]12.4157,[168]12.4813,1.42.740.417 W 
+save_imatrix: saving imatrix using GGUF format with a different suffix than .gguf
+1.42.740.420 W save_imatrix: if you want the previous imatrix format, use --output-format dat
+1.42.740.441 I 
+1.42.740.447 W save_imatrix: entry '               blk.29.ffn_up_exps.weight' has partial data (99.61%)
+1.42.740.464 W save_imatrix: entry '             blk.24.ffn_down_exps.weight' has partial data (99.22%)
+1.42.740.466 W save_imatrix: entry '               blk.24.ffn_up_exps.weight' has partial data (99.22%)
+1.42.740.472 W save_imatrix: entry '             blk.23.ffn_down_exps.weight' has partial data (98.44%)
+1.42.740.474 W save_imatrix: entry '               blk.23.ffn_up_exps.weight' has partial data (98.44%)
+1.42.740.476 W save_imatrix: entry '             blk.29.ffn_down_exps.weight' has partial data (99.61%)
+1.42.740.513 W save_imatrix: entry '                blk.3.ffn_up_exps.weight' has partial data (99.61%)
+1.42.740.517 W save_imatrix: entry '                blk.1.ffn_up_exps.weight' has partial data (99.22%)
+1.42.740.538 W save_imatrix: entry '              blk.3.ffn_down_exps.weight' has partial data (99.61%)
+1.42.740.554 W save_imatrix: entry '              blk.0.ffn_down_exps.weight' has partial data (98.83%)
+1.42.740.580 W save_imatrix: entry '              blk.1.ffn_down_exps.weight' has partial data (99.22%)
+1.42.740.585 W save_imatrix: entry '               blk.17.ffn_up_exps.weight' has partial data (99.61%)
+1.42.740.587 W save_imatrix: entry '             blk.17.ffn_down_exps.weight' has partial data (99.61%)
+1.42.740.590 W save_imatrix: entry '                blk.0.ffn_up_exps.weight' has partial data (98.83%)
+1.42.740.596 W save_imatrix: entry '               blk.19.ffn_up_exps.weight' has partial data (99.61%)
+1.42.740.598 W save_imatrix: entry '             blk.19.ffn_down_exps.weight' has partial data (99.61%)
+
+[169]12.4246,[170]12.4107,[171]12.4198,[172]12.4203,[173]12.3738,[174]12.3401,[175]12.3093,[176]12.2835,1.47.873.031 W 
+save_imatrix: saving imatrix using GGUF format with a different suffix than .gguf
+1.47.873.034 W save_imatrix: if you want the previous imatrix format, use --output-format dat
+1.47.873.052 I 
+1.47.873.056 W save_imatrix: entry '               blk.29.ffn_up_exps.weight' has partial data (99.61%)
+1.47.873.073 W save_imatrix: entry '             blk.24.ffn_down_exps.weight' has partial data (99.22%)
+1.47.873.074 W save_imatrix: entry '               blk.24.ffn_up_exps.weight' has partial data (99.22%)
+1.47.873.081 W save_imatrix: entry '             blk.23.ffn_down_exps.weight' has partial data (98.44%)
+1.47.873.082 W save_imatrix: entry '               blk.23.ffn_up_exps.weight' has partial data (98.44%)
+1.47.873.084 W save_imatrix: entry '             blk.29.ffn_down_exps.weight' has partial data (99.61%)
+1.47.873.122 W save_imatrix: entry '                blk.3.ffn_up_exps.weight' has partial data (99.61%)
+1.47.873.126 W save_imatrix: entry '                blk.1.ffn_up_exps.weight' has partial data (99.22%)
+1.47.873.148 W save_imatrix: entry '              blk.3.ffn_down_exps.weight' has partial data (99.61%)
+1.47.873.164 W save_imatrix: entry '              blk.0.ffn_down_exps.weight' has partial data (98.83%)
+1.47.873.192 W save_imatrix: entry '              blk.1.ffn_down_exps.weight' has partial data (99.22%)
+1.47.873.197 W save_imatrix: entry '               blk.17.ffn_up_exps.weight' has partial data (99.61%)
+1.47.873.198 W save_imatrix: entry '             blk.17.ffn_down_exps.weight' has partial data (99.61%)
+1.47.873.202 W save_imatrix: entry '                blk.0.ffn_up_exps.weight' has partial data (98.83%)
+1.47.873.209 W save_imatrix: entry '               blk.19.ffn_up_exps.weight' has partial data (99.61%)
+1.47.873.210 W save_imatrix: entry '             blk.19.ffn_down_exps.weight' has partial data (99.61%)
+
+[177]12.2670,[178]12.2929,[179]12.3195,[180]12.2690,[181]12.2392,[182]12.2369,[183]12.2159,[184]12.1522,[185]12.1162,[186]12.1125,[187]12.1034,[188]12.0975,1.53.348.308 W 
+save_imatrix: saving imatrix using GGUF format with a different suffix than .gguf
+1.53.348.311 W save_imatrix: if you want the previous imatrix format, use --output-format dat
+1.53.348.332 I 
+1.53.348.337 W save_imatrix: entry '               blk.29.ffn_up_exps.weight' has partial data (99.61%)
+1.53.348.354 W save_imatrix: entry '             blk.24.ffn_down_exps.weight' has partial data (99.22%)
+1.53.348.356 W save_imatrix: entry '               blk.24.ffn_up_exps.weight' has partial data (99.22%)
+1.53.348.361 W save_imatrix: entry '             blk.23.ffn_down_exps.weight' has partial data (98.44%)
+1.53.348.363 W save_imatrix: entry '               blk.23.ffn_up_exps.weight' has partial data (98.44%)
+1.53.348.365 W save_imatrix: entry '             blk.29.ffn_down_exps.weight' has partial data (99.61%)
+1.53.348.401 W save_imatrix: entry '                blk.3.ffn_up_exps.weight' has partial data (99.61%)
+1.53.348.405 W save_imatrix: entry '                blk.1.ffn_up_exps.weight' has partial data (99.22%)
+1.53.348.426 W save_imatrix: entry '              blk.3.ffn_down_exps.weight' has partial data (99.61%)
+1.53.348.442 W save_imatrix: entry '              blk.0.ffn_down_exps.weight' has partial data (98.83%)
+1.53.348.470 W save_imatrix: entry '              blk.1.ffn_down_exps.weight' has partial data (99.22%)
+1.53.348.474 W save_imatrix: entry '               blk.17.ffn_up_exps.weight' has partial data (99.61%)
+1.53.348.476 W save_imatrix: entry '             blk.17.ffn_down_exps.weight' has partial data (99.61%)
+1.53.348.479 W save_imatrix: entry '                blk.0.ffn_up_exps.weight' has partial data (98.83%)
+1.53.348.485 W save_imatrix: entry '               blk.19.ffn_up_exps.weight' has partial data (99.61%)
+1.53.348.487 W save_imatrix: entry '             blk.19.ffn_down_exps.weight' has partial data (99.61%)
+
+[189]12.1037,[190]12.1072,[191]12.1165,[192]12.1451,[193]12.1859,[194]12.2015,[195]12.2433,[196]12.2763,1.58.459.029 W 
+save_imatrix: saving imatrix using GGUF format with a different suffix than .gguf
+1.58.459.032 W save_imatrix: if you want the previous imatrix format, use --output-format dat
+1.58.459.050 I 
+1.58.459.055 W save_imatrix: entry '               blk.29.ffn_up_exps.weight' has partial data (99.61%)
+1.58.459.073 W save_imatrix: entry '             blk.24.ffn_down_exps.weight' has partial data (99.22%)
+1.58.459.075 W save_imatrix: entry '               blk.24.ffn_up_exps.weight' has partial data (99.22%)
+1.58.459.081 W save_imatrix: entry '             blk.23.ffn_down_exps.weight' has partial data (98.44%)
+1.58.459.083 W save_imatrix: entry '               blk.23.ffn_up_exps.weight' has partial data (98.44%)
+1.58.459.085 W save_imatrix: entry '             blk.29.ffn_down_exps.weight' has partial data (99.61%)
+1.58.459.121 W save_imatrix: entry '                blk.3.ffn_up_exps.weight' has partial data (99.61%)
+1.58.459.125 W save_imatrix: entry '                blk.1.ffn_up_exps.weight' has partial data (99.22%)
+1.58.459.147 W save_imatrix: entry '              blk.3.ffn_down_exps.weight' has partial data (99.61%)
+1.58.459.164 W save_imatrix: entry '              blk.0.ffn_down_exps.weight' has partial data (98.83%)
+1.58.459.192 W save_imatrix: entry '              blk.1.ffn_down_exps.weight' has partial data (99.22%)
+1.58.459.196 W save_imatrix: entry '               blk.17.ffn_up_exps.weight' has partial data (99.61%)
+1.58.459.198 W save_imatrix: entry '             blk.17.ffn_down_exps.weight' has partial data (99.61%)
+1.58.459.201 W save_imatrix: entry '                blk.0.ffn_up_exps.weight' has partial data (98.83%)
+1.58.459.207 W save_imatrix: entry '               blk.19.ffn_up_exps.weight' has partial data (99.61%)
+1.58.459.209 W save_imatrix: entry '             blk.19.ffn_down_exps.weight' has partial data (99.61%)
+
+[197]12.3251,[198]12.3484,[199]12.3756,[200]12.3841,
+Final estimate: PPL = 12.3841 +/- 0.15530
+1.59.313.794 W 
+save_imatrix: saving imatrix using GGUF format with a different suffix than .gguf
+1.59.313.798 W save_imatrix: if you want the previous imatrix format, use --output-format dat
+1.59.313.829 I 
+1.59.313.831 W save_imatrix: entry '               blk.29.ffn_up_exps.weight' has partial data (99.61%)
+1.59.313.848 W save_imatrix: entry '             blk.24.ffn_down_exps.weight' has partial data (99.22%)
+1.59.313.849 W save_imatrix: entry '               blk.24.ffn_up_exps.weight' has partial data (99.22%)
+1.59.313.857 W save_imatrix: entry '             blk.23.ffn_down_exps.weight' has partial data (98.44%)
+1.59.313.858 W save_imatrix: entry '               blk.23.ffn_up_exps.weight' has partial data (98.44%)
+1.59.313.860 W save_imatrix: entry '             blk.29.ffn_down_exps.weight' has partial data (99.61%)
+1.59.313.900 W save_imatrix: entry '                blk.3.ffn_up_exps.weight' has partial data (99.61%)
+1.59.313.905 W save_imatrix: entry '                blk.1.ffn_up_exps.weight' has partial data (99.22%)
+1.59.313.928 W save_imatrix: entry '              blk.3.ffn_down_exps.weight' has partial data (99.61%)
+1.59.313.944 W save_imatrix: entry '              blk.0.ffn_down_exps.weight' has partial data (98.83%)
+1.59.313.972 W save_imatrix: entry '              blk.1.ffn_down_exps.weight' has partial data (99.22%)
+1.59.313.978 W save_imatrix: entry '               blk.17.ffn_up_exps.weight' has partial data (99.61%)
+1.59.313.980 W save_imatrix: entry '             blk.17.ffn_down_exps.weight' has partial data (99.61%)
+1.59.313.983 W save_imatrix: entry '                blk.0.ffn_up_exps.weight' has partial data (98.83%)
+1.59.313.989 W save_imatrix: entry '               blk.19.ffn_up_exps.weight' has partial data (99.61%)
+1.59.313.991 W save_imatrix: entry '             blk.19.ffn_down_exps.weight' has partial data (99.61%)
+
+

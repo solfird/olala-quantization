@@ -1,0 +1,17 @@
+analysis_session step=weights started=2026-11-20T23:10:30Z host=ec941a0d3ff9
+gpu: NVIDIA RTX PRO 4500 Blackwell, 595.112.07, 32623 MiB
+gpu_memory_used_before: 2 MiB
+python: Python 3.12.3
+torch: 2.14.0+cu130 cuda 13.0 available True
+transformers: 5.20.2
+numpy: 2.3.5
+safetensors: 0.8.0
+einops: 0.8.2
+model_dir=/workspace/models/olala-bf16
+config.json sha256=f2668c0a369eeb2285e21edb46dd6307c32d55aaaefa985a1abf0eeb73dbd8e3
+model.safetensors header sha256=04687c843b30119e2aba0fd698079e7de5da3f0d610d6c8f5231555713290385
+bundle=/workspace/bundle-20261120T230906Z
+bundle_git=4815d7e1a64c1f0c1dc7a2e863696f7974aa9e35
+bundle_manifest_sha256=ed705212b9650516381a7e4c3e06fec5813df6b9e2983f3478f758e249701875
+command: (cd /workspace/bundle/quant && env HF_HUB_OFFLINE=1 PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True PYTHONPATH=/workspace/bundle/quant python3 -m olala_quant.weight_stats --src /workspace/models/olala-bf16 --out /workspace/results/analysis/weight_stats --device cuda )
+finished=2026-11-20T23:12:11Z status=done at 2026-11-20T23:12:11Z

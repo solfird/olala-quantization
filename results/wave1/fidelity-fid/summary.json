@@ -1,0 +1,275 @@
+{
+  "label": "fid",
+  "status": "done",
+  "finished": "2026-11-21T08:22:08Z",
+  "thresholds": {
+    "mean_kl_max": "0.0304",
+    "ppl_ratio_max": "1.030",
+    "source": "PROTOCOL.md amendment 25, stage 1: a candidate passes if its mean KL against bf16 is at most 0.0304 (N5's 0.0243 plus 25%) and its perplexity ratio at most 1.030, on the wikitext chunk set of amendments 19 and 22"
+  },
+  "rule": "among the candidates that pass the gate, the smallest file; ties: lowest mean KL, then the first in the order run; the control is never selected; a failed or skipped candidate is not eligible",
+  "selected": "C2",
+  "arms": [
+    {
+      "name": "N5",
+      "role": "control",
+      "spec": "experts",
+      "spec_canonical": "experts",
+      "scale_search": false,
+      "status": "done",
+      "reason": "",
+      "expected": {
+        "spec": "experts",
+        "quantized_tensors": 64,
+        "ignored_tensors": 195,
+        "quantized_layers": 32,
+        "quantized_layers_by_type": {
+          "mlp.experts": 32
+        },
+        "ignored_layers": 191,
+        "total_quantizable_layers": 223,
+        "ignore_entries": 196
+      },
+      "verify": "OK",
+      "check": "ABLATION_CHECK_OK",
+      "file_bytes": 6633991976,
+      "dir_bytes": 6645856945,
+      "fidelity": {
+        "kld_mean": {
+          "value": 0.02443338666152718,
+          "lo": 0.02274697068724788,
+          "hi": 0.02626022752716062
+        },
+        "kld_median": {
+          "value": 0.00959022090109713,
+          "lo": 0.009273522001123174,
+          "hi": 0.009941564739211688
+        },
+        "kld_p99": {
+          "value": 0.25695335082078746,
+          "lo": 0.2275351780519384,
+          "hi": 0.2984355964844505
+        },
+        "ppl_ratio": {
+          "value": 1.019853667188084,
+          "lo": 1.0161507041086415,
+          "hi": 1.023350861487845
+        },
+        "top1_agreement": {
+          "value": 0.9132522015655578,
+          "lo": 0.9102854390900196,
+          "hi": 0.9161264677103719
+        },
+        "ppl_ref": {
+          "value": 14.657646664586093,
+          "lo": 13.3572189044072,
+          "hi": 15.844859136859467
+        },
+        "ppl_var": {
+          "value": 14.948654703225312,
+          "lo": 13.631252256732576,
+          "hi": 16.148112191391363
+        },
+        "n_chunks": 64,
+        "n_positions": 32704,
+        "k": 20
+      },
+      "verdict": {
+        "passes": true,
+        "mean_kl": {
+          "value": "0.02443338666152718",
+          "max": "0.0304",
+          "ok": true
+        },
+        "ppl_ratio": {
+          "value": "1.019853667188084",
+          "max": "1.030",
+          "ok": true
+        },
+        "reason": ""
+      }
+    },
+    {
+      "name": "C1",
+      "role": "candidate",
+      "spec": "experts-all",
+      "spec_canonical": "experts-all",
+      "scale_search": false,
+      "status": "done",
+      "reason": "",
+      "expected": {
+        "spec": "experts-all",
+        "quantized_tensors": 72,
+        "ignored_tensors": 187,
+        "quantized_layers": 36,
+        "quantized_layers_by_type": {
+          "mlp.experts": 36
+        },
+        "ignored_layers": 187,
+        "total_quantizable_layers": 223,
+        "ignore_entries": 188
+      },
+      "verify": "OK",
+      "check": "ABLATION_CHECK_OK",
+      "file_bytes": 5765781448,
+      "dir_bytes": 5777651831,
+      "fidelity": {
+        "kld_mean": {
+          "value": 0.026323568043533148,
+          "lo": 0.024492844186069257,
+          "hi": 0.028245113711207536
+        },
+        "kld_median": {
+          "value": 0.010232091704532098,
+          "lo": 0.009892607782565392,
+          "hi": 0.010600957794312147
+        },
+        "kld_p99": {
+          "value": 0.27749563842679825,
+          "lo": 0.2492203382943532,
+          "hi": 0.31671727045021053
+        },
+        "ppl_ratio": {
+          "value": 1.0207525541016964,
+          "lo": 1.0167272081935634,
+          "hi": 1.0247238857194811
+        },
+        "top1_agreement": {
+          "value": 0.9105308219178082,
+          "lo": 0.907594636741683,
+          "hi": 0.9136214224559687
+        },
+        "ppl_ref": {
+          "value": 14.657646664586093,
+          "lo": 13.3572189044072,
+          "hi": 15.844859136859467
+        },
+        "ppl_var": {
+          "value": 14.961830269996465,
+          "lo": 13.630834700861396,
+          "hi": 16.183428361999233
+        },
+        "n_chunks": 64,
+        "n_positions": 32704,
+        "k": 20
+      },
+      "verdict": {
+        "passes": true,
+        "mean_kl": {
+          "value": "0.026323568043533148",
+          "max": "0.0304",
+          "ok": true
+        },
+        "ppl_ratio": {
+          "value": "1.0207525541016964",
+          "max": "1.030",
+          "ok": true
+        },
+        "reason": ""
+      }
+    },
+    {
+      "name": "C2",
+      "role": "candidate",
+      "spec": "experts-all",
+      "spec_canonical": "experts-all",
+      "scale_search": true,
+      "status": "done",
+      "reason": "",
+      "expected": {
+        "spec": "experts-all",
+        "quantized_tensors": 72,
+        "ignored_tensors": 187,
+        "quantized_layers": 36,
+        "quantized_layers_by_type": {
+          "mlp.experts": 36
+        },
+        "ignored_layers": 187,
+        "total_quantizable_layers": 223,
+        "ignore_entries": 188
+      },
+      "verify": "OK",
+      "check": "ABLATION_CHECK_OK",
+      "file_bytes": 5765781448,
+      "dir_bytes": 5777652043,
+      "fidelity": {
+        "kld_mean": {
+          "value": 0.023440927048319668,
+          "lo": 0.022147764319488998,
+          "hi": 0.024806060871905053
+        },
+        "kld_median": {
+          "value": 0.009218414825149051,
+          "lo": 0.008910747276889527,
+          "hi": 0.009521299099496233
+        },
+        "kld_p99": {
+          "value": 0.250069772970054,
+          "lo": 0.22307154207674748,
+          "hi": 0.2811565908255075
+        },
+        "ppl_ratio": {
+          "value": 1.0148392900815195,
+          "lo": 1.011130949564903,
+          "hi": 1.0185169634644413
+        },
+        "top1_agreement": {
+          "value": 0.9134356653620352,
+          "lo": 0.9109283268101761,
+          "hi": 0.9162487769080235
+        },
+        "ppl_ref": {
+          "value": 14.657646664586093,
+          "lo": 13.3572189044072,
+          "hi": 15.844859136859467
+        },
+        "ppl_var": {
+          "value": 14.875155735354303,
+          "lo": 13.5557322616204,
+          "hi": 16.095411971523763
+        },
+        "n_chunks": 64,
+        "n_positions": 32704,
+        "k": 20
+      },
+      "verdict": {
+        "passes": true,
+        "mean_kl": {
+          "value": "0.023440927048319668",
+          "max": "0.0304",
+          "ok": true
+        },
+        "ppl_ratio": {
+          "value": "1.0148392900815195",
+          "max": "1.030",
+          "ok": true
+        },
+        "reason": ""
+      }
+    },
+    {
+      "name": "C3",
+      "role": "candidate",
+      "spec": null,
+      "scale_search": null,
+      "status": "skipped",
+      "reason": "no record was written for this arm",
+      "fidelity": null,
+      "file_bytes": null,
+      "verdict": {
+        "passes": false,
+        "mean_kl": {
+          "value": null,
+          "max": "0.0304",
+          "ok": false
+        },
+        "ppl_ratio": {
+          "value": null,
+          "max": "1.030",
+          "ok": false
+        },
+        "reason": "skipped: no record was written for this arm"
+      }
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "status": "complete",
+  "endpoint": "http://127.0.0.1:8000/v1",
+  "model": "olala",
+  "inspect_model": "openai-api/vllm/olala",
+  "git": {
+    "commit": null,
+    "dirty": null,
+    "note": "not a git repository"
+  },
+  "code_sha256": "a13aa4cc4491d3af8b73f61a7d2fc7bf568e6ad5fb840e4075e58f9fb5c5f7a8",
+  "versions": {
+    "python": "3.12.3",
+    "inspect_ai": "0.3.291",
+    "inspect_evals": "0.29.0",
+    "openai": "3.57.0",
+    "httpx": "0.28.1",
+    "datasets": "5.2.0",
+    "numpy": "2.5.5",
+    "instruction_following_eval": "0.1.0"
+  },
+  "sampling": {
+    "temperature": 0.8,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": null,
+    "seed": null,
+    "max_retries": 5,
+    "timeout": 14400
+  },
+  "reasoning_effort": "medium",
+  "chat_template_kwargs": {
+    "reasoning_effort": "medium"
+  },
+  "max_connections": 96,
+  "max_connections_per_task": {
+    "aime2025": 24
+  },
+  "seed": 0,
+  "n_items_requested": {
+    "default": null,
+    "per_task": {
+      "mgsm": 550
+    }
+  },
+  "sandbox": {
+    "mode": "local",
+    "tasks": []
+  },
+  "epochs_requested": {
+    "default": null,
+    "per_task": {}
+  },
+  "items_from": null,
+  "argv": [
+    "--tasks",
+    "aime2025",
+    "--base-url",
+    "http://127.0.0.1:8000/v1",
+    "--model",
+    "olala",
+    "--out",
+    "/workspace/results/raw/Q5v2-aime",
+    "--seed",
+    "0",
+    "--sandbox",
+    "local",
+    "--reasoning-effort",
+    "medium",
+    "--max-connections",
+    "96",
+    "--n-items",
+    "mgsm=550"
+  ],
+  "started_utc": "2026-11-21T00:10:40Z",
+  "ended_utc": "2026-11-21T02:08:20Z",
+  "skipped_tasks": {},
+  "tasks": {
+    "aime2025": {
+      "epochs": 5,
+      "n_items": 30,
+      "items_sha256": "b0df03745f27c2658b686b8061f788d4fc7e67f76157706f9ab4a38627101b2b",
+      "n_samples": 150,
+      "request_errors": 0,
+      "truncations": 11,
+      "client_timeout": 14400,
+      "samples_with_retries": 0,
+      "max_working_time": 1910.232,
+      "eval_status": "success",
+      "inspect_log": "2026-11-21T00-10-45-00-00_aime2025_hp7URLYi7qXgSVyE9hSvsp.eval"
+    }
+  },
+  "n_samples": 150,
+  "request_errors": 0,
+  "truncations": 11,
+  "client_timeout": 14400,
+  "samples_with_retries": 0,
+  "max_working_time": 1910.232
+}

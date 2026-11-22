@@ -1,0 +1,80 @@
+{
+  "label": "abl-all",
+  "status": "done",
+  "spec_requested": "all",
+  "spec": "all",
+  "recipe": "nvfp4",
+  "started": "2026-11-20T23:11:56Z",
+  "finished": "2026-11-20T23:21:38Z",
+  "gpu": "NVIDIA RTX PRO 4500 Blackwell, 595.112.07",
+  "expected": {
+    "spec": "all",
+    "quantized_tensors": 232,
+    "ignored_tensors": 27,
+    "quantized_layers": 200,
+    "quantized_layers_by_type": {
+      "gate_proj": 7,
+      "mixer_proj": 33,
+      "mlp.experts": 32,
+      "mlp.fc1_latent_proj": 32,
+      "mlp.fc2_latent_proj": 32,
+      "mlp.shared_experts.down_proj": 32,
+      "mlp.shared_experts.up_proj": 32
+    },
+    "ignored_layers": 23,
+    "total_quantizable_layers": 223,
+    "ignore_entries": 28
+  },
+  "verify": "OK",
+  "check": "ABLATION_CHECK_OK",
+  "reference": {
+    "path": "/workspace/results/raw/b0_wikitext2.npz",
+    "produced_here": true,
+    "sha256": "31891e483460dd38f3ccfabc942091916ce534b79f3d01bbe53aeed73f1ffad2"
+  },
+  "fidelity": {
+    "ppl_ref": {
+      "value": 14.655327542517066,
+      "lo": 13.357057919499313,
+      "hi": 15.844279233264446
+    },
+    "ppl_var": {
+      "value": 15.823014578461816,
+      "lo": 14.41502479101765,
+      "hi": 17.116147639659026
+    },
+    "ppl_ratio": {
+      "value": 1.0796766249377323,
+      "lo": 1.0734067887883947,
+      "hi": 1.0858036044540809
+    },
+    "kld_mean": {
+      "value": 0.06686568865434853,
+      "lo": 0.0640184931891588,
+      "hi": 0.06961744524922889
+    },
+    "kld_median": {
+      "value": 0.03333489179192138,
+      "lo": 0.032469097197604865,
+      "hi": 0.034126429335250216
+    },
+    "kld_p99": {
+      "value": 0.6153258468090154,
+      "lo": 0.5631194780139667,
+      "hi": 0.6750261585982372
+    },
+    "top1_agreement": {
+      "value": 0.8492233365949119,
+      "lo": 0.8451863686399217,
+      "hi": 0.8534124266144814
+    },
+    "n_chunks": 64,
+    "n_positions": 32704,
+    "k": 20
+  },
+  "noise_floor": {
+    "kld_mean": 0.002035595076654681,
+    "top1_agreement": 0.981470156555773,
+    "ppl_ratio": 0.9990816000471981
+  }
+}

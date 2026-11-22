@@ -1,0 +1,111 @@
+{
+  "_what": "Serving arms of the Olala quantization study as data. serve_olala.sh turns one entry into a `vllm serve` command through arms.py. Every flag below was read in the fork's source (OVHai-LLM/vllm, branch olala-v0.33, commit ebbadef, recon/src/vllm); confirmed_flags gives the file and line. Nothing here is invented.",
+  "model_dir": "/workspace/models/olala-bf16",
+  "host": "127.0.0.1",
+  "port": 8000,
+  "common_flags": [
+    "--trust-remote-code",
+    "--served-model-name", "olala",
+    "--mamba-ssm-cache-dtype", "float32",
+    "--reasoning-parser", "olala",
+    "--tool-call-parser", "olala",
+    "--enable-auto-tool-choice",
+    "--max-model-len", "32688",
+    "--max-num-seqs", "256"
+  ],
+  "ignore": [
+    "model.layers.1.mixer_proj",
+    "model.layers.7.mixer_proj",
+    "model.layers.23.mixer_proj",
+    "model.layers.0.mlp.*",
+    "model.layers.1.mlp.*",
+    "model.layers.5.mlp.*",
+    "model.layers.19.mlp.*"
+  ],
+  "ignore_source": "recon/quantizability.md section C.2 (Appendix C of the OVH report: Mamba-3 layers 1, 7, 23 and MoE layers 0, 1, 5, 19). fnmatch patterns: should_ignore_layer(use_fnmatch=True) in online/base.py:301-307, so '*' matches dots. NOTE: PROTOCOL.md section 2 says 'down projections of the MoE blocks'; mlp.* is broader (the whole block of those four layers).",
+  "confirmed_flags": {
+    "--trust-remote-code": "vllm/engine/arg_utils.py:975",
+    "--served-model-name": "vllm/engine/arg_utils.py:1031",
+    "--mamba-ssm-cache-dtype": "vllm/engine/arg_utils.py:1428 (CacheConfig.mamba_ssm_cache_dtype); model card: always float32",
+    "--reasoning-parser": "vllm/engine/arg_utils.py:1147; value 'olala' registered in vllm/reasoning/__init__.py:147",
+    "--tool-call-parser": "vllm/entrypoints/common/cli_args.py:129; value 'olala' registered in vllm/tool_parsers/__init__.py:173",
+    "--enable-auto-tool-choice": "vllm/entrypoints/common/cli_args.py:123 (requires --tool-call-parser, cli_args.py:553)",
+    "--max-model-len": "vllm/engine/arg_utils.py:991; 32688 from the model card",
+    "--max-num-seqs": "vllm/engine/arg_utils.py:1754; 256 from PROTOCOL.md section 3 (hybrid cache)",
+    "--quantization": "vllm/engine/arg_utils.py:992; names in vllm/config/quantization.py:195 (_ONLINE_SHORTHANDS)",
+    "--quantization-config": "vllm/engine/arg_utils.py:994; schema QuantizationConfigArgs in vllm/config/quantization.py:111 (linear, moe, ignore, targets)",
+    "--host": "vllm/entrypoints/common/cli_args.py:293",
+    "--port": "vllm/entrypoints/common/cli_args.py:295",
+    "--gpu-memory-utilization": "vllm/engine/arg_utils.py:1389 (only through the extra flags after --)"
+  },
+  "arms": {
+    "bf16": {
+      "description": "Reference: the BF16 checkpoint, no quantization (B0 of PROTOCOL.md).",
+      "quantization": null,
+      "ignore_variants": false,
+      "requires_cc_major": null,
+      "source": "model card 'vllm serve' block plus --max-num-seqs 256 (PROTOCOL.md section 3)"
+    },
+    "fp8pc": {
+      "description": "Online FP8, per-channel weight scale and dynamic per-token activation (llm-compressor FP8_DYNAMIC shape); F1 of PROTOCOL.md. Name without suffix = with the ignore list.",
+      "quantization": "fp8_per_channel",
+      "ignore_variants": true,
+      "requires_cc_major": null,
+      "source": "vllm/config/quantization.py:206-209 (fp8_per_channel -> kFp8StaticChannelSym); online/base.py:92-107 (Fp8PtpcOnline*Method)"
+    },
+    "fp8pt": {
+      "description": "Online FP8, one weight scale per tensor.",
+      "quantization": "fp8_per_tensor",
+      "ignore_variants": true,
+      "requires_cc_major": null,
+      "source": "vllm/config/quantization.py:196-199 (fp8_per_tensor -> kFp8StaticTensorSym); online/fp8.py Fp8PerTensorOnline*Method"
+    },
+    "fp8pb": {
+      "description": "Online FP8, 128x128 block weight scales and 1x128 block activation scales.",
+      "quantization": "fp8_per_block",
+      "ignore_variants": true,
+      "requires_cc_major": null,
+      "source": "vllm/config/quantization.py:200-203 (fp8_per_block -> kFp8Static128BlockSym); block 128 divides 1536, 384, 768, 3072, 4608 (recon section D.3)"
+    },
+    "mxfp4": {
+      "description": "Online MXFP4 (OCP microscaling FP4, e8m0 scale per 32 elements) on linears and routed experts.",
+      "quantization": "mxfp4",
+      "ignore_variants": true,
+      "requires_cc_major": null,
+      "source": "vllm/config/quantization.py:214-217; online/mxfp4.py (input size divisible by 32: holds for every Olala dimension). Deferred shorthand (quantization.py:238): online only because the BF16 checkpoint has no quantization metadata. Backend per GPU not confirmed."
+    },
+    "nvfp4pt": {
+      "description": "Online NVFP4 (FP4 e2m1, group-16 FP8 scales, per-token activation scales) on the routed experts only: linears stay BF16 in this method; N2 of PROTOCOL.md. Needs an SM100 (B200) GPU.",
+      "quantization": "nvfp4_per_token",
+      "ignore_variants": true,
+      "requires_cc_major": 10,
+      "source": "vllm/config/quantization.py:222-226 (moe only); online/nvfp4.py:100-103 raises unless current_platform.is_device_capability_family(100): the RTX PRO 4500 and 6000 (sm_120) are refused"
+    },
+    "mxfp8": {
+      "description": "Extra, not in PROTOCOL.md: online MXFP8. W8A8 needs SM100+, other GPUs run W8A16.",
+      "quantization": "mxfp8",
+      "ignore_variants": true,
+      "requires_cc_major": null,
+      "source": "vllm/config/quantization.py:210-213; docs/features/quantization/online.md (table)"
+    },
+    "int8wo": {
+      "description": "Extra, not in PROTOCOL.md: INT8 weight-only on the routed experts, the path OVH built kernels and a loader for (W8A16).",
+      "quantization": "int8_per_channel_weight_only",
+      "ignore_variants": true,
+      "requires_cc_major": null,
+      "source": "vllm/config/quantization.py:219-221; online/int8.py; recon section D.3"
+    }
+  },
+  "ckpt": {
+    "description": "An offline checkpoint directory (llm-compressor FP8 or NVFP4, GPTQ, AWQ): served with the common flags and no --quantization; vLLM reads quantization_config from the directory's config.json. The fork's load_weights does not load such checkpoints without a patch (recon section D.4): read the log for 'not found, skipping'.",
+    "requires_cc_major": null,
+    "source": "recon/quantizability.md section D.4"
+  },
+  "unconfirmed": [
+    "Which MoE and linear backend each online scheme selects on sm_89, sm_90, sm_100 and sm_120 (oracle code not traced).",
+    "Whether non-gated ReLU^2 routed experts run on the FP8, MXFP4 and NVFP4 MoE kernels of every GPU (CutlassExpertsFp8Base does not support them, recon section D.2).",
+    "Whether the Olala-specific MoE decode kernels are lost with any quant_config (recon section D.3): decode speed of quantized arms may be below BF16.",
+    "The 'Quantizing N layers of types' summary line (model_loader/base_loader.py:152) is the only log proof that the ignore list took effect.",
+    "Memory: --max-num-seqs 256 with float32 SSM state on 24 to 32 GB cards; tune --gpu-memory-utilization after the first start."
+  ]
+}

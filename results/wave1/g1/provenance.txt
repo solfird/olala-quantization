@@ -1,0 +1,10 @@
+session=20261121T021755Z-1815 started=2026-11-21T02:17:55Z
+NVIDIA RTX PRO 4500 Blackwell, 595.112.07
+-- checkpoint /workspace/ckpt/g1lite (stays on the pod)
+ff745ad689dfd7f3e70a1aab08c6ac58694c3299a56380d52bb6744ec540273d  model.safetensors.index.json
+aca61b0d9203c47272313bc761f71e7e83d7264a69bdcc8c470c13bd2301e3cf  config.json
+25bcc0f96a4896123889c1b798f8a9c73cf772a6e65e24b0130be5fd4abd675a  quantization_info.json
+size_bytes=6650752426
+(EngineCore pid=13412) INFO 11-21 03:06:06 [unquantized.py:365] Using FlashInfer CUTLASS Unquantized MoE backend out of potential backends: ['FlashInfer TRTLLM', 'FlashInfer CUTLASS', 'TRITON', 'BATCHED_TRITON'].
+(EngineCore pid=13412) INFO 11-21 03:06:06 [nvfp4.py:314] Using 'MARLIN' NvFp4 MoE backend out of potential backends: ['FLASHINFER_TRTLLM', 'FLASHINFER_CUTEDSL', 'FLASHINFER_CUTEDSL_BATCHED', 'FLASHINFER_CUTLASS', 'VLLM_CUTLASS', 'MARLIN', 'HUMMING', 'EMULATION'].
+(EngineCore pid=13412) INFO 11-21 03:06:10 [unquantized.py:530] Using FlashInferExperts MoE backend

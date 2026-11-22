@@ -1,0 +1,12 @@
+{
+  "spec": "experts-all",
+  "quantized_tensors": 72,
+  "ignored_tensors": 187,
+  "quantized_layers": 36,
+  "quantized_layers_by_type": {
+    "mlp.experts": 36
+  },
+  "ignored_layers": 187,
+  "total_quantizable_layers": 223,
+  "ignore_entries": 188
+}

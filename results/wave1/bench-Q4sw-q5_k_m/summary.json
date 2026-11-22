@@ -1,0 +1,42 @@
+{
+  "variant": "q5_k_m",
+  "points": [
+    {
+      "concurrency": 1,
+      "repeats": 2,
+      "num_prompts": 8,
+      "output_throughput_median": 59.24372113110636,
+      "output_throughput_each": [
+        71.63102112066605,
+        46.856421141546676
+      ],
+      "completed": 12,
+      "failed_requests": 4
+    },
+    {
+      "concurrency": 4,
+      "repeats": 2,
+      "num_prompts": 12,
+      "output_throughput_median": 92.44319733399684,
+      "output_throughput_each": [
+        73.25798540274558,
+        111.6284092652481
+      ],
+      "completed": 17,
+      "failed_requests": 7
+    },
+    {
+      "concurrency": 12,
+      "repeats": 2,
+      "num_prompts": 36,
+      "output_throughput_median": 213.56446580321764,
+      "output_throughput_each": [
+        196.98016908045818,
+        230.1487625259771
+      ],
+      "completed": 61,
+      "failed_requests": 11
+    }
+  ],
+  "points_with_failed_requests": 3
+}

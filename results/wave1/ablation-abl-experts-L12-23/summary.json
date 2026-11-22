@@ -1,0 +1,69 @@
+{
+  "label": "abl-experts-L12-23",
+  "status": "done",
+  "spec_requested": "experts:layers=12-23",
+  "spec": "experts:layers=12-23",
+  "recipe": "nvfp4",
+  "started": "2026-11-20T23:31:49Z",
+  "finished": "2026-11-20T23:35:06Z",
+  "gpu": "NVIDIA RTX PRO 4500 Blackwell, 595.112.07",
+  "expected": {
+    "spec": "experts:layers=12-23",
+    "quantized_tensors": 22,
+    "ignored_tensors": 237,
+    "quantized_layers": 11,
+    "quantized_layers_by_type": {
+      "mlp.experts": 11
+    },
+    "ignored_layers": 212,
+    "total_quantizable_layers": 223,
+    "ignore_entries": 238
+  },
+  "verify": "OK",
+  "check": "ABLATION_CHECK_OK",
+  "reference": {
+    "path": "/workspace/results/raw/b0_wikitext2.npz",
+    "produced_here": false,
+    "sha256": "31891e483460dd38f3ccfabc942091916ce534b79f3d01bbe53aeed73f1ffad2"
+  },
+  "fidelity": {
+    "ppl_ref": {
+      "value": 14.655327542517066,
+      "lo": 13.357057919499313,
+      "hi": 15.844279233264446
+    },
+    "ppl_var": {
+      "value": 14.71752810217192,
+      "lo": 13.423087698072827,
+      "hi": 15.90695894197005
+    },
+    "ppl_ratio": {
+      "value": 1.0042442285560935,
+      "lo": 1.001989914652194,
+      "hi": 1.0064696805997264
+    },
+    "kld_mean": {
+      "value": 0.011062615931427648,
+      "lo": 0.010408718270530925,
+      "hi": 0.01174886698719221
+    },
+    "kld_median": {
+      "value": 0.004866347453283347,
+      "lo": 0.0047064734234672275,
+      "hi": 0.005041909125639771
+    },
+    "kld_p99": {
+      "value": 0.10158074325855199,
+      "lo": 0.09119549781620515,
+      "hi": 0.11495249518284723
+    },
+    "top1_agreement": {
+      "value": 0.9386313600782779,
+      "lo": 0.9362753791585128,
+      "hi": 0.9409559992661448
+    },
+    "n_chunks": 64,
+    "n_positions": 32704,
+    "k": 20
+  }
+}

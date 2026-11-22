@@ -1,0 +1,162 @@
+{
+  "status": "complete",
+  "endpoint": "http://127.0.0.1:8000/v1",
+  "model": "olala",
+  "inspect_model": "openai-api/vllm/olala",
+  "git": {
+    "commit": null,
+    "dirty": null,
+    "note": "not a git repository"
+  },
+  "code_sha256": "a13aa4cc4491d3af8b73f61a7d2fc7bf568e6ad5fb840e4075e58f9fb5c5f7a8",
+  "versions": {
+    "python": "3.12.3",
+    "inspect_ai": "0.3.291",
+    "inspect_evals": "0.29.0",
+    "openai": "3.57.0",
+    "httpx": "0.28.1",
+    "datasets": "5.2.0",
+    "numpy": "2.5.5",
+    "instruction_following_eval": "0.1.0"
+  },
+  "sampling": {
+    "temperature": 0.8,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": null,
+    "seed": null,
+    "max_retries": 5,
+    "timeout": 14400
+  },
+  "reasoning_effort": "medium",
+  "chat_template_kwargs": {
+    "reasoning_effort": "medium"
+  },
+  "max_connections": 96,
+  "max_connections_per_task": {
+    "mgsm": 96,
+    "humaneval_plus": 96,
+    "mbpp_plus": 96,
+    "ifeval": 96,
+    "aime2025": 24
+  },
+  "seed": 0,
+  "n_items_requested": {
+    "default": null,
+    "per_task": {
+      "mgsm": 550
+    }
+  },
+  "sandbox": {
+    "mode": "local",
+    "tasks": [
+      "humaneval_plus",
+      "mbpp_plus"
+    ]
+  },
+  "epochs_requested": {
+    "default": null,
+    "per_task": {}
+  },
+  "items_from": null,
+  "argv": [
+    "--tasks",
+    "mgsm",
+    "humaneval_plus",
+    "mbpp_plus",
+    "ifeval",
+    "aime2025",
+    "--base-url",
+    "http://127.0.0.1:8000/v1",
+    "--model",
+    "olala",
+    "--out",
+    "/workspace/results/raw/B0b-v2",
+    "--seed",
+    "0",
+    "--sandbox",
+    "local",
+    "--reasoning-effort",
+    "medium",
+    "--max-connections",
+    "96",
+    "--n-items",
+    "mgsm=550"
+  ],
+  "started_utc": "2026-11-21T00:07:42Z",
+  "ended_utc": "2026-11-21T01:34:21Z",
+  "skipped_tasks": {},
+  "tasks": {
+    "mgsm": {
+      "epochs": 1,
+      "n_items": 550,
+      "items_sha256": "4df4814b314f1006e2418d763581fb32b436f4bdccfa9deef98e35759d042396",
+      "n_samples": 550,
+      "request_errors": 0,
+      "truncations": 14,
+      "client_timeout": 14400,
+      "samples_with_retries": 0,
+      "max_working_time": 954.717,
+      "eval_status": "success",
+      "inspect_log": "2026-11-21T00-07-46-00-00_mgsm_FKb2kHjBxsMDuDCLJHBGZF.eval"
+    },
+    "humaneval_plus": {
+      "epochs": 1,
+      "n_items": 164,
+      "items_sha256": "77da7ef3747c414099876a7a633bba803d6349f5387bfdfedc8f42a6ffc2e6c3",
+      "n_samples": 164,
+      "request_errors": 0,
+      "truncations": 1,
+      "client_timeout": 14400,
+      "samples_with_retries": 0,
+      "max_working_time": 338.573,
+      "eval_status": "success",
+      "inspect_log": "2026-11-21T00-26-15-00-00_humaneval-plus_mKmedxGXzwWAen9a6yRwnK.eval"
+    },
+    "mbpp_plus": {
+      "epochs": 1,
+      "n_items": 378,
+      "items_sha256": "95e6c77cfd1638c5ef7b8edf3a852bcc3d2c541445a5c047c2bc2bfd8f39dbb1",
+      "n_samples": 378,
+      "request_errors": 0,
+      "truncations": 3,
+      "client_timeout": 14400,
+      "samples_with_retries": 0,
+      "max_working_time": 413.72,
+      "eval_status": "success",
+      "inspect_log": "2026-11-21T00-31-57-00-00_mbpp-plus_KGvsCLfD7ZtUxRhiWqthxH.eval"
+    },
+    "ifeval": {
+      "epochs": 1,
+      "n_items": 541,
+      "items_sha256": "45874aab7e499fbb3614697d09eda30682716303bf41ecfc6ea5ea4df153f2a4",
+      "n_samples": 541,
+      "request_errors": 0,
+      "truncations": 8,
+      "client_timeout": 14400,
+      "samples_with_retries": 0,
+      "max_working_time": 644.091,
+      "eval_status": "success",
+      "inspect_log": "2026-11-21T00-40-24-00-00_ifeval_jGhoyGwvz9au7vUx7rozdd.eval"
+    },
+    "aime2025": {
+      "epochs": 5,
+      "n_items": 30,
+      "items_sha256": "b0df03745f27c2658b686b8061f788d4fc7e67f76157706f9ab4a38627101b2b",
+      "n_samples": 150,
+      "request_errors": 0,
+      "truncations": 11,
+      "client_timeout": 14400,
+      "samples_with_retries": 0,
+      "max_working_time": 932.301,
+      "eval_status": "success",
+      "inspect_log": "2026-11-21T00-52-06-00-00_aime2025_F5r8e72hNenBJUFX63u8RR.eval"
+    }
+  },
+  "n_samples": 1783,
+  "request_errors": 0,
+  "truncations": 37,
+  "client_timeout": 14400,
+  "samples_with_retries": 0,
+  "max_working_time": 954.717
+}

@@ -1,0 +1,12 @@
+run=F2 mode=ckpt:/workspace/ckpt/fp8-I:fp8 started=2026-11-20T22:35:35Z
+NVIDIA RTX PRO 4500 Blackwell, 595.112.07
+verify: OK: 945 tensors checked, no violation. {"n_quantized": 232, "n_ignored": 27, "n_kept": 686, "worst_rel_fro": [{"tensor": "model.layers.0.mixer_proj.weight", "rel_fro": 0.026609304308857946}, {"tensor": "model.layers.14.mlp.experts.output_experts.weight", "rel_fro": 0.026568916737476522}, {"tensor": 
+5770ff5465fd27c8cb4669b1c5f08dc3996ef7902da5eec72fb0cff123df25a4  model.safetensors.index.json
+3c8d8e00b896b5cebba7f777a52880bd68921a7983bbdf2e028e4125cf2e1335  config.json
+1ef6d5b1d81254058c193827268cc787cc855079ed6ea3ca2eeba1cb98f60470  quantization_info.json
+(EngineCore pid=1701) INFO 11-20 22:38:11 [__init__.py:817] Selected CutlassFP8ScaledMMLinearKernel for CompressedTensorsW8A8Fp8
+(EngineCore pid=1701) INFO 11-20 22:38:12 [unquantized.py:365] Using FlashInfer CUTLASS Unquantized MoE backend out of potential backends: ['FlashInfer TRTLLM', 'FlashInfer CUTLASS', 'TRITON', 'BATCHED_TRITON'].
+(EngineCore pid=1701) INFO 11-20 22:38:12 [fp8.py:536] Using TRITON Fp8 MoE backend out of potential backends: ['AITER', 'FLASHINFER_TRTLLM', 'FLASHINFER_CUTLASS', 'DEEPGEMM', 'VLLM_CUTLASS', 'TRITON', 'MARLIN', 'HUMMING', 'BATCHED_DEEPGEMM', 'BATCHED_VLLM_CUTLASS', 'BATCHED_TRITON', 'XPU', 'CPU_W8A
+(EngineCore pid=1701) INFO 11-20 22:39:01 [unquantized.py:530] Using FlashInferExperts MoE backend
+gpu_exclusive_check=ok
+sweep_exit=0 finished=2026-11-20T23:09:35Z

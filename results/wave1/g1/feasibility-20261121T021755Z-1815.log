@@ -1,0 +1,39 @@
++ env OLALA_TORCH_MOE=1 OLALA_TORCH_MAMBA3=1 HF_HUB_OFFLINE=1 HF_DATASETS_OFFLINE=1 PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True PYTHONPATH=/workspace/bundle/quant:/workspace/bundle/quant/gptq python3 /workspace/bundle/quant/gptq/build_g1lite.py --src /workspace/models/olala-bf16 --calib /workspace/cal1/calib-cal1/manifest.json --dst /workspace/ckpt/g1lite-feas --base-select experts --device cuda --layers 2,4,6 --max-windows 4 --heldout-every 4 --batch-windows 1 --attn-impl eager --calibrate-only --restart   # log: /workspace/logs/g1lite/feasibility-20261121T021803Z.log
+mamba3: no TileLang chunk kernel (OLALA_TORCH_MAMBA3=1) -> pure-PyTorch fallback (slow)
+mamba3: no CuteDSL decode kernel (OLALA_TORCH_MAMBA3=1) -> PyTorch decode step
+moe: no scattermoe (OLALA_TORCH_MOE=1) -> pure-PyTorch experts (slow)
+Using attention implementation: eager
+windows per domain (exact, 4 windows of 2048):
+  math: 0.7 window equivalents, 1 windows touched
+  multilingual_math: 1.0 window equivalents, 2 windows touched
+  code: 1.8 window equivalents, 2 windows touched
+  instruction: 0.5 window equivalents, 2 windows touched
+layer 0 done (1.3 s forward)
+layer 1 done (0.4 s forward)
+layer 2: 247 GPTQ / 9 RTN experts, loss ratio up 0.21446312599164197, 9.7 s
+layer 2 done (0.5 s forward)
+layer 3 done (0.3 s forward)
+layer 4: 240 GPTQ / 16 RTN experts, loss ratio up 0.44768139181473837, 8.7 s
+layer 4 done (0.3 s forward)
+layer 5 done (0.3 s forward)
+layer 6: 229 GPTQ / 27 RTN experts, loss ratio up 0.5043458083345397, 9.4 s
+layer 6 done (0.3 s forward)
+wrote /workspace/ckpt/g1lite-feas/g1lite_report.json (calibrate-only)
+every layer that was run (forward only, or captured):
+layer  captured  forward_s  mixer_s  mlp_s  peak_cuda_GB  max|mixer_out|  max|mlp_out|
+    0     False        1.3      0.7    0.4          1.48       1.01e+05     3.77e+08
+    1     False        0.4      0.2    0.2          1.48       4.17e+16     1.38e+08
+    2      True        0.5      0.2    0.2          1.48       8.86e+07      2.9e+03
+    3     False        0.3      0.1    0.2          1.48       7.44e+06      1.3e+05
+    4      True        0.3      0.1    0.2          3.09          0.703        0.656
+    5     False        0.3      0.1    0.2          1.48           49.2     1.64e+07
+    6      True        0.3      0.1    0.2          1.48            121        0.357
+calibrated layers:
+layer  hessian_s  solve_s  total_s  peak_after_solve_GB  gptq/rtn  mean_loss_ratio_up  mean_heldout_ratio
+    2        0.4      7.8      9.7                 4.22  247/9    0.21446312599164197  0.43958830513474517
+    4        0.3      7.0      8.7                 4.24  240/16   0.44768139181473837  0.5652987899392108
+    6        0.4      7.3      9.4                 4.22  229/27   0.5043458083345397  0.5415473671960194
+G1LITE_FEASIBILITY_DONE
+feasibility: projected build seconds = 72.75 x (mean forward seconds of the 7 measured layers x 36 layers)
+feasibility: mean forward 0.5 s, 36-layer sum 17.5 s, projected build 1272 s = 0.35 h (budget 4 h); peak GPU memory 3.95 GiB (limit 30)
+G1_STEP_FEASIBILITY_DONE

@@ -1,0 +1,32 @@
+{
+  "checked_utc": "2026-11-20T09:46:37Z",
+  "datasets": {
+    "humaneval_plus": [
+      "evalplus/humanevalplus",
+      "d32357cf319e50e9c8d8dab5ea876c72b0fd321b"
+    ],
+    "mbpp_plus": [
+      "evalplus/mbppplus",
+      "b2d74c91837c3f2a20c1299ae98133cbe7cfa077"
+    ]
+  },
+  "verify_timeout_s": 60,
+  "tasks": {
+    "humaneval_plus": {
+      "n": 164,
+      "correct": 163,
+      "errors": 0,
+      "failing_ids": [
+        "HumanEval/32"
+      ]
+    },
+    "mbpp_plus": {
+      "n": 378,
+      "correct": 377,
+      "errors": 0,
+      "failing_ids": [
+        "590"
+      ]
+    }
+  }
+}

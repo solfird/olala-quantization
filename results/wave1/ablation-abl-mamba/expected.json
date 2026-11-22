@@ -1,0 +1,12 @@
+{
+  "spec": "mamba",
+  "quantized_tensors": 26,
+  "ignored_tensors": 233,
+  "quantized_layers": 26,
+  "quantized_layers_by_type": {
+    "mixer_proj": 26
+  },
+  "ignored_layers": 197,
+  "total_quantizable_layers": 223,
+  "ignore_entries": 234
+}

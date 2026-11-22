@@ -1,0 +1,9 @@
+copied_utc=2026-11-20T15:32:25Z
+arm=ckpt
+server_log_name=server-20261120T152745Z.log
+server_log=/workspace/logs/ckpt-nvfp4-I/server-20261120T152745Z.log
+server_cmd=server.cmd
+served_dir=/workspace/ckpt/nvfp4-I
+quantization_info=quantization_info.json
+server_url=http://127.0.0.1:8000
+command=uv run --frozen --python 3.12 python run_tasks.py --tasks aime2025 --base-url http://127.0.0.1:8000/v1 --model olala --out /workspace/results/raw/N2-aime2 --seed 0 --sandbox local --reasoning-effort medium --max-connections 96 --n-items mgsm=550

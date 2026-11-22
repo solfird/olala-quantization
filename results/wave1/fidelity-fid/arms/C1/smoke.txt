@@ -1,0 +1,5 @@
+smoke ckpt-fid-fid-C1: PASS
+health after 127.0 s
+log: /workspace/logs/ckpt-fid-fid-C1/server-20261121T075618Z.log
+answer: "Je calcule 17 × 23 en multipliant 17 par 20 (340) et 17 par 3 (51), puis j'additionne 340\u202f+\u202f51 = 391. Le résultat final est 391."; reasoning: 2634 chars
+written: /workspace/logs/ckpt-fid-fid-C1/smoke.json

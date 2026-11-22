@@ -1,0 +1,381 @@
+{
+  "schema": "cal1/1",
+  "created_utc": "2026-11-20T23:50:16.170374+00:00",
+  "seed": 0,
+  "n_tokens": 595968,
+  "window": 2048,
+  "n_windows": 291,
+  "tokenizer": {
+    "name": "hf:olala-bf16:ba9ffb1d3862148b",
+    "eos_id": 151645
+  },
+  "chat_template": {
+    "reasoning_effort": "medium",
+    "renderer": "hf:olala-bf16:ba9ffb1d3862148b",
+    "template_sha256": "6c51ff5a4b38aac80d1bad398a4b02854d5577ccf46b1417d8f9b7f85b481023"
+  },
+  "sampling": {
+    "temperature": 0.8,
+    "top_p": 0.9,
+    "top_k": 40,
+    "reasoning_effort": "medium",
+    "max_tokens": 8192
+  },
+  "server": {
+    "provenance": "vLLM image docker.io/ovhaillm/olala-vllm:ebbadef53 (sha256:842ca5b0e9ae6f7166a9d6fcfd79d4f6fe33d9a20d14d55220cc95b11f5c3c34); weights olala-bf16: config.json sha256 f2668c0a369eeb2285e21edb46dd6307c32d55aaaefa985a1abf0eeb73dbd8e3, 1 safetensors files, identity sha256 c4c531e4da721b2d7600d442e1d4a6cd8bd90a63c2cc82b208612deb61bec64a; server flags: vllm serve /workspace/models/olala-bf16 --trust-remote-code --served-model-name olala --mamba-ssm-cache-dtype float32 --reasoning-parser olala --tool-call-parser olala --enable-auto-tool-choice --max-model-len 32688 --max-num-seqs 256 --host 127.0.0.1 --port 8000",
+    "models": [
+      "olala"
+    ],
+    "base_url": "http://127.0.0.1:8000/v1",
+    "model": "olala"
+  },
+  "prompt_sources": [
+    {
+      "name": "math_train",
+      "domain": "math",
+      "repo": "EleutherAI/hendrycks_math",
+      "revision": "21a5633873b6a120296cce3e2df9d5550074f4a3",
+      "license": "mit",
+      "split": "train",
+      "configs": [
+        "algebra",
+        "counting_and_probability",
+        "geometry",
+        "intermediate_algebra",
+        "number_theory",
+        "prealgebra",
+        "precalculus"
+      ],
+      "column": "problem",
+      "filters": {
+        "level": [
+          "Level 4",
+          "Level 5"
+        ]
+      },
+      "note": "MATH train split, levels 4 and 5 (competition problems, published 2021: AIME 2025 cannot be in it)",
+      "pool_size": 3994,
+      "n_selected": 48,
+      "n_dropped_by_audit": 5,
+      "languages": {
+        "": 48
+      }
+    },
+    {
+      "name": "mgsm_train_parallel",
+      "domain": "multilingual_math",
+      "repo": "Mathoctopus/GSM8KInstruct_Parallel",
+      "revision": "dd8076b83bacd7c6ade2829317e8a500c6ffbec4",
+      "license": "apache-2.0",
+      "split": "train",
+      "configs": [],
+      "column": "prompt",
+      "filters": {},
+      "note": "GSM8K TRAIN questions translated into bn, de, es, fr, ja, ru, sw, th, zh (+ en); MGSM is GSM8K TEST. Columns are chosen, prompt, reject (read on the pod 2026-11-20; `query` does not exist); `prompt` is an Alpaca wrapper, the question between '### Instruction:' and '### Response' is the prompt.",
+      "pool_size": 73559,
+      "n_selected": 48,
+      "n_dropped_by_audit": 1,
+      "languages": {
+        "": 48
+      }
+    },
+    {
+      "name": "code_oss_python",
+      "domain": "code",
+      "repo": "ise-uiuc/Magicoder-OSS-Instruct-75K",
+      "revision": "5f839b1f368a76b161028bb9edff055db34022b2",
+      "license": "mit",
+      "split": "train",
+      "configs": [],
+      "column": "problem",
+      "filters": {
+        "lang": [
+          "python"
+        ]
+      },
+      "note": "Python problems written from open-source code snippets, not from HumanEval or MBPP",
+      "pool_size": 38284,
+      "n_selected": 96,
+      "n_dropped_by_audit": 9,
+      "languages": {
+        "": 96
+      }
+    },
+    {
+      "name": "if_personas",
+      "domain": "instruction",
+      "repo": "allenai/tulu-3-sft-personas-instruction-following",
+      "revision": "fe0c7d350c9b4542b8d829a6f1daa1c259f0ba0e",
+      "license": "odc-by",
+      "split": "train",
+      "configs": [],
+      "column": "prompt",
+      "filters": {},
+      "note": "synthetic persona prompts with IFEval-style format constraints, not IFEval's own prompts",
+      "pool_size": 29980,
+      "n_selected": 48,
+      "n_dropped_by_audit": 3,
+      "languages": {
+        "": 48
+      }
+    }
+  ],
+  "quotas": {
+    "math": 48,
+    "multilingual_math": 48,
+    "code": 96,
+    "instruction": 48
+  },
+  "weights": {
+    "math": 1,
+    "multilingual_math": 1,
+    "code": 2,
+    "instruction": 1
+  },
+  "domains": {
+    "math": {
+      "weight": 1,
+      "quota": 48,
+      "n_prompts": 48,
+      "n_ok": 48,
+      "n_failed": 0,
+      "n_truncated": 3,
+      "n_dropped_leak": 11,
+      "n_traces": 37,
+      "n_tokens": 116165
+    },
+    "multilingual_math": {
+      "weight": 1,
+      "quota": 48,
+      "n_prompts": 48,
+      "n_ok": 48,
+      "n_failed": 0,
+      "n_truncated": 1,
+      "n_dropped_leak": 0,
+      "n_traces": 48,
+      "n_tokens": 107333
+    },
+    "code": {
+      "weight": 2,
+      "quota": 96,
+      "n_prompts": 96,
+      "n_ok": 96,
+      "n_failed": 0,
+      "n_truncated": 4,
+      "n_dropped_leak": 3,
+      "n_traces": 93,
+      "n_tokens": 282786
+    },
+    "instruction": {
+      "weight": 1,
+      "quota": 48,
+      "n_prompts": 48,
+      "n_ok": 48,
+      "n_failed": 0,
+      "n_truncated": 1,
+      "n_dropped_leak": 1,
+      "n_traces": 47,
+      "n_tokens": 90006
+    }
+  },
+  "counts": {
+    "n_prompts": 240,
+    "n_ok": 240,
+    "n_failed": 0,
+    "n_traces": 225,
+    "n_truncated": 9,
+    "n_dropped_leak": 15,
+    "n_dropped_prompts_at_draw": 18,
+    "n_tokens_rendered": 596290
+  },
+  "failures": [],
+  "windows": {
+    "file": "windows.json",
+    "sha256": "2efc19a8449d5ae06cc91d7bfc5105c30f604374c7b236c22d5a2868d475dfef"
+  },
+  "audit": {
+    "ok": true,
+    "n": 8,
+    "n_hits": 0,
+    "n_docs": 450,
+    "n_scanned_prompts": 225,
+    "n_scanned_generations": 225,
+    "n_eval_fields": 15572,
+    "n_skipped_short": 9898,
+    "n_eval_ngrams": 1427605,
+    "eval_items_file": "eval_items.json",
+    "eval_items_sha256": "a8fd504aae1f9959d9c39ab4977850ba50799c719a25486f6270e78c60bb0d67",
+    "dropped_traces": [
+      {
+        "id": "code_oss_python/default-20971",
+        "docs": [
+          "generation"
+        ],
+        "tasks": [
+          "humaneval_plus",
+          "mbpp_plus"
+        ],
+        "n_hits": 11
+      },
+      {
+        "id": "code_oss_python/default-26190",
+        "docs": [
+          "generation"
+        ],
+        "tasks": [
+          "humaneval_plus"
+        ],
+        "n_hits": 2
+      },
+      {
+        "id": "code_oss_python/default-60690",
+        "docs": [
+          "generation"
+        ],
+        "tasks": [
+          "humaneval_plus"
+        ],
+        "n_hits": 2
+      },
+      {
+        "id": "if_personas/default-5348",
+        "docs": [
+          "generation"
+        ],
+        "tasks": [
+          "ifeval"
+        ],
+        "n_hits": 2
+      },
+      {
+        "id": "math_train/algebra-1389",
+        "docs": [
+          "generation"
+        ],
+        "tasks": [
+          "mbpp_plus"
+        ],
+        "n_hits": 1
+      },
+      {
+        "id": "math_train/algebra-804",
+        "docs": [
+          "generation"
+        ],
+        "tasks": [
+          "humaneval_plus",
+          "mbpp_plus"
+        ],
+        "n_hits": 468
+      },
+      {
+        "id": "math_train/counting_and_probability-308",
+        "docs": [
+          "generation"
+        ],
+        "tasks": [
+          "aime2025",
+          "humaneval_plus",
+          "mbpp_plus"
+        ],
+        "n_hits": 356
+      },
+      {
+        "id": "math_train/counting_and_probability-516",
+        "docs": [
+          "generation"
+        ],
+        "tasks": [
+          "humaneval_plus",
+          "mbpp_plus"
+        ],
+        "n_hits": 11
+      },
+      {
+        "id": "math_train/intermediate_algebra-1236",
+        "docs": [
+          "generation"
+        ],
+        "tasks": [
+          "humaneval_plus",
+          "mbpp_plus"
+        ],
+        "n_hits": 9
+      },
+      {
+        "id": "math_train/intermediate_algebra-288",
+        "docs": [
+          "generation"
+        ],
+        "tasks": [
+          "humaneval_plus",
+          "mbpp_plus"
+        ],
+        "n_hits": 7
+      },
+      {
+        "id": "math_train/intermediate_algebra-365",
+        "docs": [
+          "generation"
+        ],
+        "tasks": [
+          "humaneval_plus",
+          "mbpp_plus"
+        ],
+        "n_hits": 44
+      },
+      {
+        "id": "math_train/intermediate_algebra-943",
+        "docs": [
+          "generation"
+        ],
+        "tasks": [
+          "humaneval_plus",
+          "mbpp_plus"
+        ],
+        "n_hits": 14
+      },
+      {
+        "id": "math_train/number_theory-172",
+        "docs": [
+          "generation"
+        ],
+        "tasks": [
+          "humaneval_plus"
+        ],
+        "n_hits": 2
+      },
+      {
+        "id": "math_train/number_theory-599",
+        "docs": [
+          "generation"
+        ],
+        "tasks": [
+          "humaneval_plus",
+          "mbpp_plus"
+        ],
+        "n_hits": 12
+      },
+      {
+        "id": "math_train/precalculus-631",
+        "docs": [
+          "generation"
+        ],
+        "tasks": [
+          "humaneval_plus"
+        ],
+        "n_hits": 1
+      }
+    ]
+  },
+  "files": {
+    "prompts.jsonl": "1345977391437c104766618b6a0d91191abf1644ae5a7d245fd63799d98b50dd",
+    "prompts_manifest.json": "47c52b6ff885db77bbad064aac2df0f8dfa48944248725ee7abfb983d2059882",
+    "generations.jsonl": "9efb630c22f4623cd08095a8c5ae82c2f0f1a891c2c285a74583d2b141f4bfaf",
+    "generation_config.json": "4d35121902343b6f4c4567888dcd1d7e4e5d6087fd5ef9e70d95c35e898fc5bb",
+    "calib_text.jsonl": "6ad2c7848f749d6d4e990910cc8c0abd790a88ceced484393a8a3978f9a13d2a",
+    "eval_items.json": "a8fd504aae1f9959d9c39ab4977850ba50799c719a25486f6270e78c60bb0d67",
+    "leakage_audit.json": "6cab26259faf3babc01f0eeba08f1e250772427762651250c2416e3ada1ee64f",
+    "windows.json": "2efc19a8449d5ae06cc91d7bfc5105c30f604374c7b236c22d5a2868d475dfef"
+  }
+}

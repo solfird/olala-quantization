@@ -1,0 +1,8 @@
+analysis_session summary, written 2026-11-20T23:34:57Z
+weights: done at 2026-11-20T23:12:11Z
+prompts: done at 2026-11-20T23:12:21Z
+probe: done at 2026-11-20T23:34:57Z
+attention_detected=flex
+max_tokens=4096
+attempts=2 final_max_tokens=2048 final_attn_impl_arg=eager
+result: attn_impl=eager peak_gpu_gib=15.559433937072754 max_tokens_in_a_prompt=1741 n_prompts=80 n_truncated=0

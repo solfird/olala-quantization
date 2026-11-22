@@ -1,0 +1,15 @@
+{
+  "ok": true,
+  "n": 8,
+  "n_docs": 450,
+  "n_eval_fields": 15572,
+  "n_skipped_short": 9898,
+  "n_ngrams": 1427605,
+  "n_hits": 0,
+  "by_task": {},
+  "flagged_docs": [],
+  "hits": [],
+  "created_utc": "2026-11-20T23:50:15.147113+00:00",
+  "eval_items_sha256": "a8fd504aae1f9959d9c39ab4977850ba50799c719a25486f6270e78c60bb0d67",
+  "scope": "prompts and generated text"
+}

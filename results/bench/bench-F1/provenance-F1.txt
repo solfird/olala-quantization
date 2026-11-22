@@ -1,0 +1,9 @@
+run=F1 mode=online:fp8pc started=2026-11-20T22:31:52Z
+NVIDIA RTX PRO 4500 Blackwell, 595.112.07
+(EngineCore pid=1665) INFO 11-20 22:32:28 [__init__.py:817] Selected CutlassFP8ScaledMMLinearKernel for Fp8PtpcOnlineLinearMethod
+(EngineCore pid=1665) INFO 11-20 22:32:29 [unquantized.py:365] Using FlashInfer CUTLASS Unquantized MoE backend out of potential backends: ['FlashInfer TRTLLM', 'FlashInfer CUTLASS', 'TRITON', 'BATCHED_TRITON'].
+(EngineCore pid=1665) INFO 11-20 22:32:29 [fp8.py:536] Using TRITON Fp8 MoE backend out of potential backends: ['AITER', 'FLASHINFER_TRTLLM', 'FLASHINFER_CUTLASS', 'DEEPGEMM', 'VLLM_CUTLASS', 'TRITON', 'MARLIN', 'HUMMING', 'BATCHED_DEEPGEMM', 'BATCHED_VLLM_CUTLASS', 'BATCHED_TRITON', 'XPU', 'CPU_W8A
+(EngineCore pid=1665) INFO 11-20 22:33:15 [base_loader.py:151] Quantizing 200 layers of types: gate_proj: 7 (from linear: fp8_per_channel_static); mixer_proj: 33 (from linear: fp8_per_channel_static); mlp.experts: 32 (from moe: fp8_per_channel_static); mlp.fc1_latent_proj: 32 (from linear: fp8_per_c
+(EngineCore pid=1665) INFO 11-20 22:33:19 [unquantized.py:530] Using FlashInferExperts MoE backend
+gpu_exclusive_check=ok
+sweep_exit=0 finished=2026-11-20T23:03:32Z

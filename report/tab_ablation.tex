@@ -1,0 +1,16 @@
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+What is in NVFP4 & Mean KL & Perplexity ratio & Top-1 agreement \\
+\midrule
+All quantizable layers (the N2 build) & 0.0669 & 1.080 & 0.849 \\
+Routed experts only & 0.0243 & 1.020 & 0.912 \\
+Everything but the routed experts & 0.0498 & 1.056 & 0.869 \\
+Routed experts, layers 0 to 11 & 0.0089 & 1.003 & 0.947 \\
+Routed experts, layers 12 to 23 & 0.0111 & 1.004 & 0.939 \\
+Routed experts, layers 24 to 35 & 0.0147 & 1.009 & 0.935 \\
+Shared experts & 0.0228 & 1.021 & 0.912 \\
+Latent projections & 0.0217 & 1.014 & 0.916 \\
+Mamba projections & 0.0155 & 1.013 & 0.923 \\
+Attention projections & 0.0129 & 1.005 & 0.937 \\
+\bottomrule
+\end{tabular}

@@ -1,0 +1,8 @@
+
+fresh windows (mean over 5 seeds): arm, rel logit RMSE, mean KL, top-1 agreement
+  n2: 0.1541  1.231e-02  0.765
+  g1: 0.1236  7.903e-03  0.840
+
+random_tokens windows (mean over 5 seeds): arm, rel logit RMSE, mean KL, top-1 agreement
+  n2: 0.1522  1.159e-02  0.773
+  g1: 0.1621  1.312e-02  0.764

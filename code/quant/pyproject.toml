@@ -1,0 +1,34 @@
+[project]
+name = "olala-quant"
+version = "0.1.0"
+description = "Data-free FP8 and NVFP4 quantizer for OVHcloud Olala-v1.0-mini-7A1B, plus a vLLM loader patch"
+requires-python = ">=3.12,<3.13"
+# Pins: torch matches the OVH vLLM fork (requirements/cuda.txt:7, torch==2.14.0),
+# safetensors matches mlx-engine's pin. Tool versions pinned for reproducible lint.
+dependencies = ["torch==2.14.0", "safetensors==0.8.0", "numpy==2.5.5"]
+
+[dependency-groups]
+dev = ["pytest==9.2.0", "ruff==0.17.6"]
+
+[build-system]
+requires = ["hatchling==1.29.0"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["olala_quant"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["tests"]
+addopts = "-ra"
+
+[tool.ruff]
+line-length = 110
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "D", "ANN", "SIM", "RUF"]
+ignore = ["D203", "D213", "D413", "D401", "D301", "ANN401"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["D", "ANN"]

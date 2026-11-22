@@ -1,0 +1,8 @@
+{
+  "path": "/workspace/cal1/calib-cal1",
+  "sha256": {
+    "manifest.json": "66ec3233c6bbea4b49040dfa38c5b2b8f288cbac2b60d606a4b03b9f46cf1f0e",
+    "windows.json": "2efc19a8449d5ae06cc91d7bfc5105c30f604374c7b236c22d5a2868d475dfef",
+    "calib_text.jsonl": "6ad2c7848f749d6d4e990910cc8c0abd790a88ceced484393a8a3978f9a13d2a"
+  }
+}

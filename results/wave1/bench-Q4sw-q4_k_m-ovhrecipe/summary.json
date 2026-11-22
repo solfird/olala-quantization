@@ -1,0 +1,42 @@
+{
+  "variant": "q4_k_m-ovhrecipe",
+  "points": [
+    {
+      "concurrency": 1,
+      "repeats": 2,
+      "num_prompts": 8,
+      "output_throughput_median": 63.10056900084615,
+      "output_throughput_each": [
+        46.75891217856045,
+        79.44222582313185
+      ],
+      "completed": 14,
+      "failed_requests": 2
+    },
+    {
+      "concurrency": 4,
+      "repeats": 2,
+      "num_prompts": 12,
+      "output_throughput_median": 104.47298302252085,
+      "output_throughput_each": [
+        82.06583313159143,
+        126.88013291345027
+      ],
+      "completed": 23,
+      "failed_requests": 1
+    },
+    {
+      "concurrency": 12,
+      "repeats": 2,
+      "num_prompts": 36,
+      "output_throughput_median": 161.46323377210456,
+      "output_throughput_each": [
+        136.03104222766507,
+        186.89542531654402
+      ],
+      "completed": 55,
+      "failed_requests": 17
+    }
+  ],
+  "points_with_failed_requests": 3
+}

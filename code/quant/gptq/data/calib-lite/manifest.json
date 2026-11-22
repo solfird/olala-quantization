@@ -1,0 +1,56 @@
+{
+  "schema": "g1lite-calib/1",
+  "created_utc": "2026-11-20T16:10:14.651868+00:00",
+  "seed": 0,
+  "n_tokens": 65536,
+  "window": 2048,
+  "n_windows": 32,
+  "tokenizer": {
+    "name": "chars:3.0",
+    "eos_id": 0
+  },
+  "sources": [
+    {
+      "name": "wikitext2_train",
+      "kind": "hf_dataset",
+      "origin": "Salesforce/wikitext wikitext-2-raw-v1 train",
+      "revision": "b08601e04326c79dfdd32d625aee71d232d685c3",
+      "license": "CC-BY-SA-3.0",
+      "share": 0.8,
+      "n_docs": 32,
+      "n_chars": 159177,
+      "n_tokens": 53102,
+      "sha256": "c06f9972f66830e7037a8d5cedc8e8f9e121dbd397b0aaab39bd6cc2bd09e094"
+    },
+    {
+      "name": "python",
+      "kind": "text_dir",
+      "origin": "python stdlib 3.12",
+      "revision": "",
+      "license": "PSF-2.0",
+      "share": 0.2,
+      "n_docs": 8,
+      "n_chars": 43457,
+      "n_tokens": 14497,
+      "sha256": "d75bb499a1f4948eb40eb12ee9ca3d4f11b803d6783475bd5a8c98adbbfbedcc"
+    }
+  ],
+  "text": {
+    "file": "calib_text.jsonl",
+    "sha256": "ef6b3bd602bcc43973df5bec662ee7dd59159459ccace6e4e2e01111bcefca38",
+    "n_docs": 40
+  },
+  "windows": null,
+  "audit": {
+    "ok": true,
+    "n": 8,
+    "n_hits": 0,
+    "n_docs": 40,
+    "n_eval_fields": 15572,
+    "n_skipped_short": 9898,
+    "n_eval_ngrams": 1427605,
+    "eval_items_file": "eval_items.json",
+    "eval_items_sha256": "a8fd504aae1f9959d9c39ab4977850ba50799c719a25486f6270e78c60bb0d67",
+    "dropped_docs": []
+  }
+}

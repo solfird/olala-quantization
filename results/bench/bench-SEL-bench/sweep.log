@@ -1,0 +1,10 @@
+bench SEL-bench: output tok/s (median of repeats; min-max), TTFT ms, TPOT ms, requests ok/failed
+long  c=1       217.3 (217-218)  ttft      168  tpot    0.3  n=2 ok=8 failed=0
+long  c=16     1672.2 (1672-1673)  ttft      819  tpot    0.7  n=2 ok=64 failed=0
+long  c=32     2207.5 (2207-2208)  ttft      733  tpot    1.1  n=2 ok=128 failed=0
+short c=1       218.9 (219-219)  ttft       74  tpot    4.2  n=2 ok=16 failed=0
+short c=4       716.4 (716-717)  ttft      198  tpot    5.1  n=2 ok=16 failed=0
+short c=16     1889.3 (1885-1893)  ttft      384  tpot    7.6  n=2 ok=96 failed=0
+short c=32     2611.5 (2611-2612)  ttft      532  tpot   10.9  n=2 ok=192 failed=0
+short c=64     3284.8 (3283-3286)  ttft      396  tpot   17.8  n=2 ok=384 failed=0
+short c=128    3761.8 (3761-3762)  ttft      533  tpot   30.6  n=2 ok=768 failed=0

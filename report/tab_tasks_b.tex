@@ -1,0 +1,13 @@
+\begin{tabular}{@{}lccc@{}}
+\toprule
+Task & NVFP4 all quantizable layers & NVFP4 routed experts only & NVFP4 experts, calibrated \\
+\midrule
+MGSM & $-$2.1 ($-$4.6 to +0.5) & $-$0.3 ($-$2.5 to +2.0) & $-$0.3 ($-$2.3 to +1.8) \\
+HumanEval+ & \cellcolor[HTML]{F6D3C9}$-$4.9 ($-$9.5 to $-$0.6) \textcolor[HTML]{B4452A}{$\blacktriangledown$} & \cellcolor[HTML]{F6D3C9}$-$5.5 ($-$10.1 to $-$1.2) \textcolor[HTML]{B4452A}{$\blacktriangledown$} & \cellcolor[HTML]{F6D3C9}$-$5.5 ($-$10.1 to $-$1.2) \textcolor[HTML]{B4452A}{$\blacktriangledown$} \\
+MBPP+ & $-$2.5 ($-$6.0 to +0.9) & +0.4 ($-$2.8 to +3.6) & +2.0 ($-$0.9 to +5.0) \\
+IFEval & $-$1.4 ($-$3.9 to +1.2) & $-$0.3 ($-$2.6 to +1.9) & $-$0.1 ($-$2.5 to +2.3) \\
+AIME 2025 & $-$5.7 ($-$13.0 to +1.0) & $-$0.3 ($-$7.0 to +5.7) & \cellcolor[HTML]{F6D3C9}$-$8.3 ($-$15.0 to $-$2.0) \textcolor[HTML]{B4452A}{$\blacktriangledown$} \\
+\midrule
+Macro-average & \cellcolor[HTML]{F6D3C9}$-$3.3 ($-$5.3 to $-$1.4) \textcolor[HTML]{B4452A}{$\blacktriangledown$} & $-$1.2 ($-$3.0 to +0.6) & \cellcolor[HTML]{F6D3C9}$-$2.4 ($-$4.2 to $-$0.7) \textcolor[HTML]{B4452A}{$\blacktriangledown$} \\
+\bottomrule
+\end{tabular}

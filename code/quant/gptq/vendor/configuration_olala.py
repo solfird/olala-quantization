@@ -1,0 +1,296 @@
+# coding=utf-8
+"""Olala model configuration"""
+# TODO : TP (cf qwen)
+# TODO : init
+
+from typing import Optional
+import re
+
+from transformers.configuration_utils import PretrainedConfig
+from transformers.utils import logging
+
+logger = logging.get_logger(__name__)
+
+class OlalaConfig(PretrainedConfig):
+    r"""
+    This is the configuration class to store the configuration of a [`OlalaModel`]. It is used to instantiate a
+    Olala model according to the specified arguments, defining the model architecture.
+    Configuration objects inherit from [`PretrainedConfig`] and can be used to control the model outputs. Read the
+    documentation from [`PretrainedConfig`] for more information.
+    Args:
+        vocab_size (`int`, *optional*, defaults to 151936):
+            Vocabulary size of the Olala model. Defines the number of different tokens that can be represented by the
+            `inputs_ids` passed when calling [`OlalaModel`]
+        tie_word_embeddings (`bool`, *optional*, defaults to `False`):
+            Whether the model's input and output word embeddings should be tied. Note that this is only relevant if the
+            model has a output word embedding layer.
+        hidden_size (`int`, *optional*, defaults to 2048):
+            Dimension of the hidden representations.
+        intermediate_size (`int`, *optional*, defaults to 8192):
+            Dimension of the MLP representations.
+        num_attention_heads (`int`, *optional*, defaults to 32):
+            Number of attention heads for each attention layer in the Transformer encoder.
+        num_key_value_heads (`int`, *optional*, defaults to 8):
+            This is the number of key_value heads that should be used to implement Grouped Query Attention. If
+            `num_key_value_heads=num_attention_heads`, the model will use Multi Head Attention (MHA), if
+            `num_key_value_heads=1` the model will use Multi Query Attention (MQA) otherwise GQA is used.
+        mlp_hidden_act (`str`, *optional*, defaults to "relu2"):
+            The non-linear activation function in the MLP layers.
+        attention_bias (`bool`, *optional*, defaults to `False`):
+            Whether to use bias in attention layers.
+        mlp_bias (`bool`, *optional*, defaults to `False`):
+            Whether to use bias in MLP layers.
+        use_bias (`bool`, *optional*, defaults to `False`):
+            Whether to use bias in the model.
+        initializer_range (`float`, *optional*, defaults to 0.006):
+            The standard deviation of the truncated_normal_initializer for initializing all weight matrices.
+        norm_epsilon (`float`, *optional*, defaults to 1e-5):
+            The epsilon used by the layer normalization layers.
+        residual_in_fp32 (`bool`, *optional*, defaults to `False`):
+            Whether or not residuals should be in `float32`. If set to `False` residuals will keep the same `dtype` as the rest of the model.
+        use_cache (`bool`, *optional*, defaults to `True`):
+            Whether or not the model should return the last key/values attentions (not used by all models). Only
+            relevant if `config.is_decoder=True`.
+        num_logits_to_keep (`int` or `None`, *optional*, defaults to 1):
+            Number of prompt logits to calculate during generation. If `None`, all logits will be calculated. If an
+            integer value, only last `num_logits_to_keep` logits will be calculated.
+        pad_token_id (`int`, *optional*, defaults to 0):
+            The id of the padding token.
+        bos_token_id (`int`, *optional*, defaults to 1):
+            The id of the "beginning-of-sequence" token.
+        eos_token_id (`int`, *optional*, defaults to 2):
+            The id of the "end-of-sequence" token.
+        sliding_window_size (`int`, *optional*, defaults to 1024):
+            Sliding window attention window size.
+        max_position_embeddings (`int`, *optional*, defaults to 4096):
+            The maximum sequence length that this model might ever be used with.
+        attention_dropout (`float`, *optional*, defaults to 0.0):
+            The dropout ratio for the attention probabilities.
+        hidden_dropout (`float`, *optional*, defaults to 0.0):
+            The dropout ratio for the hidden states.
+        use_mamba_kernels (`bool`, *optional*, defaults to `True`):
+            Flag indicating whether or not to use the fast mamba kernels. These are available only if `mamba-ssm` and
+            `causal-conv1d` are installed, and the mamba modules are running on a CUDA device.
+        mamba_d_conv (`int`, *optional*, defaults to 4):
+            The size of the mamba convolution kernel.
+        mamba_expand (`int`, *optional*, defaults to 2):
+            Expanding factor used to determine the mamba intermediate size.
+        mamba_hidden_act (`str`, *optional*, defaults to "silu"):
+            The non-linear activation function in the Mamba layers.
+        mamba_dt_min (`float`, *optional*, defaults to 0.001):
+            Minimum value for the time step in Mamba.
+        mamba_dt_max (`float`, *optional*, defaults to 0.1):
+            Maximum value for the time step in Mamba.
+        mamba_dt_limit (`tuple`, *optional*, defaults to (0.0, float("inf"))):
+            Limits for the time step in Mamba.
+        mamba_dt_init_floor (`float`, *optional*, defaults to 1e-4):
+            Floor value for time step initialization in Mamba.
+    """
+
+    model_type = "olala"
+    keys_to_ignore_at_inference = ["past_key_values"]
+
+    def __init__(
+        self,
+        xsa: bool = False,
+        normalize_embeddings_ngpt: bool = False,
+        logits_scaling_ngpt: bool = False,
+        cosnet_rank: int = 64,
+        cosnet: bool = False,
+        geodesic_update: bool = False,
+        geo_loss_coeff: float = 0.0,
+        normalize_lm_head: bool = False,
+        normalize_embeddings: bool = False,
+        base_depth: int = 0,
+        completed_p_alpha: float = 0.5,
+        use_completed_p: bool = False,
+        layers_mlp_config: str = "",
+        layers_ve_config: str = "",
+        use_value_embedding: bool = False,
+        legacy_gate: bool = False,
+        mlp_type: str = "simple",
+        fan_periodic_ratio: float = 0.2,
+        layer_norm_scaling: bool = False,
+        mamba_d_state: int = 128,
+        mamba_headdim: int = 64,
+        mamba_mimo_dim : int = 4,
+        mamba_ngroups : int = 1,
+        mamba3_remove_conv: bool = True,
+        mamba3_postgate_norm: bool = False,
+        moe: bool = False,
+        moe_num_routed_experts: int = 2,
+        moe_num_active_experts: int = 1,
+        moe_routed_scaling_factor: float = 2.5,
+        moe_routed_intermediate_size: int = 768,
+        moe_shared_intermediate_size: int = 768,
+        moe_routed_input_dim: int = 384,
+        moe_shared_expert_gate: bool = False,
+        intra_doc_masking: bool = False,
+        final_norm: bool = True,
+        shrink_qk_gdn: int = 2,
+        mixer_gn: bool = True,
+        gate_before_norm: bool = True,
+        normalization_type: str = "rmsnorm",
+        tpa_rank: int = 2,
+        num_signal_heads_diff: Optional[int] = None,
+        scalar_proj_as_hidden_matrix: bool = True,
+        token_shift_attn: bool = False,
+        token_shift_gdn: bool = False,
+        token_conv1d_attn: bool = False,
+        token_conv1d_gdn: bool = True,
+        patch_level_training: bool = False,
+        patch_level_training_size: int = 4,
+        zero_centered_gamma=False,
+        zero_centered_gate: bool = False,
+        scalable_softmax: bool = True,
+        qk_norm=True,
+        gate_type: str = "elementwise",
+        gate_act: str = "silu",
+        gate_attn: bool = False,
+        gate_gdn: bool = True,
+        head_dim_gdn: int = None,
+        num_attention_heads_gdn: int = 32,
+        num_key_value_heads_gdn: int = None,
+        fused_loss_computation=False,
+        vocab_size=151936,
+        tie_lm_head: bool = False,
+        max_position_embeddings=8192,
+        hidden_size=2048,
+        intermediate_size=8192,
+        layers_config=4*"lrdlr",
+        head_dim=128,
+        num_attention_heads=32,
+        num_key_value_heads=8,
+        initializer_range=0.006,
+        softcap_attn=0.0,
+        norm_epsilon=1e-6,
+        use_cache=True,
+        num_logits_to_keep=1,
+        pad_token_id=151643,
+        bos_token_id=151643,
+        eos_token_id=151645,
+        sliding_window_size=1024,
+        slw_wsize=-1,
+        complete_slw=False,
+        rope_type="",
+        rope_theta=0.,
+        gdn_d_conv=4,
+        gdn_dt_min=0.001,
+        gdn_dt_max=0.1,
+        gdn_dt_init_floor=1e-4,
+        gdn_A_init_range=(1, 16),
+        tie_word_embeddings=False,
+        **kwargs,
+    ):
+        self.xsa = xsa
+        self.normalize_embeddings_ngpt = normalize_embeddings_ngpt
+        self.logits_scaling_ngpt = logits_scaling_ngpt
+        self.cosnet_rank = cosnet_rank
+        self.cosnet = cosnet
+        self.geodesic_update=geodesic_update
+        self.geo_loss_coeff = geo_loss_coeff
+        self.normalize_lm_head = normalize_lm_head
+        self.normalize_embeddings = normalize_embeddings
+        self.base_depth = base_depth
+        self.completed_p_alpha = completed_p_alpha
+        self.use_completed_p = use_completed_p
+        self.layers_mlp_config = layers_mlp_config
+        self.layers_ve_config = layers_ve_config
+        self.use_value_embedding = use_value_embedding
+        self.legacy_gate = legacy_gate
+        self.tie_lm_head = tie_lm_head
+        self.mlp_type = mlp_type
+        self.fan_periodic_ratio = fan_periodic_ratio
+        self.layer_norm_scaling = layer_norm_scaling
+        self.mamba_d_state = mamba_d_state
+        self.mamba_headdim = mamba_headdim
+        self.mamba3_remove_conv = mamba3_remove_conv
+        self.mamba3_postgate_norm = mamba3_postgate_norm
+        self.moe = moe
+        self.moe_num_active_experts = moe_num_active_experts
+        self.moe_num_routed_experts = moe_num_routed_experts
+        self.moe_routed_scaling_factor = moe_routed_scaling_factor
+        self.moe_routed_intermediate_size = moe_routed_intermediate_size
+        self.moe_shared_intermediate_size = moe_shared_intermediate_size
+        self.moe_routed_input_dim = moe_routed_input_dim
+        self.moe_shared_expert_gate = moe_shared_expert_gate
+        self.intra_doc_masking = intra_doc_masking
+        self.final_norm = final_norm
+        self.shrink_qk_gdn = shrink_qk_gdn
+        self.mixer_gn = mixer_gn
+        self.gate_before_norm = gate_before_norm
+        self.normalization_type = normalization_type
+        self.tpa_rank = tpa_rank
+        self.num_signal_heads_diff = num_signal_heads_diff
+        self.scalar_proj_as_hidden_matrix = scalar_proj_as_hidden_matrix
+        self.token_shift_attn = token_shift_attn
+        self.token_shift_gdn = token_shift_gdn
+        self.token_conv1d_attn = token_conv1d_attn
+        self.token_conv1d_gdn = token_conv1d_gdn
+        self.patch_level_training = patch_level_training
+        self.patch_level_training_size = patch_level_training_size
+        self.zero_centered_gate = zero_centered_gate
+        self.gate_type = gate_type
+        self.gate_act = gate_act
+        self.gate_attn = gate_attn
+        self.gate_gdn = gate_gdn
+        self.head_dim = head_dim
+        self.head_dim_gdn = head_dim_gdn
+        self.num_attention_heads_gdn = num_attention_heads_gdn
+        if num_key_value_heads_gdn is None:
+            num_key_value_heads_gdn = num_attention_heads_gdn
+        self.num_key_value_heads_gdn = num_key_value_heads_gdn
+        self.fused_loss_computation = fused_loss_computation
+        self.zero_centered_gamma = zero_centered_gamma
+        self.rope_type = rope_type
+        self.rope_theta = rope_theta
+        self.qk_norm = qk_norm
+        self.softcap_attn = softcap_attn
+        self.scalable_softmax = scalable_softmax
+        self.mamba_mimo_dim = mamba_mimo_dim
+        self.mamba_ngroups = mamba_ngroups
+
+        self.vocab_size = vocab_size
+        self.hidden_size = hidden_size
+        self.intermediate_size = intermediate_size
+        self.layers_config = layers_config
+        self.num_hidden_layers = len(layers_config)
+        self.num_attention_heads = num_attention_heads
+        self.sliding_window_size = sliding_window_size
+        self.slw_wsize = slw_wsize
+        self.complete_slw = complete_slw
+        self.max_position_embeddings = max_position_embeddings
+
+        if num_key_value_heads is None:
+            num_key_value_heads = num_attention_heads
+
+        self.num_key_value_heads = num_key_value_heads
+        self.initializer_range = initializer_range
+        self.norm_epsilon = norm_epsilon
+
+        self.use_cache = use_cache
+        self.num_logits_to_keep = num_logits_to_keep
+
+        self.conv_kernel = gdn_d_conv
+        self.time_step_min = gdn_dt_min
+        self.time_step_max = gdn_dt_max
+        self.time_step_floor = gdn_dt_init_floor
+        self.A_init_range = gdn_A_init_range
+
+        self.tie_word_embeddings = tie_word_embeddings
+
+        super().__init__(
+            pad_token_id=pad_token_id,
+            bos_token_id=bos_token_id,
+            eos_token_id=eos_token_id,
+            tie_word_embeddings=tie_lm_head,
+            **kwargs,
+        )
+        # TODO: better way to handle those?
+        self.auto_map = dict(getattr(self, "auto_map", {}))
+        self.auto_map.setdefault("AutoConfig", "configuration_olala.OlalaConfig")
+        self.auto_map.setdefault("AutoModel", "modeling_olala.OlalaModel")
+        self.auto_map.setdefault("AutoModelForCausalLM", "modeling_olala.OlalaForCausalLM")
+
+OlalaConfig.register_for_auto_class("AutoConfig")
+__all__ = ["OlalaConfig"]

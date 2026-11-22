@@ -1,0 +1,15 @@
+{
+  "selected": "C2",
+  "checkpoint": "/workspace/ckpt/selected",
+  "spec": "experts-all",
+  "scale_search": true,
+  "file_bytes": 5765781448,
+  "mean_kl": "0.023440927048319668",
+  "ppl_ratio": "1.0148392900815195",
+  "passing": [
+    "C1",
+    "C2"
+  ],
+  "rule": "among the candidates that pass the gate, the smallest file; ties: lowest mean KL, then the first in the order run; the control is never selected; a failed or skipped candidate is not eligible",
+  "thresholds_source": "PROTOCOL.md amendment 25, stage 1: a candidate passes if its mean KL against bf16 is at most 0.0304 (N5's 0.0243 plus 25%) and its perplexity ratio at most 1.030, on the wikitext chunk set of amendments 19 and 22"
+}

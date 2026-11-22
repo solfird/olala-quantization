@@ -1,0 +1,16 @@
+\begin{tabular}{@{}lrrrrr@{}}
+\toprule
+Tensor class & Parameters (M) & NVFP4 & FP8 & INT4 & Excess kurtosis \\
+\midrule
+Routed experts, up projection & 2718 & 0.095 & 0.026 & 0.107 & 103.8 \\
+Routed experts, down projection & 2718 & 0.091 & 0.026 & 0.112 & 175.8 \\
+Shared experts & 170 & 0.093 & 0.026 & 0.118 & 13.8 \\
+Latent projections & 42 & 0.095 & 0.026 & 0.110 & 0.3 \\
+Attention query & 66 & 0.095 & 0.026 & 0.115 & 3.2 \\
+Attention output & 50 & 0.095 & 0.026 & 0.113 & 0.6 \\
+Mamba input projection & 280 & 0.095 & 0.026 & 0.122 & 1762.5 \\
+Mamba output projection & 137 & 0.093 & 0.026 & 0.113 & 355.9 \\
+Router & 14 & 0.094 & 0.026 & 0.133 & 2.5 \\
+Output head & 233 & 0.097 & 0.027 & 0.096 & 0.8 \\
+\bottomrule
+\end{tabular}

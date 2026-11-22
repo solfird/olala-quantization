@@ -1,0 +1,6 @@
+arm=C2 role=candidate spec=experts-all scale_search=1 started=2026-11-21T07:59:00Z
+verify: OK: 945 tensors checked, no violation. {"n_quantized": 72, "n_ignored": 187, "n_kept": 686, "worst_rel_fro": [{"tensor": "model.layers.5.mlp.experts.experts.weight", "rel_fro": 0.0885254019106805}, {"tensor": "model.layers.19.mlp.experts.experts.weight", "rel_fro": 0.08844240398755135}, {"tensor": "
+b3a0308eabed662ca9cd62ba0924fd8e5ed3c00248126aeccf3adbdf970167cb  model.safetensors.index.json
+fe029e70312764961433e3f7004223efcdd8407671069ab380b0e363e8e21b44  config.json
+6a83e3cec274970291adb5889d7323d9708860dfe24fd1e567501f4ac92cf566  quantization_info.json
+(EngineCore pid=8370) INFO 11-21 08:18:05 [nvfp4.py:314] Using 'MARLIN' NvFp4 MoE backend out of potential backends: ['FLASHINFER_TRTLLM', 'FLASHINFER_CUTEDSL', 'FLASHINFER_CUTEDSL_BATCHED', 'FLASHINFER_CUTLASS', 'VLLM_CUTLASS', 'MARLIN', 'HUMMING', 'EMULATION'].

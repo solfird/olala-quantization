@@ -1,0 +1,142 @@
+{
+  "kld_mean": {
+    "value": 0.028996430051883324,
+    "lo": 0.026688691297909167,
+    "hi": 0.031281242705153055
+  },
+  "kld_median": {
+    "value": 0.01044984217431515,
+    "lo": 0.010024241554195904,
+    "hi": 0.010851226398211938
+  },
+  "kld_p99": {
+    "value": 0.3188559337518793,
+    "lo": 0.28223833006883786,
+    "hi": 0.37755896927377364
+  },
+  "top1_agreement": {
+    "value": 0.906953277886497,
+    "lo": 0.9034980430528375,
+    "hi": 0.9105025379158512
+  },
+  "ppl_ref": {
+    "value": 14.649421377921266,
+    "lo": 13.35617617000492,
+    "hi": 15.84098818123998
+  },
+  "ppl_var": {
+    "value": 15.124013844558672,
+    "lo": 13.783373920584626,
+    "hi": 16.377800135617203
+  },
+  "ppl_ratio": {
+    "value": 1.0323966697655842,
+    "lo": 1.027741626138276,
+    "hi": 1.0368946593283854
+  },
+  "n_chunks": 64,
+  "n_positions": 32704,
+  "k": 20,
+  "n_boot": 1000,
+  "seed": 0,
+  "confidence": 0.95,
+  "ref_meta": {
+    "chunk_len": 512,
+    "chunks_meta": {
+      "add_special_tokens": false,
+      "chunk_len": 512,
+      "chunks_sha256": "ca949342463d9739660d94243bbd156d7e1b0f29fa54d2cdd8b866e0b95e94ff",
+      "layout": "consecutive chunks from the start of the text",
+      "n_chunks": 64,
+      "name": "wikitext2-test",
+      "prepared_utc": "2026-11-20T09:28:21Z",
+      "text_file": "wikitext2_test.txt",
+      "text_sha256": "bbf94c53a05abe9ee670d3b6343608095822c85e26de37c70b24fc571964574a",
+      "tokenizer_file": "../models/Olala-v1.0-mini-7A1B/tokenizer.json",
+      "tokenizer_sha256": "286ead4e29f85215a29ffc035c2529c635ed2dc390d101c8738ab7bcf8f984b5",
+      "tokens_available": 298938
+    },
+    "chunks_name": "wikitext2-test",
+    "chunks_sha256": "ca949342463d9739660d94243bbd156d7e1b0f29fa54d2cdd8b866e0b95e94ff",
+    "collected_utc": "2026-11-21T03:05:05Z",
+    "concurrency": 4,
+    "endpoint": "http://127.0.0.1:8000/v1",
+    "k": 20,
+    "mode": "echo",
+    "model": "olala",
+    "n_chunks": 64,
+    "request": {
+      "echo": true,
+      "logprobs": 20,
+      "max_tokens": 1,
+      "model": "olala",
+      "return_tokens_as_token_ids": true,
+      "temperature": 0
+    },
+    "request_retries": 0,
+    "retries": 3,
+    "server_model_info": {
+      "id": "olala",
+      "max_model_len": 32688,
+      "root": "/workspace/models/olala-bf16"
+    },
+    "started_utc": "2026-11-21T03:04:54Z",
+    "tool": "fidelity.py collect",
+    "versions": {
+      "httpx": "0.28.1",
+      "numpy": "2.3.5",
+      "python": "3.12.3",
+      "tokenizers": "0.23.3"
+    }
+  },
+  "var_meta": {
+    "chunk_len": 512,
+    "chunks_meta": {
+      "add_special_tokens": false,
+      "chunk_len": 512,
+      "chunks_sha256": "ca949342463d9739660d94243bbd156d7e1b0f29fa54d2cdd8b866e0b95e94ff",
+      "layout": "consecutive chunks from the start of the text",
+      "n_chunks": 64,
+      "name": "wikitext2-test",
+      "prepared_utc": "2026-11-20T09:28:21Z",
+      "text_file": "wikitext2_test.txt",
+      "text_sha256": "bbf94c53a05abe9ee670d3b6343608095822c85e26de37c70b24fc571964574a",
+      "tokenizer_file": "../models/Olala-v1.0-mini-7A1B/tokenizer.json",
+      "tokenizer_sha256": "286ead4e29f85215a29ffc035c2529c635ed2dc390d101c8738ab7bcf8f984b5",
+      "tokens_available": 298938
+    },
+    "chunks_name": "wikitext2-test",
+    "chunks_sha256": "ca949342463d9739660d94243bbd156d7e1b0f29fa54d2cdd8b866e0b95e94ff",
+    "collected_utc": "2026-11-21T03:08:01Z",
+    "concurrency": 4,
+    "endpoint": "http://127.0.0.1:8000/v1",
+    "k": 20,
+    "mode": "echo",
+    "model": "olala",
+    "n_chunks": 64,
+    "request": {
+      "echo": true,
+      "logprobs": 20,
+      "max_tokens": 1,
+      "model": "olala",
+      "return_tokens_as_token_ids": true,
+      "temperature": 0
+    },
+    "request_retries": 0,
+    "retries": 3,
+    "server_model_info": {
+      "id": "olala",
+      "max_model_len": 32688,
+      "root": "/workspace/ckpt/g1lite"
+    },
+    "started_utc": "2026-11-21T03:07:50Z",
+    "tool": "fidelity.py collect",
+    "versions": {
+      "httpx": "0.28.1",
+      "numpy": "2.3.5",
+      "python": "3.12.3",
+      "tokenizers": "0.23.3"
+    }
+  },
+  "approximation": "KL is computed on the union of the two top-k lists plus one 'other' bucket; tokens a list does not show are imputed (see fidelity_math.py and DECISIONS.md). It is an approximation, not the full-vocabulary divergence."
+}

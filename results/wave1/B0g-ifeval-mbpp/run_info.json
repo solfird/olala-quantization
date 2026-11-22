@@ -1,0 +1,116 @@
+{
+  "status": "complete",
+  "endpoint": "http://127.0.0.1:8000/v1",
+  "model": "olala",
+  "inspect_model": "openai-api/vllm/olala",
+  "git": {
+    "commit": null,
+    "dirty": null,
+    "note": "not a git repository"
+  },
+  "code_sha256": "a13aa4cc4491d3af8b73f61a7d2fc7bf568e6ad5fb840e4075e58f9fb5c5f7a8",
+  "versions": {
+    "python": "3.12.3",
+    "inspect_ai": "0.3.291",
+    "inspect_evals": "0.29.0",
+    "openai": "3.57.0",
+    "httpx": "0.28.1",
+    "datasets": "5.2.0",
+    "numpy": "2.5.5",
+    "instruction_following_eval": "0.1.0"
+  },
+  "sampling": {
+    "temperature": 0.8,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": null,
+    "seed": null,
+    "max_retries": 5,
+    "timeout": 14400
+  },
+  "reasoning_effort": "medium",
+  "chat_template_kwargs": {
+    "reasoning_effort": "medium"
+  },
+  "max_connections": 96,
+  "max_connections_per_task": {
+    "ifeval": 96,
+    "mbpp_plus": 96
+  },
+  "seed": 0,
+  "n_items_requested": {
+    "default": null,
+    "per_task": {
+      "mgsm": 550
+    }
+  },
+  "sandbox": {
+    "mode": "local",
+    "tasks": [
+      "mbpp_plus"
+    ]
+  },
+  "epochs_requested": {
+    "default": null,
+    "per_task": {}
+  },
+  "items_from": null,
+  "argv": [
+    "--tasks",
+    "ifeval",
+    "mbpp_plus",
+    "--base-url",
+    "http://127.0.0.1:8000/v1",
+    "--model",
+    "olala",
+    "--out",
+    "/workspace/results/raw/B0g-ifeval-mbpp",
+    "--seed",
+    "0",
+    "--sandbox",
+    "local",
+    "--reasoning-effort",
+    "medium",
+    "--max-connections",
+    "96",
+    "--n-items",
+    "mgsm=550"
+  ],
+  "started_utc": "2026-11-22T11:39:01Z",
+  "ended_utc": "2026-11-22T12:45:22Z",
+  "skipped_tasks": {},
+  "tasks": {
+    "ifeval": {
+      "epochs": 1,
+      "n_items": 541,
+      "items_sha256": "45874aab7e499fbb3614697d09eda30682716303bf41ecfc6ea5ea4df153f2a4",
+      "n_samples": 541,
+      "request_errors": 0,
+      "truncations": 7,
+      "client_timeout": 14400,
+      "samples_with_retries": 0,
+      "max_working_time": 1155.271,
+      "eval_status": "success",
+      "inspect_log": "2026-11-22T11-39-06-00-00_ifeval_FuRXxRuVga5o66mWYFiSCR.eval"
+    },
+    "mbpp_plus": {
+      "epochs": 1,
+      "n_items": 378,
+      "items_sha256": "95e6c77cfd1638c5ef7b8edf3a852bcc3d2c541445a5c047c2bc2bfd8f39dbb1",
+      "n_samples": 378,
+      "request_errors": 0,
+      "truncations": 2,
+      "client_timeout": 14400,
+      "samples_with_retries": 0,
+      "max_working_time": 1058.695,
+      "eval_status": "success",
+      "inspect_log": "2026-11-22T12-18-52-00-00_mbpp-plus_2W9dvPg3kHLiZwBeWojxcM.eval"
+    }
+  },
+  "n_samples": 919,
+  "request_errors": 0,
+  "truncations": 9,
+  "client_timeout": 14400,
+  "samples_with_retries": 0,
+  "max_working_time": 1155.271
+}

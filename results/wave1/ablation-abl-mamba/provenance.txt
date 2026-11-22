@@ -1,0 +1,8 @@
+run=abl-mamba spec=mamba recipe=nvfp4 started=2026-11-20T23:46:39Z
+NVIDIA RTX PRO 4500 Blackwell, 595.112.07
+verify: OK: 945 tensors checked, no violation. {"n_quantized": 26, "n_ignored": 233, "n_kept": 686, "worst_rel_fro": [{"tensor": "model.layers.20.mixer_proj.weight", "rel_fro": 0.09501496233527489}, {"tensor": "model.layers.17.mixer_proj.weight", "rel_fro": 0.09500004856380767}, {"tensor": "model.layers.32.
+4a6324f9d6c3cef69022978c46e2b41fb0676ab4e6ab1b2450887afc6d64d55f  model.safetensors.index.json
+d0b6347510766311036c745bd99a0b26f75f57cda0cbd34b03405316347f3948  config.json
+a99b655ff1deb025694c48029600cd465a55288ef1a431b69a01b3be80c866e7  quantization_info.json
+(EngineCore pid=17449) INFO 11-20 23:47:40 [unquantized.py:365] Using FlashInfer CUTLASS Unquantized MoE backend out of potential backends: ['FlashInfer TRTLLM', 'FlashInfer CUTLASS', 'TRITON', 'BATCHED_TRITON'].
+(EngineCore pid=17449) INFO 11-20 23:47:44 [unquantized.py:530] Using FlashInferExperts MoE backend

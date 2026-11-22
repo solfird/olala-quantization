@@ -1,0 +1,50 @@
+[project]
+name = "olala-gptq"
+version = "0.1.0"
+description = "G1-lite: calibrated (GPTQ-style) NVFP4 codes for the routed experts of Olala-v1.0-mini-7A1B, same checkpoint format as the data-free N2 build"
+requires-python = ">=3.12,<3.13"
+# Pins: torch matches the OVH vLLM fork (torch==2.14.0) and ../pyproject.toml; transformers 5.8.0 is the
+# version the vendored OVH modeling file declares (config.json "transformers_version"); einops is a hard
+# import of that file. olala-quant (the data-free quantizer) and moegptq (the CPU prototype of the design
+# study) are used as editable path dependencies and are never edited from here.
+dependencies = [
+    "torch==2.14.0",
+    "numpy==2.5.5",
+    "safetensors==0.8.0",
+    "transformers==5.8.0",
+    "einops==0.8.1",
+    "olala-quant",
+    "moegptq-proto",
+]
+
+[project.optional-dependencies]
+# Only for building the calibration set from the Hugging Face cache (wikitext-2 train); the tests do not need it.
+data = ["datasets==5.2.0"]
+
+[tool.uv]
+package = false
+
+[tool.uv.sources]
+olala-quant = { path = "..", editable = true }
+moegptq-proto = { path = "../design/proto", editable = true }
+
+[dependency-groups]
+dev = ["pytest==9.2.0", "ruff==0.17.6"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = [".", "tests"]
+addopts = "-ra"
+markers = ["slow: builds a tiny random Olala model and runs it end to end"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py312"
+extend-exclude = ["vendor", ".venv"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "D", "ANN", "SIM", "RUF"]
+ignore = ["D203", "D213", "D413", "D401", "D301", "ANN401"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["D", "ANN"]

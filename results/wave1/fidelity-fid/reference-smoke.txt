@@ -1,0 +1,5 @@
+smoke bf16: PASS
+health after 316.4 s
+log: /workspace/logs/bf16/server-20261121T073449Z.log
+answer: '17 multiplié par 23 égale 391, car 17\u202f×\u202f20\u202f=\u202f340 et 17\u202f×\u202f3\u202f=\u202f51, donc 340\u202f+\u202f51\u202f=\u202f391. Le résultat est 391.'; reasoning: 3376 chars
+written: /workspace/logs/bf16/smoke.json

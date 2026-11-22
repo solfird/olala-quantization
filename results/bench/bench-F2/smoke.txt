@@ -1,0 +1,5 @@
+smoke ckpt-fp8-I: PASS
+health after 251.1 s
+log: /workspace/logs/ckpt-fp8-I/server-20261120T223737Z.log
+answer: '17\u202f×\u202f20\u202f=\u202f340 et 17\u202f×\u202f3\u202f=\u202f51, donc 340\u202f+\u202f51\u202f=\u202f391. Le résultat final est 391.'; reasoning: 6666 chars
+written: /workspace/logs/ckpt-fp8-I/smoke.json

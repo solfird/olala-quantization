@@ -1,0 +1,3 @@
+NVIDIA RTX PRO 4500 Blackwell, 32623 MiB, 595.112.07
+torch 2.14.0+cu130 cuda True transformers 5.20.2 einops 0.8.2 safetensors 0.8.0
+vendored modeling files identical to the weights copy: {'modeling_olala.py': True, 'configuration_olala.py': True}

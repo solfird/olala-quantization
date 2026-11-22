@@ -1,0 +1,26 @@
+[02:17:55] == g1 session 20261121T021755Z-1815: results /workspace/results/g1, budget 4.0 h, deadline epoch 1795252417 (415 minutes from now)
+[02:17:55] projection formula: projected build seconds = 72.75 x (sum of the per-layer forward seconds over the 36 layers); gate: KL <= 0.0194, perplexity ratio <= 1.0197
+[02:17:55] calibration files checked against the manifest: /workspace/results/g1/calibration.json
+[02:17:58] == step check (log /workspace/results/g1/check-20261121T021755Z-1815.log, 415 minutes of the pod lifetime remain)
+[02:18:03] G1_STEP_CHECK_DONE
+[02:18:03] == step feasibility (log /workspace/results/g1/feasibility-20261121T021755Z-1815.log, 415 minutes of the pod lifetime remain)
+[02:18:57] G1_STEP_FEASIBILITY_DONE
+[02:18:57] == step build (log /workspace/results/g1/build-20261121T021755Z-1815.log, 414 minutes of the pod lifetime remain)
+[02:44:17] G1_STEP_BUILD_DONE
+[02:44:17] == step verify (log /workspace/results/g1/verify-20261121T021755Z-1815.log, 389 minutes of the pod lifetime remain)
+[02:59:43] G1_STEP_VERIFY_DONE
+[02:59:43] == step fidelity (log /workspace/results/g1/fidelity-20261121T021755Z-1815.log, 373 minutes of the pod lifetime remain)
+[02:59:46] == bf16 reference (once per pod): /workspace/results/raw/b0_wikitext2.npz
+[03:04:54] reference smoke exit 0: smoke bf16: PASS health after 301.7 s 
+[03:05:23] loader patch applied
+[03:07:50] smoke exit 0: smoke ckpt-g1lite: PASS health after 132.8 s 
+[03:07:50] == fidelity g1 against /workspace/results/raw/b0_wikitext2.npz
+[03:08:04] G1_STEP_FIDELITY_DONE
+[03:08:04] == step gate (log /workspace/results/g1/gate-20261121T021755Z-1815.log, 365 minutes of the pod lifetime remain)
+[03:08:04] G1_GATE_FAIL
+[03:08:04] G1_STEP_GATE_DONE
+[03:08:04] == step accuracy (log /workspace/results/g1/accuracy-20261121T021755Z-1815.log, 365 minutes of the pod lifetime remain)
+[03:08:04] == run_accuracy G1-v2
+[04:27:49] run_accuracy exit 0
+[04:27:49] G1_STEP_ACCURACY_DONE
+[04:27:54] the accuracy run is complete (gate verdict in /workspace/results/g1/gate.json, G1_ACCURACY_ALWAYS=1); writing /workspace/results/g1.done

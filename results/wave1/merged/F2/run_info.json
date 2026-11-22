@@ -1,0 +1,171 @@
+{
+  "status": "complete",
+  "endpoint": "http://127.0.0.1:8000/v1",
+  "model": "olala",
+  "inspect_model": "openai-api/vllm/olala",
+  "git": {
+    "commit": null,
+    "dirty": null,
+    "note": "not a git repository"
+  },
+  "code_sha256": "0587d7332d5cab245c16584ac1613cfe179d3b6f7affab662558c5382bf5e941",
+  "versions": {
+    "python": "3.12.3",
+    "inspect_ai": "0.3.291",
+    "inspect_evals": "0.29.0",
+    "openai": "3.57.0",
+    "httpx": "0.28.1",
+    "datasets": "5.2.0",
+    "numpy": "2.5.5",
+    "instruction_following_eval": "0.1.0"
+  },
+  "sampling": {
+    "temperature": 0.8,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_tokens": null,
+    "seed": null,
+    "max_retries": 5,
+    "timeout": 3600
+  },
+  "reasoning_effort": "medium",
+  "chat_template_kwargs": {
+    "reasoning_effort": "medium"
+  },
+  "max_connections": 96,
+  "seed": 0,
+  "n_items_requested": {
+    "default": null,
+    "per_task": {
+      "mgsm": 550
+    }
+  },
+  "sandbox": {
+    "mode": "local",
+    "tasks": [
+      "humaneval_plus",
+      "mbpp_plus"
+    ]
+  },
+  "epochs_requested": {
+    "default": null,
+    "per_task": {}
+  },
+  "items_from": null,
+  "argv": [
+    "--tasks",
+    "mgsm",
+    "humaneval_plus",
+    "mbpp_plus",
+    "ifeval",
+    "aime2025",
+    "--base-url",
+    "http://127.0.0.1:8000/v1",
+    "--model",
+    "olala",
+    "--out",
+    "/workspace/results/raw/F2",
+    "--seed",
+    "0",
+    "--sandbox",
+    "local",
+    "--reasoning-effort",
+    "medium",
+    "--max-connections",
+    "96",
+    "--n-items",
+    "mgsm=550"
+  ],
+  "started_utc": "2026-11-20T13:02:13Z",
+  "ended_utc": "2026-11-20T14:28:06Z",
+  "skipped_tasks": {},
+  "tasks": {
+    "mgsm": {
+      "epochs": 1,
+      "n_items": 550,
+      "items_sha256": "4df4814b314f1006e2418d763581fb32b436f4bdccfa9deef98e35759d042396",
+      "n_samples": 550,
+      "request_errors": 0,
+      "truncations": 3,
+      "eval_status": "success",
+      "inspect_log": "2026-11-20T13-02-17-00-00_mgsm_VYJmzpbmRLn22oDSENCfbf.eval"
+    },
+    "humaneval_plus": {
+      "epochs": 1,
+      "n_items": 164,
+      "items_sha256": "77da7ef3747c414099876a7a633bba803d6349f5387bfdfedc8f42a6ffc2e6c3",
+      "n_samples": 164,
+      "request_errors": 0,
+      "truncations": 2,
+      "eval_status": "success",
+      "inspect_log": "2026-11-20T13-20-09-00-00_humaneval-plus_JcTBZzhYhcH6qzzLNpyai5.eval"
+    },
+    "mbpp_plus": {
+      "epochs": 1,
+      "n_items": 378,
+      "items_sha256": "95e6c77cfd1638c5ef7b8edf3a852bcc3d2c541445a5c047c2bc2bfd8f39dbb1",
+      "n_samples": 378,
+      "request_errors": 0,
+      "truncations": 4,
+      "eval_status": "success",
+      "inspect_log": "2026-11-20T13-25-25-00-00_mbpp-plus_JNnB4xRJ9uYAHBHeKFhVdY.eval"
+    },
+    "ifeval": {
+      "epochs": 1,
+      "n_items": 541,
+      "items_sha256": "45874aab7e499fbb3614697d09eda30682716303bf41ecfc6ea5ea4df153f2a4",
+      "n_samples": 541,
+      "request_errors": 0,
+      "truncations": 3,
+      "eval_status": "success",
+      "inspect_log": "2026-11-20T13-33-01-00-00_ifeval_NFMXupjyMG4qrsrVpamjyA.eval"
+    },
+    "aime2025": {
+      "epochs": 5,
+      "n_items": 30,
+      "items_sha256": "b0df03745f27c2658b686b8061f788d4fc7e67f76157706f9ab4a38627101b2b",
+      "n_samples": 150,
+      "request_errors": 0,
+      "truncations": 3,
+      "eval_status": "success",
+      "inspect_log": "2026-11-20T16-03-30-00-00_aime2025_BRPxYWzJuWPfWEcpHAwhHH.eval"
+    }
+  },
+  "n_samples": 1783,
+  "request_errors": 0,
+  "truncations": 15,
+  "merged": {
+    "reason": "PROTOCOL amendment 10/11: AIME client-timeout artifact, rerun with non-binding settings",
+    "task": "aime2025",
+    "original_dir": "results/wave1/F2",
+    "rerun_dir": "results/wave1/F2-aime2",
+    "sha256": {
+      "original_samples": "4cad7480a27b5638dae17c8010095cbca39025fd9ab6aad3764e9f59498f3ada",
+      "original_run_info": "cd5e867b3433311ca7de191e0a3df592d29158c1fcd059f7b58698b831a3ca7e",
+      "rerun_samples": "22743f89f3a34f02973809a12fffa5e202808f5913dafa997105a854c8c0aa19",
+      "rerun_run_info": "94de5cf12eff3f5992cb495cd8ed929f1cef62b4df1430a236c96eaf0a5f430a"
+    },
+    "settings_differing": {
+      "max_connections_per_task": {
+        "original": 96,
+        "rerun": 24
+      },
+      "timeout": {
+        "original": 3600,
+        "rerun": 14400
+      }
+    },
+    "task_rows": {
+      "original": 150,
+      "rerun": 150
+    },
+    "original_task_request_errors": 0,
+    "original_task_truncations": 7,
+    "rerun_task_request_errors": 0,
+    "rerun_task_truncations": 3,
+    "quantization_info_sha256": {
+      "original": "886be176cb2109a7e449d371d28d7956a9eca01b42ce61f279d60114b8c1e9d1",
+      "rerun": "a64b5bb1fb48ff26b56909c17f3031ac52e04e6b6db7d630147eaaf3f05aa950"
+    }
+  }
+}

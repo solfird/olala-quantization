@@ -1,0 +1,3 @@
+started bf16: pid 1862, port 8000
+log: /workspace/logs/bf16/server-20261120T232010Z.log
+next: bash /workspace/bundle/pod/smoke.sh bf16

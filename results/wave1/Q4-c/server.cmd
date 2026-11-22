@@ -1,0 +1,19 @@
+utc=2026-11-21T08:09:41Z
+arm=gguf-q4_k_m-ovhrecipe
+variant=q4_k_m-ovhrecipe
+llama_cpp_commit=55c22dca0c987f247c21b427c3b3a09e1a28187f
+llama_cpp_repo=https://github.com/OVHai-LLM/llama.cpp.git
+gguf_file=/workspace/models/olala-gguf/Olala-v1.0-mini-7A1B-q4_k_m-ovhrecipe.gguf
+gguf_size=5692736672
+gguf_sha256_pinned=7c3ce7a46b1c16613c8947846894c64c99aba080d7cf01add2cda61fa6255ea3
+gguf_sha256_verified_by_setup=7c3ce7a46b1c16613c8947846894c64c99aba080d7cf01add2cda61fa6255ea3
+hf_repo=OVHaiLLM/Olala-v1.0-mini-7A1B-GGUF
+hf_revision=b9f5d20adf2ac0aec05e9fa00b057cf26df263fc
+np=12
+ctx=393216
+slot_ctx=32768
+container_cpus=10
+container_mem_gb=57
+command: /workspace/llama.cpp-olala/build/bin/llama-server -m /workspace/models/olala-gguf/Olala-v1.0-mini-7A1B-q4_k_m-ovhrecipe.gguf --alias olala -ngl 99 -fa on -np 12 -c 393216 -fit off --jinja --min-p 0 --samplers temperature\;top_k\;top_p --ctx-checkpoints 2 --cache-ram 0 --timeout 14400 --threads-http 128 --no-webui --host 127.0.0.1 --port 8000
+CUDA_HOME=/usr/local/cuda
+CUDA_VERSION=13.0.3

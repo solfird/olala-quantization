@@ -1,0 +1,37 @@
+{
+  "ok": true,
+  "n_tensors_checked": 945,
+  "stats": {
+    "n_quantized": 26,
+    "n_ignored": 233,
+    "n_kept": 686,
+    "worst_rel_fro": [
+      {
+        "tensor": "model.layers.20.mixer_proj.weight",
+        "rel_fro": 0.09501496233527489
+      },
+      {
+        "tensor": "model.layers.17.mixer_proj.weight",
+        "rel_fro": 0.09500004856380767
+      },
+      {
+        "tensor": "model.layers.32.mixer_proj.weight",
+        "rel_fro": 0.09499560594342096
+      },
+      {
+        "tensor": "model.layers.31.mixer_proj.weight",
+        "rel_fro": 0.09499217144611534
+      },
+      {
+        "tensor": "model.layers.25.mixer_proj.weight",
+        "rel_fro": 0.09498898033468485
+      }
+    ],
+    "scales": {
+      "n_flushed_blocks": 0,
+      "max_block_scale": 448.0,
+      "min_nonzero_block_scale": 0.34375
+    }
+  },
+  "violations": []
+}

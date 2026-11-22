@@ -1,0 +1,5 @@
+smoke ckpt-g1lite: PASS
+health after 132.8 s
+log: /workspace/logs/ckpt-g1lite/server-20261121T030523Z.log
+answer: 'En multipliant 17 par 23, on obtient 391. Le résultat final est 391.'; reasoning: 5759 chars
+written: /workspace/logs/ckpt-g1lite/smoke.json

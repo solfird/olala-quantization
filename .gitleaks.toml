@@ -1,0 +1,13 @@
+# Allowlist for the generic-api-key rule: 39 matches, all of them false positives.
+#   "tokenizer_sha256": a SHA-256 of the tokenizer file, a field of the fidelity records (37 matches)
+#   frac_tokens_gt_448 / frac_tokens_gt_65504: names of statistics in code/probe/probe_stats.py (2 matches)
+[extend]
+useDefault = true
+
+[allowlist]
+description = "tokenizer hash fields and statistic names"
+regexTarget = "line"
+regexes = [
+  '''tokenizer_sha256''',
+  '''frac_tokens_gt_''',
+]

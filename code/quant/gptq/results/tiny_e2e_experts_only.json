@@ -1,0 +1,196 @@
+{
+  "base_select": "experts",
+  "seeds": [
+    {
+      "seed": 0,
+      "fresh": {
+        "n5": {
+          "rel_logit_rmse": 0.10534237325191498,
+          "mean_kl": 0.0053214579820632935,
+          "top1_agreement": 0.9140625
+        },
+        "g1": {
+          "rel_logit_rmse": 0.04412239417433739,
+          "mean_kl": 0.0009868867928162217,
+          "top1_agreement": 0.9908854365348816
+        }
+      },
+      "random_tokens": {
+        "n5": {
+          "rel_logit_rmse": 0.12056136876344681,
+          "mean_kl": 0.007058253046125174,
+          "top1_agreement": 0.83203125
+        },
+        "g1": {
+          "rel_logit_rmse": 0.1351207047700882,
+          "mean_kl": 0.008884957991540432,
+          "top1_agreement": 0.8125
+        }
+      },
+      "n_quantized_tensors": {
+        "g1": 6,
+        "n5": 6
+      },
+      "n_gptq_experts": 48,
+      "n_experts": 48
+    },
+    {
+      "seed": 1,
+      "fresh": {
+        "n5": {
+          "rel_logit_rmse": 0.12090647220611572,
+          "mean_kl": 0.007117086555808783,
+          "top1_agreement": 0.8177083134651184
+        },
+        "g1": {
+          "rel_logit_rmse": 0.022144682705402374,
+          "mean_kl": 0.0002462585980538279,
+          "top1_agreement": 0.81640625
+        }
+      },
+      "random_tokens": {
+        "n5": {
+          "rel_logit_rmse": 0.1138431653380394,
+          "mean_kl": 0.006365087348967791,
+          "top1_agreement": 0.8059895634651184
+        },
+        "g1": {
+          "rel_logit_rmse": 0.12695476412773132,
+          "mean_kl": 0.007904711179435253,
+          "top1_agreement": 0.82421875
+        }
+      },
+      "n_quantized_tensors": {
+        "g1": 6,
+        "n5": 6
+      },
+      "n_gptq_experts": 47,
+      "n_experts": 48
+    },
+    {
+      "seed": 2,
+      "fresh": {
+        "n5": {
+          "rel_logit_rmse": 0.11957944929599762,
+          "mean_kl": 0.007257705554366112,
+          "top1_agreement": 0.8697916865348816
+        },
+        "g1": {
+          "rel_logit_rmse": 0.05645761638879776,
+          "mean_kl": 0.0017300393665209413,
+          "top1_agreement": 0.9674479365348816
+        }
+      },
+      "random_tokens": {
+        "n5": {
+          "rel_logit_rmse": 0.11772986501455307,
+          "mean_kl": 0.0070029920898377895,
+          "top1_agreement": 0.8567708134651184
+        },
+        "g1": {
+          "rel_logit_rmse": 0.13534028828144073,
+          "mean_kl": 0.009140364825725555,
+          "top1_agreement": 0.8372395634651184
+        }
+      },
+      "n_quantized_tensors": {
+        "g1": 6,
+        "n5": 6
+      },
+      "n_gptq_experts": 48,
+      "n_experts": 48
+    },
+    {
+      "seed": 3,
+      "fresh": {
+        "n5": {
+          "rel_logit_rmse": 0.11318070441484451,
+          "mean_kl": 0.006933236960321665,
+          "top1_agreement": 0.8763020634651184
+        },
+        "g1": {
+          "rel_logit_rmse": 0.06317301839590073,
+          "mean_kl": 0.0020974676590412855,
+          "top1_agreement": 0.9752604365348816
+        }
+      },
+      "random_tokens": {
+        "n5": {
+          "rel_logit_rmse": 0.11721987277269363,
+          "mean_kl": 0.007044971454888582,
+          "top1_agreement": 0.8385416865348816
+        },
+        "g1": {
+          "rel_logit_rmse": 0.13834673166275024,
+          "mean_kl": 0.009799248538911343,
+          "top1_agreement": 0.8125
+        }
+      },
+      "n_quantized_tensors": {
+        "g1": 6,
+        "n5": 6
+      },
+      "n_gptq_experts": 48,
+      "n_experts": 48
+    },
+    {
+      "seed": 4,
+      "fresh": {
+        "n5": {
+          "rel_logit_rmse": 0.11838936060667038,
+          "mean_kl": 0.006851211655884981,
+          "top1_agreement": 0.7005208134651184
+        },
+        "g1": {
+          "rel_logit_rmse": 0.07283370941877365,
+          "mean_kl": 0.0026154706720262766,
+          "top1_agreement": 1.0
+        }
+      },
+      "random_tokens": {
+        "n5": {
+          "rel_logit_rmse": 0.12657701969146729,
+          "mean_kl": 0.007979908026754856,
+          "top1_agreement": 0.7708333134651184
+        },
+        "g1": {
+          "rel_logit_rmse": 0.1350933015346527,
+          "mean_kl": 0.009067095816135406,
+          "top1_agreement": 0.7903645634651184
+        }
+      },
+      "n_quantized_tensors": {
+        "g1": 6,
+        "n5": 6
+      },
+      "n_gptq_experts": 47,
+      "n_experts": 48
+    }
+  ],
+  "mean": {
+    "fresh": {
+      "n5": {
+        "rel_logit_rmse": 0.11547967195510864,
+        "mean_kl": 0.006696139741688967,
+        "top1_agreement": 0.8356770753860474
+      },
+      "g1": {
+        "rel_logit_rmse": 0.05174628421664238,
+        "mean_kl": 0.0015352246176917107,
+        "top1_agreement": 0.950000011920929
+      }
+    },
+    "random_tokens": {
+      "n5": {
+        "rel_logit_rmse": 0.11918625831604004,
+        "mean_kl": 0.007090242393314838,
+        "top1_agreement": 0.8208333253860474
+      },
+      "g1": {
+        "rel_logit_rmse": 0.13417115807533264,
+        "mean_kl": 0.008959275670349598,
+        "top1_agreement": 0.8153645753860473
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+\begin{tabular}{@{}lccccl@{}}
+\toprule
+Build & Against bf16 (points) & Above $-$2 & Above $-$3 & Above $-$5 & Task below $-$5 \\
+\midrule
+FP8 online & $-$0.1 ($-$1.5 to +1.3) & \cellcolor[HTML]{CDEBDD}yes & \cellcolor[HTML]{CDEBDD}yes & \cellcolor[HTML]{CDEBDD}yes & none \\
+FP8 offline & $-$0.9 ($-$2.7 to +0.8) & no & \cellcolor[HTML]{CDEBDD}yes & \cellcolor[HTML]{CDEBDD}yes & none \\
+NVFP4, routed experts only & $-$1.2 ($-$3.0 to +0.6) & no & no & \cellcolor[HTML]{CDEBDD}yes & none \\
+NVFP4, experts, calibrated & \cellcolor[HTML]{F6D3C9}$-$2.4 ($-$4.2 to $-$0.7) \textcolor[HTML]{B4452A}{$\blacktriangledown$} & no & no & \cellcolor[HTML]{CDEBDD}yes & none \\
+NVFP4, all quantizable layers & \cellcolor[HTML]{F6D3C9}$-$3.3 ($-$5.3 to $-$1.4) \textcolor[HTML]{B4452A}{$\blacktriangledown$} & no & no & no & none \\
+OVH Q5\_K\_M & $-$1.3 ($-$3.0 to +0.5) & no & \cellcolor[HTML]{CDEBDD}yes & \cellcolor[HTML]{CDEBDD}yes & none \\
+NVFP4, experts of all layers, scale search & \cellcolor[HTML]{F6D3C9}$-$1.6 ($-$3.3 to 0.0) \textcolor[HTML]{B4452A}{$\blacktriangledown$} & no & no & \cellcolor[HTML]{CDEBDD}yes & none \\
+Q4\_K\_M stand-in & \cellcolor[HTML]{F6D3C9}$-$4.1 ($-$6.2 to $-$2.1) \textcolor[HTML]{B4452A}{$\blacktriangledown$} & \cellcolor[HTML]{F6D3C9}no & no & no & AIME 2025 $-$15.0 ($-$22.7 to $-$7.3) \\
+\bottomrule
+\end{tabular}

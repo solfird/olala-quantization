@@ -1,0 +1,5 @@
+smoke ckpt-fid-fid-C2: PASS
+health after 123.0 s
+log: /workspace/logs/ckpt-fid-fid-C2/server-20261121T081732Z.log
+answer: 'On calcule 17 × 23 en décomposant 23 en 20 et 3\u202f: 17 × 20 = 340 et 17 × 3 = 51, donc 340 + 51 = 391.  \nLe résultat final est 391.'; reasoning: 1341 chars
+written: /workspace/logs/ckpt-fid-fid-C2/smoke.json
